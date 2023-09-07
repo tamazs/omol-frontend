@@ -1,0 +1,30 @@
+:root {
+  --c-white: #F9F8F5;
+  --c-black: #000000;
+  --c-red: #ED1C24;
+
+  --t-header1: 4.063rem;
+  --t-header2: 2.188rem;
+  --t-header3: 1.5rem;
+  --t-body: 1rem;
+  --t-small: 0.875rem;
+  --t-button: 1.188rem;
+}
+
+@font-face {
+  font-family: HelveticaNeue;
+  src: url("/font/HelveticaNeueRegular.otf") format("opentype");
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+body {
+  font-family: 'HelveticaNeue', serif;
+  font-size: var(--t-body);
+}
