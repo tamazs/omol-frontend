@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div ref="homeContainer" class="home-container">
         <VideoHeroSection/>
         <ShortSection/>
         <AboutSection/>

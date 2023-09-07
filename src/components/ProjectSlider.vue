@@ -83,4 +83,9 @@ const modules = [Navigation];
   opacity: 0;
   pointer-events: none;
 }
+
+.swiper-button-next, .swiper-button-prev {
+  color: black;
+  background-color: black;
+}
 </style>

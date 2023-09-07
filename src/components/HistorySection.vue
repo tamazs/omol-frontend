@@ -41,6 +41,8 @@
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
   
   gsap.registerPlugin(ScrollTrigger);
+
+  const { homeContainer } = defineProps(['homeContainer']);
   
   const horizontalScroll = ref(null);
   const scrollContainer = ref(null);
@@ -53,6 +55,7 @@
     ease: "none",
     scrollTrigger: {
       trigger: horizontalScrollElement,
+      scroller: homeContainer,
       pin: true,
       scrub: 1,
       start: "top top",

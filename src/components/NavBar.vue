@@ -22,61 +22,47 @@
   import { ref, onMounted } from 'vue';
   import { gsap } from 'gsap';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import logoBlack from '@/assets/omol_b.svg';
   
   gsap.registerPlugin(ScrollTrigger);
   
-  const logoUrl = ref('src/assets/omol_b.svg');
-  const logoUrlWhite = 'src/assets/omol_w.svg';
-  
   const navbar = ref(null);
-  
-  const setLanguage = (lang) => {
-    console.log(`Language set to: ${lang}`); // replace with language switch function
-  };
+  const logoUrl = ref(logoBlack);
   
   onMounted(() => {
-    gsap.to(navbar.value, {
+    let tl = gsap.timeline({
       scrollTrigger: {
-        start: "top+=200",
-        onToggle: self => {
-          if (self.isActive) {
-            navbar.value.style.backgroundColor = '#000';
-            navbar.value.style.color = '#fff';
-            logoUrl.value = logoUrlWhite;
-          } else {
-            navbar.value.style.backgroundColor = 'transparent';
-            navbar.value.style.color = '#fff';
-            logoUrl.value = 'src/assets/omol_b.svg';
-          }
-        },
-        toggleActions: 'play none none reverse',
-      },
+        trigger: document.body,
+        start: "top top",
+        end: 200,
+        scrub: true
+      }
     });
+    
+    tl.to(navbar.value, { backgroundColor: 'black', color: 'white', duration: 0.3 });
+    tl.to('.logo', { filter: 'invert(1)', duration: 0.3 }, 0);
   });
   </script>
-  
-  
+    
   <style scoped>
   .navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
     background-color: transparent;
-    color: var(--c-black);
-    transition: background-color 0.3s ease;
-    z-index: 9999;
+    color: white;
+    z-index: 999;
+    padding: 20px;
+  }
+  
+  .logo img {
+    height: 30px; 
   }
   
   .nav-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  .logo img {
-    height: 30px; /* Adjust as necessary */
   }
   
   .nav-links {
@@ -97,4 +83,3 @@
     cursor: pointer;
   }
   </style>
-  

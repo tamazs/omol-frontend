@@ -1,6 +1,8 @@
 <template>
     <div ref="contactSection" class="contact-section" @mousemove="handleMouseMove">
-        <div ref="myDiv" class="my-div" @click="sendEmail"></div>
+        <div ref="myDiv" class="my-div" @click="sendEmail">
+            Click to get some love
+        </div>
     </div>
 </template>
 
@@ -57,13 +59,19 @@ onUnmounted(() => {
     background-color: var(--c-white);
     position: relative;
     z-index: 9999;
+    cursor: none;
 }
 .my-div {
-  width: 6em;
-  height: 6em;
+  width: 8rem;
+  height: 8rem;
   background-color: var(--c-red);
   position: absolute;
   border-radius: 50%;
   box-shadow: 0 0 20px rgba(16, 0, 54, 0.2);
+  color: var(--c-white);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
