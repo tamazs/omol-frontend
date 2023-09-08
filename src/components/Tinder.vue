@@ -110,7 +110,7 @@ function removeCard(love) {
 }
 
 body {
-  background: var(--c-white);
+  
   overflow: hidden;
 }
 
@@ -123,6 +123,7 @@ body {
   position: relative;
   opacity: 0;
   transition: opacity 0.1s ease-in-out;
+  background: var(--c-white);
 }
 
 .loaded.tinder {
@@ -174,7 +175,7 @@ body {
   width: 90vw;
   max-width: 400px;
   height: 70vh;
-  background: yellow;
+  background: white;
   padding-bottom: 40px;
   border-radius: 8px;
   overflow: hidden;
@@ -223,7 +224,7 @@ body {
   line-height: 60px;
   width: 60px;
   border: 0;
-  background: yellow;
+  background: white;
   display: inline-block;
   margin: 0 8px;
 }
