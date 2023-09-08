@@ -102,6 +102,7 @@
   font-size: var(--t-header3);
   line-height: 1.6;
   overflow: hidden;
+  background-color: var(--c-white);
 }
 
 .content__img {
@@ -127,6 +128,12 @@ p {
   color: var(--c-black);
   text-transform: uppercase;
   padding: 1rem 0;
+}
+
+@media(max-width: 767px) {
+  .about-content {
+  font-size: var(--t-body);
+  }
 }
 
   </style>

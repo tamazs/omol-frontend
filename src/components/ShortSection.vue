@@ -12,34 +12,39 @@
   
   
   <style scoped>
-    .short-about-content {
+  .short-about-content {
   position: relative;
-  padding: 20px;
+  padding: 0;
   width: 100vw;
-  height: 20vh;
+  min-height: 20vh;
   margin: 0 auto;
   font-size: var(--t-header3);
   line-height: 1.6;
   overflow: hidden;
   background-color: var(--c-red);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .text-container {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
 
 p {
   z-index: 2;
   color: var(--c-white);
   text-transform: uppercase;
-  padding: 2rem 0;
+  padding: 0;
+}
+
+@media(max-width: 767px) {
+  .short-about-content {
+  font-size: var(--t-body);
+}
 }
 
   </style>

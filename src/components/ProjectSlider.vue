@@ -1,6 +1,6 @@
 <template>
     <swiper
-      :slidesPerView="3"
+      :slidesPerView="slidesPerView"
       :spaceBetween="30"
       :navigation="true"
       :modules="modules"
@@ -16,6 +16,7 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { gsap } from 'gsap';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
@@ -29,6 +30,20 @@ const slides = [
   { img: "https://swiperjs.com/demos/images/nature-1.jpg", gif: "https://media1.giphy.com/media/l0ErWnkLjegNB5LlC/giphy.gif?cid=ecf05e47czxrjfulzddfq14u79h6kuim7hq4831fooozl58d&ep=v1_gifs_search&rid=giphy.gif&ct=g" },
   { img: "https://swiperjs.com/demos/images/nature-1.jpg", gif: "https://media1.giphy.com/media/l0ErWnkLjegNB5LlC/giphy.gif?cid=ecf05e47czxrjfulzddfq14u79h6kuim7hq4831fooozl58d&ep=v1_gifs_search&rid=giphy.gif&ct=g" },
 ];
+
+const slidesPerView = ref(window.innerWidth <= 767 ? 1 : 3);
+
+const updateSlidesPerView = () => {
+  slidesPerView.value = window.innerWidth <= 767 ? 1 : 3;
+};
+
+onMounted(() => {
+  window.addEventListener('resize', updateSlidesPerView);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateSlidesPerView);
+});
 
 const handleMouseEnter = (event) => {
   const gif = event.currentTarget.querySelector(".hover-gif");
@@ -49,12 +64,13 @@ const modules = [Navigation];
 .mySwiper {
   width: 100%;
   height: 100%;
+  background-color: var(--c-white);
 }
 
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
+  background: var(--c-white);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,8 +100,10 @@ const modules = [Navigation];
   pointer-events: none;
 }
 
-.swiper-button-next, .swiper-button-prev {
-  color: black;
-  background-color: black;
+@media(max-width: 767px) {
+  .swiper-slide {
+  padding: 0;
 }
+}
+
 </style>

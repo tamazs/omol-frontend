@@ -71,6 +71,7 @@
     overflow: hidden;
     width: 100%;
     height: 100vh;
+    background-color: var(--c-white);
   }
   
   .scroll-container {
@@ -107,5 +108,21 @@
     display: flex;
     flex-direction: column;
   }
+
+  @media(max-width: 767px) {
+
+    .scroll-container {
+  width: 300%;
+    }
+    .number {
+    color: var(--c-red);
+    font-size: 8rem;
+    padding: 1rem;
+  }
+
+  .history-title {
+    font-size: var(--t-header3);
+  }
+}
   </style>
   

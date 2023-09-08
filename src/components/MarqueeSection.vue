@@ -76,4 +76,11 @@ onMounted(() => {
     flex: auto;
     flex-direction: row;
 }
+
+@media(max-width: 767px) {
+  .marquee__part {
+  padding: 0 60px;
+  font-size: var(--t-header3);
+}
+}
 </style>
