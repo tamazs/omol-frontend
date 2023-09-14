@@ -25,8 +25,8 @@
               <a href="#team" @click="toggleMenu">Team</a>
             </div>
             <div class="languages">
-              <button @click="setLanguage('EN')">EN</button>
-              <button @click="setLanguage('ES')">ES</button>
+              <button @click="setLanguage('es')">ES</button>
+              <button @click="setLanguage('en')">EN</button>
             </div>
           </div>
         </div>
@@ -40,8 +40,8 @@
               <a href="#team">Team</a>
             </div>
             <div class="languages">
-              <button @click="setLanguage('EN')">EN</button>
-              <button @click="setLanguage('ES')">ES</button>
+              <button @click="setLanguage('es')">ES</button>
+              <button @click="setLanguage('en')">EN</button>
             </div>
           </div>
         </div>
@@ -55,6 +55,11 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import logoBlack from '@/assets/omol_b.svg';
 import logoWhite from '@/assets/omol_w.svg';
+import { useI18n } from 'vue-i18n';
+import project from '../modules/project';
+import { store } from '@/store';
+const { pState, getProjects } = project()
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -62,6 +67,13 @@ const navbar = ref(null);
 const menuContainer = ref(null);
 const logoUrl = ref(logoBlack);
 const whiteLogoUrl = ref(logoWhite);
+
+const { locale } = useI18n(); 
+
+const setLanguage = (lang) => {
+  store.lang = lang;
+  locale.value = lang;
+};
 
 onMounted(() => {
     let tl = gsap.timeline({

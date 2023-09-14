@@ -16,20 +16,17 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
 import { gsap } from 'gsap';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
+import project from '../modules/project';
 
-const slides = [
-  { img: "https://swiperjs.com/demos/images/nature-1.jpg", gif: "https://media1.giphy.com/media/l0ErWnkLjegNB5LlC/giphy.gif?cid=ecf05e47czxrjfulzddfq14u79h6kuim7hq4831fooozl58d&ep=v1_gifs_search&rid=giphy.gif&ct=g" },
-  { img: "https://swiperjs.com/demos/images/nature-1.jpg", gif: "https://media1.giphy.com/media/l0ErWnkLjegNB5LlC/giphy.gif?cid=ecf05e47czxrjfulzddfq14u79h6kuim7hq4831fooozl58d&ep=v1_gifs_search&rid=giphy.gif&ct=g" },
-  { img: "https://swiperjs.com/demos/images/nature-1.jpg", gif: "https://media1.giphy.com/media/l0ErWnkLjegNB5LlC/giphy.gif?cid=ecf05e47czxrjfulzddfq14u79h6kuim7hq4831fooozl58d&ep=v1_gifs_search&rid=giphy.gif&ct=g" },
-  { img: "https://swiperjs.com/demos/images/nature-1.jpg", gif: "https://media1.giphy.com/media/l0ErWnkLjegNB5LlC/giphy.gif?cid=ecf05e47czxrjfulzddfq14u79h6kuim7hq4831fooozl58d&ep=v1_gifs_search&rid=giphy.gif&ct=g" },
-  { img: "https://swiperjs.com/demos/images/nature-1.jpg", gif: "https://media1.giphy.com/media/l0ErWnkLjegNB5LlC/giphy.gif?cid=ecf05e47czxrjfulzddfq14u79h6kuim7hq4831fooozl58d&ep=v1_gifs_search&rid=giphy.gif&ct=g" },
-];
+const { pState, getProjects} = project()
+
+const slides = computed(() => pState.projects);
 
 const slidesPerView = ref(window.innerWidth <= 767 ? 1 : 3);
 
@@ -38,6 +35,8 @@ const updateSlidesPerView = () => {
 };
 
 onMounted(() => {
+  getProjects();
+
   window.addEventListener('resize', updateSlidesPerView);
 });
 
