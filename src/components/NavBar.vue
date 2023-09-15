@@ -58,8 +58,6 @@ import logoWhite from '@/assets/omol_w.svg';
 import { useI18n } from 'vue-i18n';
 import project from '../modules/project';
 import { store } from '@/store';
-const { pState, getProjects } = project()
-
 
 gsap.registerPlugin(ScrollTrigger);
 
