@@ -22,12 +22,12 @@ const router = createRouter({
     {
       path: '/cam',
       name: 'cam',
-      component: () => import('../views/CamView.vue')
+      component: () => import('../views/CamView2.vue')
     },
     {
-      path: '/blink',
-      name: 'blink',
-      component: () => import('../views/CamView2.vue')
+      path: '/othercamtesting',
+      name: 'othercamtesting',
+      component: () => import('../views/CamView.vue')
     },
     {
       path: '/projects',
