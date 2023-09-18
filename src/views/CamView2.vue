@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <video ref="videoElement" class="main-video" :src="videoSrc" controls autoplay></video>
+    <video ref="videoElement" class="main-video" :src="videoSrc" loop autoplay></video>
     <video ref="cameraFeed" class="camera-feed" autoplay muted playsinline></video>
   </div>
 </template>
@@ -8,10 +8,13 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 import * as faceapi from 'face-api.js';
+import { useRouter } from 'vue-router';
 
 let videoSrc = ref('/video.mp4');
 let videoElement = ref(null);
 let cameraFeed = ref(null);
+let intervalId = ref(null);
+const router = useRouter();
 
 onMounted(async () => {
   await faceapi.nets.tinyFaceDetector.loadFromUri('/models');
@@ -26,12 +29,12 @@ onMounted(async () => {
   let blinkCounter = 0;
 
   cameraFeed.value.onplay = () => {
-    setInterval(async () => {
+    intervalId.value = setInterval(async () => {
       const detections = await faceapi.detectAllFaces(cameraFeed.value, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks();
       
       if (detections.length) {
         const eyeStatus = getEyeStatus(detections[0].landmarks);
-        console.log(eyeStatus);  // Log the eye status to see if it is detecting blinks correctly
+        console.log(eyeStatus);
 
         if (eyeStatus === 'OPEN' || eyeStatus === 'UNCERTAIN') {
           videoElement.value.play();
@@ -40,8 +43,10 @@ onMounted(async () => {
         if (eyeStatus === 'CLOSED') {
           blinkCounter++;
           videoElement.value.pause();
-          if (blinkCounter >= 1) {  // Adjust this value to require more or fewer frames for a "blink"
-            console.log('Blink detected'); // Reset the counter after logging a blink
+          if (blinkCounter >= 1) {
+            cameraFeed.value?.srcObject?.getTracks().forEach(track => track.stop());
+            clearInterval(intervalId.value);
+            router.push('/result');
           }
         }
       }
@@ -50,6 +55,7 @@ onMounted(async () => {
 });
 
 onUnmounted(() => {
+  clearInterval(intervalId.value);
   videoElement.value?.pause();
   cameraFeed.value?.srcObject?.getTracks().forEach(track => track.stop());
 });
@@ -111,10 +117,8 @@ function distance(p1, p2) {
   position: absolute;
   top: 0;
   left: 0;
-  width: 200px;
-  height: 150px;
+  width: 20rem;
+  height: auto;
   object-fit: cover;
-  border: 2px solid #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 </style>

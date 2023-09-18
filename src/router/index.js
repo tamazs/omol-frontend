@@ -25,6 +25,11 @@ const router = createRouter({
       component: () => import('../views/CamView2.vue')
     },
     {
+      path: '/result',
+      name: 'result',
+      component: () => import('../views/ResultView.vue')
+    },
+    {
       path: '/othercamtesting',
       name: 'othercamtesting',
       component: () => import('../views/CamView.vue')
