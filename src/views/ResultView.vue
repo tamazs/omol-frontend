@@ -6,7 +6,7 @@
       <div class="grid-item middle-section">
         <div class="text-container">
           <h1 class="result-title">You were focused for</h1>
-          <p class="time">00:23:23</p>
+          <p class="time">{{ formattedTimerValue }}</p>
           <p class="result-desc">you were focused for one minute! this is really complicated nowadays</p>
         </div>
       </div>
@@ -106,7 +106,24 @@
   </style>
   
   <script setup>
-  import { ref } from 'vue';
-  import { useRouter } from 'vue-router';
+  import { ref, onMounted } from 'vue';
+  import { useRoute } from 'vue-router';
+  
+  const route = useRoute();
+  const timerValue = ref(null);
+  const formattedTimerValue = ref('');
+  
+  onMounted(() => {
+    timerValue.value = parseFloat(route.params.timerValue);
+    formattedTimerValue.value = formatTimer(timerValue.value);
+  });
+  
+  function formatTimer(timer) {
+    let milliseconds = Math.floor((timer * 1000) % 1000);
+    let seconds = Math.floor(timer % 60);
+    let minutes = Math.floor(timer / 60);
+    
+    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}:${milliseconds.toString().padStart(3, '0')}`;
+  }
   </script>
   

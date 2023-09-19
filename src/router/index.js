@@ -25,8 +25,9 @@ const router = createRouter({
       component: () => import('../views/CamView2.vue')
     },
     {
-      path: '/result',
+      path: '/result/:timerValue',
       name: 'result',
+      props: true,
       component: () => import('../views/ResultView.vue')
     },
     {
@@ -52,7 +53,7 @@ const router = createRouter({
   ]
 })
 
-router.beforeEach((to, from, next) => {
+/* router.beforeEach((to, from, next) => {
   const curtains = document.querySelectorAll('.curtain-column');
   gsap.set(curtains, { y: '-100%' });
 
@@ -74,11 +75,11 @@ router.beforeEach((to, from, next) => {
       }, 100);
     }
   });
-});
+}); */
 
 
 
-router.afterEach(() => {
+/* router.afterEach(() => {
   const curtains = document.querySelectorAll('.curtain-column');
   gsap.to(curtains, {
     delay: 0.5,
@@ -90,5 +91,5 @@ router.afterEach(() => {
     }
   });
 });
-
+ */
 export default router

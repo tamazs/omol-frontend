@@ -1,7 +1,7 @@
 <template>
   <NavBar/>
   <router-view />
-  <div class="curtain-column" v-for="i in 4" :key="i" :style="`left: ${25 * (i - 1)}%`"></div>
+  <!-- <div class="curtain-column" v-for="i in 4" :key="i" :style="`left: ${25 * (i - 1)}%`"></div> -->
 </template>
 
 <style scoped>

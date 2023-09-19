@@ -4,8 +4,6 @@
     <div v-if="cameraReady && countdown === 0" class="timer">{{ formattedTimer }}</div>
     <video v-if="countdown === 0" ref="videoElement" class="main-video" :src="videoSrc" loop muted playsinline></video>
     <video v-if="countdown === 0" ref="cameraFeed" class="camera-feed" autoplay muted playsinline></video>
-    <div v-if="blinked" class="blink-message">You blinked</div>
-    <div v-if="blinked" class="red-overlay"></div>
   </div>
 </template>
 
@@ -24,7 +22,6 @@ const router = useRouter();
 let countdown = ref(3);
 let cameraReady = ref(false);
 let timer = ref(0.0);
-let blinked = ref(false);
 
 let formattedTimer = computed(() => {
   let milliseconds = Math.floor((timer.value * 1000) % 1000);
@@ -67,6 +64,7 @@ function setupCameraOnPlayHandler() {
     cameraReady.value = true;
     videoElement.value.onplay = () => {
       if (!isTimerStarted) {
+        // Reset and start the timer when the main video starts playing
         timer.value = 0.0;
         timerInterval.value = setInterval(() => {
           timer.value += 0.1;
@@ -83,19 +81,23 @@ function setupCameraOnPlayHandler() {
 
         if (detections.length) {
           const eyeStatus = getEyeStatus(detections[0].landmarks);
+          console.log(eyeStatus);
+
+          if (eyeStatus === 'OPEN' || eyeStatus === 'UNCERTAIN') {
+            if (cameraReady.value && videoElement.value.paused) {
+              videoElement.value.play();
+            }
+            blinkCounter = 0;
+          }
 
           if (eyeStatus === 'CLOSED') {
             blinkCounter++;
             videoElement.value.pause();
             if (blinkCounter >= 1) {
-              blinked.value = true;
               clearInterval(timerInterval.value);
-              
+              cameraFeed.value?.srcObject?.getTracks().forEach(track => track.stop());
               clearInterval(intervalId.value);
-              setTimeout(() => {
-                cameraFeed.value?.srcObject?.getTracks().forEach(track => track.stop());  // Move the stoppage here
-                router.push({ name: 'result', params: { timerValue: timer.value } });
-              }, 3000);
+              router.push({ name: 'result', params: { timerValue: timer.value } });
             }
           }
         }
@@ -116,6 +118,7 @@ function getEyeStatus(landmarks) {
   const rightEye = landmarks.getRightEye();
   const leftEAR = calculateEAR(leftEye);
   const rightEAR = calculateEAR(rightEye);
+  console.log(`Left EAR: ${leftEAR}, Right EAR: ${rightEAR}`);
 
   const EAR_THRESHOLD_OPEN = 0.2905;
   const EAR_THRESHOLD_CLOSED = 0.277;
@@ -152,12 +155,12 @@ function distance(p1, p2) {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--c-black);
+  background-color: black;
 }
 
 .countdown {
   font-size: 8rem;
-  color: var(--c-white);
+  color: white;
   font-weight: bold;
 }
 
@@ -167,7 +170,7 @@ function distance(p1, p2) {
   left: 50%;
   transform: translateX(-50%);
   font-size: 1.5rem;
-  color: var(--c-white);
+  color: white;
 }
 
 .main-video {
@@ -183,28 +186,5 @@ function distance(p1, p2) {
   width: 20rem;
   height: auto;
   object-fit: cover;
-}
-
-.blink-message {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 3rem;
-  color: var(--c-white);
-  text-align: center;
-  z-index: 10;
-  white-space: nowrap;
-}
-
-.red-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--c-red);
-  opacity: 0.5;
-  transition: opacity 3s;
 }
 </style>
