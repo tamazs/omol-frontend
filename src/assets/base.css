@@ -16,6 +16,16 @@
   src: url("/font/HelveticaNeueRegular.otf") format("opentype");
 }
 
+@font-face {
+  font-family: HelveticaNeueThin;
+  src: url("/font/HelveticaNeueThin.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Narnia;
+  src: url("/font/Narnia.otf") format("opentype");
+}
+
 *,
 *::before,
 *::after {
@@ -27,4 +37,5 @@
 body {
   font-family: 'HelveticaNeue', serif;
   font-size: var(--t-body);
+  cursor: url('/cursor.png'), default;
 }

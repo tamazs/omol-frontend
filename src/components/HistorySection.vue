@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="outer-container" ref="outerContainer">
+      <div class="static-text">Contamos historias</div>
       <section ref="horizontalScroll" class="horizontal-scroll">
         <div class="scroll-container" ref="scrollContainer">
         <div class="slide">
@@ -32,6 +33,9 @@
         </div>
         </div>
       </section>
+      <div class="progress-container">
+        <div class="progress-bar" ref="progressBar"></div>
+      </div>
     </div>
   </template>
   
@@ -44,28 +48,70 @@
 
   const { homeContainer } = defineProps(['homeContainer']);
   
-  const horizontalScroll = ref(null);
   const scrollContainer = ref(null);
+  const outerContainer = ref(null);
+  const progressBar = ref(null);
   
   onMounted(() => {
-  const horizontalScrollElement = horizontalScroll.value;
 
   gsap.to(scrollContainer.value, {
     x: "-75%",
     ease: "none",
     scrollTrigger: {
-      trigger: horizontalScrollElement,
+      trigger: outerContainer.value,
       scroller: homeContainer,
       pin: true,
+      pinSpacing: 'none',
       scrub: 1,
       start: "top top",
-      end: "bottom center"
+      end: "bottom center",
+      onUpdate: self => {
+                // Update progress bar's width based on the scroll position
+                const progress = self.progress;
+                progressBar.value.style.width = `${progress * 100}%`;
+            }
     }
   });
 });
   </script>
   
   <style scoped>
+
+.outer-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.progress-container {
+    position: absolute;
+    bottom: 20px;
+    padding: 0 60px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--c-white);
+    z-index: 6;
+    border: 1px transparent solid;
+    border-radius: 50px;
+}
+
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background: var(--c-red);
+}
+
+.static-text {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  font-size: var(--t-header2);
+  text-align: center;
+  text-transform: uppercase;
+}
   .horizontal-scroll {
     position: relative;
     overflow: hidden;

@@ -1,8 +1,6 @@
 <template>
     <div ref="homeContainer" class="home-container">
         <VideoHeroSection/>
-        <ShortSection/>
-        <AboutSection/>
         <HistorySection/>
         <ProjectSlider/>
         <MarqueeSection/>

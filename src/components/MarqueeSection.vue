@@ -61,8 +61,8 @@ onMounted(() => {
 }
 
 .marquee {
-  background: var(--c-red);
-  color: var(--c-white);
+  background: var(--c-white);
+  color: var(--c-red);
   text-transform: uppercase;
   padding: 32px 0;
   position: relative;

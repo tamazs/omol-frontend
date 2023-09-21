@@ -79,8 +79,8 @@ const modules = [Navigation];
 
 .image-wrapper {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 500px;
   transition: transform 0.5s ease;
 }
 
