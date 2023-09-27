@@ -36,8 +36,9 @@
           </div>
           <div class="nav-links">
             <div class="pages">
-              <a href="#projects">Projects</a>
-              <a href="#team">Team</a>
+              <router-link to="/home" :class="{ 'active-link': $route.path === '/home' }">Home</router-link>
+              <router-link to="/projects" :class="{ 'active-link': $route.path === '/projects' }">Projects</router-link>
+              <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }">Team</router-link>
             </div>
             <div class="languages">
               <button @click="setLanguage('es')">ES</button>
@@ -191,13 +192,32 @@ function toggleMenu() {
   gap: 20px;
 }
 
-.pages a, .languages button {
+.languages button {
   margin: 10px 0;
   text-decoration: none;
   background: none;
   border: none;
   cursor: pointer;
   color: var(--c-black);
+}
+
+.pages {
+  display: flex;
+  align-items: center;
+}
+
+.pages a {
+  margin: 10px 0;
+  text-decoration: none;
+  background: none;
+  cursor: pointer;
+  color: var(--c-black);
+}
+
+.active-link {
+  border: 2px var(--c-red) solid;
+  border-radius: 50%;
+  padding: 0.5rem 2rem;
 }
 
 @media(max-width: 767px) {
