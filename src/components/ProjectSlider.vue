@@ -1,8 +1,9 @@
 <template>
     <swiper
       :slidesPerView="slidesPerView"
-      :spaceBetween="30"
-      :navigation="true"
+      :spaceBetween="10"
+      :navigation="false"
+      :scrollbar="true"
       :modules="modules"
       class="mySwiper"
     >
@@ -21,7 +22,8 @@ import { gsap } from 'gsap';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
+import 'swiper/css/scrollbar';
+import { Navigation, Scrollbar } from 'swiper/modules';
 import project from '../modules/project';
 
 const { pState, getProjects} = project()
@@ -47,7 +49,7 @@ onBeforeUnmount(() => {
 const handleMouseEnter = (event) => {
   const gif = event.currentTarget.querySelector(".hover-gif");
   gsap.to(gif, { opacity: 1, duration: 0.5 });
-  gsap.to(event.currentTarget, { scale: 1.2, duration: 0.5 });
+  gsap.to(event.currentTarget, { scale: 1.1, duration: 0.5 });
 };
 
 const handleMouseLeave = (event) => {
@@ -56,7 +58,7 @@ const handleMouseLeave = (event) => {
   gsap.to(event.currentTarget, { scale: 1, duration: 0.5 });
 };
 
-const modules = [Navigation];
+const modules = [Navigation, Scrollbar];
 </script>
 
 <style scoped>
@@ -80,7 +82,7 @@ const modules = [Navigation];
 .image-wrapper {
   position: relative;
   width: 300px;
-  height: 500px;
+  height: 450px;
   transition: transform 0.5s ease;
 }
 

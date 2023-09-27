@@ -65,6 +65,8 @@
     grid-area: right;
     text-align: center;
     position: relative;
+    display: flex;
+    align-items: flex-end;
   }
 
   .result-title {
@@ -74,15 +76,26 @@
   .time {
     font-size: var(--t-header1);
     border: 3px var(--c-black) solid;
-    border-radius: 100px;
-    padding: 0.3rem 7rem;
+    border-radius: 50%;
+    padding: 1.5rem 3rem;
   }
 
   .result-button {
     text-decoration: none;
     color: var(--c-black);
     border: 3px var(--c-black) solid;
-    border-radius: 25px;
+    border-radius: 50%;
+    padding: 1.5rem 3rem;
+    width: max-content;
+    font-size: var(--t-header3);
+  }
+
+  .right-section .result-button {
+    rotate: 8deg;
+  }
+
+  .left-section .result-button {
+    rotate: -8deg;
   }
   
   @media (max-width: 767px) {

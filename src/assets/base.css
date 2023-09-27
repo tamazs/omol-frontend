@@ -37,5 +37,4 @@
 body {
   font-family: 'HelveticaNeue', serif;
   font-size: var(--t-body);
-  cursor: url('/cursor.png'), default;
 }

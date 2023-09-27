@@ -2,7 +2,7 @@
   <div class="hero-container">
     <div class="title">One minute</div>
     <div class="scroll-down">scroll down</div>
-    <div class="video-container" 
+    <div class="video-container"
          ref="videoContainer"
          @click="toggleVideoPlay">
       <video ref="videoElement" class="video" @ended="handleVideoEnd">
@@ -57,14 +57,11 @@ const toggleVideoPlay = () => {
 watch(
   () => isVideoPaused.value,
   (paused) => {
-    console.log(`Watcher triggered: Video is ${paused ? "paused" : "playing"}`);
     if (!videoContainer.value) return;
 
     if (paused) {
-      console.log("Setting cursor to play.png");
       videoContainer.value.style.cursor = `url('/play.png'), default`;
     } else {
-      console.log("Setting cursor to pause.png");
       videoContainer.value.style.cursor = `url('/pause.png'), default`;
     }
   },
@@ -100,7 +97,7 @@ watch(
 
 .scroll-down {
   position: absolute;
-  bottom: 2%;
+  bottom: 5%;
   font-size: 14px;
   z-index: 2;
   text-transform: uppercase;
@@ -116,6 +113,7 @@ watch(
   border: none;
   z-index: 3;
   overflow: hidden;
+  cursor: url('/play.png'), default;
 }
 
 .video {
