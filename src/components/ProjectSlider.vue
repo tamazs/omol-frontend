@@ -1,19 +1,23 @@
 <template>
-    <swiper
-      :slidesPerView="slidesPerView"
-      :spaceBetween="10"
-      :navigation="false"
-      :scrollbar="true"
-      :modules="modules"
-      class="mySwiper"
-    >
-      <swiper-slide v-for="(slide, index) in slides" :key="index" class="swiper-slide">
-        <div class="image-wrapper" @mouseenter="handleMouseEnter($event)" @mouseleave="handleMouseLeave($event)">
-          <img class="base-image" :src="slide.img" />
-          <img class="hover-gif" :src="slide.gif" />
+  <swiper
+    :slidesPerView="slidesPerView"
+    :spaceBetween="10"
+    :navigation="false"
+    :scrollbar="true"
+    :modules="modules"
+    class="mySwiper"
+  >
+    <swiper-slide v-for="(slide, index) in slides" :key="index" class="swiper-slide">
+      <div class="image-wrapper" @mouseenter="handleMouseEnter($event)" @mouseleave="handleMouseLeave($event)">
+        <img class="base-image" :src="slide.img" />
+        <img class="hover-gif" :src="slide.gif" />
+        <div class="text-overlay">
+          <p class="title">{{ slide.title }}</p>
+          <router-link class="see-more" :to="`/project/${slide.id}`">Learn More</router-link>
         </div>
-      </swiper-slide>
-    </swiper>
+      </div>
+    </swiper-slide>
+  </swiper>
 </template>
 
 <script setup>
@@ -84,6 +88,31 @@ const modules = [Navigation, Scrollbar];
   width: 300px;
   height: 450px;
   transition: transform 0.5s ease;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--c-white);
+}
+
+.title {
+  font-size: var(--t-header2);
+  margin-bottom: 70px;
+  font-family: 'HelveticaNeue', serif;
+}
+
+.see-more {
+  color: var(--c-white);
+  font-size: var(--t-body);
 }
 
 .base-image, .hover-gif {

@@ -33,9 +33,6 @@
         </div>
         </div>
       </section>
-      <div class="progress-container">
-        <div class="progress-bar" ref="progressBar"></div>
-      </div>
     </div>
   </template>
   
@@ -50,7 +47,6 @@
   
   const scrollContainer = ref(null);
   const outerContainer = ref(null);
-  const progressBar = ref(null);
   
   onMounted(() => {
 
@@ -65,11 +61,6 @@
       scrub: 1,
       start: "top top",
       end: "bottom center",
-      onUpdate: self => {
-                // Update progress bar's width based on the scroll position
-                const progress = self.progress;
-                progressBar.value.style.width = `${progress * 100}%`;
-            }
     }
   });
 });
@@ -81,25 +72,6 @@
   position: relative;
   width: 100%;
   height: 100vh;
-}
-
-.progress-container {
-    position: absolute;
-    bottom: 20px;
-    padding: 0 60px;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background-color: var(--c-white);
-    z-index: 6;
-    border: 1px transparent solid;
-    border-radius: 50px;
-}
-
-.progress-bar {
-    width: 0;
-    height: 100%;
-    background: var(--c-red);
 }
 
 .static-text {

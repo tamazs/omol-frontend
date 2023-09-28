@@ -1,7 +1,7 @@
 <template>
   <div class="grid-container">
     <div class="grid-item text-item left-text">
-      <h1 class="project-title">Project title</h1>
+      <h1 class="project-title" v-if="pState.projects[0]">{{ pState.projects[0].title }}</h1>
       <p>Text content on the left.</p>
     </div>
     <div class="grid-item image-item">
@@ -88,7 +88,19 @@
 </style>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, computed } from 'vue';
+import { useRoute } from 'vue-router'
+import project from '../modules/project';
+const route = useRoute();
+
+const { pState, getSingleProject } = project()
+
+const projectId = computed(() => route.params.id)
+
+onMounted(() => {
+  if (projectId.value) {
+    getSingleProject();
+  }})
 
 const imageUrl = ref('https://via.placeholder.com/150');
 </script>

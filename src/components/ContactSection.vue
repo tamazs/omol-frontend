@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import { gsap } from 'gsap';
 
 const myDiv = ref(null);
@@ -44,11 +44,6 @@ const sendEmail = () => {
 onMounted(() => {
   contactSection.value.addEventListener("mousemove", handleMouseMove);
 });
-
-onUnmounted(() => {
-  contactSection.value.removeEventListener("mousemove", handleMouseMove);
-});
-
 
 </script>
 

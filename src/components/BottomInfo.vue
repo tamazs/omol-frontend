@@ -93,6 +93,7 @@
       position: fixed;
         bottom: 0;
         width: 100vw;
+        z-index: 9999;
     }
     
     .bottom__inner {

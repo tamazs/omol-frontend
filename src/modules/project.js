@@ -11,9 +11,9 @@ const getProject = () => {
     const projectId = computed(() => route.params.id)
 
     const pState = reactive({
-        lang: store.lang,
         title: '',
-        members: '',
+        description: '',
+        lang: store.lang,
         projects: []
     })
 
@@ -26,18 +26,40 @@ const getProject = () => {
         try {
           const response = await axios.get('http://localhost:1337/api/projects?populate=*&locale=' + pState.lang);
           pState.projects = response.data.data.map(project => ({
+            id: project.id,
+            title: project.attributes.name,
             img: 'http://localhost:1337' + project.attributes.coverImage.data.attributes.url,
             gif: 'http://localhost:1337' + project.attributes.coverGif.data.attributes.url,
           }));
         } catch (error) {
           console.error('Failed to fetch projects', error);
         }
-        console.log(pState.projects)
       };
+
+      const getSingleProject = async () => {
+        try {
+          const response = await axios.get('http://localhost:1337/api/projects/' + projectId.value + '/?populate=*&locale=' + pState.lang);
+          const project = response.data.data;
+      
+          if (project) {
+            pState.projects = [{
+              id: project.id,
+              title: project.attributes.name,
+              description: project.attributes.description,
+              video: 'http://localhost:1337' + project.attributes.video.data.attributes.url
+            }];
+          } else {
+            console.error('Project not found');
+          }
+        } catch (error) {
+          console.error('Failed to fetch the single project', error);
+        }
+      };      
 
     return {
         pState,
         getProjects,
+        getSingleProject,
     }
 }
 
