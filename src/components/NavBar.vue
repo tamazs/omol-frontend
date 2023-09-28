@@ -34,16 +34,16 @@
           <div class="logo">
             <img :src="logoUrl" alt="Logo" />
           </div>
-          <div class="nav-links">
+          <div class="nav-middle">
             <div class="pages">
               <router-link to="/home" :class="{ 'active-link': $route.path === '/home' }">Home</router-link>
               <router-link to="/projects" :class="{ 'active-link': $route.path === '/projects' }">Projects</router-link>
               <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }">Team</router-link>
             </div>
-            <div class="languages">
-              <button @click="setLanguage('es')">ES</button>
-              <button @click="setLanguage('en')">EN</button>
-            </div>
+          </div>
+          <div class="languages">
+            <button @click="setLanguage('es')">ES</button>
+            <button @click="setLanguage('en')">EN</button>
           </div>
         </div>
       </div>
@@ -57,7 +57,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import logoBlack from '@/assets/omol_b.svg';
 import logoWhite from '@/assets/omol_w.svg';
 import { useI18n } from 'vue-i18n';
-import project from '../modules/project';
 import { store } from '@/store';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -74,7 +73,7 @@ const setLanguage = (lang) => {
   locale.value = lang;
 };
 
-onMounted(() => {
+/* onMounted(() => {
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: document.body,
@@ -91,7 +90,7 @@ onMounted(() => {
     tl.to('.desktop-nav .logo img, .desktop-nav .burger-menu i', { filter: 'invert(1)', duration: 0.3 }, 0);
     tl.to('.desktop-nav .nav-links .pages a', { color: 'white', duration: 0.3 }, 0);
     tl.to('.desktop-nav .nav-links .languages button', { color: 'white', duration: 0.3 }, 0);
-});
+}); */
 
 // Function to toggle the visibility of the menu on mobile
 function toggleMenu() {
@@ -133,14 +132,19 @@ function toggleMenu() {
   align-items: center;
 }
 
+.nav-middle {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
 .desktop-nav .nav-links {
   flex-direction: row;
 }
 
 .desktop-nav .pages {
   display: flex;
-  gap: 20px;
-  margin-right: 30px;
+  gap: 50px;
 }
 
 .mobile-nav {
@@ -189,7 +193,6 @@ function toggleMenu() {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
 }
 
 .languages button {
@@ -212,12 +215,13 @@ function toggleMenu() {
   background: none;
   cursor: pointer;
   color: var(--c-black);
-}
-
-.active-link {
-  border: 2px var(--c-red) solid;
+  border: 2px transparent solid;
   border-radius: 50%;
   padding: 0.5rem 2rem;
+}
+
+.pages a.router-link-active {
+  border: 2px var(--c-red) solid;
 }
 
 @media(max-width: 767px) {
