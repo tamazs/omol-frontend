@@ -57,7 +57,7 @@
       trigger: outerContainer.value,
       scroller: homeContainer,
       pin: true,
-      pinSpacing: 'none',
+      pinSpacing: true,
       scrub: 1,
       start: "top top",
       end: "bottom center",

@@ -1,7 +1,7 @@
 <template>
   <NavBar/>
   <router-view />
-  <BottomInfo/>
+  <Footer/>
   <!-- <div class="curtain-column" v-for="i in 4" :key="i" :style="`left: ${25 * (i - 1)}%`"></div> -->
 </template>
 
@@ -19,4 +19,5 @@
 <script setup>
 import NavBar from './components/NavBar.vue';
 import BottomInfo from './components/BottomInfo.vue';
+import Footer from './components/Footer.vue';
 </script>

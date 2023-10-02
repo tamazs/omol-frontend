@@ -13,7 +13,7 @@
   </template>
   
   <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -21,8 +21,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 const textContainer = ref(null);
 
+let tl;
+
 onMounted(() => {
-    const tl = gsap.timeline({
+    tl = gsap.timeline({
       scrollTrigger: {
         trigger: textContainer.value,
         start: 'top center',
@@ -37,21 +39,24 @@ onMounted(() => {
     { color: "red", stagger: 1 }
     );
   });
+
+  onBeforeUnmount(() => {
+  // Kill the timeline and ScrollTrigger instance when the component is unmounted
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  tl.kill();
+});
 </script>
   
   <style scoped>
   .text-container {
-    height: 100vh;
+    height: auto;
     width: 100vw;
     font-size: var(--t-header2);
     background-color: var(--c-white);
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
   
   .text-container p {
-    padding: 0 10rem;
+    padding: 10rem;
     line-height: 50px;
   }
   </style>

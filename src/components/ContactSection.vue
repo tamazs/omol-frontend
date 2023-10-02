@@ -53,7 +53,7 @@ onMounted(() => {
     width: 100vw;
     background-color: var(--c-white);
     position: relative;
-    z-index: 9999;
+    z-index: 999;
     cursor: none;
 }
 .my-div {

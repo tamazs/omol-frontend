@@ -20,9 +20,10 @@
           </div>
           <div class="nav-links">
             <div class="mobile-pages">
-              <a href="#" @click="toggleMenu">Home</a>
-              <a href="#projects" @click="toggleMenu">Projects</a>
-              <a href="#team" @click="toggleMenu">Team</a>
+              <router-link to="/home" :class="{ 'active-link': $route.path === '/home' }">Home</router-link>
+              <router-link to="/projects" :class="{ 'active-link': $route.path === '/projects' ||  $route.path.startsWith('/project/') }">Projects</router-link>
+              <router-link to="/about" :class="{ 'active-link': $route.path === '/about' }">About</router-link>
+              <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }">Team</router-link>
             </div>
             <div class="languages">
               <button @click="setLanguage('es')">ES</button>
@@ -38,6 +39,7 @@
             <div class="pages">
               <router-link to="/home" :class="{ 'active-link': $route.path === '/home' }">Home</router-link>
               <router-link to="/projects" :class="{ 'active-link': $route.path === '/projects' }">Projects</router-link>
+              <router-link to="/about" :class="{ 'active-link': $route.path === '/about' }">About</router-link>
               <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }">Team</router-link>
             </div>
           </div>
@@ -122,7 +124,7 @@ function toggleMenu() {
   top: 0;
   width: 100%;
   background-color: transparent;
-  z-index: 999;
+  z-index: 9999;
   padding: 20px;
 }
 
@@ -217,7 +219,7 @@ function toggleMenu() {
   color: var(--c-black);
   border: 2px transparent solid;
   border-radius: 50%;
-  padding: 0.5rem 2rem;
+  padding: 0.2rem 1.2rem;
 }
 
 .pages a.router-link-active {

@@ -1,15 +1,11 @@
 <template>
   <div class="grid-container">
-    <div class="grid-item text-item left-text">
+    <div class="grid-item video-item">
+      <video v-if="pState.projects[0]" :src="pState.projects[0].video" controls></video>
+    </div>
+    <div class="grid-item text-item">
       <h1 class="project-title" v-if="pState.projects[0]">{{ pState.projects[0].title }}</h1>
-      <p>Text content on the left.</p>
-    </div>
-    <div class="grid-item image-item">
-      <img :src="imageUrl" alt="Descriptive Image">
-    </div>
-    <div class="grid-item text-item text-right">
-      <i class="fas fa-x"></i>
-      <p>Text content on the right.</p>
+      <p>Text content below the video.</p>
     </div>
   </div>
 </template>
@@ -17,91 +13,61 @@
 <style scoped>
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
+  grid-template-rows: auto auto;
   grid-template-areas: 
-    "left image right";
-  height: 100vh;
+    "video"
+    "text";
+  height: auto;
   width: 100vw;
   overflow: hidden;
+  padding: 6rem 4rem;
+}
+
+.grid-item {
+  width: 100%;
+}
+
+.video-item {
+  grid-area: video;
+}
+
+.video-item video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 .text-item {
+  grid-area: text;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 20px;
 }
 
-.left-text {
-  grid-area: left;
-}
-
 .project-title {
   font-size: var(--t-header2);
   margin-bottom: 15px;
-}
-
-.image-item {
-  grid-area: image;
-}
-
-.image-item img {
-  height: 100vh;
-  object-fit: cover;
-  width: 100%;
-}
-
-.text-right {
-  grid-area: right;
-  text-align: right;
-  position: relative;
-}
-
-.text-right i {
-  font-size: 18px;
-  margin-bottom: 15px;
-  cursor: pointer;
-}
-
-@media (max-width: 767px) {
-  .grid-container {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto auto;
-    grid-template-areas: 
-      "image image"
-      "left right";
-  }
-
-  .image-item {
-    height: 50vh;
-  }
-  .image-item img {
-    height: 100%;
-  }
-
-  .text-item {
-    justify-content: flex-start;
-    height: 50vh;
-  }
+  border: 3px var(--c-red) solid;
+  border-radius: 50%;
+  padding: 1rem 4rem;
+  width: max-content;
 }
 </style>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue';
-import { useRoute } from 'vue-router'
+import { onMounted, computed } from 'vue';
+import { useRoute } from 'vue-router';
 import project from '../modules/project';
 const route = useRoute();
 
-const { pState, getSingleProject } = project()
+const { pState, getSingleProject } = project();
 
-const projectId = computed(() => route.params.id)
+const projectId = computed(() => route.params.id);
 
 onMounted(() => {
   if (projectId.value) {
     getSingleProject();
-  }})
-
-const imageUrl = ref('https://via.placeholder.com/150');
+  }
+});
 </script>
-  
