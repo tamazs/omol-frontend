@@ -40,12 +40,14 @@ const getProject = () => {
         try {
           const response = await axios.get('http://localhost:1337/api/projects/' + projectId.value + '/?populate=*&locale=' + pState.lang);
           const project = response.data.data;
+          console.log(project)
       
           if (project) {
             pState.projects = [{
               id: project.id,
               title: project.attributes.name,
               description: project.attributes.description,
+              category: project.attributes.category.data.attributes.name,
               video: 'http://localhost:1337' + project.attributes.video.data.attributes.url
             }];
           } else {

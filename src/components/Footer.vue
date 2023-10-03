@@ -101,6 +101,7 @@
     align-items: center;
     margin-top: 20px;
     font-size: 12px;
+    margin-bottom: 20px;
   }
   
   .footer-links a {
