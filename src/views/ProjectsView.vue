@@ -1,11 +1,11 @@
 <template>
     <div>
-        <ProjectSlider/>
+        <NetflixSlider/>
     </div>
 </template>
 
 <script setup>
-import ProjectSlider from '../components/ProjectSlider.vue';
+import NetflixSlider from '../components/NetflixSlider.vue';
 </script>
 
 <style lang="scss" scoped>

@@ -1,0 +1,21 @@
+{
+    "common": {
+      "welcome": "Welcome to My App",
+      "aboutUs": "About Us",
+      "contactUs": "Contact Us"
+    },
+    "home": {
+      "pageTitle": "Home Page",
+      "introText": "Welcome to our homepage."
+    },
+    "about": {
+      "pageTitle": "About Us",
+      "description": "Learn more about our company."
+    },
+    "projects": {
+      "pageTitle": "Projects",
+      "projectTitle": "Project Title",
+      "projectDescription": "Project Description"
+    }
+}
+  

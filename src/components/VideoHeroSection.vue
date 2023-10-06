@@ -1,7 +1,7 @@
 <template>
   <div class="hero-container">
     <div class="title">One minute</div>
-    <div class="scroll-down">scroll down</div>
+    <div class="scroll-down">{{ $t('home.introText') }}</div>
     <div class="video-container"
          ref="videoContainer"
          @click="toggleVideoPlay">

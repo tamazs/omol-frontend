@@ -2,7 +2,7 @@
     <section class="bottom">
         <div class="bottom__inner" aria-hidden="true" ref="inner">
           <div class="bottom__part">
-            entregamos en 8 horas
+            entregamos en 8 horas 
           </div>
           <div class="bottom__part">
             entregamos en 8 horas 

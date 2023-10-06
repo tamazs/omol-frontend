@@ -48,6 +48,15 @@ watch(route, () => {
 </script>
 
 <style lang="scss" scoped>
+@font-face {
+  font-family: HelveticaNeueThin;
+  src: url("/font/HelveticaNeueThin.otf") format("opentype");
+}
+
+@font-face {
+  font-family: HelveticaNeueLight;
+  src: url("/font/HelveticaNeueLight.otf") format("opentype");
+}
 .screens {
 background-color: var(--c-white);
 height: 100vh;
@@ -59,7 +68,7 @@ text-align: center;
 }
 
 .text-container {
-width: 50vw;
+width: 60vw;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -71,13 +80,15 @@ color: var(--c-black);
 font-size: var(--t-header3);
 text-transform: uppercase;
 margin-bottom: 2rem;
-line-height: 3rem;
+line-height: 2rem;
+font-family: 'HelveticaNeueLight', serif;
 }
 
 h1 {
   text-transform: uppercase;
   font-size: var(--t-header1);
   margin-bottom: 2rem;
+  font-family: 'HelveticaNeueThin', serif;
 }
 
 .final-btn-container {
@@ -91,15 +102,17 @@ h1 {
   text-decoration: none;
   color: var(--c-black);
   font-size: var(--t-header3);
+  font-family: 'HelveticaNeueLight', serif;
   }
 
   .bottom-text {
   position: absolute;
-  bottom: 20px;
+  bottom: 80px;
   left: 50%;
   text-transform: uppercase;
   transform: translateX(-50%);
   color: var(--c-black);
   font-size: var(--t-body);
+  font-family: 'HelveticaNeueLight', serif;
 }
 </style>

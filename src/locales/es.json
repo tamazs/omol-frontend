@@ -1,0 +1,21 @@
+{
+    "common": {
+      "welcome": "Bienvenido a Mi Aplicación",
+      "aboutUs": "Acerca de Nosotros",
+      "contactUs": "Contáctenos"
+    },
+    "home": {
+      "pageTitle": "Página de Inicio",
+      "introText": "Bienvenido a nuestra página de inicio."
+    },
+    "about": {
+      "pageTitle": "Acerca de Nosotros",
+      "description": "Obtenga más información sobre nuestra empresa."
+    },
+    "projects": {
+      "pageTitle": "Proyectos",
+      "projectTitle": "Título del Proyecto",
+      "projectDescription": "Descripción del Proyecto"
+    }
+}
+  

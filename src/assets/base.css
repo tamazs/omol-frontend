@@ -18,7 +18,7 @@
 
 @font-face {
   font-family: HelveticaNeueThin;
-  src: url("/font/HelveticaNeueThin.ttf") format("truetype");
+  src: url("/font/HelveticaNeueThin.otf") format("opentype");
 }
 
 @font-face {

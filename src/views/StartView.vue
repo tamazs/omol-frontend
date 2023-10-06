@@ -16,6 +16,16 @@
   </script>
   
 <style lang="scss" scoped>
+
+@font-face {
+  font-family: HelveticaNeueThin;
+  src: url("/font/HelveticaNeueThin.otf") format("opentype");
+}
+
+@font-face {
+  font-family: HelveticaNeueLight;
+  src: url("/font/HelveticaNeueLight.otf") format("opentype");
+}
 .start {
     background-color: var(--c-white);
     height: 100vh;
@@ -35,11 +45,13 @@
     }
 
     h1 {
+        font-family: 'HelveticaNeueThin', serif;
         text-transform: uppercase;
         font-size: var(--t-header1);
     }
 
     p {
+        font-family: 'HelveticaNeueLight', serif;
         text-transform: uppercase;
     }
 
@@ -51,6 +63,7 @@
     }
 
     .select-btn {
+        font-family: 'HelveticaNeueLight', serif;
         text-decoration: none;
         color: var(--c-black);
         font-size: var(--t-header3);
