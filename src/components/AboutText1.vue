@@ -23,6 +23,7 @@
     padding: 6rem 3rem 10rem 3rem;
     line-height: 50px;
     text-transform: uppercase;
+    font-family: var(--f-thin);
   }
 
   .before-text {

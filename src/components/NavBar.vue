@@ -126,6 +126,7 @@ function toggleMenu() {
   background-color: transparent;
   z-index: 9999;
   padding: 20px;
+  font-family: var(--f-light);
 }
 
 .desktop-nav, .mobile-nav {
@@ -219,7 +220,7 @@ function toggleMenu() {
   color: var(--c-black);
   border: 2px transparent solid;
   border-radius: 50%;
-  padding: 0.2rem 1.2rem;
+  padding: 0.4rem 1.4rem;
 }
 
 .pages a.router-link-active {

@@ -57,6 +57,7 @@
     font-size: var(--t-header1);
     max-width: 40vw;
     text-transform: uppercase;
+    font-family: var(--f-light);
   }
   
   .contact-info {

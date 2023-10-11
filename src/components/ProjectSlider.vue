@@ -108,7 +108,7 @@ const modules = [Navigation, Scrollbar];
 .title {
   font-size: var(--t-header2);
   margin-bottom: 70px;
-  font-family: 'HelveticaNeue', serif;
+  font-family: var(--f-light);
 }
 
 .see-more {

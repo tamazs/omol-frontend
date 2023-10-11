@@ -9,6 +9,10 @@
   --t-body: 1rem;
   --t-small: 0.875rem;
   --t-button: 1.188rem;
+
+  --f-thin: 'HelveticaNeueThin', serif;
+  --f-regular: 'HelveticaNeue', serif;
+  --f-light: 'HelveticaNeueLight', serif;
 }
 
 @font-face {
@@ -18,7 +22,12 @@
 
 @font-face {
   font-family: HelveticaNeueThin;
-  src: url("/font/HelveticaNeueThin.otf") format("opentype");
+  src: url("/font/HelveticaNeueLTPro-Th.otf") format("opentype");
+}
+
+@font-face {
+  font-family: HelveticaNeueLight;
+  src: url("/font/HelveticaNeueLTPro-Lt.otf") format("opentype");
 }
 
 @font-face {

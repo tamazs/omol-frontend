@@ -28,6 +28,7 @@
     overflow: hidden;
     background-color: var(--c-red);
     color: var(--c-black);
+    font-family: var(--f-light);
   }
   
   .text-section {

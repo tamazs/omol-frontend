@@ -4,33 +4,42 @@
       <p class="text">If you want to send us some love, this is the right place to do it. </p>
     </div>
     <div class="form-container">
-      <form @submit.prevent="validateAndSend">
+      <form @submit.prevent="validateAndSend" id="form">
         <input 
           type="text" 
           v-model="name"
-          name="name"
+          name="from_name"
           placeholder="Your Name"
           :class="{ 'red-border': !nameFilled && formSubmitted }"
+          required
         >
+        <!-- Display error message if name is not filled -->
+        <div v-if="formSubmitted && !nameFilled" class="error-message">Please fill your name</div>
         <input 
           type="email" 
           v-model="email"
-          name="email"
+          name="from_email"
           placeholder="Your Email"
           :class="{ 'red-border': !emailFilled && formSubmitted }"
+          required
         >
+        <!-- Display error message if email is not filled -->
+        <div v-if="formSubmitted && !emailFilled" class="error-message">Please fill your email</div>
         <textarea 
           name="message"
           v-model="message"
           cols="1" rows="20"
           placeholder="Message"
           :class="{ 'red-border': !messageFilled && formSubmitted }"
+          required
         ></textarea>
+        <!-- Display error message if message is not filled -->
+        <div v-if="formSubmitted && !messageFilled" class="error-message">Please fill your message</div>
         
         <input type="submit" value="Send">
       </form>
     </div>
-  </template>
+  </template>  
   
   <script setup>
   import { ref } from 'vue';
@@ -70,11 +79,8 @@
     }
   
     try {
-      emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
-        name: name.value,
-        email: email.value,
-        message: message.value
-      }, 'YOUR_USER_ID');
+        const form = document.getElementById('form');
+      emailjs.sendForm('service_6pp8szh', 'template_qrlfzrs', form, 'user_BQFQijhqHXFB6Bf3qVGTt');
     } catch (error) {
       console.log({ error });
     }
@@ -105,6 +111,7 @@
   .text-container .text {
     padding: 6rem 3rem 4rem 3rem;
     line-height: 50px;
+    font-family: var(--f-thin);
   }
   
   .before-text {
@@ -140,8 +147,16 @@
     border: none;
     box-sizing: border-box;
     margin-top: 6px;
-    margin-bottom: 16px;
+    margin-bottom: 4px;
     resize: vertical;
+  }
+
+  input::placeholder {
+  font-family: var(--f-regular);
+  }
+
+  textarea::placeholder {
+  font-family: var(--f-regular);
   }
   
   input[type=submit] {
@@ -152,6 +167,8 @@
     border-radius: 4px;
     cursor: pointer;
     width: 20%;
+    margin-top: 30px;
+    font-family: var(--f-thin);
   }
   
   input[type=submit]:hover {
@@ -161,5 +178,10 @@
   .red-border {
     border: 1px solid red;
   }
+
+  .error-message {
+  color: red;
+  font-size: 12px;
+}
   </style>
   

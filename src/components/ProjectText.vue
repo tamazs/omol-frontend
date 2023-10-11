@@ -22,6 +22,7 @@
   .text-container .text {
     padding: 6rem 3rem 10rem 3rem;
     line-height: 50px;
+    font-family: var(--f-thin);
   }
 
   .before-text {

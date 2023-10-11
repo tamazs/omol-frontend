@@ -102,6 +102,7 @@ watch(
   font-size: 14px;
   z-index: 2;
   text-transform: uppercase;
+  font-family: var(--f-light);
 }
 
 .video-container {

@@ -1,21 +1,52 @@
 {
-    "common": {
-      "welcome": "Welcome to My App",
-      "aboutUs": "About Us",
-      "contactUs": "Contact Us"
+    "navbar": {
+      "home": "Home",
+      "projects": "Projects",
+      "about": "About",
+      "team": "Team"
+    },
+    "footer": {
+      "contactUs": "Contact us",
+      "callUs": "Call us",
+      "followUs": "Follow us"
     },
     "home": {
-      "pageTitle": "Home Page",
-      "introText": "Welcome to our homepage."
+      "scrollDown": "Scroll Down",
+      "storiesTitle": "We tell stories",
+      "storiesTitle1": "25 years",
+      "storiesText1": "25 years of professional experience. Half a life telling stories and the other half… Well too. Because ours is, also, vocational.",
+      "storiesTitle2": "Versatile",
+      "storiesText2": "We have done many TV commercials, infinite television reports, live connections... Imagine having all that professional background adapted to your business.",
+      "storiesTitle3": "Smartphones",
+      "storiesText3": "Professional quality videos, shot and edited with mobile phones last generation.",
+      "storiesTitle4": "Fast",
+      "storiesText4": "Thanks to all this and with the media in our hands, we deliver instantly so you can immediately share with your audience.",
+      "textHighlightBefore": "Where some look, there are others who see",
+      "textHighlightSpan1": "Share instantly,",
+      "textHighlightSpan2": " talk to your audience,",
+      "textHighlightSpan3": " tell them what you do in real time is something that is here.",
+      "textHighlightSpan4": "That's why our recording and editing service with latest generation smartphones it is fast,",
+      "textHighlightSpan5": " delivered almost instantly,",
+      "textHighlightSpan6": " so you can share quickly what you want to say.",
+      "sliderBtn": "See more",
+      "marqueeText": "We deliver instantly",
+      "footerTextBefore": "Send some love",
+      "footerText": "If you want to send us some love, this is the right place to do it.",
+      "namePh": "Your name",
+      "emailPh": "Your email",
+      "msgPh": "Type here"
     },
     "about": {
-      "pageTitle": "About Us",
-      "description": "Learn more about our company."
+      "aboutText1Before": "Know more about us",
+      "aboutText1": "OMOL is a recording and editing service with the latest generation smartphones, fast, delivered almost instantly, for quick sharing.",
+      "aboutText2Before": "We share our vision",
+      "aboutText2": "Warhol pontificated that everyone deserved his 15 minutes of fame. Nowadays, that attention runs out much faster, it is better to condense our message in just over a minute.",
+      "aboutText2After": "That's right: A minute of total love.",
+      "marqueeText": "They can forget about your logo, but not about how you made them feel."
     },
     "projects": {
-      "pageTitle": "Projects",
-      "projectTitle": "Project Title",
-      "projectDescription": "Project Description"
+      "projectTextBefore": "We work harder and harder!",
+      "projectText": "We want to show our beloved work and if you want to be the next, don't think twice!"
     }
 }
   

@@ -72,6 +72,7 @@
   position: relative;
   width: 100%;
   height: 100vh;
+  font-family: var(--f-thin);
 }
 
 .static-text {

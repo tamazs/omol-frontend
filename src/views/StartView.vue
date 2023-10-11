@@ -2,7 +2,7 @@
     <div class="start">
     <div class="intro">
         <h1>¿Tienes un minuto?</h1>
-        <p>si parpadeas te lo pierdes</p>
+        <p>No necesitamos más que eso para contarte<br/> una historia de amor que cambiará tu vida.</p>
     </div>
      <div class="start-select">
         <RouterLink class="select-btn" to="/screens">Claro!</RouterLink>
@@ -16,16 +16,6 @@
   </script>
   
 <style lang="scss" scoped>
-
-@font-face {
-  font-family: HelveticaNeueThin;
-  src: url("/font/HelveticaNeueThin.otf") format("opentype");
-}
-
-@font-face {
-  font-family: HelveticaNeueLight;
-  src: url("/font/HelveticaNeueLight.otf") format("opentype");
-}
 .start {
     background-color: var(--c-white);
     height: 100vh;
@@ -34,7 +24,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 4rem;
+    gap: 7rem;
 
     .intro {
         display: flex;
@@ -45,25 +35,27 @@
     }
 
     h1 {
-        font-family: 'HelveticaNeueThin', serif;
+        font-family: var(--f-thin);
         text-transform: uppercase;
-        font-size: var(--t-header1);
+        font-size: 50px;
+        margin-bottom: 20px;
     }
 
     p {
-        font-family: 'HelveticaNeueLight', serif;
+        font-family: var(--f-light);
         text-transform: uppercase;
+        font-size: 20px;
     }
 
     .start-select {
         text-transform: uppercase;
         display: flex;
         justify-content: space-between;
-        gap: 3rem;
+        gap: 5rem;
     }
 
     .select-btn {
-        font-family: 'HelveticaNeueLight', serif;
+        font-family: var(--f-light);
         text-decoration: none;
         color: var(--c-black);
         font-size: var(--t-header3);

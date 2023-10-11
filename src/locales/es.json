@@ -1,21 +1,51 @@
 {
-    "common": {
-      "welcome": "Bienvenido a Mi Aplicación",
-      "aboutUs": "Acerca de Nosotros",
-      "contactUs": "Contáctenos"
-    },
-    "home": {
-      "pageTitle": "Página de Inicio",
-      "introText": "Bienvenido a nuestra página de inicio."
-    },
-    "about": {
-      "pageTitle": "Acerca de Nosotros",
-      "description": "Obtenga más información sobre nuestra empresa."
-    },
-    "projects": {
-      "pageTitle": "Proyectos",
-      "projectTitle": "Título del Proyecto",
-      "projectDescription": "Descripción del Proyecto"
-    }
+  "navbar": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "team": "Team"
+  },
+  "footer": {
+    "contactUs": "Contact us",
+    "callUs": "Call us",
+    "followUs": "Follow us"
+  },
+  "home": {
+    "scrollDown": "Scroll Down",
+    "storiesTitle": "Contamos historias",
+    "storiesTitle1": "25 años",
+    "storiesText1": "25 años de experiencia profesional. Media vida contando historias y la otra media… pues también. Porque lo nuestro es, además, vocacional.",
+    "storiesTitle2": "Versátiles",
+    "storiesText2": "Hemos hecho muchos anuncios de TV, infinitos reportajes para televisión, conexiones en directo… Imagínate contar con todo ese background profesional adaptado a tu negocio.",
+    "storiesTitle3": "Smartphones",
+    "storiesText3": "Vídeos de calidad profesional, rodados y editados con teléfonos móviles de última generación.",
+    "storiesTitle4": "Rápidos",
+    "storiesText4": "Gracias a todo esto y con los medios en nuestras manos, entregamos al momento para que puedas compartir inmediatamente con tu audiencia.",
+    "textHighlightBefore": "Donde unos miran, hay otros que ven",
+    "textHighlightSpan1": "Compartir al momento,",
+    "textHighlightSpan2": " hablar con tu audiencia,",
+    "textHighlightSpan3": " contarles lo que haces en tiempo real es algo que está aquí.",
+    "textHighlightSpan4": "Por eso nuestro servicio de grabación y edición con smartphones de última generación es rápido,",
+    "textHighlightSpan5": " entregado casi al instante,",
+    "textHighlightSpan6": " para que puedas compartir rápidamente lo que quieras contar.",
+    "sliderBtn": "Ver más",
+    "marqueeText": "Entregamos al momento",
+    "footerTextBefore": "Send some love",
+    "footerText": "If you want to send us some love, this is the right place to do it.",
+    "namePh": "Your name",
+    "emailPh": "Your email",
+    "msgPh": "Type here"
+  },
+  "about": {
+    "aboutText1Before": "Know more about us",
+    "aboutText1": "OMOL is a recording and editing service with the latest generation smartphones, fast, delivered almost instantly, for quick sharing.",
+    "aboutText2Before": "We share our vision",
+    "aboutText2": "Warhol pontificaba que todo el mundo merecía sus 15 minutos de fama. Hoy en día, que la atención se agota mucho más rápido, es mejor condensar nuestro mensaje en poco más de un minuto.",
+    "aboutText2After": "Eso sí: Un minuto de amor total.",
+    "marqueeText": "Se pueden olvidar de tu logo, pero no de lo que les hiciste sentir"
+  },
+  "projects": {
+    "projectTextBefore": "We work harder and harder!",
+    "projectText": "We want to show our beloved work and if you want to be the next, don't think twice!"
+  }
 }
-  
