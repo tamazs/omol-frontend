@@ -12,12 +12,12 @@
         v-bind:style="{ zIndex: cards.length - index, transform: card.transform, opacity: card.opacity }"
       >
         <img :src="card.image" />
-        <h3>{{ card.name }}</h3>
+        <h2>{{ card.name }}</h2>
         <p>{{ card.description }}</p>
       </div>
     </div>
     <div class="tinder--buttons">
-      <button id="nope" @click="onNope"><i class="fas fa-x"></i></button>
+      <button id="nope" @click="onNope"><i class="fas fa-plus"></i></button>
       <button id="love" @click="onLove"><i class="fas fa-heart"></i></button>
     </div>
   </div>
@@ -29,8 +29,27 @@ import Hammer from 'hammerjs';
 
 const isLoaded = ref(false);
 const cards = ref([
-  { image: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5', name: 'Nacho', description: 'Soy de la Sierra y un dia sali con el movil a grabar...', transform: '', opacity: '' },
-  { image: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5', name: 'Demo card 2', description: 'This is a demo for Tinder like swipe cards', transform: '', opacity: '' },
+  {
+    image: '../../src/assets/tinder1.png',
+    name: 'Nacho',
+    description: 'Soy de la Sierra y un día salí con el móvil a grabar...',
+    transform: '',
+    opacity: ''
+  },
+  {
+    image: '../../src/assets/tinder2.png',
+    name: 'Demo card 2',
+    description: 'This is a demo for Tinder-like swipe cards',
+    transform: '',
+    opacity: ''
+  },
+  {
+    image: '../../src/assets/tinder3.png',
+    name: 'Demo card 3',
+    description: 'This is a demo for Tinder-like swipe cards',
+    transform: '',
+    opacity: ''
+  },
 ]);
 
 onMounted(() => {
@@ -110,7 +129,6 @@ function removeCard(love) {
 }
 
 body {
-  
   overflow: hidden;
 }
 
@@ -150,7 +168,7 @@ body {
   margin-left: -50px;
 }
 
-.tinder_love .fa-heart {
+.tinder_love .fa-plus {
   opacity: 0.7;
   transform: scale(1);
 }
@@ -175,13 +193,12 @@ body {
   width: 90vw;
   max-width: 400px;
   height: 70vh;
-  background: white;
-  padding-bottom: 40px;
+  background: transparent;
   border-radius: 8px;
   overflow: hidden;
   position: absolute;
   will-change: transform;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-out;
   cursor: -webkit-grab;
   cursor: -moz-grab;
   cursor: grab;
@@ -196,20 +213,8 @@ body {
 
 .tinder--card img {
   max-width: 100%;
-  pointer-events: none;
-}
-
-.tinder--card h3 {
-  margin-top: 32px;
-  font-size: 32px;
-  padding: 0 16px;
-  pointer-events: none;
-}
-
-.tinder--card p {
-  margin-top: 24px;
-  font-size: 20px;
-  padding: 0 16px;
+  height: 100%;
+  object-fit: cover;
   pointer-events: none;
 }
 
@@ -224,7 +229,7 @@ body {
   line-height: 60px;
   width: 60px;
   border: 0;
-  background: white;
+  background: var(--c-black);
   display: inline-block;
   margin: 0 8px;
 }
@@ -239,11 +244,10 @@ body {
 }
 
 .fa-heart {
-  color: #FFACE4;
+  color: var(--c-red);
 }
 
-.fa-x {
-  color: #CDD6DD;
+.fa-plus {
+  color: var(--c-white);
 }
 </style>
-  

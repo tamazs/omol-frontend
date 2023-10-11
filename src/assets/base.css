@@ -38,3 +38,7 @@ body {
   font-family: 'HelveticaNeue', serif;
   font-size: var(--t-body);
 }
+
+html {
+  background-color: var(--c-white);
+}

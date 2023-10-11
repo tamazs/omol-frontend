@@ -1,6 +1,6 @@
 <template>
   <div class="hero-container">
-    <div class="title">One minute</div>
+    <LogoMarqueeSection/>
     <div class="scroll-down">{{ $t('home.introText') }}</div>
     <div class="video-container"
          ref="videoContainer"
@@ -13,6 +13,7 @@
 </template>
 
 <script setup>
+import LogoMarqueeSection from './LogoMarqueeSection.vue';
 import { ref, onMounted, watch } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';

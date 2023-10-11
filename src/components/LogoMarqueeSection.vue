@@ -28,7 +28,7 @@
         let tween = gsap.to(".logo-marquee__part", {
             xPercent: -100,
             repeat: -1,
-            duration: 10,
+            duration: 20,
             ease: "linear"
         }).totalProgress(0.5);
     
@@ -62,7 +62,7 @@
       flex-shrink: 0;
       padding: 0 60px;
       font-smooth: always;
-      font-size: 10rem;
+      font-size: 15rem;
       font-family: 'Narnia', serif;
     }
     

@@ -6,6 +6,7 @@
         <ProjectSlider/>
         <MarqueeSection/>
         <ContactSection/>
+        <ContactForm/>
     </div>
 </template>
 
@@ -16,8 +17,11 @@ import VideoHeroSection from '../components/VideoHeroSection.vue';
 import TextHighlight from '../components/TextHighlight.vue';
 import MarqueeSection from '../components/MarqueeSection.vue';
 import ContactSection from '../components/ContactSection.vue';
+import ContactForm from '../components/ContactForm.vue';
 </script>
 
 <style lang="scss" scoped>
-
+.home-container {
+    overflow: hidden;
+}
 </style>

@@ -1,0 +1,165 @@
+<template>
+    <div class="text-container" ref="textContainer">
+      <p class="before-text">send some love</p>
+      <p class="text">If you want to send us some love, this is the right place to do it. </p>
+    </div>
+    <div class="form-container">
+      <form @submit.prevent="validateAndSend">
+        <input 
+          type="text" 
+          v-model="name"
+          name="name"
+          placeholder="Your Name"
+          :class="{ 'red-border': !nameFilled && formSubmitted }"
+        >
+        <input 
+          type="email" 
+          v-model="email"
+          name="email"
+          placeholder="Your Email"
+          :class="{ 'red-border': !emailFilled && formSubmitted }"
+        >
+        <textarea 
+          name="message"
+          v-model="message"
+          cols="1" rows="20"
+          placeholder="Message"
+          :class="{ 'red-border': !messageFilled && formSubmitted }"
+        ></textarea>
+        
+        <input type="submit" value="Send">
+      </form>
+    </div>
+  </template>
+  
+  <script setup>
+  import { ref } from 'vue';
+  import emailjs from 'emailjs-com';
+  
+  const name = ref('');
+  const email = ref('');
+  const message = ref('');
+  const formSubmitted = ref(false);
+  
+  const nameFilled = ref(false);
+  const emailFilled = ref(false);
+  const messageFilled = ref(false);
+  const isEmailValid = ref(true); // Initialize as valid
+  
+  function validateAndSend() {
+    // Check if any of the fields are empty
+    if (!name.value || !email.value || !message.value) {
+      formSubmitted.value = true;
+  
+      // Check which fields are empty
+      nameFilled.value = !!name.value;
+      emailFilled.value = !!email.value;
+      messageFilled.value = !!message.value;
+  
+      return;
+    }
+  
+    // Validate email using a regular expression
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    isEmailValid.value = emailRegex.test(email.value);
+  
+    // Check if the email is valid
+    if (!isEmailValid.value) {
+      formSubmitted.value = true;
+      return;
+    }
+  
+    try {
+      emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+        name: name.value,
+        email: email.value,
+        message: message.value
+      }, 'YOUR_USER_ID');
+    } catch (error) {
+      console.log({ error });
+    }
+  
+    // Reset form fields and flags
+    name.value = '';
+    email.value = '';
+    message.value = '';
+    formSubmitted.value = false;
+    nameFilled.value = false;
+    emailFilled.value = false;
+    messageFilled.value = false;
+    isEmailValid.value = true; // Reset email validation flag
+  }
+  </script>
+  
+  <style scoped lang="scss">
+  .text-container {
+    height: auto;
+    width: 100vw;
+    font-size: var(--t-header1);
+    background-color: var(--c-white);
+    position: relative;
+    margin-top: 10rem;
+    overflow: hidden;
+  }
+  
+  .text-container .text {
+    padding: 6rem 3rem 4rem 3rem;
+    line-height: 50px;
+  }
+  
+  .before-text {
+    font-size: var(--t-body);
+    text-transform: uppercase;
+    padding: 0 3rem;
+  }
+  
+  .before-text::before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-color: #F0444A;
+    border-radius: 50%;
+    position: absolute;
+    left: 1.5rem;
+    top: 0.07rem;
+    z-index: 2;
+    line-height: 0px;
+  }
+  
+  form {
+    padding: 6rem 3rem 6rem 3rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input[type=text], [type=email], textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #E8E3E0;
+    border-radius: 4px;
+    border: none;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+  
+  input[type=submit] {
+    background-color: red;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 20%;
+  }
+  
+  input[type=submit]:hover {
+    background-color: red;
+  }
+  
+  .red-border {
+    border: 1px solid red;
+  }
+  </style>
+  

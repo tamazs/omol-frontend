@@ -28,7 +28,7 @@
         let tween = gsap.to(".about-marquee__part", {
             xPercent: -100,
             repeat: -1,
-            duration: 10,
+            duration: 20,
             ease: "linear"
         }).totalProgress(0.5);
     

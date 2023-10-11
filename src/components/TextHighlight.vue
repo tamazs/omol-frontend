@@ -1,13 +1,14 @@
 <template>
     <div class="text-container" ref="textContainer">
-      <p ref="text"><span class="highlight">Compartir al momento, hablar con tu audiencia, contarles 
+      <p class="before-text">donde unos miran,<br>hay otros que ven</p>
+      <p class="text" ref="text"><span class="highlight">Compartir al momento,</span><span class="highlight"> hablar con tu audiencia,</span><span class="highlight"> contarles 
         lo que haces en tiempo real es algo que está aquí.</span>
         <br>
         <br>
         <span class="highlight">
         Por eso nuestro servicio de grabación y edición 
-        con smartphones de última generación es rápido, 
-        entregado casi al instante, para que puedas compartir 
+        con smartphones de última generación es rápido,</span><span class="highlight"> 
+        entregado casi al instante,</span><span class="highlight"> para que puedas compartir 
         rápidamente lo que quieras contar.</span></p>
     </div>
   </template>
@@ -28,7 +29,7 @@ onMounted(() => {
       scrollTrigger: {
         trigger: textContainer.value,
         start: 'top center',
-        end: 'center center',
+        end: 'bottom center',
         scrub: true
       }
     });
@@ -47,17 +48,37 @@ onMounted(() => {
 });
 </script>
   
-  <style scoped>
+  <style scoped lang="scss">
   .text-container {
     height: auto;
     width: 100vw;
-    font-size: var(--t-header2);
+    font-size: var(--t-header1);
     background-color: var(--c-white);
+    position: relative;
   }
   
-  .text-container p {
-    padding: 10rem;
+  .text-container .text {
+    padding: 6rem 3rem 10rem 3rem;
     line-height: 50px;
   }
+
+  .before-text {
+    font-size: var(--t-body);
+    text-transform: uppercase;
+    padding: 0 3rem;
+  }
+
+  .before-text::before {
+  content: '';
+  width: 15px;
+  height: 15px;
+  background-color: #F0444A;
+  border-radius: 50%;
+  position: absolute;
+  left: 1.5rem;
+  top: 0.07rem;
+  z-index: 2;
+  line-height: 0px;
+}
   </style>
   
