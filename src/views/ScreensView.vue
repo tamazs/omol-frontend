@@ -1,15 +1,15 @@
 <template>
   <div class="screens" @click="nextScreen">
     <div class="text-container">
-      <h1 v-if="currentIndex === 0">¡Gracias!</h1>
-      <h1 v-if="currentIndex === texts.length - 1">Ahora, el desafío:</h1>
+      <h1 v-if="currentIndex === 0">{{ $t('intro.thanku') }}</h1>
+      <h1 v-if="currentIndex === texts.length - 1">{{ $t('intro.challengeTitle') }}</h1>
       <p class="infoText">{{ currentText }}</p>
       <div class="final-btn-container" v-if="currentIndex === texts.length - 1">
-        <RouterLink class="select-btn" to="/cam">empezar!</RouterLink>
-        <RouterLink class="select-btn" to="/home">no, gracias</RouterLink>
+        <RouterLink class="select-btn" to="/cam">{{ $t('intro.button3') }}</RouterLink>
+        <RouterLink class="select-btn" to="/home">{{ $t('intro.button4') }}</RouterLink>
       </div>
-      <p v-if="currentIndex === 0" class="bottom-text">Eso sí, un minuto de amor total.</p>
-      <p v-else class="bottom-text">recuerda, si parpadeas te lo pierdes...</p>
+      <p v-if="currentIndex === 0" class="bottom-text">{{ $t('intro.bottomText1') }}</p>
+      <p v-else class="bottom-text">{{ $t('intro.bottomText2') }}</p>
     </div>
   </div>
 </template>
@@ -22,14 +22,14 @@ const router = useRouter();
 const route = useRoute();
 
 const texts = [
-  "Hoy en día, no tenemos tiempo que perder y la atención se agota mucho más rápido, es mejor condensar nuestro mensaje en poco más de un minuto.",
-  "por eso nos gustaria,  enseñarte lo que hacemos en un video reel de 1 minuto, pero primero necesitamos que permitas el acceso a tu cámara.",
-  "no puedes pestañear mientras lo miras, ya que si lo haces, tu minuto se habrá acabado.",
+  'intro.text2',
+  'intro.text3',
+  'intro.challengeText',
 ];
 
 const currentIndex = ref(0);
 
-const currentText = computed(() => texts[currentIndex.value]);
+const currentText = computed(() => $t(texts[currentIndex.value]));
 
 const nextScreen = () => {
   if (currentIndex.value < texts.length - 1) {

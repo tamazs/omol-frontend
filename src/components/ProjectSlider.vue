@@ -13,7 +13,7 @@
         <img class="hover-gif" :src="slide.gif" />
         <div class="text-overlay">
           <p class="title">{{ slide.title }}</p>
-          <router-link class="see-more" :to="`/project/${slide.id}`">Learn More</router-link>
+          <router-link class="see-more" :to="`/project/${slide.id}`">{{ $t('home.sliderBtn') }}</router-link>
         </div>
       </div>
     </swiper-slide>

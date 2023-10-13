@@ -6,7 +6,7 @@
   <div class="screensaver" :style="{ display: isScreensaverVisible ? 'block' : 'none' }">
     <div class="countdown">
       <p class="time">{{ formattedTimerValue }}</p>
-      <p class="time-text">¡Este minuto es tuyo, aprovéchalo!</p>
+      <p class="time-text">{{ $t('home.screensaverText') }}</p>
     </div>
   </div>
   <!-- <div class="curtain-column" v-for="i in 4" :key="i" :style="`left: ${25 * (i - 1)}%`"></div> -->

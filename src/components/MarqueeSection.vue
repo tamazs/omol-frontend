@@ -2,16 +2,16 @@
 <section class="marquee">
     <div class="marquee__inner" aria-hidden="true" ref="inner">
       <div class="marquee__part">
-        entregamos en 8 horas
+        {{ $t('home.marqueeText') }}
       </div>
       <div class="marquee__part">
-        entregamos en 8 horas 
+        {{ $t('home.marqueeText') }}
       </div>
       <div class="marquee__part">
-        entregamos en 8 horas 
+        {{ $t('home.marqueeText') }} 
       </div>
       <div class="marquee__part">
-        entregamos en 8 horas 
+        {{ $t('home.marqueeText') }} 
       </div>
     </div>
 </section>

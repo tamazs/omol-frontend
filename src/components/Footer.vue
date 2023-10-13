@@ -6,14 +6,14 @@
         </div>
         <div class="footer-section">
           <div class="contact-info">
-            <div class="contact-item">Contact us</div>
-            <div class="contact-item">Call Us: <a href="tel:+34 911 542 253">+34 911 542 253</a></div>
+            <div class="contact-item">{{ $t('footer.contactUs') }}</div>
+            <div class="contact-item">{{ $t('footer.callUs') }}<a href="tel:+34 911 542 253">+34 911 542 253</a></div>
             <div class="contact-item">WhatsApp: <a href="https://wa.me/34662746484">+34 662 74 64 84</a></div>
             <div class="contact-item">Email: <a href="mailto:nbuenavista@goodsightmedia.com">nbuenavista@goodsightmedia.com</a></div>
           </div>
         </div>
         <div class="footer-section">
-          <p class="footer-title">Follow Us</p>
+          <p class="footer-title">{{ $t('footer.followUs') }}</p>
           <div class="social-icons">
             <a href="https://vimeo.com/goodsightmedia" target="_blank"><i class="fab fa-vimeo"></i></a>
             <a href="https://www.instagram.com/omolvideo/" target="_blank"><i class="fab fa-instagram"></i></a>

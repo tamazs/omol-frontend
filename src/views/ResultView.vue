@@ -1,17 +1,17 @@
 <template>
     <div class="grid-container">
       <div class="grid-item text-section left-section">
-        <RouterLink class="result-button" to="/">Try again</RouterLink>
+        <RouterLink class="result-button" to="/">{{ $t('intro.button5') }}</RouterLink>
       </div>
       <div class="grid-item middle-section">
         <div class="text-container">
-          <h1 class="result-title">You were focused for</h1>
+          <h1 class="result-title">{{ $t('intro.resultTitle') }}</h1>
           <p class="time">{{ formattedTimerValue }}</p>
           <p class="result-desc">you were focused for one minute! this is really complicated nowadays</p>
         </div>
       </div>
       <div class="grid-item text-section right-section">
-        <RouterLink class="result-button" to="/home">Go to site</RouterLink>
+        <RouterLink class="result-button" to="/home">{{ $t('intro.button6') }}</RouterLink>
       </div>
     </div>
   </template>

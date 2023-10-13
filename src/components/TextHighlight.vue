@@ -1,15 +1,12 @@
 <template>
     <div class="text-container" ref="textContainer">
-      <p class="before-text">donde unos miran,<br>hay otros que ven</p>
-      <p class="text" ref="text"><span class="highlight">Compartir al momento,</span><span class="highlight"> hablar con tu audiencia,</span><span class="highlight"> contarles 
-        lo que haces en tiempo real es algo que está aquí.</span>
+      <p class="before-text">{{ $t('home.textHighlightBefore') }}</p>
+      <p class="text" ref="text"><span class="highlight">{{ $t('home.textHighlightSpan1') }}</span><span class="highlight">{{ $t('home.textHighlightSpan2') }}</span><span class="highlight">{{ $t('home.textHighlightSpan3') }}</span>
         <br>
         <br>
         <span class="highlight">
-        Por eso nuestro servicio de grabación y edición 
-        con smartphones de última generación es rápido,</span><span class="highlight"> 
-        entregado casi al instante,</span><span class="highlight"> para que puedas compartir 
-        rápidamente lo que quieras contar.</span></p>
+        {{ $t('home.textHighlightSpan4') }}</span><span class="highlight"> 
+        {{ $t('home.textHighlightSpan5') }}</span><span class="highlight">{{ $t('home.textHighlightSpan6') }}</span></p>
     </div>
   </template>
   
@@ -59,7 +56,7 @@ onMounted(() => {
   
   .text-container .text {
     padding: 6rem 3rem 10rem 3rem;
-    line-height: 50px;
+    line-height: 4rem;
     font-family: var(--f-thin);
   }
 

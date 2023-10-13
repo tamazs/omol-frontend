@@ -1,7 +1,7 @@
 <template>
   <div class="hero-container">
     <LogoMarqueeSection/>
-    <div class="scroll-down">{{ $t('home.introText') }}</div>
+    <div class="scroll-down">{{ $t('home.scrollDown') }}</div>
     <div class="video-container"
          ref="videoContainer"
          @click="toggleVideoPlay">

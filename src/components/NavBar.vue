@@ -21,9 +21,9 @@
           <div class="nav-links">
             <div class="mobile-pages">
               <router-link to="/home" :class="{ 'active-link': $route.path === '/home' }">Home</router-link>
-              <router-link to="/projects" :class="{ 'active-link': $route.path === '/projects' ||  $route.path.startsWith('/project/') }">Projects</router-link>
-              <router-link to="/about" :class="{ 'active-link': $route.path === '/about' }">About</router-link>
-              <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }">Team</router-link>
+              <router-link to="/projects" :class="{ 'active-link': $route.path === '/projects' ||  $route.path.startsWith('/project/') }">{{ $t('navbar.projects') }}</router-link>
+              <router-link to="/about" :class="{ 'active-link': $route.path === '/about' }">{{ $t('navbar.about') }}</router-link>
+              <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }">{{ $t('navbar.team') }}</router-link>
             </div>
             <div class="languages">
               <button @click="setLanguage('es')">ES</button>
@@ -38,9 +38,9 @@
           <div class="nav-middle">
             <div class="pages">
               <router-link to="/home" :class="{ 'active-link': $route.path === '/home' }">Home</router-link>
-              <router-link to="/projects" :class="{ 'active-link': $route.path === '/projects' ||  $route.path.startsWith('/project/') }">Projects</router-link>
-              <router-link to="/about" :class="{ 'active-link': $route.path === '/about' }">About</router-link>
-              <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }">Team</router-link>
+              <router-link to="/projects" :class="{ 'active-link': $route.path === '/projects' ||  $route.path.startsWith('/project/') }">{{ $t('navbar.projects') }}</router-link>
+              <router-link to="/about" :class="{ 'active-link': $route.path === '/about' }">{{ $t('navbar.about') }}</router-link>
+              <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }">{{ $t('navbar.team') }}</router-link>
             </div>
           </div>
           <div class="languages">

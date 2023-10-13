@@ -1,7 +1,7 @@
 <template>
     <div class="text-container" ref="textContainer">
-      <p class="before-text">send some love</p>
-      <p class="text">If you want to send us some love, this is the right place to do it. </p>
+      <p class="before-text">{{ $t('home.footerTextBefore') }}</p>
+      <p class="text">{{ $t('home.footerText') }}</p>
     </div>
     <div class="form-container">
       <form @submit.prevent="validateAndSend" id="form">
@@ -9,7 +9,7 @@
           type="text" 
           v-model="name"
           name="from_name"
-          placeholder="Your Name"
+          :placeholder="$t('home.namePh')"
           :class="{ 'red-border': !nameFilled && formSubmitted }"
           required
         >
@@ -19,7 +19,7 @@
           type="email" 
           v-model="email"
           name="from_email"
-          placeholder="Your Email"
+          :placeholder="$t('home.emailPh')"
           :class="{ 'red-border': !emailFilled && formSubmitted }"
           required
         >
@@ -29,7 +29,7 @@
           name="message"
           v-model="message"
           cols="1" rows="20"
-          placeholder="Message"
+          :placeholder="$t('home.msgPh')"
           :class="{ 'red-border': !messageFilled && formSubmitted }"
           required
         ></textarea>
@@ -110,7 +110,7 @@
   
   .text-container .text {
     padding: 6rem 3rem 4rem 3rem;
-    line-height: 50px;
+    line-height: 4rem;
     font-family: var(--f-thin);
   }
   

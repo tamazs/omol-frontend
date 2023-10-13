@@ -4,7 +4,7 @@
     <div v-if="cameraReady && countdown === 0" class="timer">{{ formattedTimer }}</div>
     <video v-if="countdown === 0" ref="videoElement" class="main-video" :src="videoSrc" loop muted playsinline></video>
     <video v-if="countdown === 0" ref="cameraFeed" class="camera-feed" autoplay muted playsinline></video>
-    <div v-if="blinked" class="blink-message">You blinked</div>
+    <div v-if="blinked" class="blink-message">{{ $t('intro.blink') }}</div>
     <div v-if="blinked" class="red-overlay"></div>
   </div>
 </template>

@@ -1,34 +1,34 @@
 <template>
     <div class="outer-container" ref="outerContainer">
-      <div class="static-text">Contamos historias</div>
+      <div class="static-text">{{ $t('home.storiesTitle') }}</div>
       <section ref="horizontalScroll" class="horizontal-scroll">
         <div class="scroll-container" ref="scrollContainer">
         <div class="slide">
             <h1 class="number">01</h1>
             <div class="history">
-                <h2 class="history-title">TV + CINE</h2>
-                <p class="history-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h2 class="history-title">{{ $t('home.storiesTitle1') }}</h2>
+                <p class="history-text">{{ $t('home.storiesText1') }}</p>
             </div>
         </div>
         <div class="slide">
             <h1 class="number">02</h1>
             <div class="history">
-                <h2 class="history-title">25 ANOS</h2>
-                <p class="history-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h2 class="history-title">{{ $t('home.storiesTitle2') }}</h2>
+                <p class="history-text">{{ $t('home.storiesText2') }}</p>
             </div>
         </div>
         <div class="slide">
             <h1 class="number">03</h1>
             <div class="history">
-                <h2 class="history-title">TV + CINE</h2>
-                <p class="history-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h2 class="history-title">{{ $t('home.storiesTitle3') }}</h2>
+                <p class="history-text">{{ $t('home.storiesText3') }}</p>
             </div>
         </div>
         <div class="slide">
             <h1 class="number">04</h1>
             <div class="history">
-                <h2 class="history-title">25 ANOS</h2>
-                <p class="history-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h2 class="history-title">{{ $t('home.storiesTitle4') }}</h2>
+                <p class="history-text">{{ $t('home.storiesText4') }}</p>
             </div>
         </div>
         </div>
@@ -67,24 +67,24 @@
   </script>
   
   <style scoped>
-
-.outer-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  font-family: var(--f-thin);
-}
-
-.static-text {
-  position: absolute;
-  top: 15%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 5;
-  font-size: var(--t-header2);
-  text-align: center;
-  text-transform: uppercase;
-}
+  .outer-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    font-family: var(--f-thin);
+  }
+  
+  .static-text {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    font-size: var(--t-header2);
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
   .horizontal-scroll {
     position: relative;
     overflow: hidden;
@@ -94,54 +94,55 @@
   }
   
   .scroll-container {
-  display: flex;
-  height: 100%;
-  width: 200%;
-    }
-
-.slide {
-    width: 50%;
-    padding: 10px;
+    display: flex;
+    height: 100%;
+    width: 240%; /* Adjust for the number of slides you want */
+    gap: 20px;
+  }
+  
+  .slide {
+    width: 60%;
+    padding: 2rem 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-  .history-text {
-    display: flex;
-    font-size: var(--t-body);
-    flex-wrap: nowrap;
+    gap: 100px;
   }
-
+  
   .number {
     color: var(--c-red);
     font-size: 12rem;
-    padding: 1rem;
   }
-
+  
+  .history-text {
+    font-size: var(--t-body);
+    width: 80%;
+  }
+  
   .history-title {
-    font-size: var(--t-header2);
+    font-size: var(--t-header1);
+    text-transform: uppercase;
   }
-
+  
   .history {
     display: flex;
     flex-direction: column;
   }
-
-  @media(max-width: 767px) {
-
+  
+  @media (max-width: 767px) {
     .scroll-container {
-  width: 300%;
+      width: 200%; /* Adjust for the number of slides you want */
     }
+  
     .number {
-    color: var(--c-red);
-    font-size: 8rem;
-    padding: 1rem;
+      font-size: 8rem;
+      padding: 1rem;
+    }
+  
+    .history-title {
+      font-size: var(--t-header3);
+    }
   }
-
-  .history-title {
-    font-size: var(--t-header3);
-  }
-}
   </style>
+  
   

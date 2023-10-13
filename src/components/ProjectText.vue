@@ -1,7 +1,7 @@
 <template>
     <div class="text-container" ref="textContainer">
-      <p class="before-text">We work harder and harder!</p>
-      <p class="text">We want to show our beloved work and if you want to be the next, don't think twice!</p>
+      <p class="before-text">{{ $t('projects.projectTextBefore') }}</p>
+      <p class="text">{{ $t('projects.projectText') }}</p>
     </div>
   </template>
   
@@ -21,7 +21,7 @@
   
   .text-container .text {
     padding: 6rem 3rem 10rem 3rem;
-    line-height: 50px;
+    line-height: 4rem;
     font-family: var(--f-thin);
   }
 

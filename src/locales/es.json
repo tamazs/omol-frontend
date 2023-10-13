@@ -1,14 +1,33 @@
 {
   "navbar": {
     "home": "Home",
-    "projects": "Projects",
-    "about": "About",
-    "team": "Team"
+    "projects": "Proyectos",
+    "about": "Nosotros",
+    "team": "Equipo"
   },
   "footer": {
-    "contactUs": "Contact us",
-    "callUs": "Call us",
-    "followUs": "Follow us"
+    "contactUs": "Contáctanos",
+    "callUs": "Telefono: ",
+    "followUs": "Siguienos en"
+  },
+  "intro": {
+    "question": "¿Tienes un minuto?",
+    "text1": "No necesitamos más que eso para contarte una historia de amor que cambiará tu vida.",
+    "button1": "Claro",
+    "button2": "No, gracias",
+    "thanku": "¡Gracias!",
+    "text2": "Sabemos que hoy en día nuestra atención se agota rápido. Demasiado rápido. Nadie tiene tiempo para historias. Aunque, como humanos, las sigamos necesitando.",
+    "bottomText1": "Eso sí, un minuto de amor total.",
+    "text3": "Por eso nos gustaria, enseñarte lo que hacemos en un video reel de 1 minuto, pero primero necesitamos que permitas el acceso a tu cámara.",
+    "bottomText2": "Recuerda, si parpadeas te lo pierdes...",
+    "challengeTitle": "Ahora, el desafío:",
+    "challengeText": "Si quieres ver este vídeo, tendrás que demostrar que puedes mantener tu atención. Si pestañeas, tu minuto habrá acabado.",
+    "button3": "Empezar!",
+    "button4": "No, gracias",
+    "blink": "¡Has parpadeado!",
+    "resultTitle": "Estubiste atento por",
+    "button5": "Otra vez",
+    "button6": "Ver website"
   },
   "home": {
     "scrollDown": "Scroll Down",
@@ -30,22 +49,23 @@
     "textHighlightSpan6": " para que puedas compartir rápidamente lo que quieras contar.",
     "sliderBtn": "Ver más",
     "marqueeText": "Entregamos al momento",
-    "footerTextBefore": "Send some love",
-    "footerText": "If you want to send us some love, this is the right place to do it.",
-    "namePh": "Your name",
-    "emailPh": "Your email",
-    "msgPh": "Type here"
+    "footerTextBefore": "Envianos un poco de amor",
+    "footerText": "Si quieres enviarnos un poco de amor, este es el sitio indicado para hacerlo.",
+    "namePh": "Tu nombre",
+    "emailPh": "Tu email",
+    "msgPh": "Escribé aquí...",
+    "screensaverText": "¡Este minuto es tuyo, aprovéchalo!"
   },
   "about": {
-    "aboutText1Before": "Know more about us",
-    "aboutText1": "OMOL is a recording and editing service with the latest generation smartphones, fast, delivered almost instantly, for quick sharing.",
-    "aboutText2Before": "We share our vision",
+    "aboutText1Before": "Conoce más sobre nosotros",
+    "aboutText1": "OMOL es un servicio de grabación y edición con lo último teléfonos inteligentes de última generación, rápidos, entregados casi al instante, para compartir rápidamente.",
+    "aboutText2Before": "Compartimos nuestra visión",
     "aboutText2": "Warhol pontificaba que todo el mundo merecía sus 15 minutos de fama. Hoy en día, que la atención se agota mucho más rápido, es mejor condensar nuestro mensaje en poco más de un minuto.",
     "aboutText2After": "Eso sí: Un minuto de amor total.",
     "marqueeText": "Se pueden olvidar de tu logo, pero no de lo que les hiciste sentir"
   },
   "projects": {
-    "projectTextBefore": "We work harder and harder!",
-    "projectText": "We want to show our beloved work and if you want to be the next, don't think twice!"
+    "projectTextBefore": "Trabajamos duro ¡y más duro!",
+    "projectText": "Queremos mostrar nuestro querido trabajo y si quieres para ser el próximo, ¡no lo pienses más!"
   }
 }

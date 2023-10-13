@@ -7,8 +7,27 @@
     },
     "footer": {
       "contactUs": "Contact us",
-      "callUs": "Call us",
+      "callUs": "Call us: ",
       "followUs": "Follow us"
+    },
+    "intro": {
+      "question": "Do you have a minute?",
+      "text1": "We don't need more than that to tell you a love story that will change your life",
+      "button1": "Sure!",
+      "button2": "No, thanks",
+      "thanku": "Thanks!",
+      "text2": "We know that nowadays our attention runs out quickly. Too fast. Nobody has time for stories. Although, as humans, we continue to need them.",
+      "bottomText1": "Yes, a minute of total love.",
+      "text3": "That's why we would like to show you what we can do in a 1 minute video reel, but first we need access to your camera.",
+      "bottomText2": "Remember, if you blink you miss it...",
+      "challengeTitle": "Now, the challenge:",
+      "challengeText": "If you want to watch this video, you'll have to prove that you can keep your attention. If you blink, your minute is up.",
+      "button3": "Start!",
+      "button4": "No, thanks",
+      "blink": "You blinked!",
+      "resultTitle": "You were focused for",
+      "button5": "Try again",
+      "button6": "Go to site"
     },
     "home": {
       "scrollDown": "Scroll Down",
@@ -34,7 +53,8 @@
       "footerText": "If you want to send us some love, this is the right place to do it.",
       "namePh": "Your name",
       "emailPh": "Your email",
-      "msgPh": "Type here"
+      "msgPh": "Type here...",
+      "screensaverText": "This minute is yours, take advantage of it!"
     },
     "about": {
       "aboutText1Before": "Know more about us",

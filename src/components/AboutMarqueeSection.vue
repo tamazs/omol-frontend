@@ -2,16 +2,16 @@
     <section class="about-marquee">
         <div class="about-marquee__inner" aria-hidden="true" ref="inner">
           <div class="about-marquee__part">
-            se pueden olvidar de tu logo, pero no de lo que les hiciste sentir
+            {{ $t('home.marqueeText') }}
           </div>
           <div class="about-marquee__part">
-            se pueden olvidar de tu logo, pero no de lo que les hiciste sentir
+            {{ $t('home.marqueeText') }}
           </div>
           <div class="about-marquee__part">
-            se pueden olvidar de tu logo, pero no de lo que les hiciste sentir 
+            {{ $t('home.marqueeText') }}
           </div>
           <div class="about-marquee__part">
-            se pueden olvidar de tu logo, pero no de lo que les hiciste sentir 
+            {{ $t('home.marqueeText') }} 
           </div>
         </div>
     </section>

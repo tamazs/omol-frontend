@@ -1,10 +1,10 @@
 <template>
     <div class="text-container" ref="textContainer">
-      <p class="before-text">we share our vision</p>
-      <p class="text">Warhol pontificaba que todo el mundo merecía sus 15 minutos de fama. Hoy en día, que la atención se agota mucho más rápido, es mejor condensar nuestro mensaje en poco más de un minuto.
+      <p class="before-text">{{ $t('about.aboutText2Before') }}</p>
+      <p class="text">{{ $t('about.aboutText2') }}
         <br/>
         <br/>
-        Eso sí: Un minuto de amor total.
+        {{ $t('about.aboutText2After') }}
       </p>
     </div>
   </template>
@@ -26,6 +26,7 @@
   .text-container .text {
     padding: 6rem 3rem 10rem 3rem;
     line-height: 50px;
+    line-height: 4rem;
     font-family: var(--f-thin);
   }
 

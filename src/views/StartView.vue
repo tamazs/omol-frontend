@@ -1,12 +1,12 @@
 <template>
     <div class="start">
     <div class="intro">
-        <h1>¿Tienes un minuto?</h1>
-        <p>No necesitamos más que eso para contarte<br/> una historia de amor que cambiará tu vida.</p>
+        <h1>{{ $t('intro.question') }}</h1>
+        <p>{{ $t('intro.text1') }}</p>
     </div>
      <div class="start-select">
-        <RouterLink class="select-btn" to="/screens">Claro!</RouterLink>
-        <RouterLink class="select-btn" to="/home">no, gracias</RouterLink>
+        <RouterLink class="select-btn" to="/screens">{{ $t('intro.button1') }}</RouterLink>
+        <RouterLink class="select-btn" to="/home">{{ $t('intro.button2') }}</RouterLink>
      </div>
     </div>
 </template>
