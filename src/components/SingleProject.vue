@@ -5,7 +5,10 @@
     </div>
     <div class="grid-item text-item">
       <h1 class="project-title" v-if="pState.projects[0]">{{ pState.projects[0].title }}</h1>
-      <p class="project-description" v-if="pState.projects[0]">{{ pState.projects[0].description }}</p>
+      <div class="desc">
+        <p class="info">Information:</p>
+        <p class="project-description" v-if="pState.projects[0]">{{ pState.projects[0].description }}</p>
+      </div>
       <p class="project-category" v-if="pState.projects[0]">{{ pState.projects[0].category }}</p>
       <p class="project-tag">©2023 OMOL PRODUCTION TEAM</p>
     </div>
@@ -59,10 +62,21 @@
   width: max-content;
 }
 
+.desc {
+  display: flex;
+  align-items: flex-start;
+  gap: 8rem;
+}
+
+.info {
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
 .project-description {
   margin-top: 10px;
   column-count: 2;
-  column-gap: 2rem;
+  column-gap: 8rem;
   break-inside: avoid;
   line-height: 1.3rem;
 }

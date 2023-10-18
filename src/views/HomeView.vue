@@ -5,7 +5,6 @@
         <TextHighlight/>
         <ProjectSlider/>
         <MarqueeSection/>
-        <ContactSection/>
         <ContactForm/>
     </div>
 </template>
@@ -16,7 +15,6 @@ import HistorySection from '../components/HistorySection.vue';
 import VideoHeroSection from '../components/VideoHeroSection.vue';
 import TextHighlight from '../components/TextHighlight.vue';
 import MarqueeSection from '../components/MarqueeSection.vue';
-import ContactSection from '../components/ContactSection.vue';
 import ContactForm from '../components/ContactForm.vue';
 </script>
 

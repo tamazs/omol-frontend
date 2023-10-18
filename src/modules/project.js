@@ -40,7 +40,6 @@ const getProject = () => {
         try {
           const response = await axios.get('http://localhost:1337/api/projects/' + projectId.value + '/?populate=*&locale=' + pState.lang);
           const project = response.data.data;
-          console.log(project)
       
           if (project) {
             pState.projects = [{

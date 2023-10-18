@@ -5,7 +5,7 @@
         <LogoMarqueeSection/>
         <AboutText2/>
         <AboutMarqueeSection/>
-        <ContactSection/>
+        <Clients/>
     </div>
 </template>
 
@@ -14,8 +14,8 @@ import AboutText1 from '../components/AboutText1.vue'
 import AboutText2 from '../components/AboutText2.vue'
 import AboutSlider from '../components/AboutSlider.vue'
 import AboutMarqueeSection from '../components/AboutMarqueeSection.vue'
-import ContactSection from '../components/ContactSection.vue'
 import LogoMarqueeSection from '../components/LogoMarqueeSection.vue'
+import Clients from '../components/Clients.vue'
 </script>
 
 <style lang="scss" scoped>

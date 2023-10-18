@@ -12,11 +12,17 @@
             <div class="contact-item">Email: <a href="mailto:nbuenavista@goodsightmedia.com">nbuenavista@goodsightmedia.com</a></div>
           </div>
         </div>
-        <div class="footer-section">
-          <p class="footer-title">{{ $t('footer.followUs') }}</p>
-          <div class="social-icons">
-            <a href="https://vimeo.com/goodsightmedia" target="_blank"><i class="fab fa-vimeo"></i></a>
-            <a href="https://www.instagram.com/omolvideo/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <div class="footer-section-mid">
+          <div class="footer-section-div">
+            <p class="footer-title">Newsletter</p>
+            <button class="news-btn">Subscribe</button>
+          </div>
+          <div class="footer-section-div">
+            <p class="footer-title">{{ $t('footer.followUs') }}</p>
+            <div class="social-icons">
+              <a href="https://vimeo.com/goodsightmedia" target="_blank"><i class="fab fa-vimeo"></i></a>
+              <a href="https://www.instagram.com/omolvideo/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
           </div>
         </div>
       </div>
@@ -52,6 +58,30 @@
     margin: 10px;
     border-bottom: 1px solid rgb(112, 112, 112, .3);
   }
+
+  .footer-section-mid {
+    flex: 1;
+    margin: 10px;
+    border-bottom: 1px solid rgb(112, 112, 112, .3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-section-div {
+    flex: 1;
+  }
+
+  .news-btn {
+    padding: 1.5rem 4rem;
+    color: var(--c-white);
+    background-color: var(--c-black);
+    text-transform: uppercase;
+    border: none;
+    border-radius: 50px;
+    width: 24rem;
+    cursor: pointer;
+  }
   
   .footer-title {
     font-size: var(--t-header1);
@@ -80,7 +110,7 @@
   }
   
   .social-icons {
-    margin-top: 10px;
+    margin-top: 15px;
     font-size: var(--t-header2);
     display: flex;
     gap: 40px;
