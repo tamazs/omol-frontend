@@ -134,7 +134,7 @@
   }
   
   form {
-    padding: 6rem 3rem 6rem 3rem;
+    padding: 6rem 15rem 6rem 3rem;
     display: flex;
     flex-direction: column;
   }

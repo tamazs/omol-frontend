@@ -67,6 +67,9 @@
     "projects": {
       "projectTextBefore": "We work harder and harder!",
       "projectText": "We want to show our beloved work and if you want to be the next, don't think twice!"
+    },
+    "404": {
+      "bottomText": "Giving and receiving love is always important"
     }
 }
   

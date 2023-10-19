@@ -54,6 +54,11 @@ const router = createRouter({
       path: '/team',
       name: 'team',
       component: () => import('../views/TeamView.vue')
+    },
+    {
+      path: '/:notFound',
+      name: 'notFound',
+      component: () => import('../views/404.vue')
     }
   ]
 })
