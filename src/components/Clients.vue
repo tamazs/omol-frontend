@@ -49,7 +49,7 @@ const { cState, getClients } = client();
   
   onMounted(() => {
     imageGrid.value.addEventListener("mousemove", handleMouseMove);
-    getClients(); // Fetch data here or in the parent component
+    getClients();
   });
   
   </script>
@@ -65,14 +65,14 @@ const { cState, getClients } = client();
   
   .image {
     width: 100%;
-    height: 150px; /* Fixed height for all images */
-    overflow: hidden; /* Crop images to match the fixed height */
+    height: 150px;
+    overflow: hidden;
   }
   
   .image img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Maintain the aspect ratio and cover the fixed height */
+    object-fit: contain;
   }
   
   .my-div {

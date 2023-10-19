@@ -70,6 +70,7 @@
 
   .footer-section-div {
     flex: 1;
+    margin-bottom: 10px;
   }
 
   .news-btn {
@@ -84,7 +85,7 @@
   }
   
   .footer-title {
-    font-size: var(--t-header1);
+    font-size: var(--t-bigText);
     max-width: 40vw;
     text-transform: uppercase;
     font-family: var(--f-light);

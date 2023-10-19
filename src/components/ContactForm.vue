@@ -101,7 +101,7 @@
   .text-container {
     height: auto;
     width: 100vw;
-    font-size: var(--t-header1);
+    font-size: var(--t-bigText);
     background-color: var(--c-white);
     position: relative;
     margin-top: 10rem;
@@ -109,8 +109,8 @@
   }
   
   .text-container .text {
-    padding: 6rem 3rem 4rem 3rem;
-    line-height: 4rem;
+    padding: 6rem 15rem 4rem 3rem;
+    line-height: 3rem;
     font-family: var(--f-thin);
   }
   
