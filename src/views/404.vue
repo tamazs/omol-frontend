@@ -19,6 +19,8 @@
   text-align: center;
   overflow: hidden;
   font-family: var(--f-light);
+  display: flex;
+  align-items: flex-start;
 }
 .bottom-text {
   position: absolute;
@@ -34,20 +36,21 @@
 }
 .container p span.cursor {
   display: inline-block;
-  background-color: var(--c-black);
-  margin-left: 0.1rem;
-  width: 3px;
+  background-color: var(--c-red);
+  margin-left: 0.4rem;
+  width: 2px;
+  height: 4.063rem;
   animation: blink 1s infinite;
 }
 .container p span.cursor.typing {
   animation: none;
 }
 @keyframes blink {
-  0%  { background-color: var(--c-black); }
-  49% { background-color: var(--c-black); }
+  0%  { background-color: var(--c-red); }
+  49% { background-color: var(--c-red); }
   50% { background-color: transparent; }
   99% { background-color: transparent; }
-  100%  { background-color: var(--c-black); }
+  100%  { background-color: var(--c-red); }
 }
   </style>
   
