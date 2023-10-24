@@ -40,11 +40,32 @@
   </template>
   
   <style scoped>
+@media (max-width: 767px) {
+  .footer-title {
+    font-size: var(--t-header2) !important;
+    max-width: 100vw !important;
+  }
+
+  .contact-info {
+    flex-direction: column !important;
+  }
+
+  .footer-section-mid {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+  }
+
+  .news-btn {
+    padding: 1rem 1rem !important;
+    width: 10rem !important;
+  }
+  }
   .footer {
     background-color: var(--c-white);
     color: var(--c-black);
     padding: 20px;
     overflow: hidden;
+    width: 100vw;
   }
   
   .footer-content {

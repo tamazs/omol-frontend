@@ -47,11 +47,22 @@
   
   const scrollContainer = ref(null);
   const outerContainer = ref(null);
+
+  function getContainerWidth() {
+  // Calculate the total width based on the number of slides and their widths
+  const slides = scrollContainer.value.querySelectorAll('.slide');
+  return [...slides].reduce((totalWidth, slide) => totalWidth + slide.offsetWidth, 0);
+}
+
+function setContainerWidth(width) {
+  scrollContainer.value.style.width = `${width}px`; // Set the width in pixels
+}
   
   onMounted(() => {
-
+    const containerWidth = getContainerWidth(); // Calculate the total width of the container
+  setContainerWidth(containerWidth); // Set the width dynamically
   gsap.to(scrollContainer.value, {
-    x: "-75%",
+    x: -(containerWidth - window.innerWidth),
     ease: "none",
     scrollTrigger: {
       trigger: outerContainer.value,
@@ -96,19 +107,19 @@
   .scroll-container {
     display: flex;
     height: 100%;
-    width: 240%; /* Adjust for the number of slides you want */
+    width: max-content;
     gap: 20px;
   }
   
   .slide {
-    width: 60%;
+    width: 70vw;
     padding: 2rem 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 100px;
+    gap: 150px;
   }
-  
+
   .number {
     color: var(--c-red);
     font-size: 12rem;
@@ -122,6 +133,7 @@
   .history-title {
     font-size: var(--t-header1);
     text-transform: uppercase;
+    text-wrap: nowrap;
   }
   
   .history {
@@ -130,18 +142,23 @@
   }
   
   @media (max-width: 767px) {
-    .scroll-container {
-      width: 200%; /* Adjust for the number of slides you want */
-    }
+    .slide {
+    width: 100vw !important;
+    gap: 40px !important;
+  }
   
-    .number {
-      font-size: 8rem;
-      padding: 1rem;
-    }
+  .number {
+    font-size: 7rem !important;
+  }
   
-    .history-title {
-      font-size: var(--t-header3);
-    }
+  .history-text {
+    font-size: var(--t-body);
+    width: 100% !important;
+  }
+  
+  .history-title {
+    font-size: var(--t-header2) !important;
+  }
   }
   </style>
   

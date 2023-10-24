@@ -10,6 +10,15 @@
 </script>
   
   <style scoped lang="scss">
+@media (max-width: 767px) {
+    .text-container .text {
+    padding: 5rem 2rem 2rem 2rem !important;
+  }
+
+  .text-container {
+    font-size: var(--t-header2) !important;
+  }
+  }
   .text-container {
     height: auto;
     width: 100vw;

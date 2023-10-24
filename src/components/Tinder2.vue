@@ -129,7 +129,7 @@ const router = useRouter();
     setTimeout(() => {
         openPage();
       removeCard(false);
-    }, 300); // Delayed removal to allow the animation to complete
+    }, 300);
   }
 };
 
@@ -148,7 +148,6 @@ const router = useRouter();
   
   .tinder--card {
     display: inline-block;
-    width: 90vw;
     max-width: 400px;
     height: 70vh;
     background: transparent;
@@ -171,7 +170,7 @@ const router = useRouter();
   .tinder--card img {
     max-width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     pointer-events: none;
   }
   

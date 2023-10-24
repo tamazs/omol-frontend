@@ -55,6 +55,7 @@
   text-transform: uppercase;
   font-size: var(--t-header3);
   font-family: var(--f-light);
+  text-align: center;
 }
 </style>
 

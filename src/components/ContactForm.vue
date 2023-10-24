@@ -98,6 +98,24 @@
   </script>
   
   <style scoped lang="scss">
+  @media (max-width: 767px) {
+    .text-container .text {
+    padding: 5rem 2rem 2rem 2rem !important;
+  }
+
+  .text-container {
+    font-size: var(--t-header2) !important;
+    margin-top: 0rem !important;
+  }
+
+  form {
+    padding: 5rem 2rem 2rem 2rem !important;
+  }
+
+  input[type=submit] {
+    width: 40% !important;
+  }
+  }
   .text-container {
     height: auto;
     width: 100vw;
@@ -160,8 +178,8 @@
   }
   
   input[type=submit] {
-    background-color: red;
-    color: white;
+    background-color: var(--c-red);
+    color: var(--c-white);
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
@@ -170,17 +188,14 @@
     margin-top: 30px;
     font-family: var(--f-thin);
   }
-  
-  input[type=submit]:hover {
-    background-color: red;
-  }
+
   
   .red-border {
-    border: 1px solid red;
+    border: 1px solid var(--c-red);
   }
 
   .error-message {
-  color: red;
+  color: var(--c-red);
   font-size: 12px;
 }
   </style>

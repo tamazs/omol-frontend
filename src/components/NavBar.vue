@@ -3,7 +3,7 @@
       <div class="nav-content">
         <div class="mobile-nav">
           <div class="logo">
-            <img :src="whiteLogoUrl" alt="Logo" />
+            <img :src="logoUrl" alt="Logo" />
           </div>
           <div class="burger-menu" @click="toggleMenu">
             <i class="fas fa-heart"></i>
@@ -60,9 +60,11 @@ import logoBlack from '@/assets/omol_b.svg';
 import logoWhite from '@/assets/omol_w.svg';
 import { useI18n } from 'vue-i18n';
 import { store } from '@/store';
+import { useRouter } from 'vue-router';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const router = useRouter();
 const navbar = ref(null);
 const menuContainer = ref(null);
 const logoUrl = ref(logoBlack);
@@ -116,6 +118,25 @@ function toggleMenu() {
     });
     document.body.style.overflow = document.body.style.overflow === 'hidden' ? 'auto' : 'hidden';
 }
+
+function closeMenu() {
+  // Close the menu and restore body overflow
+  gsap.to(menuContainer.value, {
+    right: '-100vw',
+    duration: 0.3,
+    onComplete: () => {
+      gsap.set(".menu-header, .nav-links", { opacity: 0 });
+      document.body.style.overflow = 'auto';
+    },
+  });
+}
+
+router.beforeEach((to, from, next) => {
+  // Close the menu when the route changes
+  closeMenu();
+  next();
+});
+
 </script>
 
 <style scoped>
@@ -167,7 +188,7 @@ function toggleMenu() {
 .burger-menu {
   font-size: 24px;
   cursor: pointer;
-  color: var(--c-white);
+  color: var(--c-black);
 }
 
 .menu-container {

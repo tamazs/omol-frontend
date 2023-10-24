@@ -85,8 +85,7 @@
     
     @media(max-width: 767px) {
       .logo-marquee__part {
-      padding: 0 60px;
-      font-size: var(--t-header3);
+        font-size: 10rem !important;
     }
     }
     </style>
