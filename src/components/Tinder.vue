@@ -7,13 +7,11 @@
     <div class="tinder--cards">
       <div
         class="tinder--card"
-        v-for="(card, index) in cards"
+        v-for="(crew, index) in crews"
         :key="index"
-        v-bind:style="{ zIndex: cards.length - index, transform: card.transform, opacity: card.opacity }"
+        v-bind:style="{ zIndex: crews.length - index, transform: cardTransform(index), opacity: cardOpacity(index) }"
       >
-        <img :src="card.image" />
-        <h2>{{ card.name }}</h2>
-        <p>{{ card.description }}</p>
+        <img :src="crew.img" />
       </div>
     </div>
     <div class="tinder--buttons">
@@ -24,33 +22,15 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import Hammer from 'hammerjs';
+import crew from '../modules/crew';
+
+const { crewState, getCrews } = crew()
+
+const crews = computed(() => crewState.crews);
 
 const isLoaded = ref(false);
-const cards = ref([
-  {
-    image: '../../src/assets/tinder1.png',
-    name: 'Nacho',
-    description: 'Soy de la Sierra y un día salí con el móvil a grabar...',
-    transform: '',
-    opacity: ''
-  },
-  {
-    image: '../../src/assets/tinder2.png',
-    name: 'Demo card 2',
-    description: 'This is a demo for Tinder-like swipe cards',
-    transform: '',
-    opacity: ''
-  },
-  {
-    image: '../../src/assets/tinder3.png',
-    name: 'Demo card 3',
-    description: 'This is a demo for Tinder-like swipe cards',
-    transform: '',
-    opacity: ''
-  },
-]);
 
 onMounted(() => {
   setTimeout(() => {
@@ -60,13 +40,22 @@ onMounted(() => {
 });
 
 function initCards() {
-  cards.value.forEach((card, index) => {
-    card.transform = `scale(${(20 - index) / 20}) translateY(-${30 * index}px)`;
-    card.opacity = (10 - index) / 10;
+  crews.value.forEach((crew, index) => {
+    crew.transform = `scale(${(20 - index) / 20}) translateY(-${30 * index}px)`;
+    crew.opacity = (10 - index) / 10;
   });
 }
 
+function cardTransform(index) {
+  return crews.value[index].transform;
+}
+
+function cardOpacity(index) {
+  return crews.value[index].opacity;
+}
+
 onMounted(() => {
+  getCrews();
   const cardElements = Array.from(document.querySelectorAll('.tinder--card'));
   cardElements.forEach((el, index) => {
     const hammertime = new Hammer(el);
@@ -108,13 +97,13 @@ function onLove() {
   removeCard(true);
 }
 
-function removeCard(love) {
-  const card = cards.value[0];
-  if (card) {
+function removeCard(index, love) {
+  if (crews.value.length > 0 && crews.value[index]) {
+    const card = crews.value[index];
     card.transform = `translate(${love ? '150%' : '-150%'}, -100px) rotate(${love ? '-30' : '30'}deg)`;
     card.opacity = 0;
     setTimeout(() => {
-      cards.value.shift();
+      crews.value.splice(index, 1);
       initCards();
     }, 300);
   }

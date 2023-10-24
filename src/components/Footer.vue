@@ -44,6 +44,7 @@
     background-color: var(--c-white);
     color: var(--c-black);
     padding: 20px;
+    overflow: hidden;
   }
   
   .footer-content {
