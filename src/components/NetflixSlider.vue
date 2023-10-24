@@ -22,7 +22,7 @@
             <router-link :to="`/project/${slide.id}`" class="netflix-plus-button"><i class="fas fa-circle-xmark" id="plusmark"></i></router-link>
             <button class="netflix-close-button"><i class="fas fa-circle-xmark"></i></button>
           </div>
-          <div class="netflix-hover-text">Hover Text Here</div>
+          <div class="netflix-hover-text">{{ slide.hoverText }}</div>
         </div>
       </div>
     </swiper-slide>

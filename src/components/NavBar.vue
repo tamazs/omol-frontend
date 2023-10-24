@@ -2,25 +2,28 @@
     <nav ref="navbar" class="navbar">
       <div class="nav-content">
         <div class="mobile-nav">
+          <router-link to="/home">
           <div class="logo">
             <img :src="logoUrl" alt="Logo" />
           </div>
+        </router-link>
           <div class="burger-menu" @click="toggleMenu">
             <i class="fas fa-heart"></i>
           </div>
         </div>
         <div ref="menuContainer" class="menu-container">
           <div class="menu-header">
+            <router-link to="/home">
             <div class="logo">
               <img :src="whiteLogoUrl" alt="Logo" />
             </div>
+          </router-link>
             <div @click="toggleMenu">
               <i class="fas fa-x"></i>
             </div>
           </div>
           <div class="nav-links">
             <div class="mobile-pages">
-              <router-link to="/home" :class="{ 'active-link': $route.path === '/home' }">Home</router-link>
               <router-link to="/projects" :class="{ 'active-link': $route.path === '/projects' ||  $route.path.startsWith('/project/') }">{{ $t('navbar.projects') }}</router-link>
               <router-link to="/about" :class="{ 'active-link': $route.path === '/about' }">{{ $t('navbar.about') }}</router-link>
               <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }">{{ $t('navbar.team') }}</router-link>
@@ -32,12 +35,13 @@
           </div>
         </div>
         <div class="desktop-nav">
+          <router-link to="/home">
           <div class="logo">
             <img :src="logoUrl" alt="Logo" />
           </div>
+        </router-link>
           <div class="nav-middle">
             <div class="pages">
-              <router-link to="/home" :class="{ 'active-link': $route.path === '/home' }">Home</router-link>
               <router-link to="/projects" :class="{ 'active-link': $route.path === '/projects' ||  $route.path.startsWith('/project/') }">{{ $t('navbar.projects') }}</router-link>
               <router-link to="/about" :class="{ 'active-link': $route.path === '/about' }">{{ $t('navbar.about') }}</router-link>
               <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }">{{ $t('navbar.team') }}</router-link>

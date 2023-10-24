@@ -28,8 +28,8 @@
   import Hammer from 'hammerjs';
   import crew from '../modules/crew';
   import { useRouter } from 'vue-router';
-
-const router = useRouter();
+  
+  const router = useRouter();
   
   const { crewState, getCrews } = crew();
   const crews = computed(() => crewState.crews);
@@ -77,6 +77,7 @@ const router = useRouter();
       const deltaX = startX.value - event.clientX;
       isDragging.value = false;
       const card = crews.value[0];
+  
       if (Math.abs(deltaX) > 150) {
         if (deltaX > 0) {
           // Swiped to the left (Nope)
@@ -86,6 +87,7 @@ const router = useRouter();
           likeCard();
         }
       } else {
+        // Restore the card's position and opacity
         card.transform = '';
         card.opacity = 1;
       }
@@ -115,6 +117,7 @@ const router = useRouter();
     if (crews.value.length > 0) {
       const card = crews.value[0];
       card.transform = 'translateX(100%) rotate(15deg)';
+      card.opacity = '0';
       setTimeout(() => {
         removeCard(true);
       }, 300);
@@ -122,18 +125,19 @@ const router = useRouter();
   };
   
   const nopeCard = () => {
-  if (crews.value.length > 0) {
-    const card = crews.value[0];
-    card.transform = 'translateX(-100%) rotate(-15deg)';
-
-    setTimeout(() => {
+    if (crews.value.length > 0) {
+      const card = crews.value[0];
+      card.transform = 'translateX(-100%) rotate(-15deg)';
+      card.opacity = '0';
+      setTimeout(() => {
         openPage();
-      removeCard(false);
-    }, 300);
-  }
-};
-
+        removeCard(false);
+      }, 300);
+    }
+  };
+  
   </script>
+  
   
   <style scoped>
   .tinder {
@@ -178,7 +182,7 @@ const router = useRouter();
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 5rem;
+    height: 4rem;
     gap: 20px;
   }
   

@@ -113,7 +113,7 @@ function setContainerWidth(width) {
   
   .slide {
     width: 70vw;
-    padding: 2rem 2rem;
+    padding: 2rem 2rem 0rem 2rem;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -53,24 +53,27 @@ onBeforeUnmount(() => {
 const handleMouseEnter = (event) => {
   const gif = event.currentTarget.querySelector(".hover-gif");
   gsap.to(gif, { opacity: 1, duration: 0.5 });
-  gsap.to(event.currentTarget, { scale: 1.1, duration: 0.5 });
 };
 
 const handleMouseLeave = (event) => {
   const gif = event.currentTarget.querySelector(".hover-gif");
   gsap.to(gif, { opacity: 0, duration: 0.5 });
-  gsap.to(event.currentTarget, { scale: 1, duration: 0.5 });
 };
 
 const modules = [Navigation, Scrollbar];
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@use "sass:math";
+
+$aspect-ratio: math.div(4, 3);
+
 .mySwiper {
   width: 100%;
   height: 100%;
   background-color: var(--c-white);
   cursor: grab;
+  padding: 0 1rem;
 }
 
 .swiper-slide {
@@ -80,15 +83,15 @@ const modules = [Navigation, Scrollbar];
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px;
   overflow: hidden;
 }
 
 .image-wrapper {
   position: relative;
-  width: 300px;
-  height: 450px;
+  width: 100%;
+  height: 300px; /* Use the same aspect ratio */
   transition: transform 0.5s ease;
+  margin-bottom: 85px;
 }
 
 .text-overlay {

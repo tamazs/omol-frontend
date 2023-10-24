@@ -65,7 +65,16 @@ const router = createRouter({
       name: 'notFound',
       component: () => import('../views/404.vue')
     }
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      // If there is a saved position, scroll to that position
+      return savedPosition;
+    } else {
+      // If there is no saved position, scroll to the top of the page
+      return { top: 0 };
+    }
+  }
 })
 
 /* router.beforeEach((to, from, next) => {

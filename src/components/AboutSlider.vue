@@ -72,7 +72,7 @@ const modules = [Navigation, Scrollbar];
 
 .about-image-wrapper {
   position: relative;
-  width: 400px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

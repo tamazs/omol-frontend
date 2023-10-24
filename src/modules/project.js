@@ -28,6 +28,7 @@ const getProject = () => {
           pState.projects = response.data.data.map(project => ({
             id: project.id,
             title: project.attributes.name,
+            hoverText: project.attributes.hoverText,
             img: 'http://localhost:1337' + project.attributes.coverImage.data.attributes.url,
             gif: 'http://localhost:1337' + project.attributes.coverGif.data.attributes.url,
           }));
