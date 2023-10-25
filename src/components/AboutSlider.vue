@@ -28,10 +28,10 @@ const { aState, getAbouts } = about()
 
 const slides = computed(() => aState.abouts);
 
-const slidesPerView = ref(window.innerWidth <= 767 ? 1 : 3);
+const slidesPerView = ref(window.innerWidth <= 767 ? 1 : 4);
 
 const updateSlidesPerView = () => {
-  slidesPerView.value = window.innerWidth <= 767 ? 1 : 3;
+  slidesPerView.value = window.innerWidth <= 767 ? 1 : 4;
 };
 
 onMounted(() => {
@@ -76,7 +76,7 @@ const modules = [Navigation, Scrollbar];
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 300px; /* Set your desired fixed height here */
+  height: 50vh; /* Set your desired fixed height here */
   margin-bottom: 85px; /* Adjust the margin as needed */
 }
 

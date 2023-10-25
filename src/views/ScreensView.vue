@@ -17,6 +17,9 @@
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
+import { useI18n } from 'vue-i18n'; // Import useI18n
+
+const { t } = useI18n(); 
 
 const router = useRouter();
 const route = useRoute();
@@ -29,7 +32,7 @@ const texts = [
 
 const currentIndex = ref(0);
 
-const currentText = computed(() => $t(texts[currentIndex.value]));
+const currentText = computed(() => t(texts[currentIndex.value]));
 
 const nextScreen = () => {
   if (currentIndex.value < texts.length - 1) {

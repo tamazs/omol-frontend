@@ -89,6 +89,7 @@
     padding: 1.5rem 3rem;
     width: max-content;
     font-size: var(--t-header3);
+    margin-bottom: 3rem;
   }
 
   .right-section .result-button {

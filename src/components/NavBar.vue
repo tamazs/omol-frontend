@@ -28,7 +28,7 @@
               <router-link to="/about" :class="{ 'active-link': $route.path === '/about' }">{{ $t('navbar.about') }}</router-link>
               <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }">{{ $t('navbar.team') }}</router-link>
             </div>
-            <div class="languages">
+            <div class="languages" v-if="!isProjectOrMemberRoute">
               <button @click="setLanguage('es')">ES</button>
               <button @click="setLanguage('en')">EN</button>
             </div>
@@ -47,7 +47,7 @@
               <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }">{{ $t('navbar.team') }}</router-link>
             </div>
           </div>
-          <div class="languages">
+          <div class="languages" v-if="!isProjectOrMemberRoute">
             <button @click="setLanguage('es')">ES</button>
             <button @click="setLanguage('en')">EN</button>
           </div>
@@ -57,7 +57,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import logoBlack from '@/assets/omol_b.svg';
@@ -139,6 +139,11 @@ router.beforeEach((to, from, next) => {
   // Close the menu when the route changes
   closeMenu();
   next();
+});
+
+const isProjectOrMemberRoute = computed(() => {
+  const currentRoute = router.currentRoute.value;
+  return currentRoute.path.startsWith('/member/') || currentRoute.path.startsWith('/project/');
 });
 
 </script>

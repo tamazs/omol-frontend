@@ -31,11 +31,6 @@ const router = createRouter({
       component: () => import('../views/ResultView.vue')
     },
     {
-      path: '/othercamtesting',
-      name: 'othercamtesting',
-      component: () => import('../views/CamView.vue')
-    },
-    {
       path: '/projects',
       name: 'projects',
       component: () => import('../views/ProjectsView.vue')
@@ -76,6 +71,20 @@ const router = createRouter({
     }
   }
 })
+
+const screenWidth = window.innerWidth;
+
+const pathsToRedirect = ['/', '/screens', '/cam', '/result/:timerValue'];
+
+if (screenWidth < 1000) {
+  router.beforeEach((to, from, next) => {
+    if (pathsToRedirect.includes(to.path)) {
+      next('/home');
+    } else {
+      next();
+    }
+  });
+}
 
 /* router.beforeEach((to, from, next) => {
   const curtains = document.querySelectorAll('.curtain-column');

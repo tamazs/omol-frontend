@@ -34,10 +34,10 @@ const { pState, getProjects, latestProjects } = project()
 
 const slides = computed(() => pState.projects);
 
-const slidesPerView = ref(window.innerWidth <= 767 ? 1 : 3);
+const slidesPerView = ref(window.innerWidth <= 767 ? 1 : 4);
 
 const updateSlidesPerView = () => {
-  slidesPerView.value = window.innerWidth <= 767 ? 1 : 3;
+  slidesPerView.value = window.innerWidth <= 767 ? 1 : 4;
 };
 
 onMounted(() => {
@@ -89,7 +89,7 @@ $aspect-ratio: math.div(4, 3);
 .image-wrapper {
   position: relative;
   width: 100%;
-  height: 300px; /* Use the same aspect ratio */
+  height: 50vh;
   transition: transform 0.5s ease;
   margin-bottom: 85px;
 }

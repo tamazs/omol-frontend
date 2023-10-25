@@ -102,7 +102,7 @@ $aspect-ratio: math.div(4, 3);
 .netflix-base-image,
 .netflix-hover-gif {
   width: 100%;
-  height: 300px;
+  height: 50vh;
   object-fit: cover;
 }
 
@@ -188,10 +188,10 @@ const { pState, latestProjects } = project();
 
 const slides = computed(() => pState.projects);
 
-const slidesPerView = ref(window.innerWidth <= 767 ? 1 : 3);
+const slidesPerView = ref(window.innerWidth <= 767 ? 1 : 4);
 
 const updateSlidesPerView = () => {
-  slidesPerView.value = window.innerWidth <= 767 ? 1 : 3;
+  slidesPerView.value = window.innerWidth <= 767 ? 1 : 4;
 };
 
 onMounted(() => {
