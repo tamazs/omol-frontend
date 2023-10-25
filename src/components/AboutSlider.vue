@@ -9,7 +9,7 @@
   >
     <swiper-slide v-for="(slide, index) in slides" :key="index" class="about-swiper-slide">
       <div class="about-image-wrapper">
-        <img class="about-base-image" :src="slide.img" />
+        <img class="about-base-image" :src="slide.attributes.url" />
       </div>
     </swiper-slide>
   </swiper>
@@ -22,11 +22,11 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import { Navigation, Scrollbar } from 'swiper/modules';
-import project from '../modules/project';
+import about from '../modules/about';
 
-const { pState, getProjects } = project()
+const { aState, getAbouts } = about()
 
-const slides = computed(() => pState.projects);
+const slides = computed(() => aState.abouts);
 
 const slidesPerView = ref(window.innerWidth <= 767 ? 1 : 3);
 
@@ -35,7 +35,7 @@ const updateSlidesPerView = () => {
 };
 
 onMounted(() => {
-  getProjects();
+  getAbouts();
 
   window.addEventListener('resize', updateSlidesPerView);
 });

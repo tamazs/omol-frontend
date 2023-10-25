@@ -84,12 +84,46 @@ const getProject = () => {
         } catch (error) {
           console.error('Failed to fetch the single project', error);
         }
-      };      
+      };
+
+      const latestProjects = async () => {
+        try {
+            const response = await axios.get(
+                'http://localhost:1337/api/projects?populate=*&locale=' + pState.lang,
+                {
+                    params: {
+                        _limit: 9, // Limit to 9 projects
+                    }
+                }
+            );
+    
+            const projects = response.data.data.map(project => ({
+                id: project.id,
+                title: project.attributes.name,
+                hoverText: project.attributes.hoverText,
+                createdAt: new Date(project.attributes.createdAt), // Convert createdAt to a JavaScript Date object
+                img: 'http://localhost:1337' + project.attributes.coverImage.data.attributes.url,
+                gif: 'http://localhost:1337' + project.attributes.coverGif.data.attributes.url,
+            }));
+    
+            // Sort the projects by createdAt in descending order
+            projects.sort((a, b) => b.createdAt - a.createdAt);
+    
+            // Take the first 9 projects
+            pState.projects = projects.slice(0, 9);
+    
+            console.log(pState.projects);
+        } catch (error) {
+            console.error('Failed to fetch latest projects', error);
+        }
+    };
+    
 
     return {
         pState,
         getProjects,
         getSingleProject,
+        latestProjects
     }
 }
 

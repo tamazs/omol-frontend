@@ -104,6 +104,7 @@
     if (prevCard.value) {
       prevCard.value.transform = '';
       crews.value.unshift(prevCard.value);
+      prevCard.value.opacity = '1';
       prevCard.value = null;
     }
   };

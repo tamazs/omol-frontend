@@ -1,39 +1,48 @@
 <template>
-  <swiper
-    :slidesPerView="slidesPerView"
-    :spaceBetween="15"
-    :navigation="false"
-    :scrollbar="true"
-    :modules="modules"
-    class="netflixSwiper"
-  >
-    <swiper-slide v-for="(slide, index) in slides" :key="index" class="netflix-swiper-slide">
-      <div class="netflix-card">
-        <div class="netflix-title">
-          <p>{{ slide.title }}</p>
-        </div>
-        <div class="netflix-image-container" @mouseenter="handleMouseEnter(index)" @mouseleave="handleMouseLeave(index)">
-          <img class="netflix-base-image" :src="slide.img" />
-          <img class="netflix-hover-gif" :src="slide.gif" :class="{ playing: playStatus[index] }" />
-        </div>
-        <div class="netflix-button-container" :class="{ active: cardHovered[index] }">
-          <div class="button-wrapper">
-            <button class="netflix-play-button" @click="togglePlay(index)"><i :class="playIcon(index)"></i></button>
-            <router-link :to="`/project/${slide.id}`" class="netflix-plus-button"><i class="fas fa-circle-xmark" id="plusmark"></i></router-link>
-            <button class="netflix-close-button"><i class="fas fa-circle-xmark"></i></button>
-          </div>
-          <div class="netflix-hover-text">{{ slide.hoverText }}</div>
-        </div>
+    <div>
+      <div v-for="(category, categoryName) in pState.projectsByCategory" :key="categoryName">
+        <h1 class="categoryName">{{ categoryName }}</h1>
+        <swiper
+          :slidesPerView="slidesPerView"
+          :spaceBetween="15"
+          :navigation="false"
+          :scrollbar="true"
+          :modules="modules"
+          class="netflixSwiper"
+        >
+          <swiper-slide v-for="(slide, index) in category" :key="index" class="netflix-swiper-slide">
+            <div class="netflix-card">
+              <div class="netflix-title">
+                <p>{{ slide.title }}</p>
+              </div>
+              <div class="netflix-image-container" @mouseenter="handleMouseEnter(index)" @mouseleave="handleMouseLeave(index)">
+                <img class="netflix-base-image" :src="slide.img" />
+                <img class="netflix-hover-gif" :src="slide.gif" :class="{ playing: playStatus[index] }" />
+              </div>
+              <div class="netflix-button-container" :class="{ active: cardHovered[index] }">
+                <div class="button-wrapper">
+                  <button class="netflix-play-button" @click="togglePlay(index)"><i :class="playIcon(index)"></i></button>
+                  <router-link :to="`/project/${slide.id}`" class="netflix-plus-button"><i class="fas fa-circle-xmark" id="plusmark"></i></router-link>
+                  <button class="netflix-close-button"><i class="fas fa-circle-xmark"></i></button>
+                </div>
+                <div class="netflix-hover-text">{{ slide.hoverText }}</div>
+              </div>
+            </div>
+          </swiper-slide>
+        </swiper>
       </div>
-    </swiper-slide>
-  </swiper>
-</template>
-
-<style scoped lang="scss">
+    </div>
+  </template>
+  
+  <style scoped lang="scss">
 @use "sass:math";
 
 $aspect-ratio: math.div(4, 3);
 
+.categoryName {
+    padding: 2rem 1rem;
+    font-size: var(--t-header2);
+}
 .netflixSwiper {
   width: 100%;
   height: 100%;
@@ -166,62 +175,63 @@ $aspect-ratio: math.div(4, 3);
   rotate: -45deg;
 }
 </style>
-
-<script setup>
-import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
-import { gsap } from 'gsap';
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/scrollbar';
-import { Navigation, Scrollbar } from 'swiper/modules';
-import project from '../modules/project';
-
-const { pState, getProjects } = project();
-
-const slides = computed(() => pState.projects);
-
-const slidesPerView = ref(window.innerWidth <= 767 ? 1 : 3);
-
-const updateSlidesPerView = () => {
-  slidesPerView.value = window.innerWidth <= 767 ? 1 : 3;
-};
-
-onMounted(() => {
-  getProjects();
-
-  window.addEventListener('resize', updateSlidesPerView);
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', updateSlidesPerView);
-});
-
-const playStatus = ref(Array(slides.value.length).fill(false));
-
-const cardHovered = ref(Array(slides.value.length).fill(false));
-
-const handleMouseEnter = (index) => {
-  cardHovered[index] = true;
-};
-
-const handleMouseLeave = (index) => {
-  cardHovered[index] = false;
-};
-
-const togglePlay = (index) => {
-  playStatus.value[index] = !playStatus.value[index];
-  const gif = document.querySelectorAll(".netflix-hover-gif")[index];
-  if (playStatus.value[index]) {
-    gsap.to(gif, { opacity: 1, duration: 0.5 });
-  } else {
-    gsap.to(gif, { opacity: 0, duration: 0.5 });
-  }
-};
-
-const playIcon = (index) => {
-  return playStatus.value[index] ? "fas fa-circle-pause" : "fas fa-circle-play";
-};
-
-const modules = [Navigation, Scrollbar];
-</script>
+  
+  <script setup>
+  import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
+  import { gsap } from 'gsap';
+  import { Swiper, SwiperSlide } from 'swiper/vue';
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/scrollbar';
+  import { Navigation, Scrollbar } from 'swiper/modules';
+  import category from '../modules/category';
+  
+  const { pState, getProjectsByCategory } = category();
+  
+  const slides = computed(() => pState.projectsByCategory);
+  
+  const slidesPerView = ref(window.innerWidth <= 767 ? 1 : 3);
+  
+  const updateSlidesPerView = () => {
+    slidesPerView.value = window.innerWidth <= 767 ? 1 : 3;
+  };
+  
+  onMounted(() => {
+    getProjectsByCategory();
+  
+    window.addEventListener('resize', updateSlidesPerView);
+  });
+  
+  onBeforeUnmount(() => {
+    window.removeEventListener('resize', updateSlidesPerView);
+  });
+  
+  const playStatus = ref(Array(slides.value.length).fill(false));
+  
+  const cardHovered = ref(Array(slides.value.length).fill(false));
+  
+  const handleMouseEnter = (index) => {
+    cardHovered[index] = true;
+  };
+  
+  const handleMouseLeave = (index) => {
+    cardHovered[index] = false;
+  };
+  
+  const togglePlay = (index) => {
+    playStatus.value[index] = !playStatus.value[index];
+    const gif = document.querySelectorAll(".netflix-hover-gif")[index];
+    if (playStatus.value[index]) {
+      gsap.to(gif, { opacity: 1, duration: 0.5 });
+    } else {
+      gsap.to(gif, { opacity: 0, duration: 0.5 });
+    }
+  };
+  
+  const playIcon = (index) => {
+    return playStatus.value[index] ? "fas fa-circle-pause" : "fas fa-circle-play";
+  };
+  
+  const modules = [Navigation, Scrollbar];
+  </script>
+  

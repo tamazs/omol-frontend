@@ -93,7 +93,7 @@ const navigateBack = () => {
 
 .bio {
   text-transform: uppercase;
-  margin-bottom: 2rem;
+  margin-bottom: 8rem;
 }
 
 .back-button {

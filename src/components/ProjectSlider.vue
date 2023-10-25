@@ -30,7 +30,7 @@ import 'swiper/css/scrollbar';
 import { Navigation, Scrollbar } from 'swiper/modules';
 import project from '../modules/project';
 
-const { pState, getProjects} = project()
+const { pState, getProjects, latestProjects } = project()
 
 const slides = computed(() => pState.projects);
 
@@ -41,7 +41,7 @@ const updateSlidesPerView = () => {
 };
 
 onMounted(() => {
-  getProjects();
+  latestProjects();
 
   window.addEventListener('resize', updateSlidesPerView);
 });
