@@ -58,7 +58,7 @@ const { cState, getClients } = client();
   .image-grid {
     display: grid;
     padding: 3rem;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 30px;
     cursor: none;
     margin-bottom: 10rem;
@@ -66,7 +66,7 @@ const { cState, getClients } = client();
   
   .image {
     width: 100%;
-    height: 150px;
+    height: 200px;
     overflow: hidden;
   }
   

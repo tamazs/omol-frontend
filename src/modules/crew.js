@@ -22,10 +22,10 @@ const getCrew = () => {
 
     const getCrews = async () => {
         try {
-          const response = await axios.get('http://localhost:1337/api/crews?populate=*&locale=' + crewState.lang);
+          const response = await axios.get('https://omol-cms.onrender.com/api/crews?populate=*&locale=' + crewState.lang);
           crewState.crews = response.data.data.map(crew => ({
             id: crew.id,
-            img: 'http://localhost:1337' + crew.attributes.img.data.attributes.url
+            img: crew.attributes.img.data.attributes.url
           }));
         } catch (error) {
           console.error('Failed to fetch crew', error);
@@ -34,7 +34,7 @@ const getCrew = () => {
 
       const getSingleCrew = async () => {
         try {
-          const response = await axios.get('http://localhost:1337/api/crews/' + crewId.value + '/?populate=*&locale=' + crewState.lang);
+          const response = await axios.get('https://omol-cms.onrender.com/api/crews/' + crewId.value + '/?populate=*&locale=' + crewState.lang);
           const crew = response.data.data;
       
           if (crew) {
@@ -43,7 +43,7 @@ const getCrew = () => {
               firstName: crew.attributes.firstName,
               lastName: crew.attributes.lastName,
               bio: crew.attributes.bio,
-              img: 'http://localhost:1337' + crew.attributes.img.data.attributes.url
+              img: crew.attributes.img.data.attributes.url
             }];
           } else {
             console.error('Crew not found');

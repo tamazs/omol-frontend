@@ -20,8 +20,8 @@ const getCategoryProjects = () => {
 
   const getProjectsByCategory = async () => {
     try {
-      const categoriesResponse = await axios.get('http://localhost:1337/api/categories?locale=es');
-      const categories = categoriesResponse.data.data; // Assuming the categories are under a 'data' key
+      const categoriesResponse = await axios.get('https://omol-cms.onrender.com/api/categories?locale=' + pState.lang);
+      const categories = categoriesResponse.data.data;
   
       console.log(categories);
   
@@ -30,7 +30,7 @@ const getCategoryProjects = () => {
       for (const category of categories) {
         const categoryName = category.attributes.name;
   
-        const projectsResponse = await axios.get('http://localhost:1337/api/projects/?populate=*&locale=' + pState.lang);
+        const projectsResponse = await axios.get('https://omol-cms.onrender.com/api/projects/?populate=*&locale=' + pState.lang);
   
         const filteredProjects = projectsResponse.data.data
           .filter((project) => project.attributes.category.data.attributes.name === categoryName)
@@ -38,8 +38,8 @@ const getCategoryProjects = () => {
             id: project.id,
             title: project.attributes.name,
             hoverText: project.attributes.hoverText,
-            img: 'http://localhost:1337' + project.attributes.coverImage.data.attributes.url,
-            gif: 'http://localhost:1337' + project.attributes.coverGif.data.attributes.url,
+            img: project.attributes.coverImage.data.attributes.url,
+            gif: project.attributes.coverGif.data.attributes.url,
           }));
         console.log(filteredProjects);
         projectsByCategory[categoryName] = filteredProjects;

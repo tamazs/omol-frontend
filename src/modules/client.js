@@ -10,12 +10,12 @@ const getClient = () => {
 
     const getClients = async () => {
         try {
-          const response = await axios.get('http://localhost:1337/api/client?populate=*');
+          const response = await axios.get('https://omol-cms.onrender.com/api/client?populate=*');
           const images = response.data.data.attributes.img.data; // Access the image data
       
           if (Array.isArray(images)) {
             images.forEach((image) => {
-              image.attributes.url = 'http://localhost:1337' + image.attributes.url;
+              image.attributes.url = image.attributes.url;
             });
       
             cState.clients = images;
