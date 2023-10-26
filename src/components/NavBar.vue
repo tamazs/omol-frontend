@@ -42,6 +42,7 @@
         </router-link>
           <div class="nav-middle">
             <div class="pages">
+              <a href="/home#sendLove">Send love</a>
               <router-link to="/projects" :class="{ 'active-link': $route.path === '/projects' ||  $route.path.startsWith('/project/') }">{{ $t('navbar.projects') }}</router-link>
               <router-link to="/about" :class="{ 'active-link': $route.path === '/about' }">{{ $t('navbar.about') }}</router-link>
               <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }">{{ $t('navbar.team') }}</router-link>
@@ -178,6 +179,7 @@ const isProjectOrMemberRoute = computed(() => {
 .desktop-nav .pages {
   display: flex;
   gap: 50px;
+  text-transform: uppercase;
 }
 
 .mobile-nav {
@@ -269,6 +271,7 @@ const isProjectOrMemberRoute = computed(() => {
   .mobile-pages {
     display: flex;
     flex-direction: column;
+    text-transform: uppercase;
   }
 
   .mobile-nav .logo img {

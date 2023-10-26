@@ -1,7 +1,7 @@
 :root {
   --c-white: #F9F8F5;
   --c-black: #000000;
-  --c-red: #ED1C24;
+  --c-red: #F0444A;
 
   --t-header1: 4.063rem;
   --t-header2: 2.188rem;
@@ -18,7 +18,7 @@
 
 @font-face {
   font-family: HelveticaNeue;
-  src: url("/font/HelveticaNeueRegular.otf") format("opentype");
+  src: url("/font/HelveticaNeueReg.ttf") format("truetype");
 }
 
 @font-face {
@@ -51,4 +51,5 @@ body {
 
 html {
   background-color: var(--c-white);
+  scroll-behavior: smooth;
 }

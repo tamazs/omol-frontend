@@ -91,9 +91,10 @@ function setContainerWidth(width) {
     left: 50%;
     transform: translateX(-50%);
     z-index: 5;
-    font-size: var(--t-header2);
+    font-size: 3rem;
     text-align: center;
     text-transform: uppercase;
+    font-family: var(--f-thin);
   }
   
   .horizontal-scroll {
@@ -101,7 +102,7 @@ function setContainerWidth(width) {
     overflow: hidden;
     width: 100%;
     height: 100vh;
-    background-color: var(--c-white);
+    background-color: #E8E3E0;
   }
   
   .scroll-container {
@@ -117,23 +118,26 @@ function setContainerWidth(width) {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 150px;
+    gap: 50px;
   }
 
   .number {
-    color: var(--c-red);
-    font-size: 12rem;
+    color: #F0444A;
+    font-size: 17rem;
+    font-family: var(--f-thin);
   }
   
   .history-text {
-    font-size: var(--t-body);
-    width: 80%;
+    font-size: 1.3rem;
+    width: 75%;
+    font-family: var(--f-thin);
   }
   
   .history-title {
     font-size: var(--t-header1);
     text-transform: uppercase;
     text-wrap: nowrap;
+    font-family: var(--f-thin);
   }
   
   .history {

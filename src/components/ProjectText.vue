@@ -18,6 +18,10 @@
   .text-container {
     font-size: var(--t-header2) !important;
   }
+
+  .before-text {
+    width: 65vw !important;
+  }
   }
   .text-container {
     height: auto;
@@ -38,6 +42,7 @@
     font-size: var(--t-body);
     text-transform: uppercase;
     padding: 0 3rem;
+    width: 18vw;
   }
 
   .before-text::before {

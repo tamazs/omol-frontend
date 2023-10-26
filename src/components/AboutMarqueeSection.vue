@@ -2,16 +2,16 @@
     <section class="about-marquee">
         <div class="about-marquee__inner" aria-hidden="true" ref="inner">
           <div class="about-marquee__part">
-            {{ $t('home.marqueeText') }}
+            {{ $t('about.marqueeText') }}
           </div>
           <div class="about-marquee__part">
-            {{ $t('home.marqueeText') }}
+            {{ $t('about.marqueeText') }}
           </div>
           <div class="about-marquee__part">
-            {{ $t('home.marqueeText') }}
+            {{ $t('about.marqueeText') }}
           </div>
           <div class="about-marquee__part">
-            {{ $t('home.marqueeText') }} 
+            {{ $t('about.marqueeText') }} 
           </div>
         </div>
     </section>
@@ -55,7 +55,7 @@
     <style>
     .about-marquee__part {
       flex-shrink: 0;
-      padding: 0 60px;
+      padding: 0 25px;
       font-smooth: always;
       font-size: var(--t-header1);
       font-family: var(--f-thin);

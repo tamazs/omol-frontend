@@ -81,6 +81,10 @@
     border-bottom: 1px solid rgb(112, 112, 112, .3);
   }
 
+  .footer-section:first-child {
+    border: none;
+  }
+
   .footer-section-mid {
     flex: 1;
     margin: 10px;
@@ -88,6 +92,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 3rem 0rem;
   }
 
   .footer-section-div {
@@ -102,7 +107,7 @@
     text-transform: uppercase;
     border: none;
     border-radius: 50px;
-    width: 24rem;
+    width: 19rem;
     cursor: pointer;
   }
   
@@ -156,6 +161,7 @@
     margin-top: 20px;
     font-size: 12px;
     margin-bottom: 20px;
+    text-transform: uppercase;
   }
   
   .footer-links a {

@@ -79,6 +79,7 @@
     border: 3px var(--c-black) solid;
     border-radius: 50%;
     padding: 1.5rem 3rem;
+    font-family: var(--f-light);
   }
 
   .result-button {

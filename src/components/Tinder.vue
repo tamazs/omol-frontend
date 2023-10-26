@@ -179,9 +179,8 @@ body {
 
 .tinder--card {
   display: inline-block;
-  width: 90vw;
   max-width: 400px;
-  height: 70vh;
+  height: 20vh;
   background: transparent;
   border-radius: 8px;
   overflow: hidden;

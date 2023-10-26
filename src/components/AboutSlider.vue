@@ -76,7 +76,7 @@ const modules = [Navigation, Scrollbar];
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50vh; /* Set your desired fixed height here */
+  height: 70vh; /* Set your desired fixed height here */
   margin-bottom: 85px; /* Adjust the margin as needed */
 }
 

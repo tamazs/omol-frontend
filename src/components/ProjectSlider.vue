@@ -89,7 +89,7 @@ $aspect-ratio: math.div(4, 3);
 .image-wrapper {
   position: relative;
   width: 100%;
-  height: 50vh;
+  height: 70vh;
   transition: transform 0.5s ease;
   margin-bottom: 85px;
 }

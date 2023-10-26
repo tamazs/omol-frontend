@@ -1,5 +1,5 @@
 <template>
-    <div class="text-container" ref="textContainer">
+    <div class="text-container" ref="textContainer" id="sendLove">
       <p class="before-text">{{ $t('home.footerTextBefore') }}</p>
       <p class="text">{{ $t('home.footerText') }}</p>
     </div>
@@ -115,6 +115,10 @@
   input[type=submit] {
     width: 40% !important;
   }
+
+  .before-text {
+    width: 70vw !important;
+  }
   }
   .text-container {
     height: auto;
@@ -136,6 +140,7 @@
     font-size: var(--t-body);
     text-transform: uppercase;
     padding: 0 3rem;
+    width: 18vw;
   }
   
   .before-text::before {
@@ -152,7 +157,7 @@
   }
   
   form {
-    padding: 6rem 15rem 6rem 3rem;
+    padding: 0rem 3rem 6rem 3rem;
     display: flex;
     flex-direction: column;
   }
@@ -171,10 +176,12 @@
 
   input::placeholder {
   font-family: var(--f-regular);
+  text-transform: uppercase;
   }
 
   textarea::placeholder {
   font-family: var(--f-regular);
+  text-transform: uppercase;
   }
   
   input[type=submit] {

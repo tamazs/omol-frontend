@@ -11,11 +11,11 @@
       </div>
     </div>
     <div class="button-row">
-      <button class="rewind-button" @click="rewindCard">
-        <img src="../assets/rewindB.png" alt="Rewind" />
-      </button>
       <button class="nope-button" @click="nopeCard">
         <img src="../assets/nopeB.png" alt="Nope" />
+      </button>
+      <button class="rewind-button" @click="rewindCard">
+        <img src="../assets/rewindB.png" alt="Rewind" />
       </button>
       <button class="like-button" @click="likeCard">
         <img src="../assets/heartB.png" alt="Like" />
@@ -154,7 +154,7 @@
   .tinder--card {
     display: inline-block;
     max-width: 400px;
-    height: 70vh;
+    height: 55vh;
     background: transparent;
     border-radius: 8px;
     overflow: hidden;
@@ -184,7 +184,7 @@
     justify-content: center;
     align-items: center;
     height: 4rem;
-    gap: 20px;
+    gap: 5px;
   }
   
   .button-row button {

@@ -61,6 +61,7 @@ const { cState, getClients } = client();
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 30px;
     cursor: none;
+    margin-bottom: 10rem;
   }
   
   .image {
@@ -82,7 +83,7 @@ const { cState, getClients } = client();
     position: absolute;
     border-radius: 50%;
     box-shadow: 0 0 20px rgba(16, 0, 54, 0.2);
-    color: var(--c-white);
+    color: var(--c-black);
     text-align: center;
     display: flex;
     justify-content: center;

@@ -23,7 +23,6 @@
                 <div class="button-wrapper">
                   <button class="netflix-play-button" @click="togglePlay(index)"><i :class="playIcon(index)"></i></button>
                   <router-link :to="`/project/${slide.id}`" class="netflix-plus-button"><i class="fas fa-circle-xmark" id="plusmark"></i></router-link>
-                  <button class="netflix-close-button"><i class="fas fa-circle-xmark"></i></button>
                 </div>
                 <div class="netflix-hover-text">{{ slide.hoverText }}</div>
               </div>
@@ -41,7 +40,7 @@ $aspect-ratio: math.div(4, 3);
 
 .categoryName {
     padding: 2rem 1rem;
-    font-size: var(--t-header2);
+    font-size: var(--t-bigText);
 }
 .netflixSwiper {
   width: 100%;
@@ -74,7 +73,7 @@ $aspect-ratio: math.div(4, 3);
 }
 
 .netflix-title {
-  font-size: var(--t-body);
+  font-size: 0.7rem;
   margin-bottom: 10px;
   margin-left: 25px;
   font-family: 'HelveticaNeue', serif;
@@ -89,7 +88,7 @@ $aspect-ratio: math.div(4, 3);
   border-radius: 50%;
   position: absolute;
   left: 0;
-  top: 1px;
+  top: 0;
   z-index: 2;
 }
 .netflix-image-container {
@@ -104,7 +103,7 @@ $aspect-ratio: math.div(4, 3);
 .netflix-base-image,
 .netflix-hover-gif {
   width: 100%;
-  height: 50vh;
+  height: 70vh;
   object-fit: cover;
 }
 
@@ -140,20 +139,13 @@ $aspect-ratio: math.div(4, 3);
 }
 
 .netflix-play-button,
-.netflix-plus-button,
-.netflix-close-button {
+.netflix-plus-button {
   background: transparent;
   border: none;
   cursor: pointer;
   font-size: 30px;
-  color: red;
+  color: var(--c-red);
   margin-right: 10px;
-}
-
-.netflix-play-button:hover,
-.netflix-plus-button:hover,
-.netflix-close-button:hover {
-  color: #e50914;
 }
 
 .netflix-hover-gif.playing {

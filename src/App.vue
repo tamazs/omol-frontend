@@ -49,6 +49,7 @@
   padding: 1.5rem 3rem;
   margin-bottom: 10rem;
   font-size: var(--t-header1);
+  font-family: var(--f-light);
 }
 
 .time-text {

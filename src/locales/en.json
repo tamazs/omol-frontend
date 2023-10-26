@@ -62,11 +62,12 @@
       "aboutText2Before": "We share our vision",
       "aboutText2": "Warhol pontificated that everyone deserved his 15 minutes of fame. Nowadays, that attention runs out much faster, it is better to condense our message in just over a minute.",
       "aboutText2After": "That's right: A minute of total love.",
-      "marqueeText": "They can forget about your logo, but not about how you made them feel."
+      "marqueeText": "They can forget about your logo, but not about how you made them feel"
     },
     "projects": {
       "projectTextBefore": "We work harder and harder!",
-      "projectText": "We want to show our beloved work and if you want to be the next, don't think twice!"
+      "projectText": "We want to show our beloved work and if you want to be the next, don't think twice!",
+      "latestWork": "Latest Work"
     },
     "404": {
       "bottomText": "Giving and receiving love is always important"

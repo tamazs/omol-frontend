@@ -55,7 +55,7 @@ onMounted(() => {
 <style>
 .marquee__part {
   flex-shrink: 0;
-  padding: 0 60px;
+  padding: 0 25px;
   font-smooth: always;
   font-size: var(--t-header1);
   font-family: var(--f-thin);

@@ -54,6 +54,10 @@ onMounted(() => {
   .text-container {
     font-size: var(--t-header2) !important;
   }
+
+  .before-text {
+    width: 80vw !important;
+  }
   }
   .text-container {
     height: auto;
@@ -61,6 +65,7 @@ onMounted(() => {
     font-size: var(--t-bigText);
     background-color: var(--c-white);
     position: relative;
+    padding: 4rem 0rem;
   }
   
   .text-container .text {
@@ -73,6 +78,7 @@ onMounted(() => {
     font-size: var(--t-body);
     text-transform: uppercase;
     padding: 0 3rem;
+    width: 20vw;
   }
 
   .before-text::before {
@@ -83,7 +89,7 @@ onMounted(() => {
   border-radius: 50%;
   position: absolute;
   left: 1.5rem;
-  top: 0.07rem;
+  top: 4.1rem;
   z-index: 2;
   line-height: 0px;
 }

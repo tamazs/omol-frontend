@@ -62,7 +62,7 @@
       flex-shrink: 0;
       padding: 0 60px;
       font-smooth: always;
-      font-size: 15rem;
+      font-size: 18rem;
       font-family: 'Narnia', serif;
     }
     
