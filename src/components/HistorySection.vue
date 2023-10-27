@@ -149,6 +149,7 @@ function setContainerWidth(width) {
     .slide {
     width: 100vw !important;
     gap: 40px !important;
+    padding: 1rem 1rem 0rem 1rem !important;
   }
   
   .number {
@@ -156,12 +157,16 @@ function setContainerWidth(width) {
   }
   
   .history-text {
-    font-size: var(--t-body);
+    font-size: var(--t-body) !important;
     width: 100% !important;
   }
   
   .history-title {
     font-size: var(--t-header2) !important;
+  }
+
+  .scroll-container {
+    gap: 5px !important;
   }
   }
   </style>

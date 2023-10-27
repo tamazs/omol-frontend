@@ -48,6 +48,8 @@ const navigateBack = () => {
   .container {
     flex-direction: column;
     width: 100vw;
+    margin-top: 15rem;
+    margin-bottom: 5rem;
   }
 
   .tinder-img {
@@ -57,7 +59,7 @@ const navigateBack = () => {
 
 .content {
   width: 100vw !important;
-  padding: 20px;
+  padding: 2rem !important;
 }
 }
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="tinder" @mousedown="onSwipeStart" @mousemove="onSwipeMove" @mouseup="onSwipeEnd">
+    <div class="tinder" @mousedown="onSwipeStart" @mousemove="onSwipeMove" @mouseup="onSwipeEnd" @touchstart="onSwipeStart" @touchmove="onSwipeMove" @touchend="onSwipeEnd">
       <div
         class="tinder--card"
         v-for="(crew, index) in crews"
@@ -42,6 +42,14 @@
   onMounted(() => {
     getCrews();
     initCards();
+
+    const tinderContainer = document.querySelector('.tinder');
+    const hammer = new Hammer(tinderContainer);
+
+    hammer.get('pan').set({ direction: Hammer.DIRECTION_HORIZONTAL });
+    hammer.on('panstart', onSwipeStart);
+    hammer.on('panmove', onSwipeMove);
+    hammer.on('panend', onSwipeEnd);
   });
   
   function initCards() {
@@ -56,21 +64,20 @@
   }
   
   const onSwipeStart = (event) => {
-    if (!isDragging.value) {
-      isDragging.value = true;
-      startX.value = event.clientX;
-      startCardX.value = crews.value[0].transform.match(/-?\d+/);
-    }
+  if (!isDragging.value) {
+    isDragging.value = true;
+    startX.value = event.clientX;
+  }
+};
+
+const onSwipeMove = (event) => {
+  if (isDragging.value) {
+    const deltaX = event.clientX - startX.value;
+    const card = crews.value[0];
+    card.transform = `translateX(${deltaX}px) rotate(${deltaX > 0 ? '15' : '-15'}deg)`;
+    card.opacity = Math.min(1, 1 - Math.abs(deltaX) / 1500);
   };
-  
-  const onSwipeMove = (event) => {
-    if (isDragging.value) {
-      const deltaX = event.clientX - startX.value;
-      const card = crews.value[0];
-      card.transform = `translateX(${startCardX.value + deltaX}px) rotate(${deltaX > 0 ? '15' : '-15'}deg)`;
-      card.opacity = Math.min(1, 1 - Math.abs(deltaX) / 1500);
-    }
-  };
+};
   
   const onSwipeEnd = () => {
     if (isDragging.value) {

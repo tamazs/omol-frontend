@@ -5,7 +5,7 @@
     <div class="video-container"
          ref="videoContainer"
          @click="toggleVideoPlay">
-      <video ref="videoElement" class="video" @ended="handleVideoEnd">
+      <video ref="videoElement" class="video" @ended="handleVideoEnd" playsinline>
           <source src="/video.mp4" type="video/mp4">
       </video>
     </div>
