@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, watch } from 'vue';
 import crew from '../modules/crew';
 import { useRouter } from 'vue-router';
 
@@ -24,14 +24,22 @@ const router = useRouter();
 
 const { crewState, getSingleCrew } = crew();
 const crews = computed(() => crewState.crews);
+const memberId = ref(null);
+
+watch(crews, (newCrews) => {
+  if (newCrews.length > 0) {
+    memberId.value = newCrews[0].id;
+  }
+});
+
+// When navigating back, pass the member's ID as a query parameter
+const navigateBack = () => {
+  router.push({ name: 'team', query: { memberId: memberId.value } });
+};
 
 onMounted(() => {
   getSingleCrew();
 });
-
-const navigateBack = () => {
-  router.go(-1);
-};
 </script>
 
 <style scoped>

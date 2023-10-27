@@ -1,72 +1,90 @@
 <template>
-    <div class="tinder" @mousedown="onSwipeStart" @mousemove="onSwipeMove" @mouseup="onSwipeEnd" @touchstart="onSwipeStart" @touchmove="onSwipeMove" @touchend="onSwipeEnd">
-      <div
-        class="tinder--card"
-        v-for="(crew, index) in crews"
-        :key="crew.id"
-        :style="{ zIndex: crews.length - index, transform: crew.transform, opacity: crew.opacity }"
-        @remove="onRemove(index)"
-      >
-        <img :src="crew.img" />
-      </div>
+  <div class="tinder" @mousedown="onSwipeStart" @mousemove="onSwipeMove" @mouseup="onSwipeEnd" @touchstart="onSwipeStart" @touchmove="onSwipeMove" @touchend="onSwipeEnd">
+    <div
+      class="tinder--card"
+      v-for="(crew, index) in crews"
+      :key="crew.id"
+      :style="{ zIndex: crews.length - index, transform: crew.transform, opacity: crew.opacity }"
+      @remove="onRemove(index)"
+    >
+      <img :src="crew.img" />
     </div>
-    <div class="button-row">
-      <button class="nope-button" @click="nopeCard">
-        <img src="../assets/nopeB.png" alt="Nope" />
-      </button>
-      <button class="rewind-button" @click="rewindCard">
-        <img src="../assets/rewindB.png" alt="Rewind" />
-      </button>
-      <button class="like-button" @click="likeCard">
-        <img src="../assets/heartB.png" alt="Like" />
-      </button>
-    </div>
-  </template>
-  
-  <script setup>
-  import { ref, computed, onMounted } from 'vue';
-  import Hammer from 'hammerjs';
-  import crew from '../modules/crew';
-  import { useRouter } from 'vue-router';
-  
-  const router = useRouter();
-  
-  const { crewState, getCrews } = crew();
-  const crews = computed(() => crewState.crews);
-  const prevCard = ref(null);
-  
-  const isDragging = ref(false);
-  const startX = ref(0);
-  const startCardX = ref(0);
-  
-  onMounted(() => {
-    getCrews();
-    initCards();
+  </div>
+  <div class="button-row">
+    <button class="nope-button" @click="nopeCard">
+      <img src="../assets/nopeB.png" alt="Nope" />
+    </button>
+    <button class="rewind-button" @click="rewindCard">
+      <img src="../assets/rewindB.png" alt="Rewind" />
+    </button>
+    <button class="like-button" @click="likeCard">
+      <img src="../assets/heartB.png" alt="Like" />
+    </button>
+  </div>
+</template>
 
-    const tinderContainer = document.querySelector('.tinder');
-    const hammer = new Hammer(tinderContainer);
+<script setup>
+import { ref, computed, onMounted, watchEffect, defineProps } from 'vue';
+import Hammer from 'hammerjs';
+import crew from '../modules/crew';
+import { useRouter } from 'vue-router';
 
-    hammer.get('pan').set({ direction: Hammer.DIRECTION_HORIZONTAL });
-    hammer.on('panstart', onSwipeStart);
-    hammer.on('panmove', onSwipeMove);
-    hammer.on('panend', onSwipeEnd);
-  });
-  
-  function initCards() {
-    crews.value.forEach((crew, index) => {
-      crew.transform = `scale(${(20 - index) / 20}) translateY(-${30 * index}px)`;
-      crew.opacity = 1;
-    });
-  
-    if (crews.value.length > 0) {
-      prevCard.value = crews.value[0];
-    }
+const router = useRouter();
+
+const { crewState, getCrews } = crew();
+const crews = computed(() => crewState.crews);
+const prevCard = ref(null);
+
+const isDragging = ref(false);
+const startX = ref(0);
+const startCardX = ref(0);
+
+const { memberId } = defineProps(['memberId']);
+
+const memberIndex = computed(() => {
+  if (memberId) {
+    const parsedMemberId = parseInt(memberId);
+    const index = crews.value.findIndex(crew => crew.id === parsedMemberId);
+    return index >= 0 ? index : -1;
   }
-  
-  const onSwipeStart = (event) => {
+  return -1;
+});
+
+watchEffect(() => {
+  if (memberIndex.value >= 0) {
+    removePreviousCards(memberIndex.value);
+  }
+});
+
+onMounted(() => {
+  getCrews();
+  initCards();
+
+  const tinderContainer = document.querySelector('.tinder');
+  const hammer = new Hammer(tinderContainer);
+
+  hammer.get('pan').set({ direction: Hammer.DIRECTION_HORIZONTAL });
+  hammer.on('panstart', onSwipeStart);
+  hammer.on('panmove', onSwipeMove);
+  hammer.on('panend', onSwipeEnd);
+});
+
+function initCards() {
+  crews.value.forEach((crew, index) => {
+    crew.transform = `scale(${(20 - index) / 20}) translateY(-${30 * index}px)`;
+    crew.opacity = 1;
+  });
+
+  if (crews.value.length > 0) {
+    prevCard.value = crews.value[0];
+  }
+}
+
+const onSwipeStart = (event) => {
   if (!isDragging.value) {
     isDragging.value = true;
     startX.value = event.clientX;
+    startCardX.value = crews.value[0].transform.match(/-?\d+/);
   }
 };
 
@@ -74,78 +92,82 @@ const onSwipeMove = (event) => {
   if (isDragging.value) {
     const deltaX = event.clientX - startX.value;
     const card = crews.value[0];
-    card.transform = `translateX(${deltaX}px) rotate(${deltaX > 0 ? '15' : '-15'}deg)`;
+    card.transform = `translateX(${startCardX.value + deltaX}px) rotate(${deltaX > 0 ? '15' : '-15'}deg)`;
     card.opacity = Math.min(1, 1 - Math.abs(deltaX) / 1500);
   };
 };
-  
-  const onSwipeEnd = () => {
-    if (isDragging.value) {
-      const deltaX = startX.value - event.clientX;
-      isDragging.value = false;
-      const card = crews.value[0];
-  
-      if (Math.abs(deltaX) > 150) {
-        if (deltaX > 0) {
-          // Swiped to the left (Nope)
-          nopeCard();
-        } else {
-          // Swiped to the right (Like)
-          likeCard();
-        }
+
+const onSwipeEnd = () => {
+  if (isDragging.value) {
+    const deltaX = startX.value - event.clientX;
+    isDragging.value = false;
+    const card = crews.value[0];
+
+    if (Math.abs(deltaX) > 150) {
+      if (deltaX > 0) {
+        // Swiped to the left (Nope)
+        nopeCard();
       } else {
-        // Restore the card's position and opacity
-        card.transform = '';
-        card.opacity = 1;
+        // Swiped to the right (Like)
+        likeCard();
       }
+    } else {
+      // Restore the card's position and opacity
+      card.transform = '';
+      card.opacity = 1;
     }
-  };
-  
-  const removeCard = (love) => {
-    if (crews.value.length > 0) {
-      prevCard.value = crews.value.shift();
-    }
-  };
-  
-  const rewindCard = () => {
-    if (prevCard.value) {
-      prevCard.value.transform = '';
-      crews.value.unshift(prevCard.value);
-      prevCard.value.opacity = '1';
-      prevCard.value = null;
-    }
-  };
-  
-  const openPage = () => {
-    const crewId = crews.value[0].id;
-    router.push({ name: 'member', params: { id: crewId } });
-  };
-  
-  const likeCard = () => {
-    if (crews.value.length > 0) {
-      const card = crews.value[0];
-      card.transform = 'translateX(100%) rotate(15deg)';
-      card.opacity = '0';
-      setTimeout(() => {
-        removeCard(true);
-      }, 300);
-    }
-  };
-  
-  const nopeCard = () => {
-    if (crews.value.length > 0) {
-      const card = crews.value[0];
-      card.transform = 'translateX(-100%) rotate(-15deg)';
-      card.opacity = '0';
-      setTimeout(() => {
-        openPage();
-        removeCard(false);
-      }, 300);
-    }
-  };
-  
-  </script>
-  
+  }
+};
+
+const removeCard = (love) => {
+  if (crews.value.length > 0) {
+    prevCard.value = crews.value.shift();
+  }
+};
+
+const rewindCard = () => {
+  if (prevCard.value) {
+    prevCard.value.transform = '';
+    crews.value.unshift(prevCard.value);
+    prevCard.value.opacity = '1';
+    prevCard.value = null;
+  }
+};
+
+const openPage = () => {
+  const crewId = crews.value[0].id;
+  router.push({ name: 'member', params: { id: crewId } });
+};
+
+const likeCard = () => {
+  if (crews.value.length > 0) {
+    const card = crews.value[0];
+    card.transform = 'translateX(100%) rotate(15deg)';
+    card.opacity = '0';
+    setTimeout(() => {
+      removeCard(true);
+    }, 300);
+  }
+};
+
+const nopeCard = () => {
+  if (crews.value.length > 0) {
+    const card = crews.value[0];
+    card.transform = 'translateX(-100%) rotate(-15deg)';
+    card.opacity = '0';
+    setTimeout(() => {
+      openPage();
+      removeCard(false);
+    }, 300);
+  }
+};
+
+const removePreviousCards = (index) => {
+  if (index > 0) {
+    crews.value.splice(0, index);
+  }
+};
+</script>
   
   <style scoped>
   .tinder {
