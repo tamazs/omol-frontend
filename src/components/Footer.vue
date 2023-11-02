@@ -14,14 +14,16 @@
         </div>
         <div class="footer-section-mid">
           <div class="footer-section-div">
-            <p class="footer-title">Newsletter</p>
-            <button class="news-btn">Subscribe</button>
+            <p class="footer-title">Portfolio</p>
+            <button class="news-btn">Download</button>
           </div>
           <div class="footer-section-div">
             <p class="footer-title">{{ $t('footer.followUs') }}</p>
             <div class="social-icons">
               <a href="https://vimeo.com/goodsightmedia" target="_blank"><i class="fab fa-vimeo"></i></a>
               <a href="https://www.instagram.com/omolvideo/" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.youtube.com/@omolvideo/videos" target="_blank"><i class="fab fa-youtube"></i></a>
+              <a href="https://www.linkedin.com/company/goodsight/" target="_blank"><i class="fab fa-linkedin"></i></a>
             </div>
           </div>
         </div>
@@ -108,7 +110,7 @@
     border: none;
     border-radius: 50px;
     width: 19rem;
-    cursor: pointer;
+    cursor:url('../assets/click.png'), auto;
   }
   
   .footer-title {
@@ -135,6 +137,7 @@
     margin-top: 10px;
     text-decoration: none;
     color: var(--c-black);
+    cursor:url('../assets/click.png'), auto;
   }
   
   .social-icons {
@@ -147,6 +150,7 @@
 
   .social-icons a{
     color: var(--c-black);
+    cursor:url('../assets/click.png'), auto;
   }
   
   .footer-logo {
@@ -168,6 +172,7 @@
     text-decoration: none;
     color: var(--c-black);
     margin-left: 10px;
+    cursor:url('../assets/click.png'), auto;
   }
   </style>
   

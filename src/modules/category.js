@@ -23,8 +23,6 @@ const getCategoryProjects = () => {
       const categoriesResponse = await axios.get('https://omol-cms.onrender.com/api/categories?locale=' + pState.lang);
       const categories = categoriesResponse.data.data;
   
-      console.log(categories);
-  
       const projectsByCategory = {};
   
       for (const category of categories) {
@@ -41,7 +39,6 @@ const getCategoryProjects = () => {
             img: project.attributes.coverImage.data.attributes.url,
             gif: project.attributes.coverGif.data.attributes.url,
           }));
-        console.log(filteredProjects);
         projectsByCategory[categoryName] = filteredProjects;
       }
   

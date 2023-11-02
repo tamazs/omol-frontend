@@ -2,7 +2,7 @@
     <nav ref="navbar" class="navbar">
       <div class="nav-content">
         <div class="mobile-nav">
-          <router-link to="/home">
+          <router-link to="/home" class="home">
           <div class="logo">
             <img :src="logoUrl" alt="Logo" />
           </div>
@@ -198,8 +198,12 @@ const isProjectOrMemberRoute = computed(() => {
 
 .burger-menu {
   font-size: 24px;
-  cursor: pointer;
+  cursor:url('../assets/click.png'), auto;
   color: var(--c-black);
+}
+
+.logo{
+  cursor:url('../assets/click.png'), auto;
 }
 
 .menu-container {
@@ -221,7 +225,7 @@ const isProjectOrMemberRoute = computed(() => {
   justify-content: space-between;
   padding: 20px;
   font-size: 24px;
-  cursor: pointer;
+  cursor:url('../assets/click.png'), auto;
 }
 
 .nav-links {
@@ -235,7 +239,7 @@ const isProjectOrMemberRoute = computed(() => {
   text-decoration: none;
   background: none;
   border: none;
-  cursor: pointer;
+  cursor:url('../assets/click.png'), auto;
   color: var(--c-black);
 }
 
@@ -248,7 +252,7 @@ const isProjectOrMemberRoute = computed(() => {
   margin: 10px 0;
   text-decoration: none;
   background: none;
-  cursor: pointer;
+  cursor:url('../assets/click.png'), auto;
   color: var(--c-black);
   border: 2px transparent solid;
   border-radius: 50%;

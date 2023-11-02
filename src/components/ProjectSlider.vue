@@ -72,7 +72,6 @@ $aspect-ratio: math.div(4, 3);
   width: 100%;
   height: 100%;
   background-color: var(--c-white);
-  cursor: grab;
   padding: 0 1rem;
 }
 
@@ -92,6 +91,7 @@ $aspect-ratio: math.div(4, 3);
   height: 70vh;
   transition: transform 0.5s ease;
   margin-bottom: 85px;
+  cursor: url('../assets/drag_01.png'), auto;
 }
 
 .text-overlay {
@@ -117,6 +117,7 @@ $aspect-ratio: math.div(4, 3);
 .see-more {
   color: var(--c-white);
   font-size: var(--t-body);
+  cursor:url('../assets/click.png'), auto;
 }
 
 .base-image, .hover-gif {

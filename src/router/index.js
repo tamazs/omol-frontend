@@ -5,14 +5,19 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/home',
-      name: 'home',
-      component: () => import('../views/HomeView.vue')
+      path: '/',
+      name: 'begin',
+      redirect: '/start'
     },
     {
-      path: '/',
+      path: '/home',
+      name: 'home',
+      component: () => import('../views/HomeView.vue'),
+    },
+    {
+      path: '/start',
       name: 'start',
-      component: () => import('../views/StartView.vue')
+      component: () => import('../views/StartView.vue'),
     },
     {
       path: '/screens',
@@ -38,7 +43,7 @@ const router = createRouter({
     {
       path: '/project/:id',
       name: 'project',
-      component: () => import('../views/ProjectView.vue')
+      component: () => import('../views/ProjectView.vue'),
     },
     {
       path: '/about',
@@ -86,14 +91,13 @@ if (screenWidth < 1000) {
   });
 }
 
-/* router.beforeEach((to, from, next) => {
+router.beforeEach((to, from, next) => {
   const curtains = document.querySelectorAll('.curtain-column');
   gsap.set(curtains, { y: '-100%' });
 
   gsap.to(curtains, {
     y: '0%',
-    stagger: 0.2,
-    duration: 0.5,
+    duration: 1,
     onComplete: () => {
       // changing the route behind the curtains
       next();
@@ -102,27 +106,25 @@ if (screenWidth < 1000) {
       setTimeout(() => {
         gsap.to(curtains, {
           y: '-100%',
-          stagger: 0.2,
-          duration: 0.5
+          duration: 1
         });
-      }, 100);
+      }, 1000);
     }
   });
-}); */
+});
 
 
 
-/* router.afterEach(() => {
+router.afterEach(() => {
   const curtains = document.querySelectorAll('.curtain-column');
   gsap.to(curtains, {
-    delay: 0.5,
+    delay: 1,
     y: '-100%',
-    stagger: 0.2,
-    duration: 0.5,
+    duration: 1,
     onComplete: () => {
       allowNavigation = true;  // allow the next navigation
     }
   });
 });
- */
+
 export default router

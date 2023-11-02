@@ -189,8 +189,8 @@
     color: var(--c-white);
     padding: 12px 20px;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    border-radius: 50px;
+    cursor:url('../assets/click.png'), auto;
     width: 20%;
     margin-top: 30px;
     font-family: var(--f-thin);

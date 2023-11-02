@@ -110,7 +110,7 @@ onMounted(() => {
   background: transparent;
   border: none;
   color: var(--c-black);
-  cursor: pointer;
+  cursor:url('../assets/click.png'), auto;
   height: 5rem;
   width: 10rem;
   font-size: var(--t-header2);

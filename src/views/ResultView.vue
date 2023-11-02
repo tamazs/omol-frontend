@@ -91,6 +91,7 @@
     width: max-content;
     font-size: var(--t-header3);
     margin-bottom: 3rem;
+    cursor:url('../assets/click.png'), auto;
   }
 
   .right-section .result-button {

@@ -1,22 +1,23 @@
 <template>
-  <NavBar />
+  <NavBar v-if="showNone" />
   <router-view />
-  <Footer />
-  <BottomInfo />
+  <Footer v-if="isHomeRoute && showNone" />
+  <Footer2 v-else-if="showNone" />
+  <BottomInfo v-if="showNone" />
   <div class="screensaver" :style="{ display: isScreensaverVisible ? 'block' : 'none' }">
     <div class="countdown">
       <p class="time">{{ formattedTimerValue }}</p>
       <p class="time-text">{{ $t('home.screensaverText') }}</p>
     </div>
   </div>
-  <!-- <div class="curtain-column" v-for="i in 4" :key="i" :style="`left: ${25 * (i - 1)}%`"></div> -->
+  <div class="curtain-column"></div>
 </template>
 
 <style scoped>
 .curtain-column {
   position: fixed;
   top: 0;
-  width: 25%;
+  width: 100%;
   height: 100%;
   background-color: var(--c-red);
   z-index: 1000;
@@ -64,7 +65,14 @@
 import NavBar from './components/NavBar.vue';
 import BottomInfo from './components/BottomInfo.vue';
 import Footer from './components/Footer.vue';
+import Footer2 from './components/Footer2.vue';
 import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const isHomeRoute = computed(() => router.currentRoute.value.path === '/home');
+const showNone = computed(() => !router.currentRoute.value.path.startsWith('/start') && !router.currentRoute.value.path.startsWith('/screens') && !router.currentRoute.value.path.startsWith('/cam') && !router.currentRoute.value.path.startsWith('/result/'));
 
 const isScreensaverVisible = ref(false);
 const timer = ref(null);

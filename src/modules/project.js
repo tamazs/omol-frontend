@@ -49,8 +49,18 @@ const getProject = () => {
               title: project.attributes.name,
               description: project.attributes.description,
               category: project.attributes.category.data.attributes.name,
-              video: project.attributes.video.data.attributes.url
+              video: project.attributes.video.data.attributes.url,
             }];
+            if (Array.isArray(project.attributes.bts.data)) {
+              const btsImages = project.attributes.bts.data.map(image => image.attributes.url);
+      
+              // Add the "btsImages" array to the project object
+              pState.projects[0].btsImages = btsImages;
+            }
+            else {
+              // If it's not an array, create a single-item array with the URL
+              pState.projects[0].btsImages = [project.attributes.bts.attributes.url];
+            }
           } else {
             console.error('Project not found');
           }
@@ -106,8 +116,7 @@ const getProject = () => {
     
             // Take the first 9 projects
             pState.projects = projects.slice(0, 9);
-    
-            console.log(pState.projects);
+  
         } catch (error) {
             console.error('Failed to fetch latest projects', error);
         }

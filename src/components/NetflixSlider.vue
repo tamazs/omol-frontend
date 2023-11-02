@@ -21,8 +21,8 @@
               </div>
               <div class="netflix-button-container" :class="{ active: cardHovered[index] }">
                 <div class="button-wrapper">
-                  <button class="netflix-play-button" @click="togglePlay(index)"><i :class="playIcon(index)"></i></button>
-                  <router-link :to="`/project/${slide.id}`" class="netflix-plus-button"><i class="fas fa-circle-xmark" id="plusmark"></i></router-link>
+                  <button class="netflix-play-button" @click="togglePlay(index)"><img :src="playIcon(index)" id="playmark"></button>
+                  <router-link :to="`/project/${slide.id}`" class="netflix-plus-button"><img src="@/assets/plus.png" id="plusmark"></router-link>
                 </div>
                 <div class="netflix-hover-text">{{ slide.hoverText }}</div>
               </div>
@@ -60,6 +60,7 @@ $aspect-ratio: math.div(4, 3);
   position: relative;
   grid-template-rows: 1fr;
   width: auto;
+  margin-bottom: 40px;
 }
 
 .netflix-card {
@@ -67,7 +68,7 @@ $aspect-ratio: math.div(4, 3);
   height: math.div(100, $aspect-ratio) slash;
   display: flex;
   flex-direction: column;
-  cursor: pointer;
+  cursor: url('../assets/click.png'), auto;
   position: relative;
   margin-bottom: 85px;
 }
@@ -78,6 +79,10 @@ $aspect-ratio: math.div(4, 3);
   margin-left: 25px;
   font-family: 'HelveticaNeue', serif;
   text-transform: uppercase;
+}
+
+#plusmark, #playmark {
+  height: 2rem;
 }
 
 .netflix-title::before {
@@ -98,13 +103,15 @@ $aspect-ratio: math.div(4, 3);
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: url('../assets/drag_01.png'), auto;
 }
 
 .netflix-base-image,
 .netflix-hover-gif {
   width: 100%;
-  height: 70vh;
+  height: 50vh;
   object-fit: cover;
+  transition: all 1s;
 }
 
 .netflix-hover-gif {
@@ -120,13 +127,17 @@ $aspect-ratio: math.div(4, 3);
   flex-direction: column;
   align-items: flex-start;
   position: absolute;
-  bottom: -80px;
+  bottom: -7.7rem;
   width: 100%;
-  padding: 15px 0;
+  padding: 40px 0;
   box-sizing: border-box;
   z-index: 2;
 }
 
+.netflix-card:hover .netflix-base-image,
+.netflix-hover-gif {
+  height: 53vh;
+}
 .netflix-card:hover .netflix-button-container {
   display: flex;
   background: transparent;
@@ -143,7 +154,6 @@ $aspect-ratio: math.div(4, 3);
   background: transparent;
   border: none;
   cursor: pointer;
-  font-size: 30px;
   color: var(--c-red);
   margin-right: 10px;
 }
@@ -162,10 +172,6 @@ $aspect-ratio: math.div(4, 3);
 .netflix-card:hover .netflix-hover-text {
   display: block;
 }
-
-#plusmark{
-  rotate: -45deg;
-}
 </style>
   
   <script setup>
@@ -177,6 +183,8 @@ $aspect-ratio: math.div(4, 3);
   import 'swiper/css/scrollbar';
   import { Navigation, Scrollbar } from 'swiper/modules';
   import category from '../modules/category';
+  import pauseImage from '@/assets/pause.png';
+  import playImage from '@/assets/play.png';
   
   const { pState, getProjectsByCategory } = category();
   
@@ -221,7 +229,7 @@ $aspect-ratio: math.div(4, 3);
   };
   
   const playIcon = (index) => {
-    return playStatus.value[index] ? "fas fa-circle-pause" : "fas fa-circle-play";
+  return playStatus.value[index] ? pauseImage : playImage;
   };
   
   const modules = [Navigation, Scrollbar];

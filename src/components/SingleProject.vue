@@ -1,6 +1,7 @@
 <template>
   <div class="grid-container">
     <div class="grid-item video-item">
+      <p class="before-text" v-if="pState.projects[0]">{{ pState.projects[0].title }}</p>
       <video v-if="pState.projects[0]" :src="pState.projects[0].video" controls></video>
     </div>
     <div class="grid-item text-item">
@@ -11,16 +12,21 @@
       </div>
       <p class="project-category" v-if="pState.projects[0]">{{ pState.projects[0].category }}</p>
       <p class="project-tag">©2023 OMOL PRODUCTION TEAM</p>
-      <div class="button-row">
-        <button @click="navigateBack" class="back-button">
-          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg> Back
-        </button>
-        <button @click="navigateToNextProject" v-if="pState.nextProjectId" class="next-button">
-          Next <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
-        </button>
-      </div>
     </div>
   </div>
+  <BTSslider/>
+  <div class="button-row">
+        <button @click="navigateBack" class="back-button">
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 66 55" fill="none">
+            <path d="M27.1492 54.365L30.5428 50.9713L9.17966 29.6081L65.4807 29.6081L65.4807 24.823L9.17966 24.823L30.5428 3.45985L27.1492 0.0661753L-0.000237088 27.2156L27.1492 54.365Z" fill="#1E1E1E"/>
+          </svg> Back
+        </button>
+        <button @click="navigateToNextProject" v-if="pState.nextProjectId" class="next-button">
+          Next <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 66 55" fill="none">
+          <path d="M38.9351 0.0666488L35.5414 3.46032L56.9046 24.8235L0.603486 24.8235L0.603486 29.6086L56.9046 29.6086L35.5414 50.9718L38.9351 54.3655L66.0845 27.2161L38.9351 0.0666488Z" fill="#1E1E1E"/>
+        </svg>
+        </button>
+      </div>
 </template>
 
 <style scoped>
@@ -41,10 +47,32 @@
   width: 100%;
 }
 
+.before-text {
+    font-size: var(--t-body);
+    text-transform: uppercase;
+    padding: 0;
+    width: 17vw;
+    margin-bottom: 2rem;
+  }
+
+  .before-text::before {
+  content: '';
+  width: 15px;
+  height: 15px;
+  background-color: #F0444A;
+  border-radius: 50%;
+  position: absolute;
+  left: 2.5rem;
+  top: 6.1rem;
+  z-index: 2;
+  line-height: 0px;
+}
+
 .video-item {
   grid-area: video;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 .video-item video {
@@ -62,7 +90,7 @@
 }
 
 .project-title {
-  font-size: var(--t-header2);
+  font-size: var(--t-bigText);
   margin-bottom: 15px;
   border: 3px var(--c-red) solid;
   border-radius: 50%;
@@ -90,14 +118,12 @@
 }
 
 .project-category {
-  font-size: var(--t-header3);
   text-transform: uppercase;
   margin-top: 20px;
   text-align: right;
 }
 
 .project-tag {
-  font-size: var(--t-header3);
   text-transform: uppercase;
   text-align: right;
 }
@@ -114,7 +140,7 @@
   background: transparent;
   border: none;
   color: var(--c-black);
-  cursor: pointer;
+  cursor:url('../assets/click.png'), auto;
   height: 5rem;
   width: 10rem;
   font-size: var(--t-header2);
@@ -122,11 +148,43 @@
   justify-content: space-evenly;
   font-family: var(--f-thin);
 }
+
+@media (max-width: 767px) {
+  .desc {
+  gap: 0;
+  flex-direction: column;
+}
+
+.project-description {
+  column-count: 1;
+  column-gap: 0;
+  break-inside: avoid;
+}
+
+.grid-container {
+  padding: 2rem 1rem;
+  width: 100vw;
+}
+
+.text-item {
+  padding: 10px;
+}
+
+.project-title {
+  font-size: var(--t-bigText);
+  margin-bottom: 15px;
+  border: 3px var(--c-red) solid;
+  border-radius: 50%;
+  padding: 1rem 2rem;
+  width: max-content;
+}
+}
 </style>
 
 <script setup>
 import { ref, onMounted, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import BTSslider from './BTSslider.vue';
 import project from '../modules/project';
 const route = useRoute();
 const router = useRouter();

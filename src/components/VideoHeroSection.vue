@@ -39,6 +39,7 @@ onMounted(() => {
       }
     }
   );
+  videoContainer.value.addEventListener('click', handleVideoClick);
 });
 
 const handleVideoEnd = () => {
@@ -52,6 +53,16 @@ const toggleVideoPlay = () => {
   } else {
     videoElement.value.pause();
     isVideoPaused.value = true;
+  }
+};
+
+const handleVideoClick = () => {
+  if (!isVideoPaused.value) {
+    gsap.to(videoContainer.value, {
+      width: '100vw',
+      height: '100vh',
+      duration: 0.5, // Adjust the duration as needed for the animation speed
+    });
   }
 };
 

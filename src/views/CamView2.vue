@@ -21,7 +21,7 @@ let intervalId = ref(null);
 let timerInterval = ref(null);
 const router = useRouter();
 
-let countdown = ref(3);
+let countdown = ref(4);
 let cameraReady = ref(false);
 let timer = ref(0.0);
 let blinked = ref(false);
@@ -37,10 +37,10 @@ let formattedTimer = computed(() => {
 onMounted(async () => {
   const countdownInterval = setInterval(() => {
     if (countdown.value > 0) {
+      initializeFaceApiAndVideoElements();
       countdown.value -= 1;
     } else {
       clearInterval(countdownInterval);
-      initializeFaceApiAndVideoElements();
     }
   }, 1000);
 });

@@ -52,4 +52,5 @@ body {
 html {
   background-color: var(--c-white);
   scroll-behavior: smooth;
+  cursor:url('../assets/cursor.png'), auto;
 }

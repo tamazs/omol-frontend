@@ -87,7 +87,7 @@ function setContainerWidth(width) {
   
   .static-text {
     position: absolute;
-    top: 15%;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 5;
@@ -110,6 +110,7 @@ function setContainerWidth(width) {
     height: 100%;
     width: max-content;
     gap: 20px;
+    justify-content: center;
   }
   
   .slide {
