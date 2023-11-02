@@ -55,7 +55,7 @@
     background-color: var(--c-white);
     padding: 0 1rem;
     margin-bottom: 7rem;
-    cursor: grab;
+    cursor: url('../assets/drag_01.png'), auto;
   }
   
   .about-swiper-slide {
