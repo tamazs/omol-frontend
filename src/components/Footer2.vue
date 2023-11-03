@@ -18,6 +18,6 @@ footer {
     font-family: var(--f-thin);
     color: var(--c-black);
     text-transform: uppercase;
-    padding: 8rem 0rem;
+    padding: 3rem 0rem;
 }
 </style>

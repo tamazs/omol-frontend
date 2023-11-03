@@ -110,7 +110,7 @@ watch(
 .scroll-down {
   position: absolute;
   bottom: 15%;
-  font-size: 14px;
+  font-size: var(--t-body);
   z-index: 2;
   text-transform: uppercase;
   font-family: var(--f-light);

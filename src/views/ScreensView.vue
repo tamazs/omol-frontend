@@ -10,31 +10,20 @@
         :style="cameraFeedStyle"
         ref="cameraFeedElement"
       ></video>
-      <h1 v-if="currentIndex === 0">{{ $t('intro.thanku') }}</h1>
+      <h1 v-if="currentIndex === 1">{{ $t('intro.thanku') }}</h1>
       <h1 v-if="currentIndex === texts.length - 1">{{ $t('intro.challengeTitle') }}</h1>
       <p class="infoText">{{ currentText }}</p>
       <div class="final-btn-container" v-if="currentIndex === texts.length - 1">
         <RouterLink class="select-btn" to="/cam">{{ $t('intro.button3') }}
-          <svg
-            version="1.1"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            x="0px"
-            y="0px"
-            viewBox="0 0 205 136"
-            width="183"
-            height="114"
-          >
-            <path
-              class="path"
-              fill="none"
-              stroke="#F0444A"
-              stroke-width="1.5"
-              stroke-miterlimit="10"
-              d="M204,35.8c-32.8-2.1-65.8-2.7-98.7-1.8c-24.7,0.7-49.7,2.2-73.3,9.6 c-12.2,3.8-25.3,10.7-28.6,23C2.1,71,2.3,75.7,3,80.2c3.4,21.4,18.7,40.4,38.8,48.4c-12.6-11.4,16.7-30.4,12.5-46.9 c-4.2-16.5-15.6-30.4-29.2-40.6 C112.1,1.7,75.7-4.3,44,5.8"
-            ></path>
-          </svg>
+          <svg class="svg1" xmlns="http://www.w3.org/2000/svg" width="190" height="72" viewBox="0 0 190 72" fill="none">
+              <path class="path" d="M95.1236 70.5249C146.554 70.5249 188.247 55.1851 188.247 36.2625C188.247 17.3399 146.554 2 95.1236 2C43.6929 2 2 17.3399 2 36.2625C2 55.1851 43.6929 70.5249 95.1236 70.5249Z" stroke="#ED1C24" stroke-width="2.63557" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
         </RouterLink>
-        <RouterLink class="select-btn" to="/home">{{ $t('intro.button4') }}</RouterLink>
+        <RouterLink class="select-btn" to="/home">{{ $t('intro.button4') }}
+          <svg class="svg2" xmlns="http://www.w3.org/2000/svg" width="190" height="72" viewBox="0 0 190 72" fill="none">
+              <path class="path" d="M95.1236 70.5249C146.554 70.5249 188.247 55.1851 188.247 36.2625C188.247 17.3399 146.554 2 95.1236 2C43.6929 2 2 17.3399 2 36.2625C2 55.1851 43.6929 70.5249 95.1236 70.5249Z" stroke="#ED1C24" stroke-width="2.63557" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </RouterLink>
       </div>
       <p v-if="currentIndex === 0" class="bottom-text">{{ $t('intro.bottomText1') }}</p>
       <p v-else class="bottom-text">{{ $t('intro.bottomText2') }}</p>
@@ -51,7 +40,7 @@ const { t } = useI18n();
 const router = useRouter();
 const route = useRoute();
 
-const texts = ['intro.text2', 'intro.text3', 'intro.challengeText'];
+const texts = ['intro.text3', 'intro.text2', 'intro.challengeText'];
 
 const currentIndex = ref(0);
 const currentText = computed(() => t(texts[currentIndex.value]));
@@ -134,6 +123,7 @@ watch(route, () => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
 }
 
 .infoText {
@@ -158,16 +148,16 @@ watch(route, () => {
 
 h1 {
   text-transform: uppercase;
-  font-size: var(--t-header1);
   margin-bottom: 2rem;
   font-family: var(--f-thin);
+  font-size: 50px;
 }
 
 .final-btn-container {
   text-transform: uppercase;
   display: flex;
   justify-content: space-between;
-  gap: 3rem;
+  gap: 5rem;
 }
 
 .select-btn {
@@ -199,10 +189,17 @@ h1 {
   stroke-dashoffset: 0;
 }
 
-svg {
+.svg1 {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 57%;
+  left: 49%;
+  transform: translate(-93%, 30%);
+}
+
+.svg2 {
+  position: absolute;
+  top: 57%;
+  left: 61%;
   transform: translate(-93%, 30%);
 }
 </style>

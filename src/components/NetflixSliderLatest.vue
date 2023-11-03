@@ -37,14 +37,14 @@
 $aspect-ratio: math.div(4, 3);
 
 .sliderTitle {
-  padding: 2rem 1rem;
+  padding: 4.5rem 3rem;
   font-size: var(--t-bigText);
 }
 .netflixSwiper {
   width: 100%;
   height: 100%;
   background-color: var(--c-white);
-  padding: 0 1rem;
+  padding: 0 3rem;
 }
 
 .netflix-swiper-slide {

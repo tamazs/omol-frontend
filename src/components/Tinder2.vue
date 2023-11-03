@@ -11,14 +11,14 @@
     </div>
   </div>
   <div class="button-row">
-    <button class="nope-button" @click="nopeCard">
-      <img src="../assets/nopeB.png" alt="Nope" />
+    <button class="nope-button" @click="nopeCard" @mouseover="hoveredNope = true" @mouseout="hoveredNope = false">
+      <img :src="hoveredNope ? xRed : nopeB" alt="Nope" />
     </button>
-    <button class="rewind-button" @click="rewindCard">
-      <img src="../assets/rewindB.png" alt="Rewind" />
+    <button class="rewind-button" @click="rewindCard" @mouseover="hoveredRewind = true" @mouseout="hoveredRewind = false">
+      <img :src="hoveredRewind ? rewindRed : rewindB" alt="Nope" />
     </button>
-    <button class="like-button" @click="likeCard">
-      <img src="../assets/heartB.png" alt="Like" />
+    <button class="like-button" @click="likeCard" @mouseover="hoveredLike = true" @mouseout="hoveredLike = false">
+      <img :src="hoveredLike ? heartRed : heartB" alt="Nope" />
     </button>
   </div>
 </template>
@@ -28,6 +28,16 @@ import { ref, computed, onMounted, watchEffect, defineProps } from 'vue';
 import Hammer from 'hammerjs';
 import crew from '../modules/crew';
 import { useRouter } from 'vue-router';
+import xRed from '@/assets/x_red.png';
+import nopeB from '@/assets/plusB.png';
+import rewindB from '@/assets/rewindB.png';
+import heartB from '@/assets/heartB.png';
+import rewindRed from '@/assets/back_red.png';
+import heartRed from '@/assets/love_red.png';
+
+const hoveredNope = ref(false);
+const hoveredRewind = ref(false);
+const hoveredLike = ref(false);
 
 const router = useRouter();
 
@@ -175,24 +185,21 @@ const removePreviousCards = (index) => {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 75vh;
+    height: 60vh;
     width: 100vw;
     margin-top: 5rem;
   }
   
   .tinder--card {
     display: inline-block;
-    max-width: 400px;
-    height: 55vh;
+    height: 60vh;
     background: transparent;
     border-radius: 8px;
     overflow: hidden;
     position: absolute;
     will-change: transform, opacity;
     transition: all 0.3s ease-out;
-    cursor: -webkit-grab;
-    cursor: -moz-grab;
-    cursor: grab;
+    cursor: url('../assets/drag_01.png'), auto;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -213,6 +220,7 @@ const removePreviousCards = (index) => {
     justify-content: center;
     align-items: center;
     height: 4rem;
+    margin-top: 2rem;
     gap: 5px;
   }
   
@@ -225,10 +233,6 @@ const removePreviousCards = (index) => {
   
   .button-row button img {
     height: 100%;
-  }
-
-  .nope-button {
-    rotate: -45deg;
   }
   </style>
   

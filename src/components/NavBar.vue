@@ -246,6 +246,7 @@ const isProjectOrMemberRoute = computed(() => {
   border: none;
   cursor:url('../assets/cursor.png'), auto;
   color: var(--c-black);
+  font-size: var(--t-body);
 }
 
 .social-icons{

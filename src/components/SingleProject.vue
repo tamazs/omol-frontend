@@ -86,12 +86,12 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 20px;
+  padding: 4rem 0;
 }
 
 .project-title {
-  font-size: var(--t-bigText);
-  margin-bottom: 15px;
+  font-size: var(--t-header1);
+  margin-bottom: 3rem;
   border: 3px var(--c-red) solid;
   border-radius: 50%;
   padding: 1rem 4rem;

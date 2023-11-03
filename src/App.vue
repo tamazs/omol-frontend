@@ -137,7 +137,6 @@ const setupInactivityTimer = () => {
 };
 
 onMounted(() => {
-  showNone.value = true;
   setupInactivityTimer();
 });
 

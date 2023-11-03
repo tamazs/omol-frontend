@@ -83,7 +83,7 @@ const { cState, getClients } = client();
     position: absolute;
     border-radius: 50%;
     box-shadow: 0 0 20px rgba(16, 0, 54, 0.2);
-    color: var(--c-black);
+    color: var(--c-white);
     text-align: center;
     display: flex;
     justify-content: center;
