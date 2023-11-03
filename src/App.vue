@@ -1,26 +1,26 @@
 <template>
-  <NavBar v-if="showNone" />
-  <router-view />
-  <Footer v-if="isHomeRoute && showNone" />
-  <Footer2 v-else-if="showNone" />
-  <BottomInfo v-if="showNone" />
-  <div class="screensaver" :style="{ display: isScreensaverVisible ? 'block' : 'none' }">
-    <div class="countdown">
-      <p class="time">{{ formattedTimerValue }}</p>
-      <p class="time-text">{{ $t('home.screensaverText') }}</p>
+  <div v-cloak>
+    <NavBar :class="{ 'hidden': !showNone }" />
+    <router-view />
+    <Footer :class="{ 'hidden': !(isHomeRoute && showNone) }" />
+    <Footer2 :class="{ 'hidden': !showNone || isHomeRoute }" />
+    <BottomInfo :class="{ 'hidden': !showNone }" />
+    <div class="screensaver" :style="{ display: isScreensaverVisible ? 'block' : 'none' }">
+      <div class="countdown">
+        <p class="time">{{ formattedTimerValue }}</p>
+        <p class="time-text">{{ $t('home.screensaverText') }}</p>
+      </div>
     </div>
   </div>
-  <div class="curtain-column"></div>
 </template>
 
+
 <style scoped>
-.curtain-column {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--c-red);
-  z-index: 1000;
+[v-cloak] {
+  display: none;
+}
+.hidden {
+  display: none !important;
 }
 
 .screensaver {
@@ -47,17 +47,19 @@
   color: var(--c-black);
   border: 3px var(--c-black) solid;
   border-radius: 50%;
-  padding: 1.5rem 3rem;
-  margin-bottom: 10rem;
+  padding: 2rem 3rem;
   font-size: var(--t-header1);
-  font-family: var(--f-light);
+  font-family: var(--f-regular);
 }
 
 .time-text {
+  position: absolute;
+  bottom: -150%;
   text-transform: uppercase;
   font-size: var(--t-header3);
   font-family: var(--f-light);
   text-align: center;
+  width: max-content;
 }
 </style>
 
@@ -135,6 +137,7 @@ const setupInactivityTimer = () => {
 };
 
 onMounted(() => {
+  showNone.value = true;
   setupInactivityTimer();
 });
 

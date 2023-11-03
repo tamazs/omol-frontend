@@ -91,40 +91,4 @@ if (screenWidth < 1000) {
   });
 }
 
-router.beforeEach((to, from, next) => {
-  const curtains = document.querySelectorAll('.curtain-column');
-  gsap.set(curtains, { y: '-100%' });
-
-  gsap.to(curtains, {
-    y: '0%',
-    duration: 1,
-    onComplete: () => {
-      // changing the route behind the curtains
-      next();
-
-      // Wait for a short delay before raising the curtains
-      setTimeout(() => {
-        gsap.to(curtains, {
-          y: '-100%',
-          duration: 1
-        });
-      }, 1000);
-    }
-  });
-});
-
-
-
-router.afterEach(() => {
-  const curtains = document.querySelectorAll('.curtain-column');
-  gsap.to(curtains, {
-    delay: 1,
-    y: '-100%',
-    duration: 1,
-    onComplete: () => {
-      allowNavigation = true;  // allow the next navigation
-    }
-  });
-});
-
 export default router

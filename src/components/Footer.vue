@@ -103,14 +103,17 @@
   }
 
   .news-btn {
-    padding: 1.5rem 4rem;
-    color: var(--c-white);
     background-color: var(--c-black);
-    text-transform: uppercase;
+    color: var(--c-white);
+    padding: 1rem 4rem;
     border: none;
     border-radius: 50px;
-    width: 19rem;
-    cursor:url('../assets/click.png'), auto;
+    cursor:url('../assets/cursor.png'), auto;
+    width: max-content;
+    margin-top: 30px;
+    font-family: var(--f-thin);
+    text-transform: uppercase;
+    font-size: 1.2rem;
   }
   
   .footer-title {
@@ -137,7 +140,7 @@
     margin-top: 10px;
     text-decoration: none;
     color: var(--c-black);
-    cursor:url('../assets/click.png'), auto;
+    cursor:url('../assets/cursor.png'), auto;
   }
   
   .social-icons {
@@ -150,7 +153,7 @@
 
   .social-icons a{
     color: var(--c-black);
-    cursor:url('../assets/click.png'), auto;
+    cursor:url('../assets/cursor.png'), auto;
   }
   
   .footer-logo {
@@ -172,7 +175,7 @@
     text-decoration: none;
     color: var(--c-black);
     margin-left: 10px;
-    cursor:url('../assets/click.png'), auto;
+    cursor:url('../assets/cursor.png'), auto;
   }
   </style>
   

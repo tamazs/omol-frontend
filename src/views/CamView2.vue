@@ -21,7 +21,7 @@ let intervalId = ref(null);
 let timerInterval = ref(null);
 const router = useRouter();
 
-let countdown = ref(4);
+let countdown = ref(3);
 let cameraReady = ref(false);
 let timer = ref(0.0);
 let blinked = ref(false);

@@ -68,7 +68,7 @@ $aspect-ratio: math.div(4, 3);
   height: math.div(100, $aspect-ratio) slash;
   display: flex;
   flex-direction: column;
-  cursor: url('../assets/click.png'), auto;
+  cursor:url('../assets/cursor.png'), auto;
   position: relative;
   margin-bottom: 85px;
 }

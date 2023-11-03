@@ -126,7 +126,6 @@
     font-size: var(--t-bigText);
     background-color: var(--c-white);
     position: relative;
-    margin-top: 10rem;
     overflow: hidden;
   }
   
@@ -164,7 +163,7 @@
   
   input[type=text], [type=email], textarea {
     width: 100%;
-    padding: 12px;
+    padding: 15px;
     background-color: #E8E3E0;
     border-radius: 4px;
     border: none;
@@ -177,11 +176,13 @@
   input::placeholder {
   font-family: var(--f-regular);
   text-transform: uppercase;
+  font-size: 1.2rem;
   }
 
   textarea::placeholder {
   font-family: var(--f-regular);
   text-transform: uppercase;
+  font-size: 1.2rem;
   }
   
   input[type=submit] {
@@ -190,10 +191,12 @@
     padding: 12px 20px;
     border: none;
     border-radius: 50px;
-    cursor:url('../assets/click.png'), auto;
+    cursor:url('../assets/cursor.png'), auto;
     width: 20%;
     margin-top: 30px;
     font-family: var(--f-thin);
+    text-transform: uppercase;
+    font-size: 1.2rem;
   }
 
   

@@ -190,12 +190,12 @@ onMounted(() => {
       background: var(--c-black);
       color: var(--c-white);
       text-transform: uppercase;
-      padding: 10px 0;
+      padding: 5px;
       overflow: hidden;
       position: fixed;
         bottom: 0;
         width: 100vw;
-        z-index: 9999;
+        z-index: 999;
     }
 
    .bottom__unit {
@@ -208,7 +208,7 @@ onMounted(() => {
    }
 
    .divider {
-    padding: 0 30px;
+    padding: 0 20px;
    }
     
     .bottom__inner {

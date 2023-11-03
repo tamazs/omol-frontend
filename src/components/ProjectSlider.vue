@@ -12,8 +12,9 @@
         <img class="base-image" :src="slide.img" />
         <img class="hover-gif" :src="slide.gif" />
         <div class="text-overlay">
+          <router-link class="overlay-open" :to="`/project/${slide.id}`">
           <p class="title">{{ slide.title }}</p>
-          <router-link class="see-more" :to="`/project/${slide.id}`">{{ $t('home.sliderBtn') }}</router-link>
+          </router-link>
         </div>
       </div>
     </swiper-slide>
@@ -85,12 +86,18 @@ $aspect-ratio: math.div(4, 3);
   overflow: hidden;
 }
 
+.overlay-open {
+  text-decoration: none;
+  color: var(--c-white);
+  cursor:url('../assets/cursor.png'), auto;
+}
+
 .image-wrapper {
   position: relative;
   width: 100%;
   height: 70vh;
   transition: transform 0.5s ease;
-  margin-bottom: 85px;
+  margin-bottom: 50px;
   cursor: url('../assets/drag_01.png'), auto;
 }
 
@@ -109,15 +116,10 @@ $aspect-ratio: math.div(4, 3);
 }
 
 .title {
-  font-size: var(--t-header2);
-  margin-bottom: 70px;
+  font-size: var(--t-bigText);
   font-family: var(--f-light);
-}
-
-.see-more {
-  color: var(--c-white);
-  font-size: var(--t-body);
-  cursor:url('../assets/click.png'), auto;
+  line-height: 60px;
+  padding: 1rem;
 }
 
 .base-image, .hover-gif {

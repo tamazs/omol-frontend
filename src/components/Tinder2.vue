@@ -220,7 +220,7 @@ const removePreviousCards = (index) => {
     height: 100%;
     background-color: transparent;
     border: none;
-    cursor:url('../assets/click.png'), auto;
+    cursor:url('../assets/cursor.png'), auto;
   }
   
   .button-row button img {

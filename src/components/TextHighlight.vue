@@ -26,15 +26,15 @@ onMounted(() => {
       scrollTrigger: {
         trigger: textContainer.value,
         start: 'top center',
-        end: 'bottom center',
+        end: 'center center',
         scrub: true
       }
     });
 
     tl.fromTo(
     ".highlight",
-    { color: "black" },
-    { color: "red", stagger: 1 }
+    { color: "#CAC2BE" },
+    { color: "black", stagger: 1 }
     );
   });
 

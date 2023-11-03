@@ -57,7 +57,7 @@ onMounted(() => {
   flex-shrink: 0;
   padding: 0 25px;
   font-smooth: always;
-  font-size: var(--t-header1);
+  font-size: 5rem;
   font-family: var(--f-thin);
 }
 
@@ -65,7 +65,7 @@ onMounted(() => {
   background: var(--c-white);
   color: var(--c-red);
   text-transform: uppercase;
-  padding: 32px 0;
+  padding: 150px 0;
   position: relative;
   overflow: hidden;
 }

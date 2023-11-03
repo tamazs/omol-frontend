@@ -48,6 +48,12 @@
               <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }">{{ $t('navbar.team') }}</router-link>
             </div>
           </div>
+          <div class="social-icons">
+              <a href="https://vimeo.com/goodsightmedia" target="_blank"><i class="fab fa-vimeo"></i></a>
+              <a href="https://www.instagram.com/omolvideo/" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.youtube.com/@omolvideo/videos" target="_blank"><i class="fab fa-youtube"></i></a>
+              <a href="https://www.linkedin.com/company/goodsight/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
           <div class="languages" v-if="!isProjectOrMemberRoute">
             <button @click="setLanguage('es')">ES</button>
             <button @click="setLanguage('en')">EN</button>
@@ -178,7 +184,6 @@ const isProjectOrMemberRoute = computed(() => {
 
 .desktop-nav .pages {
   display: flex;
-  gap: 50px;
   text-transform: uppercase;
 }
 
@@ -198,12 +203,12 @@ const isProjectOrMemberRoute = computed(() => {
 
 .burger-menu {
   font-size: 24px;
-  cursor:url('../assets/click.png'), auto;
+  cursor:url('../assets/cursor.png'), auto;
   color: var(--c-black);
 }
 
 .logo{
-  cursor:url('../assets/click.png'), auto;
+  cursor:url('../assets/cursor.png'), auto;
 }
 
 .menu-container {
@@ -225,7 +230,7 @@ const isProjectOrMemberRoute = computed(() => {
   justify-content: space-between;
   padding: 20px;
   font-size: 24px;
-  cursor:url('../assets/click.png'), auto;
+  cursor:url('../assets/cursor.png'), auto;
 }
 
 .nav-links {
@@ -239,9 +244,22 @@ const isProjectOrMemberRoute = computed(() => {
   text-decoration: none;
   background: none;
   border: none;
-  cursor:url('../assets/click.png'), auto;
+  cursor:url('../assets/cursor.png'), auto;
   color: var(--c-black);
 }
+
+.social-icons{
+  font-size: var(--t-header3);
+  display: flex;
+  gap: 20px;
+  margin: 10px 0;
+  display: none;
+}
+
+.social-icons a{
+    color: var(--c-black);
+    cursor:url('../assets/cursor.png'), auto;
+  }
 
 .pages {
   display: flex;
@@ -252,11 +270,11 @@ const isProjectOrMemberRoute = computed(() => {
   margin: 10px 0;
   text-decoration: none;
   background: none;
-  cursor:url('../assets/click.png'), auto;
+  cursor:url('../assets/cursor.png'), auto;
   color: var(--c-black);
   border: 2px transparent solid;
   border-radius: 50%;
-  padding: 0.4rem 1.4rem;
+  padding: 0.8rem 1.4rem;
 }
 
 .pages a.router-link-active {

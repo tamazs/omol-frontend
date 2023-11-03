@@ -140,7 +140,7 @@
   background: transparent;
   border: none;
   color: var(--c-black);
-  cursor:url('../assets/click.png'), auto;
+  cursor:url('../assets/cursor.png'), auto;
   height: 5rem;
   width: 10rem;
   font-size: var(--t-header2);

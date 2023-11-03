@@ -67,7 +67,7 @@ $aspect-ratio: math.div(4, 3);
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-bottom: 85px;
+  margin-bottom: 130px;
 }
 
 .netflix-title {
@@ -101,7 +101,7 @@ $aspect-ratio: math.div(4, 3);
 .netflix-base-image,
 .netflix-hover-gif {
   width: 100%;
-  height: 50vh;
+  height: 45vh;
   object-fit: cover;
   transition: all 1s;
 }
@@ -119,7 +119,7 @@ $aspect-ratio: math.div(4, 3);
   flex-direction: column;
   align-items: flex-start;
   position: absolute;
-  bottom: -7.8rem;
+  bottom: -9rem;
   width: 100%;
   padding: 40px 0;
   box-sizing: border-box;
@@ -131,10 +131,10 @@ $aspect-ratio: math.div(4, 3);
   background: transparent;
 }
 
-.netflix-card:hover .netflix-base-image,
+/* .netflix-card:hover .netflix-base-image,
 .netflix-hover-gif {
   height: 53vh;
-}
+} */
 
 .button-wrapper {
   display: flex;
@@ -146,7 +146,7 @@ $aspect-ratio: math.div(4, 3);
 .netflix-plus-button {
   background: transparent;
   border: none;
-  cursor:url('../assets/click.png'), auto;
+  cursor:url('../assets/cursor.png'), auto;
   font-size: 30px;
   color: var(--c-red);
   margin-right: 10px;

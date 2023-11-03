@@ -1,7 +1,7 @@
 <template>
     <div class="grid-container">
       <div class="grid-item text-section left-section">
-        <RouterLink class="result-button" to="/">{{ $t('intro.button5') }}</RouterLink>
+        <RouterLink class="result-button" to="/cam">{{ $t('intro.button5') }}</RouterLink>
       </div>
       <div class="grid-item middle-section">
         <div class="text-container">
@@ -91,7 +91,7 @@
     width: max-content;
     font-size: var(--t-header3);
     margin-bottom: 3rem;
-    cursor:url('../assets/click.png'), auto;
+    cursor:url('../assets/cursor_black.png'), auto;
   }
 
   .right-section .result-button {

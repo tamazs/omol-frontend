@@ -220,6 +220,7 @@ body {
   background: var(--c-black);
   display: inline-block;
   margin: 0 8px;
+  cursor:url('../assets/cursor.png'), auto;
 }
 
 .tinder--buttons button:focus {

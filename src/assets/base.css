@@ -47,10 +47,11 @@
 body {
   font-family: 'HelveticaNeue', serif;
   font-size: var(--t-body);
+  background-color: var(--c-white);
 }
 
 html {
   background-color: var(--c-white);
   scroll-behavior: smooth;
-  cursor:url('../assets/cursor.png'), auto;
+  cursor:url('../assets/cursor_black.png'), auto;
 }
