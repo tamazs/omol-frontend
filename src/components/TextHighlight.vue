@@ -26,7 +26,7 @@ onMounted(() => {
       scrollTrigger: {
         trigger: textContainer.value,
         start: 'top center',
-        end: 'center center',
+        end: 'bottom center',
         scrub: true
       }
     });

@@ -58,9 +58,15 @@
   },
   "about": {
     "aboutText1Before": "Conoce más sobre nosotros",
-    "aboutText1": "OMOL es un servicio de grabación y edición con lo último teléfonos inteligentes de última generación, rápidos, entregados casi al instante, para compartir rápidamente.",
+    "aboutText11": "OMOL es un servicio de grabación y edición con lo último teléfonos inteligentes de última generación,",
+    "aboutText12": " rápidos, entregados casi al instante, para compartir rápidamente.",
+    "aboutText13": " entregados casi al instante,",
+    "aboutText14": " para compartir rápidamente.",
     "aboutText2Before": "Compartimos nuestra visión",
-    "aboutText2": "Warhol pontificaba que todo el mundo merecía sus 15 minutos de fama. Hoy en día, que la atención se agota mucho más rápido, es mejor condensar nuestro mensaje en poco más de un minuto.",
+    "aboutText21": "Warhol pontificaba que todo el mundo merecía sus 15 minutos de fama.",
+    "aboutText22": " Hoy en día,",
+    "aboutText23": " que la atención se agota mucho más rápido,",
+    "aboutText24": " es mejor condensar nuestro mensaje en poco más de un minuto.",
     "aboutText2After": "Eso sí: Un minuto de amor total.",
     "marqueeText": "Se pueden olvidar de tu logo, pero no de lo que les hiciste sentir"
   },

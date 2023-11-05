@@ -191,15 +191,13 @@ h1 {
 
 .svg1 {
   position: absolute;
-  top: 57%;
-  left: 49%;
-  transform: translate(-93%, 30%);
+  top: 31rem;
+  left: 32rem;
 }
 
 .svg2 {
   position: absolute;
-  top: 57%;
-  left: 61%;
-  transform: translate(-93%, 30%);
+  top: 31rem;
+  left: 44.5rem;
 }
 </style>

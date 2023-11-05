@@ -39,14 +39,14 @@
 $aspect-ratio: math.div(4, 3);
 
 .categoryName {
-    padding: 2rem 1rem;
-    font-size: var(--t-bigText);
+  padding: 4.5rem 3rem;
+  font-size: var(--t-bigText);
 }
 .netflixSwiper {
   width: 100%;
   height: 100%;
   background-color: var(--c-white);
-  padding: 0 1rem;
+  padding: 0 3rem;
 }
 
 .netflix-swiper-slide {
@@ -68,21 +68,15 @@ $aspect-ratio: math.div(4, 3);
   height: math.div(100, $aspect-ratio) slash;
   display: flex;
   flex-direction: column;
-  cursor:url('../assets/cursor.png'), auto;
   position: relative;
-  margin-bottom: 85px;
+  margin-bottom: 130px;
 }
 
 .netflix-title {
   font-size: 0.7rem;
   margin-bottom: 10px;
   margin-left: 25px;
-  font-family: 'HelveticaNeue', serif;
   text-transform: uppercase;
-}
-
-#plusmark, #playmark {
-  height: 2rem;
 }
 
 .netflix-title::before {
@@ -109,7 +103,7 @@ $aspect-ratio: math.div(4, 3);
 .netflix-base-image,
 .netflix-hover-gif {
   width: 100%;
-  height: 50vh;
+  height: 45vh;
   object-fit: cover;
   transition: all 1s;
 }
@@ -127,21 +121,22 @@ $aspect-ratio: math.div(4, 3);
   flex-direction: column;
   align-items: flex-start;
   position: absolute;
-  bottom: -7.7rem;
+  bottom: -9rem;
   width: 100%;
   padding: 40px 0;
   box-sizing: border-box;
   z-index: 2;
 }
 
-.netflix-card:hover .netflix-base-image,
-.netflix-hover-gif {
-  height: 53vh;
-}
 .netflix-card:hover .netflix-button-container {
   display: flex;
   background: transparent;
 }
+
+/* .netflix-card:hover .netflix-base-image,
+.netflix-hover-gif {
+  height: 53vh;
+} */
 
 .button-wrapper {
   display: flex;
@@ -153,7 +148,8 @@ $aspect-ratio: math.div(4, 3);
 .netflix-plus-button {
   background: transparent;
   border: none;
-  cursor: pointer;
+  cursor:url('../assets/cursor.png'), auto;
+  font-size: 30px;
   color: var(--c-red);
   margin-right: 10px;
 }
@@ -171,6 +167,10 @@ $aspect-ratio: math.div(4, 3);
 
 .netflix-card:hover .netflix-hover-text {
   display: block;
+}
+
+#plusmark, #playmark {
+  height: 2rem;
 }
 </style>
   

@@ -119,16 +119,14 @@
 
 .svg1 {
   position: absolute;
-  top: 56%;
-  left: 48%;
-  transform: translate(-93%, 30%);
+  top: 30rem;
+  left: 32rem;
 }
 
 .svg2 {
   position: absolute;
-  top: 56%;
-  left: 61%;
-  transform: translate(-93%, 30%);
+  top: 30rem;
+  left: 44rem;
 }
   </style>
   

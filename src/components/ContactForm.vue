@@ -172,6 +172,7 @@
     margin-bottom: 4px;
     resize: vertical;
     font-size: 1.2rem;
+    font-family: var(--f-regular);
   }
 
   input::placeholder {

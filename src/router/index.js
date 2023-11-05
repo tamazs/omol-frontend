@@ -70,9 +70,12 @@ const router = createRouter({
     if (savedPosition) {
       // If there is a saved position, scroll to that position
       return savedPosition;
+    } else if (to.hash) {
+      // If the target route has a hash, scroll to the element with that ID
+      return { el: to.hash, behavior: 'smooth' };
     } else {
-      // If there is no saved position, scroll to the top of the page
-      return { top: 0 };
+      // If there is no saved position and no hash, scroll to the top of the page
+      return { top: 0, behavior: 'smooth' };
     }
   }
 })
@@ -90,5 +93,52 @@ if (screenWidth < 1000) {
     }
   });
 }
+
+router.beforeEach((to, from, next) => {
+  const curtains = document.querySelector('.curtain-column');
+
+  // Set initial opacity to 0 and visibility to visible
+  gsap.set(curtains, { opacity: 0, visibility: 'visible' });
+
+  // Fade in the curtains
+  gsap.to(curtains, {
+    opacity: 1,
+    visibility: 'visible',
+    duration: 1,
+    onComplete: () => {
+      // Change the route behind the curtains
+      next();
+
+      // Wait for a short delay before fading out the curtains
+      setTimeout(() => {
+        gsap.to(curtains, {
+          opacity: 0,
+          duration: 1, // Set the same duration as the fade-in animation
+          onComplete: () => {
+            curtains.style.visibility = 'hidden'; // Set visibility to hidden after opacity animation
+          },
+        });
+      }, 100);
+    }
+  });
+});
+
+router.afterEach(() => {
+  const curtains = document.querySelector('.curtain-column');
+
+  // Delay before fading out after the route has changed
+  setTimeout(() => {
+    gsap.to(curtains, {
+      opacity: 0,
+      duration: 1,
+      onComplete: () => {
+        curtains.style.visibility = 'hidden'; // Set visibility to hidden after opacity animation
+      },
+    });
+  }, 500); // Adjust the delay as needed
+});
+
+
+
 
 export default router

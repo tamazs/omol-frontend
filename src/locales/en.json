@@ -58,9 +58,15 @@
     },
     "about": {
       "aboutText1Before": "Know more about us",
-      "aboutText1": "OMOL is a recording and editing service with the latest generation smartphones, fast, delivered almost instantly, for quick sharing.",
+      "aboutText11": "OMOL is a recording and editing service with the latest generation smartphones,",
+      "aboutText12": " fast,",
+      "aboutText13": " delivered almost instantly,",
+      "aboutText14": " for quick sharing.",
       "aboutText2Before": "We share our vision",
-      "aboutText2": "Warhol pontificated that everyone deserved his 15 minutes of fame. Nowadays, that attention runs out much faster, it is better to condense our message in just over a minute.",
+      "aboutText21": "Warhol pontificated that everyone deserved his 15 minutes of fame.",
+      "aboutText22": " Nowadays,",
+      "aboutText23": " that attention runs out much faster,",
+      "aboutText24": " it is better to condense our message in just over a minute.",
       "aboutText2After": "That's right: A minute of total love.",
       "marqueeText": "They can forget about your logo, but not about how you made them feel"
     },

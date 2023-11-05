@@ -12,12 +12,22 @@
       </div>
     </div>
   </div>
+  <div class="curtain-column"></div>
 </template>
 
 
 <style scoped>
 [v-cloak] {
   display: none;
+}
+
+.curtain-column {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--c-white);
+  z-index: 99999;
 }
 .hidden {
   display: none !important;

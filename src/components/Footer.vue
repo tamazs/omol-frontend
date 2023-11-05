@@ -7,9 +7,9 @@
         <div class="footer-section">
           <div class="contact-info">
             <div class="contact-item">{{ $t('footer.contactUs') }}</div>
-            <div class="contact-item">{{ $t('footer.callUs') }}<a href="tel:+34 911 542 253">+34 911 542 253</a></div>
-            <div class="contact-item">WhatsApp: <a href="https://wa.me/34662746484">+34 662 74 64 84</a></div>
-            <div class="contact-item">Email: <a href="mailto:nbuenavista@goodsightmedia.com">nbuenavista@goodsightmedia.com</a></div>
+            <div class="contact-item contact-hover">{{ $t('footer.callUs') }}<a href="tel:+34 911 542 253">+34 911 542 253</a></div>
+            <div class="contact-item contact-hover">WhatsApp: <a href="https://wa.me/34662746484">+34 662 74 64 84</a></div>
+            <div class="contact-item contact-hover">Email: <a href="mailto:nbuenavista@goodsightmedia.com">nbuenavista@goodsightmedia.com</a></div>
           </div>
         </div>
         <div class="footer-section-mid">
@@ -20,10 +20,10 @@
           <div class="footer-section-div">
             <p class="footer-title">{{ $t('footer.followUs') }}</p>
             <div class="social-icons">
-              <a href="https://vimeo.com/goodsightmedia" target="_blank"><i class="fab fa-vimeo"></i></a>
+              <a href="https://vimeo.com/goodsightmedia" target="_blank"><i class="fab fa-vimeo-v"></i></a>
               <a href="https://www.instagram.com/omolvideo/" target="_blank"><i class="fab fa-instagram"></i></a>
               <a href="https://www.youtube.com/@omolvideo/videos" target="_blank"><i class="fab fa-youtube"></i></a>
-              <a href="https://www.linkedin.com/company/goodsight/" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a href="https://www.linkedin.com/company/goodsight/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
             </div>
           </div>
         </div>
@@ -134,6 +134,13 @@
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
+    border: 2px transparent solid;
+    border-radius: 50%;
+    padding: 1.2rem 1.8rem;
+  }
+
+  .contact-hover:hover {
+    border: 2px var(--c-red) solid;
   }
 
   .contact-item a{
@@ -144,7 +151,7 @@
   }
   
   .social-icons {
-    margin-top: 15px;
+    margin-top: 30px;
     font-size: var(--t-header2);
     display: flex;
     gap: 40px;

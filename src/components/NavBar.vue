@@ -24,6 +24,7 @@
           </div>
           <div class="nav-links">
             <div class="mobile-pages">
+              <a href="/home#sendLove">Send love</a>
               <router-link to="/projects" :class="{ 'active-link': $route.path === '/projects' ||  $route.path.startsWith('/project/') }">{{ $t('navbar.projects') }}</router-link>
               <router-link to="/about" :class="{ 'active-link': $route.path === '/about' }">{{ $t('navbar.about') }}</router-link>
               <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }">{{ $t('navbar.team') }}</router-link>
@@ -42,7 +43,7 @@
         </router-link>
           <div class="nav-middle">
             <div class="pages">
-              <a href="/home#sendLove">Send love</a>
+              <router-link to="/home#sendLove">Send love</router-link>
               <router-link to="/projects" :class="{ 'active-link': $route.path === '/projects' ||  $route.path.startsWith('/project/') }">{{ $t('navbar.projects') }}</router-link>
               <router-link to="/about" :class="{ 'active-link': $route.path === '/about' }">{{ $t('navbar.about') }}</router-link>
               <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }">{{ $t('navbar.team') }}</router-link>
@@ -87,6 +88,38 @@ const setLanguage = (lang) => {
   store.lang = lang;
   locale.value = lang;
 };
+
+const scrollToSendLove = () => {
+  const currentRoute = router.currentRoute.value.path;
+  if (currentRoute === '/home#sendLove') {
+    scrollElementIntoView();
+  } else {
+    
+  }
+
+  function scrollElementIntoView() {
+    const element = document.getElementById('sendLove');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+};
+
+onMounted (() => {
+  const currentRoute = router.currentRoute.value.path;
+  if (currentRoute === '/home#sendLove') {
+    scrollElementIntoView();
+  } else {
+    
+  }
+  
+  function scrollElementIntoView() {
+    const element = document.getElementById('sendLove');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+})
 
 /* onMounted(() => {
     let tl = gsap.timeline({
@@ -152,7 +185,6 @@ const isProjectOrMemberRoute = computed(() => {
   const currentRoute = router.currentRoute.value;
   return currentRoute.path.startsWith('/member/') || currentRoute.path.startsWith('/project/');
 });
-
 </script>
 
 <style scoped>
@@ -280,6 +312,10 @@ const isProjectOrMemberRoute = computed(() => {
 
 .pages a.router-link-active {
   border: 2px var(--c-red) solid;
+}
+
+.pages a:hover {
+  border: 2px #f0444a50 solid;
 }
 
 @media(max-width: 767px) {
