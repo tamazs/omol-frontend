@@ -188,13 +188,13 @@
   }
   
   input[type=submit] {
-    background-color: var(--c-red);
+    background-color: var(--c-black);
     color: var(--c-white);
-    padding: 12px 20px;
+    padding: 1rem 4rem;
     border: none;
     border-radius: 50px;
     cursor:url('../assets/cursor.png'), auto;
-    width: 20%;
+    width: max-content;
     margin-top: 30px;
     font-family: var(--f-thin);
     text-transform: uppercase;

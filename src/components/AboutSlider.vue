@@ -85,14 +85,4 @@ const modules = [Navigation, Scrollbar];
   height: 100%; /* Maintain a consistent height */
   object-fit: cover;
 }
-
-.swiper-horizontal > .swiper-scrollbar, .swiper-scrollbar.swiper-scrollbar-horizontal {
-  position: absolute;
-    left: var(--swiper-scrollbar-sides-offset, 10%);
-    bottom: var(--swiper-scrollbar-bottom, 0);
-    top: var(--swiper-scrollbar-top, auto);
-    z-index: 50;
-    height: var(--swiper-scrollbar-size, 6px) !important;
-    width: calc(100% - 2 * var(--swiper-scrollbar-sides-offset, 10%));
-}
 </style>

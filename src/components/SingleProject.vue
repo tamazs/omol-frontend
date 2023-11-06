@@ -130,7 +130,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 5rem;
+  margin-top: rem;
+  padding: 0 3rem;
 }
 
 .back-button,

@@ -1,7 +1,7 @@
 <template>
     <swiper
       :slidesPerView="slidesPerView"
-      :spaceBetween="10"
+      :spaceBetween="20"
       :navigation="false"
       :scrollbar="true"
       :modules="modules"
@@ -21,7 +21,7 @@
   import { Swiper, SwiperSlide } from 'swiper/vue';
   import 'swiper/css';
   import 'swiper/css/navigation';
-  import 'swiper/css/scrollbar';
+  import '../assets/swiperScrollbar.css';
   import { Navigation, Scrollbar } from 'swiper/modules';
   import project from '../modules/project';
   
@@ -29,10 +29,10 @@
   
   const slides = computed(() => pState.projects[0].btsImages);
   
-  const slidesPerView = ref(window.innerWidth <= 767 ? 1 : 4);
+  const slidesPerView = ref(window.innerWidth <= 767 ? 1 : 3);
   
   const updateSlidesPerView = () => {
-    slidesPerView.value = window.innerWidth <= 767 ? 1 : 4;
+    slidesPerView.value = window.innerWidth <= 767 ? 1 : 3;
   };
   
   onMounted(() => {
@@ -50,41 +50,41 @@
   
   <style scoped lang="scss">
   .aboutSwiper {
-    max-width: 100%;
-    height: 100%;
-    background-color: var(--c-white);
-    padding: 0 3rem;
-    margin-bottom: 7rem;
-    cursor: url('../assets/drag_01.png'), auto;
-  }
-  
-  .about-swiper-slide {
-    font-size: 18px;
-    background: var(--c-white);
-    display: grid;
-    place-items: center;
-    max-width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    grid-template-rows: 1fr;
-    width: auto;
-  }
-  
-  .about-image-wrapper {
-    position: relative;
-    max-width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 70vh; /* Set your desired fixed height here */
-    margin-bottom: 85px; /* Adjust the margin as needed */
-  }
-  
-  .about-base-image {
-    max-width: 100%; /* Ensure the image doesn't exceed its container */
-    height: 100%; /* Maintain a consistent height */
-    object-fit: cover;
-  }
+  width: 100%;
+  height: 100%;
+  background-color: var(--c-white);
+  padding: 0 2rem;
+  margin-bottom: 7rem;
+  cursor: url('../assets/drag_01.png'), auto;
+}
+
+.about-swiper-slide {
+  font-size: 18px;
+  background: var(--c-white);
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  grid-template-rows: 1fr;
+  width: auto;
+}
+
+.about-image-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh; /* Set your desired fixed height here */
+  margin-bottom: 85px; /* Adjust the margin as needed */
+}
+
+.about-base-image {
+  width: 100%; /* Ensure the image doesn't exceed its container */
+  height: 100%; /* Maintain a consistent height */
+  object-fit: cover;
+}
   </style>
   
