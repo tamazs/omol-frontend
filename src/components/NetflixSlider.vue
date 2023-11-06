@@ -237,9 +237,9 @@ $aspect-ratio: math.div(4, 3);
     playStatus.value[index] = !playStatus.value[index];
     const gif = document.querySelectorAll(".netflix-hover-gif")[index];
     if (playStatus.value[index]) {
-      gsap.to(gif, { opacity: 1, duration: 0.5 });
+      gsap.to(gif, { opacity: 1, duration: 0.1 });
     } else {
-      gsap.to(gif, { opacity: 0, duration: 0.5 });
+      gsap.to(gif, { opacity: 0, duration: 0.1 });
     }
   };
   
