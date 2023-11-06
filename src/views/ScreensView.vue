@@ -1,7 +1,7 @@
 <template>
   <div class="screens" @click="nextScreen">
     <div class="text-container">
-      <h1 v-if="currentIndex === 1">{{ $t('intro.thanku') }}</h1>
+      <h1 v-if="currentIndex === 0">{{ $t('intro.thanku') }}</h1>
       <h1 v-if="currentIndex === texts.length - 1">{{ $t('intro.challengeTitle') }}</h1>
       <p class="infoText">{{ currentText }}</p>
       <div class="final-btn-container" v-if="currentIndex === texts.length - 1">
@@ -23,7 +23,7 @@ const { t } = useI18n();
 const router = useRouter();
 const route = useRoute();
 
-const texts = ['intro.text3', 'intro.text2', 'intro.challengeText'];
+const texts = [ 'intro.text2', 'intro.text3', 'intro.challengeText'];
 
 const currentIndex = ref(0);
 const currentText = computed(() => t(texts[currentIndex.value]));

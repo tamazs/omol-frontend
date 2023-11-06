@@ -2,7 +2,7 @@
       <div class="screens" @click="nextScreen" :style="{ backgroundColor: backgroundColor }">
         <video ref="cameraFeed" class="camera-feed" autoplay muted playsinline></video>
             <div class="text-container">
-            <h1 v-if="currentIndex === 1">{{ $t('intro.thanku') }}</h1>
+            <h1 v-if="currentIndex === 0">{{ $t('intro.thanku') }}</h1>
             <h1 v-if="currentIndex === texts.length - 1">{{ $t('intro.challengeTitle') }}</h1>
             <p class="infoText">{{ currentText }}</p>
             <div class="final-btn-container" v-if="currentIndex === texts.length - 1">
@@ -28,12 +28,13 @@
 const router = useRouter();
 const route = useRoute();
 
-const texts = ['intro.text3', 'intro.text2', 'intro.challengeText'];
+const texts = [ 'intro.text2', 'intro.text3', 'intro.challengeText'];
 
 const currentIndex = ref(0);
 const currentText = computed(() => t(texts[currentIndex.value]));
 
 const nextScreen = () => {
+  initializeFaceApiAndVideoElements();
   if (currentIndex.value < texts.length - 1) {
     currentIndex.value++;
   }
@@ -43,7 +44,7 @@ const nextScreen = () => {
   let blinked = ref(false);
   
   onMounted(async () => {
-        initializeFaceApiAndVideoElements();
+        
         await router.isReady();
         currentIndex.value = 0;
   });
