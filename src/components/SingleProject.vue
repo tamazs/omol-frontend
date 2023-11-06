@@ -48,24 +48,22 @@
 }
 
 .before-text {
-    font-size: var(--t-body);
-    text-transform: uppercase;
-    padding: 0;
-    width: 17vw;
-    margin-bottom: 2rem;
+  font-size: 0.7rem;
+  margin-bottom: 10px;
+  margin-left: 25px;
+  text-transform: uppercase;
   }
 
   .before-text::before {
-  content: '';
+    content: '';
   width: 15px;
   height: 15px;
   background-color: #F0444A;
   border-radius: 50%;
   position: absolute;
-  left: 2.5rem;
-  top: 6.1rem;
+  left: 1rem;
+  top: 5rem;
   z-index: 2;
-  line-height: 0px;
 }
 
 .video-item {
@@ -162,7 +160,7 @@
 }
 
 .grid-container {
-  padding: 2rem 1rem;
+  padding: 5rem 1rem !important;
   width: 100vw;
 }
 
@@ -177,6 +175,12 @@
   border-radius: 50%;
   padding: 1rem 2rem;
   width: max-content;
+}
+
+.back-button,
+.next-button {
+  height: 8rem !important;
+  width: auto !important;
 }
 }
 </style>

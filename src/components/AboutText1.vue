@@ -16,19 +16,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 const textContainer1 = ref(null);
 
-let tl;
+let tl1;
 
 onMounted(() => {
-  tl = gsap.timeline({
+  tl1 = gsap.timeline({
     scrollTrigger: {
       trigger: textContainer1.value,
-      start: 'top center',
-      end: 'center center',
+      start: 'center center',
+      end: 'bottom center',
       scrub: true
     }
   });
 
-  tl.fromTo(
+  tl1.fromTo(
   ".highlight1",
   { color: "#CAC2BE" },
   { color: "black", stagger: 1 }
@@ -38,7 +38,7 @@ onMounted(() => {
 onBeforeUnmount(() => {
 // Kill the timeline and ScrollTrigger instance when the component is unmounted
 ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-tl.kill();
+tl1.kill();
 });
 </script>
 

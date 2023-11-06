@@ -117,6 +117,7 @@ function setContainerWidth(width) {
     width: 70vw;
     padding: 2rem 2rem 0rem 2rem;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 50px;
@@ -139,6 +140,7 @@ function setContainerWidth(width) {
     text-transform: uppercase;
     text-wrap: nowrap;
     font-family: var(--f-thin);
+    margin-bottom: 0rem;
   }
   
   .history {
@@ -147,14 +149,16 @@ function setContainerWidth(width) {
   }
   
   @media (max-width: 767px) {
+    
     .slide {
     width: 100vw !important;
     gap: 40px !important;
-    padding: 1rem 1rem 0rem 1rem !important;
+    padding: 5rem 2rem 0rem 2rem !important;
+    flex-direction: column !important;
   }
   
   .number {
-    font-size: 7rem !important;
+    font-size: 8rem !important;
   }
   
   .history-text {
@@ -164,6 +168,7 @@ function setContainerWidth(width) {
   
   .history-title {
     font-size: var(--t-header2) !important;
+    margin-bottom: 1rem !important;
   }
 
   .scroll-container {

@@ -49,6 +49,13 @@ async function initializeFaceApiAndVideoElements() {
   await faceapi.nets.tinyFaceDetector.loadFromUri('/models');
   await faceapi.nets.faceLandmark68Net.loadFromUri('/models');
 
+  navigator.getUserMedia = (
+    navigator.getUserMedia ||
+    navigator.webkitGetUserMedia ||
+    navigator.mozGetUserMedia ||
+    navigator.msGetUserMedia
+  );
+
   navigator.getUserMedia(
     { video: {} },
     stream => {

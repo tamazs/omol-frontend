@@ -60,6 +60,13 @@
   .news-btn {
     padding: 1rem 1rem !important;
     width: 10rem !important;
+    margin-bottom: 2.2rem;
+  }
+
+  .footer-text {
+    border-top: 1px solid rgb(112, 112, 112, .3);
+    padding-top: 2rem;
+    width: 100vw;
   }
   }
   .footer {

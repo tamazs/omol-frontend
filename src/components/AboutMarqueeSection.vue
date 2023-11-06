@@ -80,8 +80,8 @@
     
     @media(max-width: 767px) {
       .about-marquee__part {
-      padding: 0 60px;
-      font-size: var(--t-header3);
+        padding: 0 10px;
+        font-size: var(--t-header1);
     }
     }
     </style>

@@ -55,10 +55,19 @@ const { cState, getClients } = client();
   </script>
   
   <style scoped>
+  @media (max-width: 767px) {
+   .my-div {
+    visibility: hidden !important;
+   }
+
+   .image-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)) !important;
+  }
+  }
   .image-grid {
     display: grid;
     padding: 3rem;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 30px;
     cursor: none;
     margin-bottom: 10rem;
@@ -89,6 +98,7 @@ const { cState, getClients } = client();
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
+    visibility: visible;
   }
   </style>
   

@@ -53,7 +53,7 @@
     max-width: 100%;
     height: 100%;
     background-color: var(--c-white);
-    padding: 0 1rem;
+    padding: 0 3rem;
     margin-bottom: 7rem;
     cursor: url('../assets/drag_01.png'), auto;
   }

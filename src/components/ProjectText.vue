@@ -1,12 +1,43 @@
 <template>
-    <div class="text-container" ref="textContainer">
-      <p class="before-text">{{ $t('projects.projectTextBefore') }}</p>
-      <p class="text">{{ $t('projects.projectText') }}</p>
-    </div>
-  </template>
-  
-<script setup>
+  <div class="text-container" ref="textContainer3">
+    <p class="before-text">{{ $t('projects.projectTextBefore') }}</p>
+    <p class="text" ref="text"><span class="highlight3">{{ $t('projects.projectText1') }}</span><span class="highlight3">{{ $t('projects.projectText2') }}</span><span class="highlight3">{{ $t('projects.projectText3') }}</span></p>
+  </div>
+</template>
 
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const textContainer3 = ref(null);
+
+let tl3;
+
+onMounted(() => {
+  tl3 = gsap.timeline({
+    scrollTrigger: {
+      trigger: textContainer3.value,
+      start: 'center center-=50',
+      end: 'bottom center-=50',
+      scrub: true
+    }
+  });
+
+  tl3.fromTo(
+  ".highlight3",
+  { color: "#CAC2BE" },
+  { color: "black", stagger: 1 }
+  );
+});
+
+onBeforeUnmount(() => {
+// Kill the timeline and ScrollTrigger instance when the component is unmounted
+ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+tl3.kill();
+});
 </script>
   
   <style scoped lang="scss">

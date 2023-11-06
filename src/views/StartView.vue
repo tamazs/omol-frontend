@@ -10,15 +10,8 @@
         <h1>{{ $t('intro.question') }}</h1>
         <p>{{ $t('intro.text1') }}</p>
         <div class="start-select">
-          <RouterLink class="select-btn" to="/screens">{{ $t('intro.button1') }}
-            <svg class="svg1" xmlns="http://www.w3.org/2000/svg" width="190" height="72" viewBox="0 0 190 72" fill="none">
-            <path class="path" d="M95.1236 70.5249C146.554 70.5249 188.247 55.1851 188.247 36.2625C188.247 17.3399 146.554 2 95.1236 2C43.6929 2 2 17.3399 2 36.2625C2 55.1851 43.6929 70.5249 95.1236 70.5249Z" stroke="#ED1C24" stroke-width="2.63557" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          </RouterLink>
-          <RouterLink class="select-btn" to="/home">{{ $t('intro.button2') }}
-            <svg class="svg2" xmlns="http://www.w3.org/2000/svg" width="190" height="72" viewBox="0 0 190 72" fill="none">
-              <path class="path" d="M95.1236 70.5249C146.554 70.5249 188.247 55.1851 188.247 36.2625C188.247 17.3399 146.554 2 95.1236 2C43.6929 2 2 17.3399 2 36.2625C2 55.1851 43.6929 70.5249 95.1236 70.5249Z" stroke="#ED1C24" stroke-width="2.63557" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg></RouterLink>
+          <RouterLink class="select-btn" to="/screens">{{ $t('intro.button1') }}</RouterLink>
+          <RouterLink class="select-btn" to="/home">{{ $t('intro.button2') }}</RouterLink>
         </div>
       </div>
     </div>
@@ -96,6 +89,13 @@
     color: var(--c-black);
     font-size: var(--t-header3);
     cursor:url('../assets/cursor.png'), auto;
+    border: 2px transparent solid;
+    border-radius: 50%;
+    padding: 1.2rem 1.8rem;
+  }
+
+  .select-btn:hover {
+    border: 2px var(--c-red) solid;
   }
   
   .intro-video {
@@ -106,27 +106,5 @@
     height: 100%;
     background-color: #f3eeeb;
   }
-
-  .path {
-  stroke-dasharray: 2000;
-  stroke-dashoffset: 2000;
-}
-
-.select-btn:hover .path {
-  transition: 2s;
-  stroke-dashoffset: 0;
-}
-
-.svg1 {
-  position: absolute;
-  top: 30rem;
-  left: 32rem;
-}
-
-.svg2 {
-  position: absolute;
-  top: 30rem;
-  left: 44rem;
-}
   </style>
   

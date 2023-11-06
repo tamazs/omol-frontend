@@ -22,7 +22,7 @@ const router = createRouter({
     {
       path: '/screens',
       name: 'screens',
-      component: () => import('../views/ScreensView.vue')
+      component: () => import('../views/CamScreenView.vue')
     },
     {
       path: '/cam',
@@ -82,7 +82,7 @@ const router = createRouter({
 
 const screenWidth = window.innerWidth;
 
-const pathsToRedirect = ['/', '/screens', '/cam', '/result/:timerValue'];
+const pathsToRedirect = ['/', '/start', '/screens', '/cam', '/result/:timerValue'];
 
 if (screenWidth < 1000) {
   router.beforeEach((to, from, next) => {

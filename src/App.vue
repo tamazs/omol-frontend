@@ -17,6 +17,16 @@
 
 
 <style scoped>
+@media(max-width: 767px) {
+  .time {
+  font-size: var(--t-header2) !important;
+}
+
+.time-text {
+  font-size: 1.2rem !important;
+}
+  }
+
 [v-cloak] {
   display: none;
 }
@@ -111,7 +121,8 @@ const startCountdown = () => {
   const countdownInterval = setInterval(() => {
     if (countdownValue.value <= 0) {
       clearInterval(countdownInterval);
-      isScreensaverVisible.value = false;
+      resetCountdown();
+      startCountdown();
     } else {
       countdownValue.value -= 0.1;
     }

@@ -72,7 +72,9 @@
     },
     "projects": {
       "projectTextBefore": "We work harder and harder!",
-      "projectText": "We want to show our beloved work and if you want to be the next, don't think twice!",
+      "projectText1": "We want to show our beloved work",
+      "projectText2": " and if you want to be the next,",
+      "projectText3": " don't think twice!",
       "latestWork": "Latest Work"
     },
     "404": {

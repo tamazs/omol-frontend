@@ -220,10 +220,14 @@ onMounted(() => {
     }
     
     @media(max-width: 767px) {
-      .bottom__part {
-      padding: 0 30px;
+      .bottom__unit {
+      padding: 0 0;
       font-size: var(--t-body);
     }
+
+    .divider {
+    padding: 0 10px;
+   }
     }
     </style>
     
