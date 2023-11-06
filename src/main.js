@@ -18,7 +18,12 @@ const i18n = createI18n({
     },
   })
 
-const app = createApp(App)
+  import VueCookieAcceptDecline from 'vue-cookie-accept-decline';
+  import 'vue-cookie-accept-decline/dist/vue-cookie-accept-decline.css';
+  
+  const app = createApp(App);
+  
+  app.component('vue-cookie-accept-decline', VueCookieAcceptDecline);
 
 app.use(router)
 app.use(i18n)

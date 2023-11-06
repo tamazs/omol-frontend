@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div class="netflixSliderBody">
       <div v-for="(category, categoryName) in pState.projectsByCategory" :key="categoryName">
         <h1 class="categoryName">{{ categoryName }}</h1>
         <swiper
           :slidesPerView="slidesPerView"
           :spaceBetween="15"
           :navigation="false"
-          :scrollbar="true"
+          :scrollbar="false"
           :modules="modules"
           class="netflixSwiper"
         >
@@ -38,9 +38,17 @@
 
 $aspect-ratio: math.div(4, 3);
 
+.netflixSliderBody:hover .categoryName {
+  border: 2px var(--c-red) solid;
+}
 .categoryName {
-  padding: 4.5rem 3rem;
+  padding: 0.7rem 1.8rem;
   font-size: var(--t-bigText);
+  border: 2px transparent solid;
+  border-radius: 50%;
+  width: max-content;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
 }
 .netflixSwiper {
   width: 100%;
@@ -103,9 +111,10 @@ $aspect-ratio: math.div(4, 3);
 .netflix-base-image,
 .netflix-hover-gif {
   width: 100%;
-  height: 45vh;
+  height: 55vh;
   object-fit: cover;
   transition: all 1s;
+  opacity: 0.4;
 }
 
 .netflix-hover-gif {
@@ -133,6 +142,10 @@ $aspect-ratio: math.div(4, 3);
   background: transparent;
 }
 
+.netflix-card:hover .netflix-base-image {
+  opacity: 1;
+}
+
 /* .netflix-card:hover .netflix-base-image,
 .netflix-hover-gif {
   height: 53vh;
@@ -152,6 +165,8 @@ $aspect-ratio: math.div(4, 3);
   font-size: 30px;
   color: var(--c-red);
   margin-right: 10px;
+  margin-left: -5px;
+  margin-right: 5px;
 }
 
 .netflix-hover-gif.playing {
@@ -170,7 +185,7 @@ $aspect-ratio: math.div(4, 3);
 }
 
 #plusmark, #playmark {
-  height: 2rem;
+  height: 2.5rem;
 }
 </style>
   

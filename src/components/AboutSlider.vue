@@ -1,7 +1,7 @@
 <template>
   <swiper
     :slidesPerView="slidesPerView"
-    :spaceBetween="10"
+    :spaceBetween="20"
     :navigation="false"
     :scrollbar="true"
     :modules="modules"
@@ -28,10 +28,10 @@ const { aState, getAbouts } = about()
 
 const slides = computed(() => aState.abouts);
 
-const slidesPerView = ref(window.innerWidth <= 767 ? 1 : 4);
+const slidesPerView = ref(window.innerWidth <= 767 ? 1 : 3);
 
 const updateSlidesPerView = () => {
-  slidesPerView.value = window.innerWidth <= 767 ? 1 : 4;
+  slidesPerView.value = window.innerWidth <= 767 ? 1 : 3;
 };
 
 onMounted(() => {
@@ -52,7 +52,7 @@ const modules = [Navigation, Scrollbar];
   width: 100%;
   height: 100%;
   background-color: var(--c-white);
-  padding: 0 3rem;
+  padding: 0 2rem;
   margin-bottom: 7rem;
   cursor: url('../assets/drag_01.png'), auto;
 }
@@ -76,7 +76,7 @@ const modules = [Navigation, Scrollbar];
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 70vh; /* Set your desired fixed height here */
+  height: 80vh; /* Set your desired fixed height here */
   margin-bottom: 85px; /* Adjust the margin as needed */
 }
 

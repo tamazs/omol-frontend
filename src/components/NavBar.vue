@@ -315,7 +315,7 @@ const isProjectOrMemberRoute = computed(() => {
 }
 
 .pages a:hover {
-  border: 2px #f0444a50 solid;
+  color: var(--c-red);
 }
 
 @media(max-width: 767px) {
