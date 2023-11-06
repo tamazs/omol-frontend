@@ -61,8 +61,8 @@
   background-color: #F0444A;
   border-radius: 50%;
   position: absolute;
-  left: 1rem;
-  top: 5rem;
+  left: 4rem;
+  top: 6rem;
   z-index: 2;
 }
 

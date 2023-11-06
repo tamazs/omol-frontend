@@ -57,7 +57,7 @@
       flex-shrink: 0;
       padding: 0 25px;
       font-smooth: always;
-      font-size: var(--t-header1);
+      font-size: 5rem;
       font-family: var(--f-thin);
     }
     

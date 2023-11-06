@@ -20,7 +20,7 @@ import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/scrollbar';
+import '../assets/swiperScrollbar.css';
 import { Navigation, Scrollbar } from 'swiper/modules';
 import about from '../modules/about';
 
@@ -84,5 +84,15 @@ const modules = [Navigation, Scrollbar];
   width: 100%; /* Ensure the image doesn't exceed its container */
   height: 100%; /* Maintain a consistent height */
   object-fit: cover;
+}
+
+.swiper-horizontal > .swiper-scrollbar, .swiper-scrollbar.swiper-scrollbar-horizontal {
+  position: absolute;
+    left: var(--swiper-scrollbar-sides-offset, 10%);
+    bottom: var(--swiper-scrollbar-bottom, 0);
+    top: var(--swiper-scrollbar-top, auto);
+    z-index: 50;
+    height: var(--swiper-scrollbar-size, 6px) !important;
+    width: calc(100% - 2 * var(--swiper-scrollbar-sides-offset, 10%));
 }
 </style>

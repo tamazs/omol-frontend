@@ -71,7 +71,7 @@ tl2.kill();
 }
 
 .text-container .text {
-  padding: 6rem 15rem 10rem 3rem;
+  padding: 6rem 15rem 3rem 3rem;
   line-height: 3rem;
   font-family: var(--f-thin);
 }

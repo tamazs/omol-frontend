@@ -27,7 +27,7 @@ import { gsap } from 'gsap';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/scrollbar';
+import '../assets/swiperScrollbar.css';
 import { Navigation, Scrollbar } from 'swiper/modules';
 import project from '../modules/project';
 
