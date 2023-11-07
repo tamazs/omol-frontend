@@ -104,21 +104,10 @@ router.beforeEach((to, from, next) => {
   gsap.to(curtains, {
     opacity: 1,
     visibility: 'visible',
-    duration: 1,
+    duration: 1.5,
     onComplete: () => {
       // Change the route behind the curtains
       next();
-
-      // Wait for a short delay before fading out the curtains
-      setTimeout(() => {
-        gsap.to(curtains, {
-          opacity: 0,
-          duration: 1, // Set the same duration as the fade-in animation
-          onComplete: () => {
-            curtains.style.visibility = 'hidden'; // Set visibility to hidden after opacity animation
-          },
-        });
-      }, 100);
     }
   });
 });
@@ -126,19 +115,15 @@ router.beforeEach((to, from, next) => {
 router.afterEach(() => {
   const curtains = document.querySelector('.curtain-column');
 
-  // Delay before fading out after the route has changed
-  setTimeout(() => {
-    gsap.to(curtains, {
-      opacity: 0,
-      duration: 1,
-      onComplete: () => {
-        curtains.style.visibility = 'hidden'; // Set visibility to hidden after opacity animation
-      },
-    });
-  }, 500); // Adjust the delay as needed
+  // Fade out the curtains with a consistent duration and ease
+  gsap.to(curtains, {
+    opacity: 0,
+    duration: 1.5, // Use a consistent duration
+    ease: 'ease-in-out', // Use a consistent ease
+    onComplete: () => {
+      curtains.style.visibility = 'hidden'; // Set visibility to hidden after opacity animation
+    }
+  });
 });
-
-
-
 
 export default router

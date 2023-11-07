@@ -23,6 +23,7 @@
   
   let cameraFeed = ref(null);
   let intervalId = ref(null);
+  const cameraInitialized = ref(false);
   let backgroundColor = ref('var(--c-white)');
   const { t } = useI18n();
 const router = useRouter();
@@ -34,7 +35,11 @@ const currentIndex = ref(0);
 const currentText = computed(() => t(texts[currentIndex.value]));
 
 const nextScreen = () => {
-  initializeFaceApiAndVideoElements();
+  if (cameraInitialized.value === false) {
+    // Initialize the camera on the first click
+    cameraInitialized.value = true;
+    initializeFaceApiAndVideoElements();
+  }
   if (currentIndex.value < texts.length - 1) {
     currentIndex.value++;
   }
