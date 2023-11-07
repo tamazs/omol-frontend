@@ -184,7 +184,7 @@ onMounted(() => {
 </script>
 
     
-    <style>
+    <style scoped>
     
     .bottom {
       background: var(--c-black);
