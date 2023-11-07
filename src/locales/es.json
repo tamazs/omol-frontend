@@ -53,7 +53,10 @@
     "namePh": "Tu nombre",
     "emailPh": "Tu email",
     "msgPh": "Escribé aquí...",
-    "screensaverText": "¡Este minuto es tuyo, aprovéchalo!"
+    "screensaverText": "¡Este minuto es tuyo, aprovéchalo!",
+    "cookieText": "Utilizamos cookies propias y de terceros para mejorar tu accesibilidad, personalizar y analizar tu navegación. Al continuar navegando consideramos que aceptas su instalación. Puedes cambiar la configuración u obtener más información en nuestra Cookies Policy",
+    "cookieAccept": "Aceptar",
+    "cookieDecline": "Cancelar"
   },
   "about": {
     "aboutText1Before": "Conoce más sobre nosotros",

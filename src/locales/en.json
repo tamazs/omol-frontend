@@ -53,7 +53,10 @@
       "namePh": "Your name",
       "emailPh": "Your email",
       "msgPh": "Type here...",
-      "screensaverText": "This minute is yours, take advantage of it!"
+      "screensaverText": "This minute is yours, take advantage of it!",
+      "cookieText": "We use our own and third-party cookies to improve your accessibility, personalize and analyzeyour navigation. By continuing browsing we consider that you accept its installation. You can change the configuration or obtain more information in our Cookies Policy",
+      "cookieAccept": "Accept",
+      "cookieDecline": "Decline"
     },
     "about": {
       "aboutText1Before": "Know more about us",

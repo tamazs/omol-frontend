@@ -109,7 +109,7 @@ const formatTimer = (timer) => {
   const milliseconds = Math.floor((timer * 1000) % 1000).toString().padStart(3, '0');
   const seconds = Math.floor(timer % 60).toString().padStart(2, '0');
   const minutes = Math.floor(timer / 60).toString().padStart(2, '0');
-  return `${minutes}:${seconds}:${milliseconds}`;
+  return `${minutes}:${seconds}:${milliseconds.substring(0, 2)}`;
 };
 
 const formattedTimerValue = computed(() => {
