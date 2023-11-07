@@ -5,7 +5,7 @@
     <div class="video-container"
          ref="videoContainer"
          @click="toggleVideoPlay">
-      <video ref="videoElement" class="video" @ended="handleVideoEnd" playsinline>
+      <video ref="videoHeroElement" class="video" @ended="handleVideoEnd" playsinline>
           <source src="/video.mp4" type="video/mp4">
       </video>
     </div>
@@ -20,7 +20,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const videoElement = ref(null);
+const videoHeroElement = ref(null);
 const videoContainer = ref(null);
 const isVideoPaused = ref(true);
 
@@ -43,15 +43,15 @@ onMounted(() => {
 });
 
 const handleVideoEnd = () => {
-  videoElement.value.pause();
+  videoHeroElement.value.pause();
 };
 
 const toggleVideoPlay = () => {
-  if (videoElement.value.paused) {
-    videoElement.value.play();
+  if (videoHeroElement.value.paused) {
+    videoHeroElement.value.play();
     isVideoPaused.value = false;
   } else {
-    videoElement.value.pause();
+    videoHeroElement.value.pause();
     isVideoPaused.value = true;
   }
 };
@@ -114,7 +114,18 @@ watch(
   z-index: 2;
   text-transform: uppercase;
   font-family: var(--f-light);
-}
+  animation: blink 1s infinite;
+  opacity: 1;
+  }
+
+  @keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  }
 
 .video-container {
   position: absolute;

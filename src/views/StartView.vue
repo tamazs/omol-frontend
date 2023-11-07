@@ -3,7 +3,7 @@
       <!-- Video element with fade-out effect -->
       <div class="background-div"></div>
       <video class="intro-video" autoplay muted playsinline>
-        <source src="/preloader.mp4" type="video/mp4" />
+        <source src="/preloader2.mp4" type="video/mp4" />
       </video>
   
       <!-- Content with fade-in effect -->

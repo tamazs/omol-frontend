@@ -1,7 +1,7 @@
 <template>
       <div class="screens" @click="nextScreen" :style="{ backgroundColor: backgroundColor }">
-        <video ref="cameraFeed" class="camera-feed" autoplay muted playsinline></video>
-            <div class="text-container">
+        <video ref="cameraFeedScreen" class="camera-feed" autoplay muted playsinline></video>
+            <div class="text-container-screen">
             <h1 v-if="currentIndex === 0">{{ $t('intro.thanku') }}</h1>
             <h1 v-if="currentIndex === texts.length - 1">{{ $t('intro.challengeTitle') }}</h1>
             <p class="infoText">{{ currentText }}</p>
@@ -20,7 +20,7 @@
   import { useRoute, useRouter } from 'vue-router';
   import { useI18n } from 'vue-i18n';
   
-  let cameraFeed = ref(null);
+  let cameraFeedScreen = ref(null);
   let intervalId = ref(null);
   const cameraInitialized = ref(false);
   let backgroundColor = ref('var(--c-white)');
@@ -67,7 +67,7 @@ const nextScreen = () => {
     navigator.getUserMedia(
       { video: {} },
       stream => {
-        cameraFeed.value.srcObject = stream;
+        cameraFeedScreen.value.srcObject = stream;
         setupCameraOnPlayHandler();
       },
       err => console.error(err)
@@ -77,12 +77,12 @@ const nextScreen = () => {
   function setupCameraOnPlayHandler() {
     let blinkCounter = 0;
   
-    cameraFeed.value.onplay = () => {
+    cameraFeedScreen.value.onplay = () => {
       cameraReady.value = true;
   
       intervalId.value = setInterval(async () => {
         if (cameraReady.value) {
-          const detections = await faceapi.detectAllFaces(cameraFeed.value, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks();
+          const detections = await faceapi.detectAllFaces(cameraFeedScreen.value, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks();
   
           if (detections.length) {
             const eyeStatus = getEyeStatus(detections[0].landmarks);
@@ -104,10 +104,27 @@ const nextScreen = () => {
   currentIndex.value = 0;
 });
   
-  onUnmounted(() => {
+onUnmounted(async () => {
+  console.log('Component is unmounted');
+
+  if (intervalId.value) {
     clearInterval(intervalId.value);
-    cameraFeed.value?.srcObject?.getTracks().forEach(track => track.stop());
-  });
+  }
+
+  if (cameraFeedScreen.value) {
+    const tracks = cameraFeedScreen.value.srcObject?.getTracks();
+    if (tracks) {
+      for (const track of tracks) {
+        try {
+          await track.stop();
+          console.log('Stopped track', track);
+        } catch (error) {
+          console.error('Error stopping track:', error);
+        }
+      }
+    }
+  }
+});
   
   function getEyeStatus(landmarks) {
     const leftEye = landmarks.getLeftEye();
@@ -141,7 +158,7 @@ const nextScreen = () => {
   }
   </script>
   
-  <style>
+  <style scoped>
   .screens {
   background-color: var(--c-white);
   height: 100vh;
@@ -152,7 +169,7 @@ const nextScreen = () => {
   text-align: center;
 }
 
-.text-container {
+.text-container-screen {
   width: 60vw;
   display: flex;
   flex-direction: column;

@@ -212,6 +212,10 @@
     font-size: 1.2rem;
   }
 
+  input[type=submit]:hover {
+    color: var(--c-red);
+  }
+
   
   .red-border {
     border: 1px solid var(--c-red);

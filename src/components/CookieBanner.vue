@@ -48,7 +48,7 @@ const declineCookie = () => {
     left: 0;
     width: 100vw;
     height: 13vh;
-    background-color: var(--c-black);
+    background-color: #2B2B2B;
     color: var(--c-white);
     padding: 1rem;
     z-index: 3000;

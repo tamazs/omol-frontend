@@ -122,6 +122,10 @@
     text-transform: uppercase;
     font-size: 1.2rem;
   }
+
+  .news-btn:hover {
+    color: var(--c-red);
+  }
   
   .footer-title {
     font-size: var(--t-bigText);
@@ -168,6 +172,10 @@
   .social-icons a{
     color: var(--c-black);
     cursor:url('../assets/cursor.png'), auto;
+  }
+
+  .social-icons a:hover{
+    color: var(--c-red);
   }
   
   .footer-logo {

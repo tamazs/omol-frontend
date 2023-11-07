@@ -112,10 +112,16 @@ function setupCameraOnPlayHandler() {
 }
 
 onUnmounted(() => {
+  console.log('Component is unmounted');
   clearInterval(intervalId.value);
   clearInterval(timerInterval.value);
   videoElement.value?.pause();
-  cameraFeed.value?.srcObject?.getTracks().forEach(track => track.stop());
+  if (cameraFeed.value) {
+    const tracks = cameraFeed.value.srcObject?.getTracks();
+    if (tracks) {
+      tracks.forEach((track) => track.stop());
+    }
+  }
 });
 
 function getEyeStatus(landmarks) {

@@ -318,6 +318,10 @@ const isProjectOrMemberRoute = computed(() => {
   color: var(--c-red);
 }
 
+.languages button:hover {
+  color: var(--c-red);
+}
+
 @media(max-width: 767px) {
   .desktop-nav {
     display: none;
