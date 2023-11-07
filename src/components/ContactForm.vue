@@ -153,6 +153,17 @@
     top: 0.07rem;
     z-index: 2;
     line-height: 0px;
+    animation: blink 1s infinite;
+    opacity: 1;
+  }
+
+  @keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
   }
   
   form {

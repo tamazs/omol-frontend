@@ -64,7 +64,18 @@
   left: 4rem;
   top: 6rem;
   z-index: 2;
-}
+  animation: blink 1s infinite;
+  opacity: 1;
+  }
+
+  @keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  }
 
 .video-item {
   grid-area: video;
@@ -194,6 +205,7 @@ import project from '../modules/project';
 const route = useRoute();
 const router = useRouter();
 const { pState, getSingleProject } = project();
+const showVideoPlaceholder = ref(true);
 
 const projectId = ref(null);
 
@@ -203,6 +215,14 @@ watch(() => route.params.id, (newProjectId) => {
     getSingleProject();
   }
 });
+
+const videoLoaded = () => {
+  // Log the video URL to the console to verify that it's correct
+  console.log(pState.projects[0].video);
+
+  // Update the ref to hide the placeholder and show the video
+  showVideoPlaceholder.value = false;
+};
 
 const navigateToNextProject = () => {
   if (pState.nextProjectId) {

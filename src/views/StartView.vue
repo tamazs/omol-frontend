@@ -1,6 +1,7 @@
 <template>
     <div class="start">
       <!-- Video element with fade-out effect -->
+      <div class="background-div"></div>
       <video class="intro-video" autoplay muted playsinline>
         <source src="/preloader.mp4" type="video/mp4" />
       </video>
@@ -50,6 +51,17 @@
     gap: 7rem;
     z-index: 99999;
   }
+
+
+.background-div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f3eeeb; /* Change the background color to what you prefer */
+  z-index: 1; /* Behind the video */
+}
   
   .intro {
     display: flex;
@@ -104,7 +116,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #f3eeeb;
+    background-color: transparent; /* Make the video background transparent */
+    z-index: 2;
   }
   </style>
   

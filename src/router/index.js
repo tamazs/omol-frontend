@@ -5,17 +5,12 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'begin',
-      redirect: '/start'
-    },
-    {
       path: '/home',
       name: 'home',
       component: () => import('../views/HomeView.vue'),
     },
     {
-      path: '/start',
+      path: '/',
       name: 'start',
       component: () => import('../views/StartView.vue'),
     },
@@ -104,7 +99,7 @@ router.beforeEach((to, from, next) => {
   gsap.to(curtains, {
     opacity: 1,
     visibility: 'visible',
-    duration: 1.5,
+    duration: 0.7,
     onComplete: () => {
       // Change the route behind the curtains
       next();
@@ -118,7 +113,7 @@ router.afterEach(() => {
   // Fade out the curtains with a consistent duration and ease
   gsap.to(curtains, {
     opacity: 0,
-    duration: 1.5, // Use a consistent duration
+    duration: 0.7, // Use a consistent duration
     ease: 'ease-in-out', // Use a consistent ease
     onComplete: () => {
       curtains.style.visibility = 'hidden'; // Set visibility to hidden after opacity animation

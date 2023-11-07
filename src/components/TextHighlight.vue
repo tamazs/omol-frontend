@@ -92,6 +92,17 @@ onMounted(() => {
   top: 4.1rem;
   z-index: 2;
   line-height: 0px;
-}
+  animation: blink 1s infinite;
+  opacity: 1;
+  }
+
+  @keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  }
   </style>
   

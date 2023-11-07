@@ -94,7 +94,7 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 const isHomeRoute = computed(() => router.currentRoute.value.path === '/home');
-const showNone = computed(() => !router.currentRoute.value.path.startsWith('/start') && !router.currentRoute.value.path.startsWith('/screens') && !router.currentRoute.value.path.startsWith('/cam') && !router.currentRoute.value.path.startsWith('/result/'));
+const showNone = computed(() => !(router.currentRoute.value.path === '/' || router.currentRoute.value.path.startsWith('/screens') || router.currentRoute.value.path.startsWith('/cam') || router.currentRoute.value.path.startsWith('/result/')));
 
 const isScreensaverVisible = ref(false);
 const timer = ref(null);

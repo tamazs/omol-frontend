@@ -1,9 +1,9 @@
 <template>
-    <div class="image-grid" @mousemove="handleMouseMove" ref="imageGrid">
+    <div class="image-grid" @mousemove="handleMouseMove" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave" ref="imageGrid">
       <div class="image" v-for="(client, index) in cState.clients" :key="index">
         <img v-if="client.attributes.url" :src="client.attributes.url" alt="Image" />
       </div>
-      <div ref="myDiv" class="my-div" @click="sendEmail">
+      <div ref="myDiv" class="my-div" :style="{ opacity: divOpacity }" @click="sendEmail">
         Wanna work with us?
       </div>
     </div>
@@ -18,6 +18,7 @@ const { cState, getClients } = client();
 
   const myDiv = ref(null);
   const imageGrid = ref(null);
+  const divOpacity = ref(0);
   
   const handleMouseMove = (e) => {
     const clientX = e.clientX;
@@ -42,9 +43,19 @@ const { cState, getClients } = client();
       });
     }
   };
+
+  const handleMouseEnter = () => {
+  gsap.to(myDiv.value, { opacity: 1, duration: 0.5 });
+  divOpacity.value = 1; // Update the ref for opacity
+};
+
+const handleMouseLeave = () => {
+  gsap.to(myDiv.value, { opacity: 0, duration: 0.5 });
+  divOpacity.value = 0; // Update the ref for opacity
+};
   
   const sendEmail = () => {
-    window.location.href = "mailto:example@email.com?subject=Hello&body=Hi there!";
+    window.location.href = "mailto:nbuenavista@goodsightmedia.com?subject=Necesitamos vuestro amor";
   };
   
   onMounted(() => {

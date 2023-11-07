@@ -9,8 +9,7 @@
                 <RouterLink class="select-btn" to="/cam">{{ $t('intro.button3') }}</RouterLink>
                 <RouterLink class="select-btn" to="/home">{{ $t('intro.button4') }}</RouterLink>
             </div>
-            <p v-if="currentIndex === 0" class="bottom-text">{{ $t('intro.bottomText1') }}</p>
-            <p v-else class="bottom-text">{{ $t('intro.bottomText2') }}</p>
+            <p v-if="currentIndex === 0 || currentIndex === 1" class="bottom-text">{{ $t('intro.bottomText1') }}</p>
             </div>
         </div>
   </template>
@@ -210,6 +209,17 @@ h1 {
   color: var(--c-black);
   font-size: 1.2rem;
   font-family: var(--f-light);
+  animation: blink 1s infinite;
+  opacity: 1;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1; /* Fully visible */
+  }
+  50% {
+    opacity: 0; /* Invisible */
+  }
 }
   
   .camera-feed {

@@ -145,6 +145,20 @@ $aspect-ratio: math.div(4, 3);
   opacity: 1;
 }
 
+.netflix-card:hover .netflix-title::before {
+  animation: blink 1s infinite;
+  opacity: 1;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  }
+
 /* .netflix-card:hover .netflix-base-image,
 .netflix-hover-gif {
   height: 53vh;
