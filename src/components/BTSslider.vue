@@ -1,55 +1,48 @@
 <template>
-    <swiper
-      :slidesPerView="slidesPerView"
-      :spaceBetween="20"
-      :navigation="false"
-      :scrollbar="true"
-      :modules="modules"
-      class="aboutSwiper"
-      v-if="pState.projects[0]"
-    >
-      <swiper-slide v-for="(slide, index) in slides" :key="index" class="about-swiper-slide">
-        <div class="about-image-wrapper">
-          <img class="about-base-image" :src="slide" />
-        </div>
-      </swiper-slide>
-    </swiper>
-  </template>
+  <swiper :slidesPerView="slidesPerView" :spaceBetween="20" :navigation="false" :scrollbar="true" :modules="modules"
+    class="aboutSwiper" v-if="pState.projects[0]">
+    <swiper-slide v-for="(slide, index) in slides" :key="index" class="about-swiper-slide">
+      <div class="about-image-wrapper">
+        <img class="about-base-image" :src="slide" />
+      </div>
+    </swiper-slide>
+  </swiper>
+</template>
   
-  <script setup>
-  import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
-  import { Swiper, SwiperSlide } from 'swiper/vue';
-  import 'swiper/css';
-  import 'swiper/css/navigation';
-  import '../assets/swiperScrollbar.css';
-  import { Navigation, Scrollbar } from 'swiper/modules';
-  import project from '../modules/project';
+<script setup>
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import '../assets/swiperScrollbar.css';
+import { Navigation, Scrollbar } from 'swiper/modules';
+import project from '../modules/project';
+
+const { pState, getSingleProject } = project()
+
+const slides = computed(() => pState.projects[0].btsImages);
+
+const slidesPerView = ref(window.innerWidth <= 767 ? 1 : 3);
+
+const updateSlidesPerView = () => {
+  slidesPerView.value = window.innerWidth <= 767 ? 1 : 3;
+};
+
+onMounted(() => {
+  getSingleProject();
+
+  window.addEventListener('resize', updateSlidesPerView);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateSlidesPerView);
+});
+
+const modules = [Navigation, Scrollbar];
+</script>
   
-  const { pState, getSingleProject } = project()
-  
-  const slides = computed(() => pState.projects[0].btsImages);
-  
-  const slidesPerView = ref(window.innerWidth <= 767 ? 1 : 3);
-  
-  const updateSlidesPerView = () => {
-    slidesPerView.value = window.innerWidth <= 767 ? 1 : 3;
-  };
-  
-  onMounted(() => {
-    getSingleProject();
-  
-    window.addEventListener('resize', updateSlidesPerView);
-  });
-  
-  onBeforeUnmount(() => {
-    window.removeEventListener('resize', updateSlidesPerView);
-  });
-  
-  const modules = [Navigation, Scrollbar];
-  </script>
-  
-  <style scoped lang="scss">
-  .aboutSwiper {
+<style scoped lang="scss">
+.aboutSwiper {
   width: 100%;
   height: 100%;
   background-color: var(--c-white);
@@ -77,14 +70,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80vh; /* Set your desired fixed height here */
-  margin-bottom: 85px; /* Adjust the margin as needed */
+  height: 80vh;
+  /* Set your desired fixed height here */
+  margin-bottom: 85px;
+  /* Adjust the margin as needed */
 }
 
 .about-base-image {
-  width: 100%; /* Ensure the image doesn't exceed its container */
-  height: 100%; /* Maintain a consistent height */
+  width: 100%;
+  /* Ensure the image doesn't exceed its container */
+  height: 100%;
+  /* Maintain a consistent height */
   object-fit: cover;
 }
-  </style>
+</style>
   

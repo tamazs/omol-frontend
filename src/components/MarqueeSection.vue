@@ -1,5 +1,5 @@
 <template>
-<section class="marquee">
+  <section class="marquee">
     <div class="marquee__inner" aria-hidden="true" ref="inner">
       <div class="marquee__part">
         {{ $t('home.marqueeText') }}
@@ -8,13 +8,13 @@
         {{ $t('home.marqueeText') }}
       </div>
       <div class="marquee__part">
-        {{ $t('home.marqueeText') }} 
+        {{ $t('home.marqueeText') }}
       </div>
       <div class="marquee__part">
-        {{ $t('home.marqueeText') }} 
+        {{ $t('home.marqueeText') }}
       </div>
     </div>
-</section>
+  </section>
 </template>
 
 <script setup>
@@ -22,33 +22,33 @@ import { onMounted } from 'vue';
 import { gsap } from 'gsap';
 
 onMounted(() => {
-    let currentScroll = 0;
-    let isScrollingDown = true;
+  let currentScroll = 0;
+  let isScrollingDown = true;
 
-    let tween = gsap.to(".marquee__part", {
-        xPercent: -100,
-        repeat: -1,
-        duration: 20,
-        ease: "linear"
-    }).totalProgress(0.5);
+  let tween = gsap.to(".marquee__part", {
+    xPercent: -100,
+    repeat: -1,
+    duration: 20,
+    ease: "linear"
+  }).totalProgress(0.5);
 
-    gsap.set(".marquee__inner", {
-        xPercent: -50
+  gsap.set(".marquee__inner", {
+    xPercent: -50
+  });
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > currentScroll) {
+      isScrollingDown = true;
+    } else {
+      isScrollingDown = false;
+    }
+
+    gsap.to(tween, {
+      timeScale: isScrollingDown ? 1 : -1
     });
 
-    window.addEventListener("scroll", function() {
-        if (window.scrollY > currentScroll) {
-            isScrollingDown = true;
-        } else {
-            isScrollingDown = false;
-        }
-
-        gsap.to(tween, {
-            timeScale: isScrollingDown ? 1 : -1
-        });
-
-        currentScroll = window.scrollY;
-    });
+    currentScroll = window.scrollY;
+  });
 });
 </script>
 
@@ -72,16 +72,16 @@ onMounted(() => {
 
 .marquee__inner {
   -webkit-font-smoothing: antialiased;
-    width: fit-content;
-    display: flex;
-    flex: auto;
-    flex-direction: row;
+  width: fit-content;
+  display: flex;
+  flex: auto;
+  flex-direction: row;
 }
 
 @media(max-width: 767px) {
   .marquee__part {
-  padding: 0 10px;
-  font-size: var(--t-header1);
-}
+    padding: 0 10px;
+    font-size: var(--t-header1);
+  }
 }
 </style>

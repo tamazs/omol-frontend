@@ -1,12 +1,9 @@
 <template>
-  <div class="tinder" @mousedown="onSwipeStart" @mousemove="onSwipeMove" @mouseup="onSwipeEnd" @touchstart="onSwipeStart" @touchmove="onSwipeMove" @touchend="onSwipeEnd">
-    <div
-      class="tinder--card"
-      v-for="(crew, index) in crews"
-      :key="crew.id"
+  <div class="tinder" @mousedown="onSwipeStart" @mousemove="onSwipeMove" @mouseup="onSwipeEnd" @touchstart="onSwipeStart"
+    @touchmove="onSwipeMove" @touchend="onSwipeEnd">
+    <div class="tinder--card" v-for="(crew, index) in crews" :key="crew.id"
       :style="{ zIndex: crews.length - index, transform: crew.transform, opacity: crew.opacity }"
-      @remove="onRemove(index)"
-    >
+      @remove="onRemove(index)">
       <img :src="crew.img" />
     </div>
   </div>
@@ -179,60 +176,60 @@ const removePreviousCards = (index) => {
 };
 </script>
   
-  <style scoped>
-  .tinder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 60vh;
-    width: 100vw;
-    margin-top: 5rem;
-  }
-  
-  .tinder--card {
-    display: inline-block;
-    height: 60vh;
-    background: transparent;
-    border-radius: 8px;
-    overflow: hidden;
-    position: absolute;
-    will-change: transform, opacity;
-    transition: all 0.3s ease-out;
-    cursor: url('../assets/drag_01.png'), auto;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  .tinder--card img {
-    max-width: 100%;
-    height: 100%;
-    object-fit: contain;
-    pointer-events: none;
-  }
-  
-  .button-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 4rem;
-    margin-top: 2rem;
-    gap: 5px;
-  }
-  
-  .button-row button {
-    height: 100%;
-    background-color: transparent;
-    border: none;
-    cursor:url('../assets/cursor.png'), auto;
-  }
-  
-  .button-row button img {
-    height: 100%;
-  }
-  </style>
+<style scoped>
+.tinder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  width: 100vw;
+  margin-top: 5rem;
+}
+
+.tinder--card {
+  display: inline-block;
+  height: 60vh;
+  background: transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  position: absolute;
+  will-change: transform, opacity;
+  transition: all 0.3s ease-out;
+  cursor: url('../assets/drag_01.png'), auto;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.tinder--card img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  margin-top: 2rem;
+  gap: 5px;
+}
+
+.button-row button {
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  cursor: url('../assets/cursor.png'), auto;
+}
+
+.button-row button img {
+  height: 100%;
+}
+</style>
   

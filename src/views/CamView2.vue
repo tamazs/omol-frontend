@@ -97,7 +97,7 @@ function setupCameraOnPlayHandler() {
             if (blinkCounter >= 1) {
               blinked.value = true;
               clearInterval(timerInterval.value);
-              
+
               clearInterval(intervalId.value);
               setTimeout(() => {
                 cameraFeed.value?.srcObject?.getTracks().forEach(track => track.stop());  // Move the stoppage here

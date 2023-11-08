@@ -1,7 +1,9 @@
 <template>
   <div class="text-container" ref="textContainer3">
     <p class="before-text">{{ $t('projects.projectTextBefore') }}</p>
-    <p class="text" ref="text"><span class="highlight3">{{ $t('projects.projectText1') }}</span><span class="highlight3">{{ $t('projects.projectText2') }}</span><span class="highlight3">{{ $t('projects.projectText3') }}</span></p>
+    <p class="text" ref="text"><span class="highlight3">{{ $t('projects.projectText1') }}</span><span
+        class="highlight3">{{ $t('projects.projectText2') }}</span><span class="highlight3">{{ $t('projects.projectText3')
+        }}</span></p>
   </div>
 </template>
 
@@ -27,22 +29,22 @@ onMounted(() => {
   });
 
   tl3.fromTo(
-  ".highlight3",
-  { color: "#CAC2BE" },
-  { color: "black", stagger: 1 }
+    ".highlight3",
+    { color: "#CAC2BE" },
+    { color: "black", stagger: 1 }
   );
 });
 
 onBeforeUnmount(() => {
-// Kill the timeline and ScrollTrigger instance when the component is unmounted
-ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-tl3.kill();
+  // Kill the timeline and ScrollTrigger instance when the component is unmounted
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  tl3.kill();
 });
 </script>
   
-  <style scoped lang="scss">
-  @media (max-width: 767px) {
-    .text-container .text {
+<style scoped lang="scss">
+@media (max-width: 767px) {
+  .text-container .text {
     padding: 5rem 2rem 2rem 2rem !important;
   }
 
@@ -53,30 +55,31 @@ tl3.kill();
   .before-text {
     width: 65vw !important;
   }
-  }
-  .text-container {
-    height: auto;
-    width: 100vw;
-    font-size: var(--t-bigText);
-    background-color: var(--c-white);
-    position: relative;
-    margin-top: 10rem;
-  }
-  
-  .text-container .text {
-    padding: 6rem 15rem 10rem 3rem;
-    line-height: 3rem;
-    font-family: var(--f-thin);
-  }
+}
 
-  .before-text {
-    font-size: var(--t-body);
-    text-transform: uppercase;
-    padding: 0 3rem;
-    width: 18vw;
-  }
+.text-container {
+  height: auto;
+  width: 100vw;
+  font-size: var(--t-bigText);
+  background-color: var(--c-white);
+  position: relative;
+  margin-top: 10rem;
+}
 
-  .before-text::before {
+.text-container .text {
+  padding: 6rem 15rem 10rem 3rem;
+  line-height: 3rem;
+  font-family: var(--f-thin);
+}
+
+.before-text {
+  font-size: var(--t-body);
+  text-transform: uppercase;
+  padding: 0 3rem;
+  width: 18vw;
+}
+
+.before-text::before {
   content: '';
   width: 15px;
   height: 15px;
@@ -89,15 +92,18 @@ tl3.kill();
   line-height: 0px;
   animation: blink 1s infinite;
   opacity: 1;
-  }
+}
 
-  @keyframes blink {
-  0%, 100% {
+@keyframes blink {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
-  }
-  </style>
+}
+</style>
   

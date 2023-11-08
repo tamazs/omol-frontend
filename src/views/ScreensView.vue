@@ -23,7 +23,7 @@ const { t } = useI18n();
 const router = useRouter();
 const route = useRoute();
 
-const texts = [ 'intro.text2', 'intro.text3', 'intro.challengeText'];
+const texts = ['intro.text2', 'intro.text3', 'intro.challengeText'];
 
 const currentIndex = ref(0);
 const currentText = computed(() => t(texts[currentIndex.value]));
@@ -68,7 +68,7 @@ watch(route, () => {
   color: var(--c-black);
   font-size: var(--t-header3);
   text-transform: uppercase;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   line-height: 2rem;
   font-family: var(--f-thin);
   width: 50vw;
@@ -86,7 +86,7 @@ watch(route, () => {
 
 h1 {
   text-transform: uppercase;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   font-family: var(--f-thin);
   font-size: 50px;
 }
@@ -99,19 +99,19 @@ h1 {
 }
 
 .select-btn {
-    font-family: var(--f-light);
-    text-decoration: none;
-    color: var(--c-black);
-    font-size: var(--t-header3);
-    cursor:url('../assets/cursor.png'), auto;
-    border: 2px transparent solid;
-    border-radius: 50%;
-    padding: 1.2rem 1.8rem;
-  }
+  font-family: var(--f-light);
+  text-decoration: none;
+  color: var(--c-black);
+  font-size: var(--t-header3);
+  cursor: url('../assets/cursor.png'), auto;
+  border: 2px transparent solid;
+  border-radius: 50%;
+  padding: 1.2rem 1.8rem;
+}
 
-  .select-btn:hover {
-    border: 2px var(--c-red) solid;
-  }
+.select-btn:hover {
+  border: 2px var(--c-red) solid;
+}
 
 .bottom-text {
   position: absolute;

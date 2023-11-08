@@ -1,8 +1,8 @@
 <template>
     <div>
-        <ProjectText/>
-        <NetflixSliderLatest/>
-        <NetflixSlider/>
+        <ProjectText />
+        <NetflixSliderLatest />
+        <NetflixSlider />
     </div>
 </template>
 
@@ -12,6 +12,4 @@ import NetflixSliderLatest from '../components/NetflixSliderLatest.vue';
 import NetflixSlider from '../components/NetflixSlider.vue';
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

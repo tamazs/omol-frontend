@@ -5,12 +5,8 @@
       <i class="fa fa-heart"></i>
     </div>
     <div class="tinder--cards">
-      <div
-        class="tinder--card"
-        v-for="(crew, index) in crews"
-        :key="index"
-        v-bind:style="{ zIndex: crews.length - index, transform: cardTransform(index), opacity: cardOpacity(index) }"
-      >
+      <div class="tinder--card" v-for="(crew, index) in crews" :key="index"
+        v-bind:style="{ zIndex: crews.length - index, transform: cardTransform(index), opacity: cardOpacity(index) }">
         <img :src="crew.img" />
       </div>
     </div>
@@ -111,7 +107,9 @@ function removeCard(index, love) {
 </script>
 
 <style scoped>
-  *, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -220,7 +218,7 @@ body {
   background: var(--c-black);
   display: inline-block;
   margin: 0 8px;
-  cursor:url('../assets/cursor.png'), auto;
+  cursor: url('../assets/cursor.png'), auto;
 }
 
 .tinder--buttons button:focus {

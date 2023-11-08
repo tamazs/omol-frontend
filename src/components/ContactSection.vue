@@ -16,13 +16,13 @@ const contactSection = ref(null);
 const handleMouseMove = (e) => {
     const clientX = e.clientX;
     const clientY = e.clientY;
-    
+
     const rect = contactSection.value.getBoundingClientRect();
 
     const divHalfWidth = myDiv.value.offsetWidth / 2;
     const divHalfHeight = myDiv.value.offsetHeight / 2;
-    
-    const isInside = 
+
+    const isInside =
         clientX >= rect.left &&
         clientX <= rect.right &&
         clientY >= rect.top &&
@@ -42,7 +42,7 @@ const sendEmail = () => {
 };
 
 onMounted(() => {
-  contactSection.value.addEventListener("mousemove", handleMouseMove);
+    contactSection.value.addEventListener("mousemove", handleMouseMove);
 });
 
 </script>
@@ -56,17 +56,18 @@ onMounted(() => {
     z-index: 999;
     cursor: none;
 }
+
 .my-div {
-  width: 8rem;
-  height: 8rem;
-  background-color: var(--c-red);
-  position: absolute;
-  border-radius: 50%;
-  box-shadow: 0 0 20px rgba(16, 0, 54, 0.2);
-  color: var(--c-white);
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 8rem;
+    height: 8rem;
+    background-color: var(--c-red);
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(16, 0, 54, 0.2);
+    color: var(--c-white);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 </style>

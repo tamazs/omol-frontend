@@ -1,67 +1,75 @@
 <template>
-    <nav ref="navbar" class="navbar">
-      <div class="nav-content">
-        <div class="mobile-nav">
-          <router-link to="/home" class="home">
+  <nav ref="navbar" class="navbar">
+    <div class="nav-content">
+      <div class="mobile-nav">
+        <router-link to="/home" class="home">
           <div class="logo">
             <img :src="logoUrl" alt="Logo" />
           </div>
         </router-link>
-          <div class="burger-menu" @click="toggleMenu">
-            <i class="fas fa-heart"></i>
-          </div>
+        <div class="burger-menu" @click="toggleMenu">
+          <i class="fas fa-heart"></i>
         </div>
-        <div ref="menuContainer" class="menu-container">
-          <div class="menu-header">
-            <router-link to="/home">
+      </div>
+      <div ref="menuContainer" class="menu-container">
+        <div class="menu-header">
+          <router-link to="/home">
             <div class="logo">
               <img :src="whiteLogoUrl" alt="Logo" />
             </div>
           </router-link>
-            <div @click="toggleMenu">
-              <i class="fas fa-x"></i>
-            </div>
-          </div>
-          <div class="nav-links">
-            <div class="mobile-pages">
-              <a href="/home#sendLove">Send love</a>
-              <router-link to="/projects" :class="{ 'active-link': $route.path === '/projects' ||  $route.path.startsWith('/project/') }">{{ $t('navbar.projects') }}</router-link>
-              <router-link to="/about" :class="{ 'active-link': $route.path === '/about' }">{{ $t('navbar.about') }}</router-link>
-              <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }">{{ $t('navbar.team') }}</router-link>
-            </div>
-            <div class="languages" v-if="!isProjectOrMemberRoute">
-              <button @click="setLanguage('es')">ES</button>
-              <button @click="setLanguage('en')">EN</button>
-            </div>
+          <div @click="toggleMenu">
+            <i class="fas fa-x"></i>
           </div>
         </div>
-        <div class="desktop-nav">
-          <router-link to="/home">
-          <div class="logo">
-            <img :src="logoUrl" alt="Logo" />
+        <div class="nav-links">
+          <div class="mobile-pages">
+            <a href="/home#sendLove">Send love</a>
+            <router-link to="/projects"
+              :class="{ 'active-link': $route.path === '/projects' || $route.path.startsWith('/project/') }">{{
+                $t('navbar.projects') }}</router-link>
+            <router-link to="/about" :class="{ 'active-link': $route.path === '/about' }">{{ $t('navbar.about')
+            }}</router-link>
+            <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }">{{ $t('navbar.team')
+            }}</router-link>
           </div>
-        </router-link>
-          <div class="nav-middle">
-            <div class="pages">
-              <router-link to="/home#sendLove">Send love</router-link>
-              <router-link to="/projects" :class="{ 'active-link': $route.path === '/projects' ||  $route.path.startsWith('/project/') }">{{ $t('navbar.projects') }}</router-link>
-              <router-link to="/about" :class="{ 'active-link': $route.path === '/about' }">{{ $t('navbar.about') }}</router-link>
-              <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }">{{ $t('navbar.team') }}</router-link>
-            </div>
-          </div>
-          <div class="social-icons">
-              <a href="https://vimeo.com/goodsightmedia" target="_blank"><i class="fab fa-vimeo"></i></a>
-              <a href="https://www.instagram.com/omolvideo/" target="_blank"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.youtube.com/@omolvideo/videos" target="_blank"><i class="fab fa-youtube"></i></a>
-              <a href="https://www.linkedin.com/company/goodsight/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            </div>
           <div class="languages" v-if="!isProjectOrMemberRoute">
             <button @click="setLanguage('es')">ES</button>
             <button @click="setLanguage('en')">EN</button>
           </div>
         </div>
       </div>
-    </nav>
+      <div class="desktop-nav">
+        <router-link to="/home">
+          <div class="logo">
+            <img :src="logoUrl" alt="Logo" />
+          </div>
+        </router-link>
+        <div class="nav-middle">
+          <div class="pages">
+            <router-link to="/home#sendLove">Send love</router-link>
+            <router-link to="/projects"
+              :class="{ 'active-link': $route.path === '/projects' || $route.path.startsWith('/project/') }">{{
+                $t('navbar.projects') }}</router-link>
+            <router-link to="/about" :class="{ 'active-link': $route.path === '/about' }">{{ $t('navbar.about')
+            }}</router-link>
+            <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }">{{ $t('navbar.team')
+            }}</router-link>
+          </div>
+        </div>
+        <div class="social-icons">
+          <a href="https://vimeo.com/goodsightmedia" target="_blank"><i class="fab fa-vimeo"></i></a>
+          <a href="https://www.instagram.com/omolvideo/" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@omolvideo/videos" target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.linkedin.com/company/goodsight/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div class="languages" v-if="!isProjectOrMemberRoute">
+          <button @click="setLanguage('es')" :class="{ 'active-language': locale === 'es' }">ES</button>
+          <button @click="setLanguage('en')" :class="{ 'active-language': locale === 'en' }">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <script setup>
@@ -82,7 +90,7 @@ const menuContainer = ref(null);
 const logoUrl = ref(logoBlack);
 const whiteLogoUrl = ref(logoWhite);
 
-const { locale } = useI18n(); 
+const { locale } = useI18n();
 
 const setLanguage = (lang) => {
   store.lang = lang;
@@ -94,7 +102,7 @@ const scrollToSendLove = () => {
   if (currentRoute === '/home#sendLove') {
     scrollElementIntoView();
   } else {
-    
+
   }
 
   function scrollElementIntoView() {
@@ -105,14 +113,14 @@ const scrollToSendLove = () => {
   }
 };
 
-onMounted (() => {
+onMounted(() => {
   const currentRoute = router.currentRoute.value.path;
   if (currentRoute === '/home#sendLove') {
     scrollElementIntoView();
   } else {
-    
+
   }
-  
+
   function scrollElementIntoView() {
     const element = document.getElementById('sendLove');
     if (element) {
@@ -142,25 +150,25 @@ onMounted (() => {
 
 // Function to toggle the visibility of the menu on mobile
 function toggleMenu() {
-    const isOpening = menuContainer.value.style.right !== '0px';
-    
-    gsap.to(menuContainer.value, {
-      right: isOpening ? '0px' : '-100vw',
-      duration: 0.3,
-      onComplete: () => {
-        if (isOpening) {
-          // Animating the opacity of menu header and nav links to 1 if the menu is opening
-          gsap.to(".menu-header, .nav-links", { opacity: 1, duration: 0.3 });
-        }
-      },
-      onStart: () => {
-        if (!isOpening) {
-          // Setting the opacity of menu header and nav links to 0 if the menu is closing
-          gsap.set(".menu-header, .nav-links", { opacity: 0 });
-        }
+  const isOpening = menuContainer.value.style.right !== '0px';
+
+  gsap.to(menuContainer.value, {
+    right: isOpening ? '0px' : '-100vw',
+    duration: 0.3,
+    onComplete: () => {
+      if (isOpening) {
+        // Animating the opacity of menu header and nav links to 1 if the menu is opening
+        gsap.to(".menu-header, .nav-links", { opacity: 1, duration: 0.3 });
       }
-    });
-    document.body.style.overflow = document.body.style.overflow === 'hidden' ? 'auto' : 'hidden';
+    },
+    onStart: () => {
+      if (!isOpening) {
+        // Setting the opacity of menu header and nav links to 0 if the menu is closing
+        gsap.set(".menu-header, .nav-links", { opacity: 0 });
+      }
+    }
+  });
+  document.body.style.overflow = document.body.style.overflow === 'hidden' ? 'auto' : 'hidden';
 }
 
 function closeMenu() {
@@ -195,10 +203,11 @@ const isProjectOrMemberRoute = computed(() => {
   background-color: transparent;
   z-index: 9999;
   padding: 20px;
-  font-family: var(--f-light);
+  font-family: var(--f-regular);
 }
 
-.desktop-nav, .mobile-nav {
+.desktop-nav,
+.mobile-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -223,7 +232,7 @@ const isProjectOrMemberRoute = computed(() => {
   display: none;
 }
 
-.menu-container .menu-header, 
+.menu-container .menu-header,
 .menu-container .nav-links {
   opacity: 0;
   transition: opacity 0.3s;
@@ -235,12 +244,12 @@ const isProjectOrMemberRoute = computed(() => {
 
 .burger-menu {
   font-size: 24px;
-  cursor:url('../assets/cursor.png'), auto;
+  cursor: url('../assets/cursor.png'), auto;
   color: var(--c-black);
 }
 
-.logo{
-  cursor:url('../assets/cursor.png'), auto;
+.logo {
+  cursor: url('../assets/cursor.png'), auto;
 }
 
 .menu-container {
@@ -262,7 +271,7 @@ const isProjectOrMemberRoute = computed(() => {
   justify-content: space-between;
   padding: 20px;
   font-size: 24px;
-  cursor:url('../assets/cursor.png'), auto;
+  cursor: url('../assets/cursor.png'), auto;
 }
 
 .nav-links {
@@ -276,12 +285,12 @@ const isProjectOrMemberRoute = computed(() => {
   text-decoration: none;
   background: none;
   border: none;
-  cursor:url('../assets/cursor.png'), auto;
+  cursor: url('../assets/cursor.png'), auto;
   color: var(--c-black);
   font-size: var(--t-body);
 }
 
-.social-icons{
+.social-icons {
   font-size: var(--t-header3);
   display: flex;
   gap: 20px;
@@ -289,10 +298,10 @@ const isProjectOrMemberRoute = computed(() => {
   display: none;
 }
 
-.social-icons a{
-    color: var(--c-black);
-    cursor:url('../assets/cursor.png'), auto;
-  }
+.social-icons a {
+  color: var(--c-black);
+  cursor: url('../assets/cursor.png'), auto;
+}
 
 .pages {
   display: flex;
@@ -303,7 +312,7 @@ const isProjectOrMemberRoute = computed(() => {
   margin: 10px 0;
   text-decoration: none;
   background: none;
-  cursor:url('../assets/cursor.png'), auto;
+  cursor: url('../assets/cursor.png'), auto;
   color: var(--c-black);
   border: 2px transparent solid;
   border-radius: 50%;
@@ -318,7 +327,7 @@ const isProjectOrMemberRoute = computed(() => {
   color: var(--c-red);
 }
 
-.languages button:hover {
+.languages button.active-language {
   color: var(--c-red);
 }
 

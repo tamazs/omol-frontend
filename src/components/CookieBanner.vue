@@ -28,9 +28,9 @@ const declineCookie = () => {
 };
 </script>
   
-  <style scoped>
-  @media (max-width: 767px) {
-    .cookie-consent {
+<style scoped>
+@media (max-width: 767px) {
+  .cookie-consent {
     height: auto !important;
     padding: 2rem !important;
     justify-content: flex-start !important;
@@ -41,44 +41,45 @@ const declineCookie = () => {
     width: 100vw !important;
     padding: 0rem 2rem !important;
   }
-  }
-  .cookie-consent {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    height: 13vh;
-    background-color: #2B2B2B;
-    color: var(--c-white);
-    padding: 1rem;
-    z-index: 3000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .cookie-consent p {
-    width: 55vw;
-  }
+}
 
-  .cookie-consent .buttons {
-    display: flex;
-    align-items: center;
-  }
-  
-  .cookie-consent button {
-    background-color: transparent;
-    color: var(--c-white);
-    font-size: var(--t-header2);
-    cursor:url('../assets/cursor.png'), auto;
-    border: 2px transparent solid;
-    border-radius: 50%;
-    padding: 1.2rem 1.8rem;
-    font-family: var(--f-light);
-  }
-  
-  .cookie-consent button:hover {
-    border: 2px var(--c-red) solid;
-  }
-  </style>
+.cookie-consent {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 13vh;
+  background-color: #2B2B2B;
+  color: var(--c-white);
+  padding: 1rem;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cookie-consent p {
+  width: 55vw;
+}
+
+.cookie-consent .buttons {
+  display: flex;
+  align-items: center;
+}
+
+.cookie-consent button {
+  background-color: transparent;
+  color: var(--c-white);
+  font-size: var(--t-header2);
+  cursor: url('../assets/cursor.png'), auto;
+  border: 2px transparent solid;
+  border-radius: 50%;
+  padding: 1.2rem 1.8rem;
+  font-family: var(--f-light);
+}
+
+.cookie-consent button:hover {
+  border: 2px var(--c-red) solid;
+}
+</style>
   

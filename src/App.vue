@@ -19,13 +19,13 @@
 <style scoped>
 @media(max-width: 767px) {
   .time {
-  font-size: var(--t-header2) !important;
-}
-
-.time-text {
-  font-size: 1.2rem !important;
-}
+    font-size: var(--t-header2) !important;
   }
+
+  .time-text {
+    font-size: 1.2rem !important;
+  }
+}
 
 [v-cloak] {
   display: none;
@@ -39,6 +39,7 @@
   background-color: var(--c-white);
   z-index: 99999;
 }
+
 .hidden {
   display: none !important;
 }
@@ -52,6 +53,7 @@
   background-color: var(--c-red);
   z-index: 9999;
 }
+
 .countdown {
   color: var(--c-black);
   position: absolute;
@@ -137,7 +139,7 @@ const resetScreensaver = () => {
   const screensaverElement = document.querySelector('.screensaver');
   screensaverElement.style.display = 'none';
 
-  timer.value = setTimeout(showScreensaver, 60000);
+  timer.value = setTimeout(showScreensaver, 120000);
 };
 
 const showScreensaver = () => {

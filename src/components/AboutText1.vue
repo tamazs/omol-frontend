@@ -1,9 +1,11 @@
 <template>
   <div class="text-container" ref="textContainer1">
     <p class="before-text">{{ $t('about.aboutText1Before') }}</p>
-    <p class="text" ref="text"><span class="highlight1">{{ $t('about.aboutText11') }}</span><span class="highlight1">{{ $t('about.aboutText12') }}</span><span class="highlight1">{{ $t('about.aboutText13') }}</span>
+    <p class="text" ref="text"><span class="highlight1">{{ $t('about.aboutText11') }}</span><span class="highlight1">{{
+      $t('about.aboutText12') }}</span><span class="highlight1">{{ $t('about.aboutText13') }}</span>
       <span class="highlight1">
-      {{ $t('about.aboutText14') }}</span></p>
+        {{ $t('about.aboutText14') }}</span>
+    </p>
   </div>
 </template>
 
@@ -29,33 +31,34 @@ onMounted(() => {
   });
 
   tl1.fromTo(
-  ".highlight1",
-  { color: "#CAC2BE" },
-  { color: "black", stagger: 1 }
+    ".highlight1",
+    { color: "#CAC2BE" },
+    { color: "black", stagger: 1 }
   );
 });
 
 onBeforeUnmount(() => {
-// Kill the timeline and ScrollTrigger instance when the component is unmounted
-ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-tl1.kill();
+  // Kill the timeline and ScrollTrigger instance when the component is unmounted
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  tl1.kill();
 });
 </script>
 
 <style scoped lang="scss">
 @media (max-width: 767px) {
   .text-container .text {
-  padding: 5rem 2rem 2rem 2rem !important;
+    padding: 5rem 2rem 2rem 2rem !important;
+  }
+
+  .text-container {
+    font-size: var(--t-header2) !important;
+  }
+
+  .before-text {
+    width: 80vw !important;
+  }
 }
 
-.text-container {
-  font-size: var(--t-header2) !important;
-}
-
-.before-text {
-  width: 80vw !important;
-}
-}
 .text-container {
   height: auto;
   width: 100vw;
@@ -91,14 +94,17 @@ tl1.kill();
   line-height: 0px;
   animation: blink 1s infinite;
   opacity: 1;
-  }
+}
 
-  @keyframes blink {
-  0%, 100% {
+@keyframes blink {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
-  }
+}
 </style>

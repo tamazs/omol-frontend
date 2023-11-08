@@ -1,6 +1,6 @@
 <template>
     <div>
-        <SingleProject/>
+        <SingleProject />
     </div>
 </template>
 
@@ -9,6 +9,4 @@ import SingleProject from '../components/SingleProject.vue';
 
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

@@ -1,16 +1,19 @@
 <template>
-    <div class="text-container" ref="textContainer">
-      <p class="before-text">{{ $t('home.textHighlightBefore') }}</p>
-      <p class="text" ref="text"><span class="highlight">{{ $t('home.textHighlightSpan1') }}</span><span class="highlight">{{ $t('home.textHighlightSpan2') }}</span><span class="highlight">{{ $t('home.textHighlightSpan3') }}</span>
-        <br>
-        <br>
-        <span class="highlight">
-        {{ $t('home.textHighlightSpan4') }}</span><span class="highlight"> 
-        {{ $t('home.textHighlightSpan5') }}</span><span class="highlight">{{ $t('home.textHighlightSpan6') }}</span></p>
-    </div>
-  </template>
+  <div class="text-container" ref="textContainer">
+    <p class="before-text">{{ $t('home.textHighlightBefore') }}</p>
+    <p class="text" ref="text"><span class="highlight">{{ $t('home.textHighlightSpan1') }}</span><span
+        class="highlight">{{ $t('home.textHighlightSpan2') }}</span><span class="highlight">{{
+          $t('home.textHighlightSpan3') }}</span>
+      <br>
+      <br>
+      <span class="highlight">
+        {{ $t('home.textHighlightSpan4') }}</span><span class="highlight">
+        {{ $t('home.textHighlightSpan5') }}</span><span class="highlight">{{ $t('home.textHighlightSpan6') }}</span>
+    </p>
+  </div>
+</template>
   
-  <script setup>
+<script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -22,32 +25,32 @@ const textContainer = ref(null);
 let tl;
 
 onMounted(() => {
-    tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: textContainer.value,
-        start: 'top center',
-        end: 'bottom center',
-        scrub: true
-      }
-    });
+  tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: textContainer.value,
+      start: 'top center',
+      end: 'bottom center',
+      scrub: true
+    }
+  });
 
-    tl.fromTo(
+  tl.fromTo(
     ".highlight",
     { color: "#CAC2BE" },
     { color: "black", stagger: 1 }
-    );
-  });
+  );
+});
 
-  onBeforeUnmount(() => {
+onBeforeUnmount(() => {
   // Kill the timeline and ScrollTrigger instance when the component is unmounted
   ScrollTrigger.getAll().forEach(trigger => trigger.kill());
   tl.kill();
 });
 </script>
   
-  <style scoped lang="scss">
-  @media (max-width: 767px) {
-    .text-container .text {
+<style scoped lang="scss">
+@media (max-width: 767px) {
+  .text-container .text {
     padding: 5rem 2rem 2rem 2rem !important;
   }
 
@@ -58,30 +61,31 @@ onMounted(() => {
   .before-text {
     width: 80vw !important;
   }
-  }
-  .text-container {
-    height: auto;
-    width: 100vw;
-    font-size: var(--t-bigText);
-    background-color: var(--c-white);
-    position: relative;
-    padding: 4rem 0rem;
-  }
-  
-  .text-container .text {
-    padding: 6rem 15rem 10rem 3rem;
-    line-height: 3rem;
-    font-family: var(--f-thin);
-  }
+}
 
-  .before-text {
-    font-size: var(--t-body);
-    text-transform: uppercase;
-    padding: 0 3rem;
-    width: 20vw;
-  }
+.text-container {
+  height: auto;
+  width: 100vw;
+  font-size: var(--t-bigText);
+  background-color: var(--c-white);
+  position: relative;
+  padding: 4rem 0rem;
+}
 
-  .before-text::before {
+.text-container .text {
+  padding: 6rem 15rem 10rem 3rem;
+  line-height: 3rem;
+  font-family: var(--f-thin);
+}
+
+.before-text {
+  font-size: var(--t-body);
+  text-transform: uppercase;
+  padding: 0 3rem;
+  width: 20vw;
+}
+
+.before-text::before {
   content: '';
   width: 15px;
   height: 15px;
@@ -94,15 +98,17 @@ onMounted(() => {
   line-height: 0px;
   animation: blink 1s infinite;
   opacity: 1;
-  }
+}
 
-  @keyframes blink {
-  0%, 100% {
+@keyframes blink {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
-  }
-  </style>
+}</style>
   

@@ -14,26 +14,30 @@
       <p class="project-tag">©2023 OMOL PRODUCTION TEAM</p>
     </div>
   </div>
-  <BTSslider/>
+  <BTSslider />
   <div class="button-row">
-        <button @click="navigateBack" class="back-button">
-          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 66 55" fill="none">
-            <path d="M27.1492 54.365L30.5428 50.9713L9.17966 29.6081L65.4807 29.6081L65.4807 24.823L9.17966 24.823L30.5428 3.45985L27.1492 0.0661753L-0.000237088 27.2156L27.1492 54.365Z" fill="#1E1E1E"/>
-          </svg> Back
-        </button>
-        <button @click="navigateToNextProject" v-if="pState.nextProjectId" class="next-button">
-          Next <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 66 55" fill="none">
-          <path d="M38.9351 0.0666488L35.5414 3.46032L56.9046 24.8235L0.603486 24.8235L0.603486 29.6086L56.9046 29.6086L35.5414 50.9718L38.9351 54.3655L66.0845 27.2161L38.9351 0.0666488Z" fill="#1E1E1E"/>
-        </svg>
-        </button>
-      </div>
+    <button @click="navigateBack" class="back-button">
+      <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 66 55" fill="none">
+        <path
+          d="M27.1492 54.365L30.5428 50.9713L9.17966 29.6081L65.4807 29.6081L65.4807 24.823L9.17966 24.823L30.5428 3.45985L27.1492 0.0661753L-0.000237088 27.2156L27.1492 54.365Z"
+          fill="#1E1E1E" />
+      </svg> Back
+    </button>
+    <button @click="navigateToNextProject" v-if="pState.nextProjectId" class="next-button">
+      Next <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 66 55" fill="none">
+        <path
+          d="M38.9351 0.0666488L35.5414 3.46032L56.9046 24.8235L0.603486 24.8235L0.603486 29.6086L56.9046 29.6086L35.5414 50.9718L38.9351 54.3655L66.0845 27.2161L38.9351 0.0666488Z"
+          fill="#1E1E1E" />
+      </svg>
+    </button>
+  </div>
 </template>
 
 <style scoped>
 .grid-container {
   display: grid;
   grid-template-rows: auto auto;
-  grid-template-areas: 
+  grid-template-areas:
     "video"
     "text";
   height: auto;
@@ -52,10 +56,10 @@
   margin-bottom: 10px;
   margin-left: 25px;
   text-transform: uppercase;
-  }
+}
 
-  .before-text::before {
-    content: '';
+.before-text::before {
+  content: '';
   width: 15px;
   height: 15px;
   background-color: #F0444A;
@@ -66,16 +70,19 @@
   z-index: 2;
   animation: blink 1s infinite;
   opacity: 1;
-  }
+}
 
-  @keyframes blink {
-  0%, 100% {
+@keyframes blink {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
-  }
+}
 
 .video-item {
   grid-area: video;
@@ -150,7 +157,7 @@
   background: transparent;
   border: none;
   color: var(--c-black);
-  cursor:url('../assets/cursor.png'), auto;
+  cursor: url('../assets/cursor.png'), auto;
   height: 5rem;
   width: 10rem;
   font-size: var(--t-header2);
@@ -161,39 +168,39 @@
 
 @media (max-width: 767px) {
   .desc {
-  gap: 0;
-  flex-direction: column;
-}
+    gap: 0;
+    flex-direction: column;
+  }
 
-.project-description {
-  column-count: 1;
-  column-gap: 0;
-  break-inside: avoid;
-}
+  .project-description {
+    column-count: 1;
+    column-gap: 0;
+    break-inside: avoid;
+  }
 
-.grid-container {
-  padding: 5rem 1rem !important;
-  width: 100vw;
-}
+  .grid-container {
+    padding: 5rem 1rem !important;
+    width: 100vw;
+  }
 
-.text-item {
-  padding: 10px;
-}
+  .text-item {
+    padding: 10px;
+  }
 
-.project-title {
-  font-size: var(--t-bigText);
-  margin-bottom: 15px;
-  border: 3px var(--c-red) solid;
-  border-radius: 50%;
-  padding: 1rem 2rem;
-  width: max-content;
-}
+  .project-title {
+    font-size: var(--t-bigText);
+    margin-bottom: 15px;
+    border: 3px var(--c-red) solid;
+    border-radius: 50%;
+    padding: 1rem 2rem;
+    width: max-content;
+  }
 
-.back-button,
-.next-button {
-  height: 8rem !important;
-  width: auto !important;
-}
+  .back-button,
+  .next-button {
+    height: 8rem !important;
+    width: auto !important;
+  }
 }
 </style>
 

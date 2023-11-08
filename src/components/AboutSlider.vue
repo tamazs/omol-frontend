@@ -1,12 +1,6 @@
 <template>
-  <swiper
-    :slidesPerView="slidesPerView"
-    :spaceBetween="20"
-    :navigation="false"
-    :scrollbar="true"
-    :modules="modules"
-    class="aboutSwiper"
-  >
+  <swiper :slidesPerView="slidesPerView" :spaceBetween="20" :navigation="false" :scrollbar="true" :modules="modules"
+    class="aboutSwiper">
     <swiper-slide v-for="(slide, index) in slides" :key="index" class="about-swiper-slide">
       <div class="about-image-wrapper">
         <img class="about-base-image" :src="slide.attributes.url" />
@@ -76,13 +70,17 @@ const modules = [Navigation, Scrollbar];
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80vh; /* Set your desired fixed height here */
-  margin-bottom: 85px; /* Adjust the margin as needed */
+  height: 80vh;
+  /* Set your desired fixed height here */
+  margin-bottom: 85px;
+  /* Adjust the margin as needed */
 }
 
 .about-base-image {
-  width: 100%; /* Ensure the image doesn't exceed its container */
-  height: 100%; /* Maintain a consistent height */
+  width: 100%;
+  /* Ensure the image doesn't exceed its container */
+  height: 100%;
+  /* Maintain a consistent height */
   object-fit: cover;
 }
 </style>

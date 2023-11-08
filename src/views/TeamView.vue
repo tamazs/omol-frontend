@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Tinder :memberId="query.memberId"/>
+        <Tinder :memberId="query.memberId" />
     </div>
 </template>
 
@@ -13,6 +13,4 @@ const router = useRouter();
 const query = ref(router.currentRoute.value.query);
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

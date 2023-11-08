@@ -1,11 +1,11 @@
 <template>
     <div>
-        <AboutText1/>
-        <AboutSlider/>
-        <LogoMarqueeSection/>
-        <AboutText2/>
-        <AboutMarqueeSection/>
-        <Clients/>
+        <AboutText1 />
+        <AboutSlider />
+        <LogoMarqueeSection />
+        <AboutText2 />
+        <AboutMarqueeSection />
+        <Clients />
     </div>
 </template>
 
@@ -18,6 +18,4 @@ import LogoMarqueeSection from '../components/LogoMarqueeSection.vue'
 import Clients from '../components/Clients.vue'
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

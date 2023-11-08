@@ -56,7 +56,11 @@
       "screensaverText": "This minute is yours, take advantage of it!",
       "cookieText": "We use our own and third-party cookies to improve your accessibility, personalize and analyzeyour navigation. By continuing browsing we consider that you accept its installation. You can change the configuration or obtain more information in our Cookies Policy",
       "cookieAccept": "Accept",
-      "cookieDecline": "Decline"
+      "cookieDecline": "Decline",
+      "popupTitle": "You've been looking at us for a minute now...",
+      "popupText1": "Do you need more of us? I bet so!",
+      "popupText2": "If you are curious and want to discover what we have in store for you, leave us your email. We will send you our portfolio and you will be able to see first-hand the passion we put into each recorded video.",
+      "popupButton": "Send"
     },
     "about": {
       "aboutText1Before": "Know more about us",

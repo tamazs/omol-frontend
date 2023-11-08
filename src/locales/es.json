@@ -56,7 +56,11 @@
     "screensaverText": "¡Este minuto es tuyo, aprovéchalo!",
     "cookieText": "Utilizamos cookies propias y de terceros para mejorar tu accesibilidad, personalizar y analizar tu navegación. Al continuar navegando consideramos que aceptas su instalación. Puedes cambiar la configuración u obtener más información en nuestra Cookies Policy",
     "cookieAccept": "Aceptar",
-    "cookieDecline": "Cancelar"
+    "cookieDecline": "Cancelar",
+    "popupTitle": "Ya llevas un minuto mirandonos...",
+    "popupText1": "¿Necesitas más de nosotros? ¡Apuesto a que sí!",
+    "popupText2": "Si tienes curiosidad y quieres descubrir lo que tenemos reservado para ti, déjanos tu correo electrónico. Te enviaremos nuestro portafolio y podrás ver de primera mano la pasión que ponemos en cada video grabado.",
+    "popupButton": "Enviar"
   },
   "about": {
     "aboutText1Before": "Conoce más sobre nosotros",

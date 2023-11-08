@@ -1,34 +1,31 @@
 <template>
   <div class="netflixSliderLatestBody">
     <h1 class="sliderTitle">{{ $t('projects.latestWork') }}</h1>
-  <swiper
-    :slidesPerView="slidesPerView"
-    :spaceBetween="15"
-    :navigation="false"
-    :scrollbar="false"
-    :modules="modules"
-    class="netflixSwiper"
-  >
-    <swiper-slide v-for="(slide, index) in slides" :key="index" class="netflix-swiper-slide">
-      <div class="netflix-card">
-        <div class="netflix-title">
-          <p>{{ slide.title }}</p>
-        </div>
-        <div class="netflix-image-container" @mouseenter="handleMouseEnter(index)" @mouseleave="handleMouseLeave(index)">
-          <img class="netflix-base-image" :src="slide.img" />
-          <img class="netflix-hover-gif" :src="slide.gif" :class="{ playing: playStatus[index] }" />
-        </div>
-        <div class="netflix-button-container" :class="{ active: cardHovered[index] }">
-          <div class="button-wrapper">
-            <button class="netflix-play-button" @click="togglePlay(index)"><img :src="playIcon(index)" id="playmark"></button>
-            <router-link :to="`/project/${slide.id}`" class="netflix-plus-button"><img src="@/assets/plus.png" id="plusmark"></router-link>
+    <swiper :slidesPerView="slidesPerView" :spaceBetween="15" :navigation="false" :scrollbar="false" :modules="modules"
+      class="netflixSwiper">
+      <swiper-slide v-for="(slide, index) in slides" :key="index" class="netflix-swiper-slide">
+        <div class="netflix-card">
+          <div class="netflix-title">
+            <p>{{ slide.title }}</p>
           </div>
-          <div class="netflix-hover-text">{{ slide.hoverText }}</div>
+          <div class="netflix-image-container" @mouseenter="handleMouseEnter(index)"
+            @mouseleave="handleMouseLeave(index)">
+            <img class="netflix-base-image" :src="slide.img" />
+            <img class="netflix-hover-gif" :src="slide.gif" :class="{ playing: playStatus[index] }" />
+          </div>
+          <div class="netflix-button-container" :class="{ active: cardHovered[index] }">
+            <div class="button-wrapper">
+              <button class="netflix-play-button" @click="togglePlay(index)"><img :src="playIcon(index)"
+                  id="playmark"></button>
+              <router-link :to="`/project/${slide.id}`" class="netflix-plus-button"><img src="@/assets/plus.png"
+                  id="plusmark"></router-link>
+            </div>
+            <div class="netflix-hover-text">{{ slide.hoverText }}</div>
+          </div>
         </div>
-      </div>
-    </swiper-slide>
-  </swiper>
-</div>
+      </swiper-slide>
+    </swiper>
+  </div>
 </template>
 
 <style scoped lang="scss">
@@ -49,6 +46,7 @@ $aspect-ratio: math.div(4, 3);
   margin-left: 1rem;
   margin-bottom: 1rem;
 }
+
 .netflixSwiper {
   width: 100%;
   height: 100%;
@@ -97,6 +95,7 @@ $aspect-ratio: math.div(4, 3);
   top: 0;
   z-index: 2;
 }
+
 .netflix-image-container {
   position: relative;
   max-width: 100%;
@@ -151,13 +150,16 @@ $aspect-ratio: math.div(4, 3);
 }
 
 @keyframes blink {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
-  }
+}
 
 /* .netflix-card:hover .netflix-base-image,
 .netflix-hover-gif {
@@ -174,7 +176,7 @@ $aspect-ratio: math.div(4, 3);
 .netflix-plus-button {
   background: transparent;
   border: none;
-  cursor:url('../assets/cursor.png'), auto;
+  cursor: url('../assets/cursor.png'), auto;
   font-size: 30px;
   color: var(--c-red);
   margin-left: -5px;
@@ -196,7 +198,8 @@ $aspect-ratio: math.div(4, 3);
   display: block;
 }
 
-#plusmark, #playmark {
+#plusmark,
+#playmark {
   height: 2.5rem;
 }
 </style>
@@ -257,7 +260,7 @@ const togglePlay = (index) => {
 
 const playIcon = (index) => {
   return playStatus.value[index] ? pauseImage : playImage;
-  };
+};
 
 const modules = [Navigation, Scrollbar];
 </script>

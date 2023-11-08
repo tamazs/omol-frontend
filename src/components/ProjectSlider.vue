@@ -1,19 +1,13 @@
 <template>
-  <swiper
-    :slidesPerView="slidesPerView"
-    :spaceBetween="10"
-    :navigation="false"
-    :scrollbar="true"
-    :modules="modules"
-    class="mySwiper"
-  >
+  <swiper :slidesPerView="slidesPerView" :spaceBetween="10" :navigation="false" :scrollbar="true" :modules="modules"
+    class="mySwiper">
     <swiper-slide v-for="(slide, index) in slides" :key="index" class="swiper-slide">
       <div class="image-wrapper" @mouseenter="handleMouseEnter($event)" @mouseleave="handleMouseLeave($event)">
         <img class="base-image" :src="slide.img" />
         <img class="hover-gif" :src="slide.gif" />
         <div class="text-overlay">
           <router-link class="overlay-open" :to="`/project/${slide.id}`">
-          <p class="title">{{ slide.title }}</p>
+            <p class="title">{{ slide.title }}</p>
           </router-link>
         </div>
       </div>
@@ -89,7 +83,7 @@ $aspect-ratio: math.div(4, 3);
 .overlay-open {
   text-decoration: none;
   color: var(--c-white);
-  cursor:url('../assets/cursor.png'), auto;
+  cursor: url('../assets/cursor.png'), auto;
 }
 
 .image-wrapper {
@@ -122,7 +116,8 @@ $aspect-ratio: math.div(4, 3);
   padding: 1rem;
 }
 
-.base-image, .hover-gif {
+.base-image,
+.hover-gif {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -139,8 +134,7 @@ $aspect-ratio: math.div(4, 3);
 
 @media(max-width: 767px) {
   .swiper-slide {
-  padding: 0;
+    padding: 0;
+  }
 }
-}
-
 </style>

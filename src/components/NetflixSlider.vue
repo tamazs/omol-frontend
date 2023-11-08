@@ -1,39 +1,36 @@
 <template>
-    <div class="netflixSliderBody">
-      <div v-for="(category, categoryName) in pState.projectsByCategory" :key="categoryName">
-        <h1 class="categoryName">{{ categoryName }}</h1>
-        <swiper
-          :slidesPerView="slidesPerView"
-          :spaceBetween="15"
-          :navigation="false"
-          :scrollbar="false"
-          :modules="modules"
-          class="netflixSwiper"
-        >
-          <swiper-slide v-for="(slide, index) in category" :key="index" class="netflix-swiper-slide">
-            <div class="netflix-card">
-              <div class="netflix-title">
-                <p>{{ slide.title }}</p>
-              </div>
-              <div class="netflix-image-container" @mouseenter="handleMouseEnter(index)" @mouseleave="handleMouseLeave(index)">
-                <img class="netflix-base-image" :src="slide.img" />
-                <img class="netflix-hover-gif" :src="slide.gif" :class="{ playing: playStatus[index] }" />
-              </div>
-              <div class="netflix-button-container" :class="{ active: cardHovered[index] }">
-                <div class="button-wrapper">
-                  <button class="netflix-play-button" @click="togglePlay(index)"><img :src="playIcon(index)" id="playmark"></button>
-                  <router-link :to="`/project/${slide.id}`" class="netflix-plus-button"><img src="@/assets/plus.png" id="plusmark"></router-link>
-                </div>
-                <div class="netflix-hover-text">{{ slide.hoverText }}</div>
-              </div>
+  <div class="netflixSliderBody">
+    <div v-for="(category, categoryName) in pState.projectsByCategory" :key="categoryName">
+      <h1 class="categoryName">{{ categoryName }}</h1>
+      <swiper :slidesPerView="slidesPerView" :spaceBetween="15" :navigation="false" :scrollbar="false" :modules="modules"
+        class="netflixSwiper">
+        <swiper-slide v-for="(slide, index) in category" :key="index" class="netflix-swiper-slide">
+          <div class="netflix-card">
+            <div class="netflix-title">
+              <p>{{ slide.title }}</p>
             </div>
-          </swiper-slide>
-        </swiper>
-      </div>
+            <div class="netflix-image-container" @mouseenter="handleMouseEnter(index)"
+              @mouseleave="handleMouseLeave(index)">
+              <img class="netflix-base-image" :src="slide.img" />
+              <img class="netflix-hover-gif" :src="slide.gif" :class="{ playing: playStatus[index] }" />
+            </div>
+            <div class="netflix-button-container" :class="{ active: cardHovered[index] }">
+              <div class="button-wrapper">
+                <button class="netflix-play-button" @click="togglePlay(index)"><img :src="playIcon(index)"
+                    id="playmark"></button>
+                <router-link :to="`/project/${slide.id}`" class="netflix-plus-button"><img src="@/assets/plus.png"
+                    id="plusmark"></router-link>
+              </div>
+              <div class="netflix-hover-text">{{ slide.hoverText }}</div>
+            </div>
+          </div>
+        </swiper-slide>
+      </swiper>
     </div>
-  </template>
+  </div>
+</template>
   
-  <style scoped lang="scss">
+<style scoped lang="scss">
 @use "sass:math";
 
 $aspect-ratio: math.div(4, 3);
@@ -41,6 +38,7 @@ $aspect-ratio: math.div(4, 3);
 .netflixSliderBody:hover .categoryName {
   border: 2px var(--c-red) solid;
 }
+
 .categoryName {
   padding: 0.7rem 1.8rem;
   font-size: var(--t-bigText);
@@ -50,6 +48,7 @@ $aspect-ratio: math.div(4, 3);
   margin-left: 1rem;
   margin-bottom: 1rem;
 }
+
 .netflixSwiper {
   width: 100%;
   height: 100%;
@@ -98,6 +97,7 @@ $aspect-ratio: math.div(4, 3);
   top: 0;
   z-index: 2;
 }
+
 .netflix-image-container {
   position: relative;
   max-width: 100%;
@@ -152,13 +152,16 @@ $aspect-ratio: math.div(4, 3);
 }
 
 @keyframes blink {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
-  }
+}
 
 /* .netflix-card:hover .netflix-base-image,
 .netflix-hover-gif {
@@ -175,7 +178,7 @@ $aspect-ratio: math.div(4, 3);
 .netflix-plus-button {
   background: transparent;
   border: none;
-  cursor:url('../assets/cursor.png'), auto;
+  cursor: url('../assets/cursor.png'), auto;
   font-size: 30px;
   color: var(--c-red);
   margin-right: 10px;
@@ -198,69 +201,70 @@ $aspect-ratio: math.div(4, 3);
   display: block;
 }
 
-#plusmark, #playmark {
+#plusmark,
+#playmark {
   height: 2.5rem;
 }
 </style>
   
-  <script setup>
-  import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
-  import { gsap } from 'gsap';
-  import { Swiper, SwiperSlide } from 'swiper/vue';
-  import 'swiper/css';
-  import 'swiper/css/navigation';
-  import 'swiper/css/scrollbar';
-  import { Navigation, Scrollbar } from 'swiper/modules';
-  import category from '../modules/category';
-  import pauseImage from '@/assets/pause.png';
-  import playImage from '@/assets/play.png';
-  
-  const { pState, getProjectsByCategory } = category();
-  
-  const slides = computed(() => pState.projectsByCategory);
-  
-  const slidesPerView = ref(window.innerWidth <= 767 ? 1 : 4);
-  
-  const updateSlidesPerView = () => {
-    slidesPerView.value = window.innerWidth <= 767 ? 1 : 4;
-  };
-  
-  onMounted(() => {
-    getProjectsByCategory();
-  
-    window.addEventListener('resize', updateSlidesPerView);
-  });
-  
-  onBeforeUnmount(() => {
-    window.removeEventListener('resize', updateSlidesPerView);
-  });
-  
-  const playStatus = ref(Array(slides.value.length).fill(false));
-  
-  const cardHovered = ref(Array(slides.value.length).fill(false));
-  
-  const handleMouseEnter = (index) => {
-    cardHovered[index] = true;
-  };
-  
-  const handleMouseLeave = (index) => {
-    cardHovered[index] = false;
-  };
-  
-  const togglePlay = (index) => {
-    playStatus.value[index] = !playStatus.value[index];
-    const gif = document.querySelectorAll(".netflix-hover-gif")[index];
-    if (playStatus.value[index]) {
-      gsap.to(gif, { opacity: 1, duration: 0.1 });
-    } else {
-      gsap.to(gif, { opacity: 0, duration: 0.1 });
-    }
-  };
-  
-  const playIcon = (index) => {
+<script setup>
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
+import { gsap } from 'gsap';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/scrollbar';
+import { Navigation, Scrollbar } from 'swiper/modules';
+import category from '../modules/category';
+import pauseImage from '@/assets/pause.png';
+import playImage from '@/assets/play.png';
+
+const { pState, getProjectsByCategory } = category();
+
+const slides = computed(() => pState.projectsByCategory);
+
+const slidesPerView = ref(window.innerWidth <= 767 ? 1 : 4);
+
+const updateSlidesPerView = () => {
+  slidesPerView.value = window.innerWidth <= 767 ? 1 : 4;
+};
+
+onMounted(() => {
+  getProjectsByCategory();
+
+  window.addEventListener('resize', updateSlidesPerView);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateSlidesPerView);
+});
+
+const playStatus = ref(Array(slides.value.length).fill(false));
+
+const cardHovered = ref(Array(slides.value.length).fill(false));
+
+const handleMouseEnter = (index) => {
+  cardHovered[index] = true;
+};
+
+const handleMouseLeave = (index) => {
+  cardHovered[index] = false;
+};
+
+const togglePlay = (index) => {
+  playStatus.value[index] = !playStatus.value[index];
+  const gif = document.querySelectorAll(".netflix-hover-gif")[index];
+  if (playStatus.value[index]) {
+    gsap.to(gif, { opacity: 1, duration: 0.1 });
+  } else {
+    gsap.to(gif, { opacity: 0, duration: 0.1 });
+  }
+};
+
+const playIcon = (index) => {
   return playStatus.value[index] ? pauseImage : playImage;
-  };
-  
-  const modules = [Navigation, Scrollbar];
-  </script>
+};
+
+const modules = [Navigation, Scrollbar];
+</script>
   

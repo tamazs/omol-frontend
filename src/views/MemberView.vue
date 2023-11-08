@@ -9,7 +9,9 @@
         <p class="bio">{{ crews[0].bio }}</p>
         <button @click="navigateBack" class="back-button">
           <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 66 55" fill="none">
-            <path d="M27.1492 54.365L30.5428 50.9713L9.17966 29.6081L65.4807 29.6081L65.4807 24.823L9.17966 24.823L30.5428 3.45985L27.1492 0.0661753L-0.000237088 27.2156L27.1492 54.365Z" fill="#1E1E1E"/>
+            <path
+              d="M27.1492 54.365L30.5428 50.9713L9.17966 29.6081L65.4807 29.6081L65.4807 24.823L9.17966 24.823L30.5428 3.45985L27.1492 0.0661753L-0.000237088 27.2156L27.1492 54.365Z"
+              fill="#1E1E1E" />
           </svg> Back
         </button>
       </div>
@@ -63,14 +65,14 @@ onMounted(() => {
   }
 
   .tinder-img {
-  max-height: 40vh;
-  rotate: -5deg;
-}
+    max-height: 40vh;
+    rotate: -5deg;
+  }
 
-.content {
-  width: 100vw !important;
-  padding: 2rem !important;
-}
+  .content {
+    width: 100vw !important;
+    padding: 2rem !important;
+  }
 }
 
 .left {
@@ -112,7 +114,7 @@ onMounted(() => {
   background: transparent;
   border: none;
   color: var(--c-black);
-  cursor:url('../assets/cursor.png'), auto;
+  cursor: url('../assets/cursor.png'), auto;
   height: 5rem;
   width: 10rem;
   font-size: var(--t-header2);

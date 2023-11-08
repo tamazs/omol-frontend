@@ -1,12 +1,10 @@
 <template>
   <div class="hero-container">
-    <LogoMarqueeSection/>
+    <LogoMarqueeSection />
     <div class="scroll-down">{{ $t('home.scrollDown') }}</div>
-    <div class="video-container"
-         ref="videoContainer"
-         @click="toggleVideoPlay">
+    <div class="video-container" ref="videoContainer" @click="toggleVideoPlay">
       <video ref="videoHeroElement" class="video" @ended="handleVideoEnd" playsinline>
-          <source src="/video.mp4" type="video/mp4">
+        <source src="/video.mp4" type="video/mp4">
       </video>
     </div>
   </div>
@@ -25,7 +23,7 @@ const videoContainer = ref(null);
 const isVideoPaused = ref(true);
 
 onMounted(() => {
-  gsap.fromTo(videoContainer.value, 
+  gsap.fromTo(videoContainer.value,
     { width: '0px', height: '0px' },
     {
       width: '100vw',
@@ -39,7 +37,7 @@ onMounted(() => {
       }
     }
   );
-  videoContainer.value.addEventListener('click', handleVideoClick);
+  /* videoContainer.value.addEventListener('click', handleVideoClick); */
 });
 
 const handleVideoEnd = () => {
@@ -56,7 +54,7 @@ const toggleVideoPlay = () => {
   }
 };
 
-const handleVideoClick = () => {
+/* const handleVideoClick = () => {
   if (!isVideoPaused.value) {
     gsap.to(videoContainer.value, {
       width: '100vw',
@@ -64,7 +62,7 @@ const handleVideoClick = () => {
       duration: 0.5, // Adjust the duration as needed for the animation speed
     });
   }
-};
+}; */
 
 watch(
   () => isVideoPaused.value,
@@ -116,16 +114,19 @@ watch(
   font-family: var(--f-light);
   animation: blink 1s infinite;
   opacity: 1;
-  }
+}
 
-  @keyframes blink {
-  0%, 100% {
+@keyframes blink {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
-  }
+}
 
 .video-container {
   position: absolute;
