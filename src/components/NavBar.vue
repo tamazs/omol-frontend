@@ -47,7 +47,7 @@
         </router-link>
         <div class="nav-middle">
           <div class="pages">
-            <router-link to="/home#sendLove">Send love</router-link>
+            <router-link to="/home#sendLove" @click="scrollToSendLove">Send love</router-link>
             <router-link to="/projects"
               :class="{ 'active-link': $route.path === '/projects' || $route.path.startsWith('/project/') }">{{
                 $t('navbar.projects') }}</router-link>
@@ -73,7 +73,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted, computed, nextTick } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import logoBlack from '@/assets/omol_b.svg';
@@ -96,38 +96,6 @@ const setLanguage = (lang) => {
   store.lang = lang;
   locale.value = lang;
 };
-
-const scrollToSendLove = () => {
-  const currentRoute = router.currentRoute.value.path;
-  if (currentRoute === '/home#sendLove') {
-    scrollElementIntoView();
-  } else {
-
-  }
-
-  function scrollElementIntoView() {
-    const element = document.getElementById('sendLove');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-};
-
-onMounted(() => {
-  const currentRoute = router.currentRoute.value.path;
-  if (currentRoute === '/home#sendLove') {
-    scrollElementIntoView();
-  } else {
-
-  }
-
-  function scrollElementIntoView() {
-    const element = document.getElementById('sendLove');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-})
 
 /* onMounted(() => {
     let tl = gsap.timeline({
@@ -193,6 +161,14 @@ const isProjectOrMemberRoute = computed(() => {
   const currentRoute = router.currentRoute.value;
   return currentRoute.path.startsWith('/member/') || currentRoute.path.startsWith('/project/');
 });
+
+function scrollToSendLove() {
+  setTimeout(() => {
+  const element = document.getElementById('sendLove');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+}, 1000)};
 </script>
 
 <style scoped>

@@ -154,59 +154,28 @@ import { onMounted } from 'vue';
 import { gsap } from 'gsap';
 
 onMounted(() => {
-  let currentScroll = 0;
-  let isScrollingDown = true;
-
-  const containerWidth = window.innerWidth; // Width of the container
-
-  // Select all the elements
   const elements = document.querySelectorAll('.bottom__unit');
+  const containerWidth = window.innerWidth;
 
-  // Calculate the total animation distance based on the actual width of each element
   let totalAnimationDistance = 0;
   elements.forEach((element) => {
     totalAnimationDistance += element.clientWidth;
   });
 
-  // Calculate the animation duration based on the total animation distance
-  const animationSpeed = 100 * (containerWidth / totalAnimationDistance); // Adjust as needed
+  gsap.set(elements, { x: 0 });
 
-  // Create a wrapper div to contain the elements
-  const wrapper = document.querySelector('.bottom__inner');
-  const wrapperWidth = elements.length * totalAnimationDistance;
-
-  // Clone the elements and append them to the wrapper
-  elements.forEach((element) => {
-    const clone = element.cloneNode(true);
-    wrapper.appendChild(clone);
-  });
-
-  // Start the animation at x=0
-  gsap.set(wrapper, { x: 0 });
-
-  let tween = gsap.to(wrapper, {
-    x: -wrapperWidth,
+  gsap.to(elements, {
+    x: -containerWidth,
+    duration: 400,
+    ease: 'linear',
     repeat: -1,
-    duration: animationSpeed * (wrapperWidth / containerWidth),
-    ease: "linear"
-  });
-
-  window.addEventListener("scroll", function () {
-    if (window.scrollY > currentScroll) {
-      isScrollingDown = true;
-    } else {
-      isScrollingDown = false;
-    }
-
-    gsap.to(tween, {
-      timeScale: isScrollingDown ? 1 : -1
-    });
-
-    currentScroll = window.scrollY;
+    stagger: {
+      amount: totalAnimationDistance / containerWidth,
+      from: 'end',
+    },
   });
 });
 </script>
-
     
 <style scoped>
 .bottom {

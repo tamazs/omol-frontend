@@ -1,5 +1,5 @@
 <template>
-  <div class="text-container" ref="textContainer" id="sendLove">
+  <div class="text-container" id="sendLove">
     <p class="before-text">{{ $t('home.footerTextBefore') }}</p>
     <p class="text">{{ $t('home.footerText') }}</p>
   </div>
