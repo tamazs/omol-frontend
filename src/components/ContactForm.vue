@@ -1,9 +1,9 @@
 <template>
-  <div class="text-container" id="sendLove">
+  <div class="text-container">
     <p class="before-text">{{ $t('home.footerTextBefore') }}</p>
     <p class="text">{{ $t('home.footerText') }}</p>
   </div>
-  <div class="form-container">
+  <div class="form-container" id="sendLove">
     <form @submit.prevent="validateAndSend" id="form">
       <input type="text" v-model="name" name="from_name" :placeholder="$t('home.namePh')"
         :class="{ 'red-border': !nameFilled && formSubmitted }" required>

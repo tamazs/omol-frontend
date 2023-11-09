@@ -2,7 +2,8 @@
   <div class="grid-container">
     <div class="grid-item video-item">
       <p class="before-text" v-if="pState.projects[0]">{{ pState.projects[0].title }}</p>
-      <video v-if="pState.projects[0]" :src="pState.projects[0].video" controls></video>
+      <div v-if="showVideoPlaceholder" class="video-placeholder"></div>
+      <video v-else-if="pState.projects[0]" :src="pState.projects[0].video" controls></video>
     </div>
     <div class="grid-item text-item">
       <h1 class="project-title" v-if="pState.projects[0]">{{ pState.projects[0].title }}</h1>
@@ -95,6 +96,12 @@
   max-width: 100%;
   max-height: 85vh;
   object-fit: cover;
+}
+
+.video-placeholder {
+  background-color: #E8E3E0;
+  width: 100%;
+  height: 85vh;
 }
 
 .text-item {
@@ -223,12 +230,13 @@ watch(() => route.params.id, (newProjectId) => {
   }
 });
 
-const videoLoaded = () => {
-  // Log the video URL to the console to verify that it's correct
-  console.log(pState.projects[0].video);
 
-  // Update the ref to hide the placeholder and show the video
-  showVideoPlaceholder.value = false;
+const videoLoaded = () => {
+  // Delay hiding the video placeholder for 2 seconds
+  setTimeout(() => {
+    // Update the ref to hide the placeholder and show the video
+    showVideoPlaceholder.value = false;
+  }, 1000);
 };
 
 const navigateToNextProject = () => {
@@ -242,6 +250,7 @@ const navigateBack = () => {
 };
 
 onMounted(() => {
+  videoLoaded();
   projectId.value = route.params.id;
   if (projectId.value) {
     getSingleProject();
