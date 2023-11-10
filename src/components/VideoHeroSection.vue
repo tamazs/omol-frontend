@@ -107,7 +107,7 @@ watch(
 
 .scroll-down {
   position: absolute;
-  bottom: 15%;
+  bottom: 20%;
   font-size: var(--t-body);
   z-index: 2;
   text-transform: uppercase;

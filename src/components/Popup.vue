@@ -167,5 +167,27 @@ input::placeholder {
 .sendBtn:hover {
   border: 2px var(--c-red) solid;
 }
+
+@media (max-width: 767px) {
+
+  .popup {
+  padding: 0rem;
+}
+  .popup-content {
+  width: 100%;
+  height: max-content;
+  padding: 2rem 1rem;
+  justify-content: center;
+}
+
+.close-button {
+  top: 17rem;
+  right: 1rem;
+}
+
+p {
+  width: 85%;
+}
+}
 </style>
   
