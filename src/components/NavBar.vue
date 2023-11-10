@@ -234,7 +234,7 @@ function scrollToSendLove() {
   right: -100vw;
   width: 100vw;
   height: 100vh;
-  background: var(--c-black);
+  background: #2B2B2B;
   color: var(--c-white);
   z-index: 1000;
   display: flex;
@@ -253,7 +253,7 @@ function scrollToSendLove() {
 .nav-links {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .languages button {
@@ -320,6 +320,7 @@ function scrollToSendLove() {
     display: flex;
     flex-direction: column;
     text-transform: uppercase;
+    margin-top: 7rem;
   }
 
   .mobile-nav .logo img {
@@ -328,20 +329,27 @@ function scrollToSendLove() {
 
   .mobile-pages a {
     color: var(--c-white);
-    font-size: 1.5em;
+    font-size: var(--t-bigText);
+    font-family: var(--f-light);
     text-decoration: none;
-    text-align: center;
-    padding: 10px;
+    padding: 1rem 1rem;
   }
 
   .nav-links {
-    justify-content: center;
-    align-items: center;
     height: 100%;
+    display: flex;
+    justify-content: space-between;
   }
 
   .languages button {
     color: var(--c-white);
+    padding: 2rem 2rem;
+  }
+
+  .languages {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
   }
 }
 </style>
