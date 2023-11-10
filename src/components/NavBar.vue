@@ -350,6 +350,7 @@ function scrollToSendLove() {
     width: 100vw;
     display: flex;
     justify-content: center;
+    margin-bottom: 10rem;
   }
 }
 </style>

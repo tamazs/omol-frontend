@@ -46,6 +46,7 @@
   overflow: hidden;
   padding: 6rem 4rem;
   background: var(--c-white);
+  overflow: hidden;
 }
 
 .grid-item {
@@ -210,18 +211,22 @@
   }
 
   .back-button svg,
-  .next-button svg{
+  .next-button svg {
     padding: 0.2rem !important;
-    margin: 0rem 0.8rem;
+    margin: 0rem 0.8rem !important;
   }
 
   .button-row {
-  padding: 0 1rem !important;
-}
+    padding: 0rem 0rem !important;
+  }
 
-.before-text::before {
-  left: 1.2rem !important;
-  top: 5rem !important;
+  .before-text::before {
+    left: 1.2rem !important;
+    top: 5rem !important;
+  }
+
+  .video-placeholder {
+  height: 25vh !important;
 }
 }
 </style>
