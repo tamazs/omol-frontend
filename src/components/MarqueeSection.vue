@@ -83,5 +83,9 @@ onMounted(() => {
     padding: 0 10px;
     font-size: var(--t-header1);
   }
+
+  .marquee {
+  padding: 50px 0 !important;
+}
 }
 </style>

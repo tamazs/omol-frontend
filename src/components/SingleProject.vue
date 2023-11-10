@@ -155,7 +155,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: rem;
+  margin-top: 1rem;
   padding: 0 3rem;
 }
 
@@ -208,6 +208,21 @@
     height: 8rem !important;
     width: auto !important;
   }
+
+  .back-button svg,
+  .next-button svg{
+    padding: 0.2rem !important;
+    margin: 0rem 0.8rem;
+  }
+
+  .button-row {
+  padding: 0 1rem !important;
+}
+
+.before-text::before {
+  left: 1.2rem !important;
+  top: 5rem !important;
+}
 }
 </style>
 

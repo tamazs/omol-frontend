@@ -39,16 +39,19 @@ const declineCookie = () => {
 
   .cookie-consent p {
     width: 100vw !important;
-    padding: 0rem 2rem !important;
+    padding: 2rem 2rem !important;
   }
-}
+
+  .cookie-consent .buttons {
+  gap: 40px !important;
+}}
 
 .cookie-consent {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 13vh;
+  height: 15vh;
   background-color: #2B2B2B;
   color: var(--c-white);
   padding: 1rem;

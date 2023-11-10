@@ -177,10 +177,9 @@ $aspect-ratio: math.div(4, 3);
   background: transparent;
   border: none;
   cursor: url('../assets/cursor.png'), auto;
-  font-size: 30px;
   color: var(--c-red);
+  margin-right: 10px;
   margin-left: -5px;
-  margin-right: 5px;
 }
 
 .netflix-hover-gif.playing {
@@ -201,6 +200,25 @@ $aspect-ratio: math.div(4, 3);
 #plusmark,
 #playmark {
   height: 2.5rem;
+}
+
+@media (max-width: 767px) {
+  .sliderTitle {
+  padding: 0.7rem 1rem !important;
+  margin-left: 0rem !important;
+  width: 100vw !important;
+  text-align: center !important;
+}
+
+.netflix-play-button,
+.netflix-plus-button {
+  margin-right: 2px !important;
+  margin-left: -8px !important;
+}
+
+.netflix-swiper-slide {
+  overflow: visible !important;
+}
 }
 </style>
 

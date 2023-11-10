@@ -46,6 +46,7 @@ onBeforeUnmount(() => {
 @media (max-width: 767px) {
   .text-container .text {
     padding: 5rem 2rem 2rem 2rem !important;
+    margin-bottom: 6rem !important;
   }
 
   .text-container {

@@ -96,6 +96,7 @@ function validateAndSend() {
 
   input[type=submit] {
     width: 40% !important;
+    padding: 1rem 1rem !important;
   }
 
   .before-text {
