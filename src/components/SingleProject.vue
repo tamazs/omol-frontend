@@ -212,12 +212,13 @@
 
   .back-button svg,
   .next-button svg {
-    padding: 0.2rem !important;
-    margin: 0rem 0.8rem !important;
+    padding: 0rem !important;
+    margin: 0rem 0.4rem !important;
   }
 
   .button-row {
     padding: 0rem 0rem !important;
+    overflow: hidden !important;
   }
 
   .before-text::before {
