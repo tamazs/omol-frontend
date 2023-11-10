@@ -3,7 +3,7 @@
     class="aboutSwiper">
     <swiper-slide v-for="(slide, index) in slides" :key="index" class="about-swiper-slide">
       <div class="about-image-wrapper">
-        <img class="about-base-image" :src="slide.attributes.url" />
+        <img class="about-base-image" :src="slide.attributes.url" alt="Pictures of OMOL behind the scenes"/>
       </div>
     </swiper-slide>
   </swiper>

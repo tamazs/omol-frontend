@@ -7,7 +7,7 @@
     <div class="tinder--cards">
       <div class="tinder--card" v-for="(crew, index) in crews" :key="index"
         v-bind:style="{ zIndex: crews.length - index, transform: cardTransform(index), opacity: cardOpacity(index) }">
-        <img :src="crew.img" />
+        <img :src="crew.img" alt="Images of the crew"/>
       </div>
     </div>
     <div class="tinder--buttons">

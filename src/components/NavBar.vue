@@ -4,7 +4,7 @@
       <div class="mobile-nav">
         <router-link to="/home" class="home">
           <div class="logo">
-            <img :src="logoUrl" alt="Logo" />
+            <img :src="logoUrl" alt="Logo of OMOL" />
           </div>
         </router-link>
         <div class="burger-menu" @click="toggleMenu">
@@ -15,7 +15,7 @@
         <div class="menu-header">
           <router-link to="/home">
             <div class="logo">
-              <img :src="whiteLogoUrl" alt="Logo" />
+              <img :src="whiteLogoUrl" alt="Logo of OMOL" />
             </div>
           </router-link>
           <div @click="toggleMenu">

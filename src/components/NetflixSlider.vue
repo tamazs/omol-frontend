@@ -11,15 +11,15 @@
             </div>
             <div class="netflix-image-container" @mouseenter="handleMouseEnter(index)"
               @mouseleave="handleMouseLeave(index)">
-              <img class="netflix-base-image" :src="slide.img" />
-              <img class="netflix-hover-gif" :src="slide.gif" :class="{ playing: playStatus[index] }" />
+              <img class="netflix-base-image" :src="slide.img" alt="Project picture"/>
+              <img class="netflix-hover-gif" :src="slide.gif" :class="{ playing: playStatus[index] }" alt="Project GIF"/>
             </div>
             <div class="netflix-button-container" :class="{ active: cardHovered[index] }">
               <div class="button-wrapper">
                 <button class="netflix-play-button" @click="togglePlay(index)"><img :src="playIcon(index)"
-                    id="playmark"></button>
+                    id="playmark" alt="Play/pause button"></button>
                 <router-link :to="`/project/${slide.id}`" class="netflix-plus-button"><img src="@/assets/plus.png"
-                    id="plusmark"></router-link>
+                    id="plusmark" alt="Open project button"></router-link>
               </div>
               <div class="netflix-hover-text">{{ slide.hoverText }}</div>
             </div>

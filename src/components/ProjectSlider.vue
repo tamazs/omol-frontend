@@ -3,8 +3,8 @@
     class="mySwiper">
     <swiper-slide v-for="(slide, index) in slides" :key="index" class="swiper-slide">
       <div class="image-wrapper" @mouseenter="handleMouseEnter($event)" @mouseleave="handleMouseLeave($event)">
-        <img class="base-image" :src="slide.img" />
-        <img class="hover-gif" :src="slide.gif" />
+        <img class="base-image" :src="slide.img" alt="Project picture"/>
+        <img class="hover-gif" :src="slide.gif" alt="Project GIF"/>
         <div class="text-overlay">
           <router-link class="overlay-open" :to="`/project/${slide.id}`">
             <p class="title">{{ slide.title }}</p>

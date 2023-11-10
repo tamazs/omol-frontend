@@ -3,7 +3,7 @@
     class="aboutSwiper" v-if="pState.projects[0]">
     <swiper-slide v-for="(slide, index) in slides" :key="index" class="about-swiper-slide">
       <div class="about-image-wrapper">
-        <img class="about-base-image" :src="slide" />
+        <img class="about-base-image" :src="slide" alt="Behind the scene photos for this project"/>
       </div>
     </swiper-slide>
   </swiper>

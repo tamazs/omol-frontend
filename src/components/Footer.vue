@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <img :src="gLogo" alt="Logo" class="footer-logo" />
+      <img :src="gLogo" alt="Logo of Goodsight" class="footer-logo" />
       <div class="footer-text">
         <p>&copy; 2023 | Goodsight | Todos los derechos reservados</p>
       </div>

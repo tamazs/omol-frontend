@@ -2,7 +2,7 @@
   <div class="image-grid" @mousemove="handleMouseMove" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave"
     ref="imageGrid">
     <div class="image" v-for="(client, index) in cState.clients" :key="index">
-      <img v-if="client.attributes.url" :src="client.attributes.url" alt="Image" />
+      <img v-if="client.attributes.url" :src="client.attributes.url" alt="Client logos" />
     </div>
     <div ref="myDiv" class="my-div" :style="{ opacity: divOpacity }" @click="sendEmail">
       Wanna work with us?

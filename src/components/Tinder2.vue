@@ -4,18 +4,18 @@
     <div class="tinder--card" v-for="(crew, index) in crews" :key="crew.id"
       :style="{ zIndex: crews.length - index, transform: crew.transform, opacity: crew.opacity }"
       @remove="onRemove(index)">
-      <img :src="crew.img" />
+      <img :src="crew.img" alt="Images of the crew"/>
     </div>
   </div>
   <div class="button-row">
     <button class="nope-button" @click="nopeCard" @mouseover="hoveredNope = true" @mouseout="hoveredNope = false">
-      <img :src="hoveredNope ? xRed : nopeB" alt="Nope" />
+      <img :src="hoveredNope ? xRed : nopeB" alt="Nope button" />
     </button>
     <button class="rewind-button" @click="rewindCard" @mouseover="hoveredRewind = true" @mouseout="hoveredRewind = false">
-      <img :src="hoveredRewind ? rewindRed : rewindB" alt="Nope" />
+      <img :src="hoveredRewind ? rewindRed : rewindB" alt="Rewind button" />
     </button>
     <button class="like-button" @click="likeCard" @mouseover="hoveredLike = true" @mouseout="hoveredLike = false">
-      <img :src="hoveredLike ? heartRed : heartB" alt="Nope" />
+      <img :src="hoveredLike ? heartRed : heartB" alt="Like button" />
     </button>
   </div>
 </template>
