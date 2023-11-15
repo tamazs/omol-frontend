@@ -25,11 +25,11 @@
   .swiper-scrollbar.swiper-scrollbar-horizontal {
     position: absolute;
     left: var(--swiper-scrollbar-sides-offset, 10%);
-    bottom: var(--swiper-scrollbar-bottom, 0);
+    bottom: var(--swiper-scrollbar-bottom, 0) !important;
     top: var(--swiper-scrollbar-top, auto);
     z-index: 50;
-    height: var(--swiper-scrollbar-size, 1.5px);
-    width: calc(100% - 2 * var(--swiper-scrollbar-sides-offset, 10%));
+    height: var(--swiper-scrollbar-size, 1.5px) !important;
+    width: calc(100% - 2 * var(--swiper-scrollbar-sides-offset, 10%)) !important;
   }
   .swiper-vertical > .swiper-scrollbar,
   .swiper-scrollbar.swiper-scrollbar-vertical {

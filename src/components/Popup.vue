@@ -1,7 +1,9 @@
 <template>
   <div class="popup">
     <div class="popup-content">
-      <button @click="onClosePopup" class="close-button"><i class="fa-solid fa-x"></i></button>
+      <div class="close-button-container">
+        <button @click="onClosePopup" class="close-button"><i class="fa-solid fa-x"></i></button>
+      </div>
       <h1>{{ $t('home.popupTitle') }}</h1>
       <p>{{ $t('home.popupText1') }}
         <br />
@@ -121,17 +123,21 @@ const stopMouseDownSound = () => {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
+}
+
+.close-button-container {
+  position: absolute;
+  top: 1.5rem;
+  right: 1rem;
 }
 
 .close-button {
-  position: absolute;
-  top: 11rem;
-  right: 17rem;
   background: none;
   border: none;
-  cursor: url('../assets/cursor.png'), auto;
   font-size: 2rem;
   color: var(--c-black);
+  cursor: url('../assets/cursor.png'), auto;
 }
 
 h1 {

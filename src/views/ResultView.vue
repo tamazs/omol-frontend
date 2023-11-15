@@ -7,7 +7,7 @@
       <div class="text-container">
         <h1 class="result-title">{{ $t('intro.resultTitle') }}</h1>
         <p class="time">{{ formattedTimerValue }}</p>
-        <p class="result-desc">you were focused for one minute! this is really complicated nowadays</p>
+        <p class="result-desc">you were focused for {{ formattedTimerValue }}! this is really complicated nowadays</p>
       </div>
     </div>
     <div class="grid-item text-section right-section">
@@ -88,13 +88,17 @@
 .result-button {
   text-decoration: none;
   color: var(--c-black);
-  border: 3px var(--c-black) solid;
+  border: 3px transparent solid;
   border-radius: 50%;
   padding: 1.5rem 3rem;
   width: max-content;
   font-size: var(--t-header3);
   margin-bottom: 3rem;
   cursor: url('../assets/cursor_black.png'), auto;
+}
+
+.result-button:hover {
+  border: 3px var(--c-black) solid;
 }
 
 .right-section .result-button {

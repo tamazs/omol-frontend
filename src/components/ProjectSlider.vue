@@ -68,6 +68,7 @@ $aspect-ratio: math.div(4, 3);
   height: 100%;
   background-color: var(--c-white);
   padding: 0 1rem;
+  cursor: url('../assets/drag_01.png'), auto;
 }
 
 .swiper-slide {
@@ -92,7 +93,6 @@ $aspect-ratio: math.div(4, 3);
   height: 70vh;
   transition: transform 0.5s ease;
   margin-bottom: 50px;
-  cursor: url('../assets/drag_01.png'), auto;
 }
 
 .text-overlay {
