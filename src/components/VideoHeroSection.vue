@@ -3,9 +3,20 @@
     <LogoMarqueeSection />
     <div class="scroll-down">{{ $t('home.scrollDown') }}</div>
     <div class="video-container" ref="videoContainer" @click="toggleVideoPlay">
-      <video ref="videoHeroElement" class="video" @ended="handleVideoEnd" playsinline>
+      <video v-if="viewportWidth >= 1000" ref="videoHeroElement" class="video" @ended="handleVideoEnd" playsinline>
         <source src="/video.mp4" type="video/mp4">
       </video>
+      <video
+      v-else
+      autoplay
+      muted
+      loop
+      playsinline
+      class="video"
+      ref="videoHeroElement"
+    >
+      <source src="/video.mp4" type="video/mp4">
+    </video>
     </div>
   </div>
 </template>
@@ -21,6 +32,7 @@ gsap.registerPlugin(ScrollTrigger);
 const videoHeroElement = ref(null);
 const videoContainer = ref(null);
 const isVideoPaused = ref(true);
+const viewportWidth = ref(window.innerWidth);
 
 onMounted(() => {
   gsap.fromTo(videoContainer.value,
@@ -37,31 +49,12 @@ onMounted(() => {
       }
     }
   );
-  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('resize', updateViewportWidth);
   /* videoContainer.value.addEventListener('click', handleVideoClick); */
 });
 
-const handleScroll = () => {
-  const scrollPosition = window.scrollY || window.pageYOffset;
-  const windowHeight = window.innerHeight;
-  const videoContainerHeight = videoContainer.value.clientHeight;
-  const triggerPosition = windowHeight * 0.5; // Adjust this threshold as needed
-
-  if (
-    scrollPosition > triggerPosition &&
-    videoContainerHeight < windowHeight // Ensure the video is not fully expanded
-  ) {
-    expandVideoContainer();
-    window.removeEventListener('scroll', handleScroll); // Remove listener after expansion
-  }
-};
-
-const expandVideoContainer = () => {
-  gsap.to(videoContainer.value, {
-    width: '100vw',
-    height: '100vh',
-    duration: 1, // Adjust duration as needed
-  });
+const updateViewportWidth = () => {
+  viewportWidth.value = window.innerWidth;
 };
 
 const handleVideoEnd = () => {
