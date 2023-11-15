@@ -30,5 +30,8 @@
     "eslint-plugin-vue": "^9.15.1",
     "sass": "^1.64.2",
     "vite": "^4.4.6"
+  },
+  "engines": {
+    "node": ">=16"
   }
 }
