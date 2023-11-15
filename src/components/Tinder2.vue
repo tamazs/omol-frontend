@@ -8,13 +8,13 @@
     </div>
   </div>
   <div class="button-row">
-    <button class="nope-button" @click="nopeCard" @mouseover="hoveredNope = true" @mouseout="hoveredNope = false">
+    <button class="nope-button" @click="nopeCard" @mouseenter="playSound" @mouseleave="stopSound" @mouseover="hoveredNope = true" @mouseout="hoveredNope = false">
       <img :src="hoveredNope ? xRed : nopeB" alt="Nope button" />
     </button>
-    <button class="rewind-button" @click="rewindCard" @mouseover="hoveredRewind = true" @mouseout="hoveredRewind = false">
+    <button class="rewind-button" @click="rewindCard" @mouseenter="playSound" @mouseleave="stopSound" @mouseover="hoveredRewind = true" @mouseout="hoveredRewind = false">
       <img :src="hoveredRewind ? rewindRed : rewindB" alt="Rewind button" />
     </button>
-    <button class="like-button" @click="likeCard" @mouseover="hoveredLike = true" @mouseout="hoveredLike = false">
+    <button class="like-button" @click="likeCard" @mouseenter="playSound" @mouseleave="stopSound" @mouseover="hoveredLike = true" @mouseout="hoveredLike = false">
       <img :src="hoveredLike ? heartRed : heartB" alt="Like button" />
     </button>
   </div>
@@ -31,6 +31,7 @@ import rewindB from '@/assets/rewindB.png';
 import heartB from '@/assets/heartB.png';
 import rewindRed from '@/assets/back_red.png';
 import heartRed from '@/assets/love_red.png';
+import tickSound from '@/assets/tick3.mp3';
 
 const hoveredNope = ref(false);
 const hoveredRewind = ref(false);
@@ -173,6 +174,17 @@ const removePreviousCards = (index) => {
   if (index > 0) {
     crews.value.splice(0, index);
   }
+};
+
+const audio = new Audio(tickSound);
+
+const playSound = () => {
+  audio.play();
+};
+
+const stopSound = () => {
+  audio.pause();
+  audio.currentTime = 0;
 };
 </script>
   

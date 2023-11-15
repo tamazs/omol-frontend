@@ -15,9 +15,9 @@
           </div>
           <div class="netflix-button-container" :class="{ active: cardHovered[index] }">
             <div class="button-wrapper">
-              <button class="netflix-play-button" @click="togglePlay(index)"><img :src="playIcon(index)"
+              <button class="netflix-play-button" @click="togglePlay(index)" @mouseenter="playSound" @mouseleave="stopSound"><img :src="playIcon(index)"
                   id="playmark" alt="Play/pause button"></button>
-              <router-link :to="`/project/${slide.id}`" class="netflix-plus-button"><img src="@/assets/plus.png"
+              <router-link :to="`/project/${slide.id}`" class="netflix-plus-button" @mouseenter="playSound" @mouseleave="stopSound"><img src="@/assets/plus.png"
                   id="plusmark" alt="Open project button"></router-link>
             </div>
             <div class="netflix-hover-text">{{ slide.hoverText }}</div>
@@ -44,7 +44,7 @@ $aspect-ratio: math.div(4, 3);
   border-radius: 50%;
   width: max-content;
   margin-left: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 
 .netflixSwiper {
@@ -233,6 +233,7 @@ import { Navigation, Scrollbar } from 'swiper/modules';
 import project from '../modules/project';
 import pauseImage from '@/assets/pause.png';
 import playImage from '@/assets/play.png';
+import tickSound from '@/assets/tick3.mp3';
 
 const { pState, latestProjects } = project();
 
@@ -281,4 +282,15 @@ const playIcon = (index) => {
 };
 
 const modules = [Navigation, Scrollbar];
+
+const audio = new Audio(tickSound);
+
+const playSound = () => {
+  audio.play();
+};
+
+const stopSound = () => {
+  audio.pause();
+  audio.currentTime = 0;
+};
 </script>

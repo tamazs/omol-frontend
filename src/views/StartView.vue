@@ -11,8 +11,8 @@
       <h1>{{ $t('intro.question') }}</h1>
       <p>{{ $t('intro.text1') }}</p>
       <div class="start-select">
-        <RouterLink class="select-btn" to="/screens">{{ $t('intro.button1') }}</RouterLink>
-        <RouterLink class="select-btn" to="/home">{{ $t('intro.button2') }}</RouterLink>
+        <RouterLink class="select-btn" to="/screens" @mouseenter="playSound" @mouseleave="stopSound">{{ $t('intro.button1') }}</RouterLink>
+        <RouterLink class="select-btn" to="/home" @mouseenter="playSound" @mouseleave="stopSound">{{ $t('intro.button2') }}</RouterLink>
       </div>
     </div>
   </div>
@@ -21,6 +21,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { gsap } from 'gsap';
+import tickSound from '@/assets/tick3.mp3';
 
 const showContent = ref(false);
 
@@ -35,6 +36,17 @@ const onVideoEnded = () => {
   gsap.to('.intro-video', { opacity: 0, duration: 1 });
   showContent.value = true;
   gsap.to('.intro', { opacity: 1, duration: 1 });
+};
+
+const audio = new Audio(tickSound);
+
+const playSound = () => {
+  audio.play();
+};
+
+const stopSound = () => {
+  audio.pause();
+  audio.currentTime = 0;
 };
 </script>
   

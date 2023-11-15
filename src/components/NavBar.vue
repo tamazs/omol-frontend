@@ -40,20 +40,20 @@
         </div>
       </div>
       <div class="desktop-nav">
-        <router-link to="/home">
+        <router-link to="/home" @mouseenter="playSound" @mouseleave="stopSound">
           <div class="logo">
             <img :src="logoUrl" alt="Logo" />
           </div>
         </router-link>
         <div class="nav-middle">
           <div class="pages">
-            <router-link to="/home#sendLove" @click="scrollToSendLove">Send love</router-link>
+            <router-link to="/home#sendLove" @click="scrollToSendLove" @mouseenter="playSound" @mouseleave="stopSound">Send love</router-link>
             <router-link to="/projects"
-              :class="{ 'active-link': $route.path === '/projects' || $route.path.startsWith('/project/') }">{{
+              :class="{ 'active-link': $route.path === '/projects' || $route.path.startsWith('/project/') }" @mouseenter="playSound" @mouseleave="stopSound">{{
                 $t('navbar.projects') }}</router-link>
-            <router-link to="/about" :class="{ 'active-link': $route.path === '/about' }">{{ $t('navbar.about')
+            <router-link to="/about" :class="{ 'active-link': $route.path === '/about' }" @mouseenter="playSound" @mouseleave="stopSound">{{ $t('navbar.about')
             }}</router-link>
-            <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }">{{ $t('navbar.team')
+            <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }" @mouseenter="playSound" @mouseleave="stopSound">{{ $t('navbar.team')
             }}</router-link>
           </div>
         </div>
@@ -64,8 +64,8 @@
           <a href="https://www.linkedin.com/company/goodsight/" target="_blank"><i class="fab fa-linkedin"></i></a>
         </div>
         <div class="languages" v-if="!isProjectOrMemberRoute">
-          <button @click="setLanguage('es')" :class="{ 'active-language': locale === 'es' }">ES</button>
-          <button @click="setLanguage('en')" :class="{ 'active-language': locale === 'en' }">EN</button>
+          <button @click="setLanguage('es')" :class="{ 'active-language': locale === 'es' }" @mouseenter="playSound" @mouseleave="stopSound">ES</button>
+          <button @click="setLanguage('en')" :class="{ 'active-language': locale === 'en' }" @mouseenter="playSound" @mouseleave="stopSound">EN</button>
         </div>
       </div>
     </div>
@@ -81,6 +81,7 @@ import logoWhite from '@/assets/omol_w.svg';
 import { useI18n } from 'vue-i18n';
 import { store } from '@/store';
 import { useRouter } from 'vue-router';
+import tickSound from '@/assets/tick3.mp3';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -169,6 +170,17 @@ function scrollToSendLove() {
     element.scrollIntoView({ behavior: 'smooth' });
   }
 }, 1000)};
+
+const audio = new Audio(tickSound);
+
+const playSound = () => {
+  audio.play();
+};
+
+const stopSound = () => {
+  audio.pause();
+  audio.currentTime = 0;
+};
 </script>
 
 <style scoped>
@@ -320,7 +332,7 @@ function scrollToSendLove() {
     display: flex;
     flex-direction: column;
     text-transform: uppercase;
-    margin-top: 7rem;
+    margin-top: 4rem;
   }
 
   .mobile-nav .logo img {

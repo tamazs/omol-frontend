@@ -17,15 +17,15 @@
   </div>
   <BTSslider />
   <div class="button-row">
-    <button @click="navigateBack" class="back-button">
-      <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 66 55" fill="none">
+    <button @click="navigateBack" class="back-button" @mouseenter="playSound" @mouseleave="stopSound">
+      <svg xmlns="http://www.w3.org/2000/svg" height="2.5rem" viewBox="0 0 66 55" fill="none">
         <path
           d="M27.1492 54.365L30.5428 50.9713L9.17966 29.6081L65.4807 29.6081L65.4807 24.823L9.17966 24.823L30.5428 3.45985L27.1492 0.0661753L-0.000237088 27.2156L27.1492 54.365Z"
           fill="#1E1E1E" />
       </svg> Back
     </button>
-    <button @click="navigateToNextProject" v-if="pState.nextProjectId" class="next-button">
-      Next <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 66 55" fill="none">
+    <button @click="navigateToNextProject" v-if="pState.nextProjectId" class="next-button" @mouseenter="playSound" @mouseleave="stopSound">
+      Next <svg xmlns="http://www.w3.org/2000/svg" height="2.5rem" viewBox="0 0 66 55" fill="none">
         <path
           d="M38.9351 0.0666488L35.5414 3.46032L56.9046 24.8235L0.603486 24.8235L0.603486 29.6086L56.9046 29.6086L35.5414 50.9718L38.9351 54.3655L66.0845 27.2161L38.9351 0.0666488Z"
           fill="#1E1E1E" />
@@ -167,11 +167,12 @@
   color: var(--c-black);
   cursor: url('../assets/cursor.png'), auto;
   height: 5rem;
-  width: 10rem;
+  width: auto;
   font-size: var(--t-header2);
   display: flex;
-  justify-content: space-evenly;
-  font-family: var(--f-thin);
+  justify-content: space-between;
+  gap: 1.5rem;
+  font-family: var(--f-regular);
 }
 
 @media (max-width: 767px) {
@@ -237,6 +238,8 @@ import { ref, onMounted, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import BTSslider from './BTSslider.vue';
 import project from '../modules/project';
+import tickSound from '@/assets/tick3.mp3';
+
 const route = useRoute();
 const router = useRouter();
 const { pState, getSingleProject } = project();
@@ -277,5 +280,16 @@ onMounted(() => {
     getSingleProject();
   }
 });
+
+const audio = new Audio(tickSound);
+
+const playSound = () => {
+  audio.play();
+};
+
+const stopSound = () => {
+  audio.pause();
+  audio.currentTime = 0;
+};
 </script>
 

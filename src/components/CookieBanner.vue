@@ -4,8 +4,8 @@
       <p>{{ $t('home.cookieText') }}</p>
     </div>
     <div class="buttons">
-      <button @click="acceptCookie">{{ $t('home.cookieAccept') }}</button>
-      <button @click="declineCookie">{{ $t('home.cookieDecline') }}</button>
+      <button @click="acceptCookie" @mouseenter="playSound" @mouseleave="stopSound">{{ $t('home.cookieAccept') }}</button>
+      <button @click="declineCookie" @mouseenter="playSound" @mouseleave="stopSound">{{ $t('home.cookieDecline') }}</button>
     </div>
   </div>
 </template>
@@ -13,6 +13,18 @@
 <script setup>
 import { ref } from 'vue';
 import Cookies from 'js-cookie';
+import tickSound from '@/assets/tick3.mp3';
+
+const audio = new Audio(tickSound);
+
+const playSound = () => {
+  audio.play();
+};
+
+const stopSound = () => {
+  audio.pause();
+  audio.currentTime = 0;
+};
 
 const myCookieValue = ref(Cookies.get('myCookie'));
 const cookieAccepted = ref(myCookieValue.value === 'OMOLACCEPTED');

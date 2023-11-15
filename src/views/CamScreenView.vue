@@ -6,8 +6,8 @@
       <h1 v-if="currentIndex === texts.length - 1">{{ $t('intro.challengeTitle') }}</h1>
       <p class="infoText">{{ currentText }}</p>
       <div class="final-btn-container" v-if="currentIndex === texts.length - 1">
-        <RouterLink class="select-btn" to="/cam">{{ $t('intro.button3') }}</RouterLink>
-        <RouterLink class="select-btn" to="/home">{{ $t('intro.button4') }}</RouterLink>
+        <RouterLink class="select-btn" to="/cam" @mouseenter="playSound" @mouseleave="stopSound">{{ $t('intro.button3') }}</RouterLink>
+        <RouterLink class="select-btn" to="/home" @mouseenter="playSound" @mouseleave="stopSound">{{ $t('intro.button4') }}</RouterLink>
       </div>
       <p v-if="currentIndex === 0 || currentIndex === 1" class="bottom-text">{{ $t('intro.bottomText1') }}</p>
     </div>
@@ -19,6 +19,7 @@ import { ref, onMounted, onUnmounted, computed, watch } from 'vue';
 import * as faceapi from 'face-api.js';
 import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
+import tickSound from '@/assets/tick3.mp3';
 
 let cameraFeedScreen = ref(null);
 let intervalId = ref(null);
@@ -32,6 +33,17 @@ const texts = ['intro.text2', 'intro.text3', 'intro.challengeText'];
 
 const currentIndex = ref(0);
 const currentText = computed(() => t(texts[currentIndex.value]));
+
+const audio = new Audio(tickSound);
+
+const playSound = () => {
+  audio.play();
+};
+
+const stopSound = () => {
+  audio.pause();
+  audio.currentTime = 0;
+};
 
 const nextScreen = () => {
   if (cameraInitialized.value === false) {

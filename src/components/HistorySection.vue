@@ -158,7 +158,7 @@ onMounted(() => {
   }
 
   .number {
-    font-size: 8rem !important;
+    font-size: 12rem !important;
   }
 
   .history-text {
