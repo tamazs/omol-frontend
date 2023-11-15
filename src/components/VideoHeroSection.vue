@@ -37,8 +37,32 @@ onMounted(() => {
       }
     }
   );
+  window.addEventListener('scroll', handleScroll);
   /* videoContainer.value.addEventListener('click', handleVideoClick); */
 });
+
+const handleScroll = () => {
+  const scrollPosition = window.scrollY || window.pageYOffset;
+  const windowHeight = window.innerHeight;
+  const videoContainerHeight = videoContainer.value.clientHeight;
+  const triggerPosition = windowHeight * 0.5; // Adjust this threshold as needed
+
+  if (
+    scrollPosition > triggerPosition &&
+    videoContainerHeight < windowHeight // Ensure the video is not fully expanded
+  ) {
+    expandVideoContainer();
+    window.removeEventListener('scroll', handleScroll); // Remove listener after expansion
+  }
+};
+
+const expandVideoContainer = () => {
+  gsap.to(videoContainer.value, {
+    width: '100vw',
+    height: '100vh',
+    duration: 1, // Adjust duration as needed
+  });
+};
 
 const handleVideoEnd = () => {
   videoHeroElement.value.pause();

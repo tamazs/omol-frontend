@@ -194,8 +194,8 @@ input::placeholder {
 }
 
 .close-button {
-  top: 17rem;
-  right: 1rem;
+  top: 30vh;
+  right: 8vw;
 }
 
 p {
