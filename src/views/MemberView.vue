@@ -7,7 +7,7 @@
       <div class="content">
         <h1 class="name">{{ crews[0].firstName }} {{ crews[0].lastName }}</h1>
         <p class="bio">{{ crews[0].bio }}</p>
-        <button @click="navigateBack" class="back-button" @mouseenter="playSound" @mouseleave="stopSound">
+        <button @click="navigateBack" class="back-button" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">
           <svg xmlns="http://www.w3.org/2000/svg" height="2.5rem" viewBox="0 0 66 55" fill="none">
             <path
               d="M27.1492 54.365L30.5428 50.9713L9.17966 29.6081L65.4807 29.6081L65.4807 24.823L9.17966 24.823L30.5428 3.45985L27.1492 0.0661753L-0.000237088 27.2156L27.1492 54.365Z"
@@ -23,7 +23,8 @@
 import { ref, computed, onMounted, watch } from 'vue';
 import crew from '../modules/crew';
 import { useRouter } from 'vue-router';
-import tickSound from '@/assets/tick3.mp3';
+import tickSound from '@/assets/tick4.mp3';
+import tickSoundMouseDown from '@/assets/tick1.mp3';
 
 const router = useRouter();
 
@@ -47,6 +48,7 @@ onMounted(() => {
 });
 
 const audio = new Audio(tickSound);
+const audioMouseDown = new Audio(tickSoundMouseDown);
 
 const playSound = () => {
   audio.play();
@@ -55,6 +57,15 @@ const playSound = () => {
 const stopSound = () => {
   audio.pause();
   audio.currentTime = 0;
+};
+
+const playMouseDownSound = () => {
+  audioMouseDown.play();
+};
+
+const stopMouseDownSound = () => {
+  audioMouseDown.pause();
+  audioMouseDown.currentTime = 0;
 };
 </script>
 

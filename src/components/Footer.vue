@@ -7,25 +7,25 @@
       <div class="footer-section">
         <div class="contact-info">
           <div class="contact-item">{{ $t('footer.contactUs') }}</div>
-          <div class="contact-item contact-hover" @mouseenter="playSound" @mouseleave="stopSound">{{ $t('footer.callUs') }}<a href="tel:+34 911 542 253">+34 911 542
+          <div class="contact-item contact-hover" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">{{ $t('footer.callUs') }}<a href="tel:+34 911 542 253">+34 911 542
               253</a></div>
-          <div class="contact-item contact-hover" @mouseenter="playSound" @mouseleave="stopSound">WhatsApp: <a href="https://wa.me/34662746484">+34 662 74 64 84</a></div>
-          <div class="contact-item contact-hover" @mouseenter="playSound" @mouseleave="stopSound">Email: <a
+          <div class="contact-item contact-hover" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">WhatsApp: <a href="https://wa.me/34662746484">+34 662 74 64 84</a></div>
+          <div class="contact-item contact-hover" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">Email: <a
               href="mailto:nbuenavista@goodsightmedia.com">nbuenavista@goodsightmedia.com</a></div>
         </div>
       </div>
       <div class="footer-section-mid">
         <div class="footer-section-div">
           <p class="footer-title">Portfolio</p>
-          <button class="news-btn" @mouseenter="playSound" @mouseleave="stopSound">Download</button>
+          <button class="news-btn" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">Download</button>
         </div>
         <div class="footer-section-div">
           <p class="footer-title">{{ $t('footer.followUs') }}</p>
           <div class="social-icons">
-            <a href="https://vimeo.com/goodsightmedia" target="_blank" @mouseenter="playSound" @mouseleave="stopSound"><i class="fab fa-vimeo-v"></i></a>
-            <a href="https://www.instagram.com/omolvideo/" target="_blank" @mouseenter="playSound" @mouseleave="stopSound"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.youtube.com/@omolvideo/videos" target="_blank" @mouseenter="playSound" @mouseleave="stopSound"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.linkedin.com/company/goodsight/" target="_blank" @mouseenter="playSound" @mouseleave="stopSound"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://vimeo.com/goodsightmedia" target="_blank" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound"><i class="fab fa-vimeo-v"></i></a>
+            <a href="https://www.instagram.com/omolvideo/" target="_blank" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@omolvideo/videos" target="_blank" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/company/goodsight/" target="_blank" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound"><i class="fab fa-linkedin-in"></i></a>
           </div>
         </div>
       </div>
@@ -205,10 +205,12 @@
 </style>
   
 <script setup>
-import tickSound from '@/assets/tick3.mp3';
+import tickSound from '@/assets/tick4.mp3';
+import tickSoundMouseDown from '@/assets/tick1.mp3';
 import gLogo from '@/assets/goodsight.png';
 
 const audio = new Audio(tickSound);
+const audioMouseDown = new Audio(tickSoundMouseDown);
 
 const playSound = () => {
   audio.play();
@@ -217,5 +219,14 @@ const playSound = () => {
 const stopSound = () => {
   audio.pause();
   audio.currentTime = 0;
+};
+
+const playMouseDownSound = () => {
+  audioMouseDown.play();
+};
+
+const stopMouseDownSound = () => {
+  audioMouseDown.pause();
+  audioMouseDown.currentTime = 0;
 };
 </script>

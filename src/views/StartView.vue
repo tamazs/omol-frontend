@@ -11,8 +11,8 @@
       <h1>{{ $t('intro.question') }}</h1>
       <p>{{ $t('intro.text1') }}</p>
       <div class="start-select">
-        <RouterLink class="select-btn" to="/screens" @mouseenter="playSound" @mouseleave="stopSound">{{ $t('intro.button1') }}</RouterLink>
-        <RouterLink class="select-btn" to="/home" @mouseenter="playSound" @mouseleave="stopSound">{{ $t('intro.button2') }}</RouterLink>
+        <RouterLink class="select-btn" to="/screens" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">{{ $t('intro.button1') }}</RouterLink>
+        <RouterLink class="select-btn" to="/home" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">{{ $t('intro.button2') }}</RouterLink>
       </div>
     </div>
   </div>
@@ -21,7 +21,8 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { gsap } from 'gsap';
-import tickSound from '@/assets/tick3.mp3';
+import tickSound from '@/assets/tick4.mp3';
+import tickSoundMouseDown from '@/assets/tick1.mp3';
 
 const showContent = ref(false);
 
@@ -39,6 +40,7 @@ const onVideoEnded = () => {
 };
 
 const audio = new Audio(tickSound);
+const audioMouseDown = new Audio(tickSoundMouseDown);
 
 const playSound = () => {
   audio.play();
@@ -47,6 +49,15 @@ const playSound = () => {
 const stopSound = () => {
   audio.pause();
   audio.currentTime = 0;
+};
+
+const playMouseDownSound = () => {
+  audioMouseDown.play();
+};
+
+const stopMouseDownSound = () => {
+  audioMouseDown.pause();
+  audioMouseDown.currentTime = 0;
 };
 </script>
   

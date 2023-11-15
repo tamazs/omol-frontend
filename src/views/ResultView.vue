@@ -1,7 +1,7 @@
 <template>
   <div class="grid-container">
     <div class="grid-item text-section left-section">
-      <RouterLink class="result-button" to="/cam" @mouseenter="playSound" @mouseleave="stopSound">{{ $t('intro.button5') }}</RouterLink>
+      <RouterLink class="result-button" to="/cam" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">{{ $t('intro.button5') }}</RouterLink>
     </div>
     <div class="grid-item middle-section">
       <div class="text-container">
@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="grid-item text-section right-section">
-      <RouterLink class="result-button" to="/home" @mouseenter="playSound" @mouseleave="stopSound">{{ $t('intro.button6') }}</RouterLink>
+      <RouterLink class="result-button" to="/home" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">{{ $t('intro.button6') }}</RouterLink>
     </div>
   </div>
 </template>
@@ -128,13 +128,15 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
-import tickSound from '@/assets/tick3.mp3';
+import tickSound from '@/assets/tick4.mp3';
+import tickSoundMouseDown from '@/assets/tick1.mp3';
 
 const route = useRoute();
 const timerValue = ref(null);
 const formattedTimerValue = ref('');
 
 const audio = new Audio(tickSound);
+const audioMouseDown = new Audio(tickSoundMouseDown);
 
 const playSound = () => {
   audio.play();
@@ -143,6 +145,15 @@ const playSound = () => {
 const stopSound = () => {
   audio.pause();
   audio.currentTime = 0;
+};
+
+const playMouseDownSound = () => {
+  audioMouseDown.play();
+};
+
+const stopMouseDownSound = () => {
+  audioMouseDown.pause();
+  audioMouseDown.currentTime = 0;
 };
 
 onMounted(() => {

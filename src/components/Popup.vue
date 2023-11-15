@@ -11,7 +11,7 @@
       <form class="input-container" @submit.prevent="validateAndSend" id="formPopup">
         <div v-if="!emailFilled && formSubmitted" class="error-message">Please fill your email</div>
         <input type="email" v-model="email" placeholder="Type your email here" name="from_email" required />
-        <input class="sendBtn" type="submit" @mouseenter="playSound" @mouseleave="stopSound" :value="$t('home.popupButton')" />
+        <input class="sendBtn" type="submit" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound" :value="$t('home.popupButton')" />
       </form>
     </div>
   </div>
@@ -20,7 +20,8 @@
 <script setup>
 import { ref, defineEmits } from 'vue';
 import emailjs from 'emailjs-com';
-import tickSound from '@/assets/tick3.mp3';
+import tickSound from '@/assets/tick4.mp3';
+import tickSoundMouseDown from '@/assets/tick1.mp3';
 
 const emit = defineEmits(['close-popup']);
 const email = ref('');
@@ -74,6 +75,7 @@ function validateAndSend() {
 }
 
 const audio = new Audio(tickSound);
+const audioMouseDown = new Audio(tickSoundMouseDown);
 
 const playSound = () => {
   audio.play();
@@ -82,6 +84,15 @@ const playSound = () => {
 const stopSound = () => {
   audio.pause();
   audio.currentTime = 0;
+};
+
+const playMouseDownSound = () => {
+  audioMouseDown.play();
+};
+
+const stopMouseDownSound = () => {
+  audioMouseDown.pause();
+  audioMouseDown.currentTime = 0;
 };
 </script>  
   

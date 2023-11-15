@@ -8,13 +8,13 @@
     </div>
   </div>
   <div class="button-row">
-    <button class="nope-button" @click="nopeCard" @mouseenter="playSound" @mouseleave="stopSound" @mouseover="hoveredNope = true" @mouseout="hoveredNope = false">
+    <button class="nope-button" @click="nopeCard" @mouseenter="playSound" @mouseleave="stopSound" @mouseover="hoveredNope = true" @mouseout="hoveredNope = false" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">
       <img :src="hoveredNope ? xRed : nopeB" alt="Nope button" />
     </button>
-    <button class="rewind-button" @click="rewindCard" @mouseenter="playSound" @mouseleave="stopSound" @mouseover="hoveredRewind = true" @mouseout="hoveredRewind = false">
+    <button class="rewind-button" @click="rewindCard" @mouseenter="playSound" @mouseleave="stopSound" @mouseover="hoveredRewind = true" @mouseout="hoveredRewind = false" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">
       <img :src="hoveredRewind ? rewindRed : rewindB" alt="Rewind button" />
     </button>
-    <button class="like-button" @click="likeCard" @mouseenter="playSound" @mouseleave="stopSound" @mouseover="hoveredLike = true" @mouseout="hoveredLike = false">
+    <button class="like-button" @click="likeCard" @mouseenter="playSound" @mouseleave="stopSound" @mouseover="hoveredLike = true" @mouseout="hoveredLike = false" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">
       <img :src="hoveredLike ? heartRed : heartB" alt="Like button" />
     </button>
   </div>
@@ -31,7 +31,8 @@ import rewindB from '@/assets/rewindB.png';
 import heartB from '@/assets/heartB.png';
 import rewindRed from '@/assets/back_red.png';
 import heartRed from '@/assets/love_red.png';
-import tickSound from '@/assets/tick3.mp3';
+import tickSound from '@/assets/tick4.mp3';
+import tickSoundMouseDown from '@/assets/tick1.mp3';
 
 const hoveredNope = ref(false);
 const hoveredRewind = ref(false);
@@ -177,6 +178,7 @@ const removePreviousCards = (index) => {
 };
 
 const audio = new Audio(tickSound);
+const audioMouseDown = new Audio(tickSoundMouseDown);
 
 const playSound = () => {
   audio.play();
@@ -185,6 +187,15 @@ const playSound = () => {
 const stopSound = () => {
   audio.pause();
   audio.currentTime = 0;
+};
+
+const playMouseDownSound = () => {
+  audioMouseDown.play();
+};
+
+const stopMouseDownSound = () => {
+  audioMouseDown.pause();
+  audioMouseDown.currentTime = 0;
 };
 </script>
   

@@ -18,7 +18,7 @@
       <!-- Display error message if message is not filled -->
       <div v-if="formSubmitted && !messageFilled" class="error-message">Please fill your message</div>
 
-      <input type="submit" value="Send" @mouseenter="playSound" @mouseleave="stopSound">
+      <input type="submit" value="Send" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">
     </form>
   </div>
 </template>  
@@ -26,7 +26,8 @@
 <script setup>
 import { ref } from 'vue';
 import emailjs from 'emailjs-com';
-import tickSound from '@/assets/tick3.mp3';
+import tickSound from '@/assets/tick4.mp3';
+import tickSoundMouseDown from '@/assets/tick1.mp3';
 
 const name = ref('');
 const email = ref('');
@@ -39,6 +40,7 @@ const messageFilled = ref(false);
 const isEmailValid = ref(true); // Initialize as valid
 
 const audio = new Audio(tickSound);
+const audioMouseDown = new Audio(tickSoundMouseDown);
 
 function validateAndSend() {
   // Check if any of the fields are empty
@@ -88,6 +90,15 @@ const playSound = () => {
 const stopSound = () => {
   audio.pause();
   audio.currentTime = 0;
+};
+
+const playMouseDownSound = () => {
+  audioMouseDown.play();
+};
+
+const stopMouseDownSound = () => {
+  audioMouseDown.pause();
+  audioMouseDown.currentTime = 0;
 };
 </script>
   
