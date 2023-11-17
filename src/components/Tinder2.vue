@@ -131,6 +131,14 @@ const onSwipeEnd = () => {
 const removeCard = (love) => {
   if (crews.value.length > 0) {
     prevCard.value = crews.value.shift();
+    checkAndReloadCrews(); // Check and reload crews if empty after removing a card
+  }
+};
+
+const removePreviousCards = (index) => {
+  if (index > 0) {
+    crews.value.splice(0, index);
+    checkAndReloadCrews(); // Check and reload crews if empty after removing previous cards
   }
 };
 
@@ -171,12 +179,6 @@ const nopeCard = () => {
   }
 };
 
-const removePreviousCards = (index) => {
-  if (index > 0) {
-    crews.value.splice(0, index);
-  }
-};
-
 const audio = new Audio(tickSound);
 const audioMouseDown = new Audio(tickSoundMouseDown);
 
@@ -197,6 +199,15 @@ const stopMouseDownSound = () => {
   audioMouseDown.pause();
   audioMouseDown.currentTime = 0;
 };
+
+// Function to check and reload crews if empty
+const checkAndReloadCrews = () => {
+  if (crews.value.length === 0) {
+    getCrews(); // Call getCrews again if crews array is empty
+  }
+};
+
+
 </script>
   
 <style scoped>

@@ -8,7 +8,7 @@
         <h1 class="name">{{ crews[0].firstName }} {{ crews[0].lastName }}</h1>
         <p class="bio">{{ crews[0].bio }}</p>
         <button @click="navigateBack" class="back-button" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">
-          <svg xmlns="http://www.w3.org/2000/svg" height="2.5rem" viewBox="0 0 66 55" fill="none">
+          <svg xmlns="http://www.w3.org/2000/svg" height="1.6rem" viewBox="0 0 66 55" fill="none">
             <path
               d="M27.1492 54.365L30.5428 50.9713L9.17966 29.6081L65.4807 29.6081L65.4807 24.823L9.17966 24.823L30.5428 3.45985L27.1492 0.0661753L-0.000237088 27.2156L27.1492 54.365Z"
               fill="#1E1E1E" />
@@ -142,8 +142,9 @@ const stopMouseDownSound = () => {
   width: auto;
   font-size: var(--t-header2);
   display: flex;
-  justify-content: space-between;
-  gap: 1.5rem;
+  align-items: center; /* Add this line */
+  justify-content: center; /* Change from space-between to center */
+  gap: 0.5rem; /* Adjust the gap as needed */
   font-family: var(--f-regular);
 }
 </style>

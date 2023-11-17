@@ -166,7 +166,7 @@ onMounted(() => {
 
   gsap.to(elements, {
     x: -containerWidth,
-    duration: 400,
+    duration: 30,
     ease: 'linear',
     repeat: -1,
     stagger: {

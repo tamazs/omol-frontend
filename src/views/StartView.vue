@@ -110,6 +110,7 @@ p {
   margin-bottom: 4rem;
   width: 40vw;
   text-align: center;
+  line-height: 2rem;
 }
 
 .start-select {

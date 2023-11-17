@@ -112,7 +112,6 @@ function setupCameraOnPlayHandler() {
 }
 
 onUnmounted(() => {
-  console.log('Component is unmounted');
   clearInterval(intervalId.value);
   clearInterval(timerInterval.value);
   videoElement.value?.pause();

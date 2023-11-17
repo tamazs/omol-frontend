@@ -18,17 +18,17 @@
   <BTSslider />
   <div class="button-row">
     <button @click="navigateBack" class="back-button" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">
-      <svg xmlns="http://www.w3.org/2000/svg" height="2.5rem" viewBox="0 0 66 55" fill="none">
+      <svg xmlns="http://www.w3.org/2000/svg" height="1.6rem" viewBox="0 0 66 55" fill="none">
         <path
           d="M27.1492 54.365L30.5428 50.9713L9.17966 29.6081L65.4807 29.6081L65.4807 24.823L9.17966 24.823L30.5428 3.45985L27.1492 0.0661753L-0.000237088 27.2156L27.1492 54.365Z"
-          fill="#1E1E1E" />
+          fill="#000000" />
       </svg> Back
     </button>
     <button @click="navigateToNextProject" v-if="pState.nextProjectId" class="next-button" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">
-      Next <svg xmlns="http://www.w3.org/2000/svg" height="2.5rem" viewBox="0 0 66 55" fill="none">
+      Next <svg xmlns="http://www.w3.org/2000/svg" height="1.6rem" viewBox="0 0 66 55" fill="none">
         <path
           d="M38.9351 0.0666488L35.5414 3.46032L56.9046 24.8235L0.603486 24.8235L0.603486 29.6086L56.9046 29.6086L35.5414 50.9718L38.9351 54.3655L66.0845 27.2161L38.9351 0.0666488Z"
-          fill="#1E1E1E" />
+          fill="#000000" />
       </svg>
     </button>
   </div>
@@ -170,8 +170,9 @@
   width: auto;
   font-size: var(--t-header2);
   display: flex;
-  justify-content: space-between;
-  gap: 1.5rem;
+  align-items: center; /* Add this line */
+  justify-content: center; /* Change from space-between to center */
+  gap: 0.5rem; /* Adjust the gap as needed */
   font-family: var(--f-regular);
 }
 

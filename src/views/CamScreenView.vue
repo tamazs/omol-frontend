@@ -6,8 +6,8 @@
       <h1 v-if="currentIndex === texts.length - 1">{{ $t('intro.challengeTitle') }}</h1>
       <p class="infoText">{{ currentText }}</p>
       <div class="final-btn-container" v-if="currentIndex === texts.length - 1">
-        <RouterLink class="select-btn" to="/cam" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">{{ $t('intro.button3') }}</RouterLink>
-        <RouterLink class="select-btn" to="/home" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">{{ $t('intro.button4') }}</RouterLink>
+        <RouterLink class="select-btn" to="/cam" @click="stopCam" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">{{ $t('intro.button3') }}</RouterLink>
+        <RouterLink class="select-btn" to="/home" @click="stopCam" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">{{ $t('intro.button4') }}</RouterLink>
       </div>
       <p v-if="currentIndex === 0 || currentIndex === 1" class="bottom-text">{{ $t('intro.bottomText1') }}</p>
     </div>
@@ -128,7 +128,6 @@ watch(route, () => {
 });
 
 onUnmounted(() => {
-  console.log('Component is unmounted');
   clearInterval(intervalId.value);
   if (cameraFeedScreen.value) {
     const tracks = cameraFeedScreen.value.srcObject?.getTracks();
@@ -137,6 +136,16 @@ onUnmounted(() => {
     }
   }
 });
+
+function stopCam() {
+  clearInterval(intervalId.value);
+  if (cameraFeedScreen.value) {
+    const tracks = cameraFeedScreen.value.srcObject?.getTracks();
+    if (tracks) {
+      tracks.forEach((track) => track.stop());
+    }
+  }
+}
 
 function getEyeStatus(landmarks) {
   const leftEye = landmarks.getLeftEye();
@@ -197,8 +206,9 @@ function distance(p1, p2) {
   text-transform: uppercase;
   margin-bottom: 1rem;
   line-height: 2rem;
-  font-family: var(--f-thin);
+  font-family: var(--f-light);
   width: 60vw;
+  line-height: 2rem;
 }
 
 h1 {

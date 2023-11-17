@@ -47,7 +47,6 @@
         </router-link>
         <div class="nav-middle">
           <div class="pages">
-            <router-link to="/home#sendLove" @click="scrollToSendLove" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">Send love</router-link>
             <router-link to="/projects"
               :class="{ 'active-link': $route.path === '/projects' || $route.path.startsWith('/project/') }" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">{{
                 $t('navbar.projects') }}</router-link>
@@ -55,6 +54,7 @@
             }}</router-link>
             <router-link to="/team" :class="{ 'active-link': $route.path === '/team' }" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">{{ $t('navbar.team')
             }}</router-link>
+            <router-link to="/home#sendLove" @click="scrollToSendLove" @mouseenter="playSound" @mouseleave="stopSound" @mousedown="playMouseDownSound" @mouseup="stopMouseDownSound">Send love</router-link>
           </div>
         </div>
         <div class="social-icons">
