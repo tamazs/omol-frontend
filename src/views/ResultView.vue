@@ -75,6 +75,7 @@
 
 .result-title {
   font-size: var(--t-header1);
+  letter-spacing: 0.2rem;
 }
 
 .time {

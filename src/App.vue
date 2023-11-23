@@ -126,9 +126,9 @@ const startCountdown = () => {
       resetCountdown();
       startCountdown();
     } else {
-      countdownValue.value -= 0.1;
+      countdownValue.value -= 0.01;
     }
-  }, 100);
+  }, 10);
   timer.value = countdownInterval; // Store the new interval ID
 };
 
